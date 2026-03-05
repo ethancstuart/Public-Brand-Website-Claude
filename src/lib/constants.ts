@@ -19,6 +19,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/writing", label: "Writing" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -70,6 +71,26 @@ export const projects: Project[] = [
     description:
       "Leading org-wide transformation for AI literacy and increased development velocity across software and data engineering teams. Driving adoption of AI tools like Cursor and Claude Code for non-engineering roles.",
     tags: ["AI Adoption", "Change Management", "Developer Experience", "Culture"],
+  },
+];
+
+export interface PortfolioProject {
+  title: string;
+  description: string;
+  tags: string[];
+  liveUrl: string;
+  sourceUrl: string;
+  iframeSrc: string;
+}
+
+export const portfolioProjects: PortfolioProject[] = [
+  {
+    title: "dashview",
+    description: "Open-source real-time intelligence dashboard",
+    tags: ["Vite", "TypeScript", "Vercel Edge Functions"],
+    liveUrl: "https://dashboard-eight-eta-56.vercel.app",
+    sourceUrl: "https://github.com/ethancstuart/dashboard",
+    iframeSrc: "https://dashboard-eight-eta-56.vercel.app",
   },
 ];
 
