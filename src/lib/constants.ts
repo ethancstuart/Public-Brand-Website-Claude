@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Product & Technology Leader",
   description:
-    "Product executive building organizations and platforms that deliver at Fortune 50 scale. Leading enterprise data, AI, and product strategy at Disney Studios Technology.",
+    "Operational and strategy leader who builds clarity from ambiguity. Leading enterprise data, AI, and product strategy at Disney Studios Technology.",
   url: "https://ethancstuart.com",
-  ogImage: "/og-image.png",
+  ogImage: "/opengraph-image",
   links: {
     linkedin: "https://linkedin.com/in/ethan-stuart",
     github: "https://github.com/ethan-stuart",
@@ -21,6 +21,7 @@ export const navLinks = [
   { href: "/work", label: "Work" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/writing", label: "Writing" },
+  { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

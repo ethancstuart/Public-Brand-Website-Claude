@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section } from "@/components/section";
 import { competencies } from "@/lib/constants";
 
@@ -28,39 +29,49 @@ export default function AboutPage() {
         <div className="grid gap-16 lg:grid-cols-[1fr_320px]">
           <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
             <p>
-              I&apos;m a product executive who builds organizations and platforms that
-              deliver at Fortune 50 scale. I believe the most impactful technology
-              leaders don&apos;t just ship products — they build the teams, systems,
-              and cultures that make sustained innovation possible.
+              I&apos;m an operational and strategy leader who builds clarity from
+              ambiguity. I stand up teams, operating models, and platforms — then
+              deliver value through them.
             </p>
             <p>
               Currently at{" "}
               <span className="text-foreground font-medium">
                 Disney Studios Technology
               </span>
-              , I lead enterprise data and AI platform strategy — managing 8+
-              product pods, mentoring Product Managers, and partnering directly with
-              the CTO to drive a $17M platform investment. In 5 months, I scaled
-              platform adoption from 1 to 5 studio groups, growing from 15 to 120+
-              stakeholders with 500+ downstream users.
+              , I built a product organization from the ground up — 13 direct
+              reports across PMs, BI Engineers, Technical Writers, and Program
+              Managers. I lead enterprise data and AI platform strategy across 8
+              product pods, partnering directly with the CTO on platform investment
+              strategy. In 5 months, I scaled platform adoption from 1 to 5 studio
+              groups, growing from 15 to 120+ stakeholders with 500+ downstream
+              users.
+            </p>
+            <p>
+              I set AI strategy for Disney Studios&apos; multi-agent system,
+              launched an AI chatbot saving 6.5 hours per person per week, and am
+              delivering ML forecasting models for studio finance while leading a
+              cross-company finance transformation initiative.
             </p>
             <p>
               Before Disney, I drove 80% YoY loyalty growth at{" "}
               <span className="text-foreground font-medium">Taco Bell</span>{" "}
-              through CDP platform adoption across all Yum brands, achieved 100%
-              enterprise adoption for a 0→1 data platform at{" "}
+              through CDP adoption across all Yum brands, launched a 0→1 data
+              platform achieving 100% enterprise adoption at{" "}
               <span className="text-foreground font-medium">Capital Group</span>,
               and built analytics functions from scratch at growth-stage companies.
             </p>
             <p>
-              I combine deep technical expertise — Snowflake, Databricks, Azure
-              Fabric, ML/AI productization — with internal go-to-market execution,
-              cross-functional leadership, and the ability to align complex matrixed
-              organizations around data-driven product vision.
-            </p>
-            <p>
-              I share insights on product strategy and AI leadership through my
-              publication on Substack,{" "}
+              I also build my own products —{" "}
+              <a
+                href="https://dashpulse.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                DashPulse
+              </a>{" "}
+              is a real-time intelligence dashboard I shipped with vanilla
+              TypeScript, and I write about AI strategy on{" "}
               <a
                 href="https://thedataproductagent.substack.com"
                 target="_blank"
@@ -80,23 +91,29 @@ export default function AboutPage() {
                 The best product organizations are built on trust, transparency, and
                 velocity. I lead by establishing clear operating models, investing in
                 people, and creating the conditions where product teams can move fast
-                with confidence. Data is not a service function — it&apos;s a
-                strategic product that drives enterprise decisions.
+                with confidence. I operate as the translation layer between executive
+                priorities and team capacity — shielding my team from reactive
+                pressure while maintaining strategic alignment.
               </p>
             </div>
           </div>
 
           {/* Photo placeholder + quick facts */}
           <div className="space-y-6">
-            <div className="aspect-[3/4] rounded-2xl border border-border bg-muted flex items-center justify-center">
-              <span className="font-mono text-xs text-muted-foreground">
-                Photo
-              </span>
+            <div className="aspect-[3/4] relative overflow-hidden rounded-2xl border border-border bg-muted">
+              <Image
+                src="/headshot.jpg"
+                alt="Ethan Stuart"
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="320px"
+              />
             </div>
             <div className="space-y-3 text-sm">
               <div>
                 <p className="font-mono text-xs text-muted-foreground">Role</p>
-                <p className="font-medium">Sr. Manager, Data & AI Products</p>
+                <p className="font-medium">Sr. Manager, Data & AI Products & BI Engineering</p>
               </div>
               <div>
                 <p className="font-mono text-xs text-muted-foreground">Company</p>

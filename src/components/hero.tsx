@@ -21,18 +21,17 @@ export function Hero() {
           </p>
 
           <h1 className="mb-6 text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-            Building platforms
+            Building clarity
             <br />
-            <span className="text-muted-foreground">that deliver at</span>
-            <br />
-            Fortune 50 scale.
+            <span className="text-muted-foreground">from ambiguity.</span>
           </h1>
 
           <p className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            I lead enterprise data, AI, and product strategy — turning complex
-            organizations into high-velocity product teams. Currently at{" "}
+            I stand up teams, operating models, and platforms — then deliver
+            value through them. Currently leading data &amp; AI platform strategy
+            at{" "}
             <span className="text-foreground font-medium">Disney Studios Technology</span>,
-            partnering with the CTO on a $17M platform investment.
+            driving AI transformation across 13 direct reports and 8 product pods.
           </p>
         </motion.div>
 

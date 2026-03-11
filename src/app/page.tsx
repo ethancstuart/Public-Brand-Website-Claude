@@ -25,11 +25,11 @@ export default async function HomePage() {
             About
           </p>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            I&apos;m a product executive who builds organizations and platforms that
-            deliver at Fortune 50 scale. Over 7 years, I&apos;ve driven measurable
-            outcomes across Disney, Taco Bell, and Capital Group — scaling teams,
-            shipping AI/ML products, and establishing data-driven product
-            operations from the ground up.
+            I stand up teams, operating models, and platforms — then deliver value
+            through them. Currently leading Disney Studios&apos; data &amp; AI
+            platform strategy across 13 direct reports and 8 product pods. Track
+            record of walking into complexity and creating order at Disney, Taco
+            Bell, and Capital Group.
           </p>
           <Link
             href="/about"
