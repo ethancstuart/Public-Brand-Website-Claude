@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Section } from "@/components/section";
 import { siteConfig } from "@/lib/constants";
 import { Linkedin, Mail } from "lucide-react";
 import { DownloadMenu } from "@/components/download-menu";
-import { VariantSelector } from "@/components/variant-selector";
 import { getResumeMarkdown, parseResumeMarkdown } from "@/lib/resume";
 
 export const metadata: Metadata = {
@@ -13,13 +11,8 @@ export const metadata: Metadata = {
     "Ethan Stuart — Operational and strategy leader who builds clarity from ambiguity.",
 };
 
-interface Props {
-  searchParams: Promise<{ variant?: string }>;
-}
-
-async function ResumeContent({ searchParams }: Props) {
-  const { variant } = await searchParams;
-  const md = await getResumeMarkdown(variant);
+export default async function ResumePage() {
+  const md = await getResumeMarkdown();
   const resume = parseResumeMarkdown(md);
 
   return (
@@ -37,7 +30,7 @@ async function ResumeContent({ searchParams }: Props) {
             </p>
           </div>
           <div className="flex shrink-0 gap-3">
-            <DownloadMenu variant={variant} />
+            <DownloadMenu />
           </div>
         </div>
 
@@ -58,10 +51,6 @@ async function ResumeContent({ searchParams }: Props) {
             <Linkedin className="h-3.5 w-3.5" />
             linkedin.com/in/ethan-stuart
           </a>
-        </div>
-
-        <div className="mt-6">
-          <VariantSelector />
         </div>
       </Section>
 
@@ -147,22 +136,5 @@ async function ResumeContent({ searchParams }: Props) {
         </Section>
       ))}
     </>
-  );
-}
-
-export default function ResumePage(props: Props) {
-  return (
-    <Suspense
-      fallback={
-        <Section className="pt-24 pb-24">
-          <div className="animate-pulse space-y-4">
-            <div className="h-12 w-64 rounded bg-muted" />
-            <div className="h-6 w-96 rounded bg-muted" />
-          </div>
-        </Section>
-      }
-    >
-      <ResumeContent {...props} />
-    </Suspense>
   );
 }

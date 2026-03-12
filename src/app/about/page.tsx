@@ -37,31 +37,26 @@ export default function AboutPage() {
               deliver value through them.
             </p>
             <p>
-              Currently at{" "}
+              At{" "}
               <span className="text-foreground font-medium">
                 Disney Studios Technology
               </span>
-              , I built a product organization from the ground up — 13 direct
-              reports across PMs, BI Engineers, Technical Writers, and Program
-              Managers. I lead enterprise data and AI platform strategy across 8
-              product pods, partnering directly with the CTO on platform investment
-              strategy. In 5 months, I scaled platform adoption from 1 to 5 studio
-              groups, growing from 15 to 120+ stakeholders with 500+ downstream
-              users.
+              , I built a product organization from the ground up and lead
+              enterprise data and AI platform strategy, partnering directly with
+              the CTO on investment priorities. I set AI strategy for the
+              studio&apos;s multi-agent systems, launched conversational AI
+              tools, and am delivering ML forecasting models while leading a
+              cross-company finance transformation.
             </p>
             <p>
-              I set AI strategy for Disney Studios&apos; multi-agent system,
-              launched an AI chatbot saving 6.5 hours per person per week, and am
-              delivering ML forecasting models for studio finance while leading a
-              cross-company finance transformation initiative.
-            </p>
-            <p>
-              Before Disney, I drove 80% YoY loyalty growth at{" "}
-              <span className="text-foreground font-medium">Taco Bell</span>{" "}
-              through CDP adoption across all Yum brands, launched a 0→1 data
-              platform achieving 100% enterprise adoption at{" "}
-              <span className="text-foreground font-medium">Capital Group</span>,
-              and built analytics functions from scratch at growth-stage companies.
+              At{" "}
+              <span className="text-foreground font-medium">Taco Bell</span>, I
+              drove CDP adoption across all Yum brands and shipped ML models for
+              retention and CRM insights. At{" "}
+              <span className="text-foreground font-medium">Capital Group</span>
+              , I launched a 0→1 data platform that achieved full enterprise
+              adoption. Earlier in my career I built analytics functions from
+              scratch at growth-stage companies.
             </p>
             <p>
               I also build my own products —{" "}
@@ -73,8 +68,9 @@ export default function AboutPage() {
               >
                 DashPulse
               </a>{" "}
-              is a real-time intelligence dashboard I shipped with vanilla
-              TypeScript, and I write about AI strategy on{" "}
+              is a real-time dashboard I shipped with vanilla TypeScript, and
+              I&apos;m currently building an AI coding course for non-engineers.
+              I write about AI strategy on{" "}
               <a
                 href="https://thedataproductagent.substack.com"
                 target="_blank"

@@ -19,7 +19,6 @@ export function getPersonJsonLd() {
     sameAs: [
       siteConfig.links.linkedin,
       siteConfig.links.github,
-      siteConfig.links.twitter,
       siteConfig.links.substack,
     ],
   };

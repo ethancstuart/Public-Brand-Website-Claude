@@ -24,14 +24,6 @@ export function Footer() {
             Substack
           </Link>
           <Link
-            href={siteConfig.links.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-foreground"
-          >
-            X
-          </Link>
-          <Link
             href={siteConfig.links.github}
             target="_blank"
             rel="noopener noreferrer"

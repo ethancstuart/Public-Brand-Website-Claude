@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
-import { ContactForm } from "@/components/contact-form";
 import { siteConfig } from "@/lib/constants";
-import { Linkedin, Github, Mail, Newspaper, Twitter } from "lucide-react";
+import { Linkedin, Github, Mail, Newspaper } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -32,13 +31,6 @@ const links = [
     external: true,
   },
   {
-    label: "X / Twitter",
-    href: siteConfig.links.twitter,
-    description: "@ethancstuart",
-    icon: Twitter,
-    external: true,
-  },
-  {
     label: "GitHub",
     href: siteConfig.links.github,
     description: "github.com/ethan-stuart",
@@ -64,7 +56,7 @@ export default function ContactPage() {
         </p>
       </Section>
 
-      <Section className="pb-16">
+      <Section className="pb-24">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {links.map((link) => {
             const Icon = link.icon;
@@ -84,15 +76,6 @@ export default function ContactPage() {
               </a>
             );
           })}
-        </div>
-      </Section>
-
-      <Section className="pb-24">
-        <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-accent">
-          Send a Message
-        </h2>
-        <div className="max-w-xl">
-          <ContactForm />
         </div>
       </Section>
     </>

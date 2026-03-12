@@ -1,10 +1,9 @@
 import { Hero } from "@/components/hero";
 import { Section } from "@/components/section";
-import { ProjectCard } from "@/components/project-card";
 import { PostCard } from "@/components/post-card";
 import { SubscribeCTA } from "@/components/subscribe-cta";
 import { JsonLd } from "@/components/json-ld";
-import { projects, portfolioProjects, courseConfig } from "@/lib/constants";
+import { portfolioProjects } from "@/lib/constants";
 import { getSubstackPosts } from "@/lib/substack";
 import { getWebSiteJsonLd } from "@/lib/jsonld";
 import Link from "next/link";
@@ -14,7 +13,6 @@ export const revalidate = 3600;
 
 export default async function HomePage() {
   const posts = await getSubstackPosts(3);
-  const featured = projects.filter((p) => p.featured);
 
   return (
     <>
@@ -29,49 +27,14 @@ export default async function HomePage() {
           </p>
           <p className="text-lg leading-relaxed text-muted-foreground">
             I stand up teams, operating models, and platforms — then deliver value
-            through them. Currently leading Disney Studios&apos; data &amp; AI
-            platform strategy across 13 direct reports and 8 product pods. Track
-            record of walking into complexity and creating order at Disney, Taco
-            Bell, and Capital Group.
+            through them. Track record of walking into complexity and creating
+            order at Disney, Taco Bell, and Capital Group.
           </p>
           <Link
             href="/about"
             className="mt-6 inline-flex items-center gap-1 font-mono text-sm text-accent hover:underline"
           >
             Read more <ArrowRight className="h-3 w-3" />
-          </Link>
-        </div>
-      </Section>
-
-      {/* Featured Work */}
-      <Section className="py-24">
-        <div className="mb-10 flex items-end justify-between">
-          <div>
-            <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-              Featured Work
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight">
-              Selected projects
-            </h2>
-          </div>
-          <Link
-            href="/work"
-            className="hidden items-center gap-1 font-mono text-sm text-accent hover:underline sm:inline-flex"
-          >
-            View all <ArrowRight className="h-3 w-3" />
-          </Link>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
-          ))}
-        </div>
-        <div className="mt-6 text-center sm:hidden">
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-1 font-mono text-sm text-accent hover:underline"
-          >
-            View all work <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
       </Section>
@@ -94,7 +57,7 @@ export default async function HomePage() {
             View all <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {portfolioProjects.map((project) => (
             <Link
               key={project.slug}
@@ -186,33 +149,24 @@ export default async function HomePage() {
         </Section>
       )}
 
-      {/* Course Promo */}
-      {courseConfig.enabled && (
-        <Section className="py-24">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 sm:p-16">
-            <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent/5 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-accent/5 blur-3xl" />
-            <div className="relative">
-              <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-                New Course
-              </p>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                {courseConfig.title}
-              </h2>
-              <p className="mb-8 max-w-lg text-muted-foreground">
-                {courseConfig.subtitle}
-              </p>
-              <Link
-                href="/course"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-all hover:opacity-90"
-              >
-                Learn more
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
-        </Section>
-      )}
+      {/* Course Teaser */}
+      <Section className="py-24">
+        <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
+          <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
+            Coming Soon
+          </p>
+          <h3 className="mb-3 text-xl font-bold tracking-tight">
+            AI Coding for Non-Engineers
+          </h3>
+          <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
+            I&apos;m building a course that teaches non-engineers to build real products
+            with AI coding tools. Follow along on the{" "}
+            <Link href="/portfolio/ai-coding-course" className="text-accent hover:underline">
+              portfolio page
+            </Link>.
+          </p>
+        </div>
+      </Section>
 
       <SubscribeCTA />
     </>

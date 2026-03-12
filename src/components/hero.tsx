@@ -30,8 +30,7 @@ export function Hero() {
             I stand up teams, operating models, and platforms — then deliver
             value through them. Currently leading data &amp; AI platform strategy
             at{" "}
-            <span className="text-foreground font-medium">Disney Studios Technology</span>,
-            driving AI transformation across 13 direct reports and 8 product pods.
+            <span className="text-foreground font-medium">Disney Studios Technology</span>.
           </p>
         </motion.div>
 
@@ -42,10 +41,10 @@ export function Hero() {
           className="flex flex-wrap gap-4"
         >
           <Link
-            href="/work"
+            href="/about"
             className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:opacity-90"
           >
-            View Work
+            About Me
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link

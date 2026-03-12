@@ -1,33 +1,11 @@
 import { readFile } from "fs/promises";
 import { join } from "path";
 
-const VALID_VARIANTS = ["base", "ai-product", "data-platform", "internal"] as const;
-export type ResumeVariant = (typeof VALID_VARIANTS)[number];
-
-export function isValidVariant(v: string): v is ResumeVariant {
-  return (VALID_VARIANTS as readonly string[]).includes(v);
-}
-
-export async function getResumeMarkdown(
-  variant?: string
-): Promise<string> {
-  const filename =
-    variant && isValidVariant(variant)
-      ? `resume-${variant}.md`
-      : "resume.md";
-
-  try {
-    return await readFile(
-      join(process.cwd(), "public", filename),
-      "utf-8"
-    );
-  } catch {
-    // Fallback to default resume
-    return await readFile(
-      join(process.cwd(), "public", "resume.md"),
-      "utf-8"
-    );
-  }
+export async function getResumeMarkdown(): Promise<string> {
+  return await readFile(
+    join(process.cwd(), "public", "resume.md"),
+    "utf-8"
+  );
 }
 
 export interface ParsedResume {

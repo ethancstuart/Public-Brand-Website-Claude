@@ -3,11 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Download, FileText } from "lucide-react";
 
-interface DownloadMenuProps {
-  variant?: string;
-}
-
-export function DownloadMenu({ variant }: DownloadMenuProps) {
+export function DownloadMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -20,14 +16,6 @@ export function DownloadMenu({ variant }: DownloadMenuProps) {
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
-
-  const pdfUrl = variant
-    ? `/api/resume?variant=${encodeURIComponent(variant)}`
-    : "/api/resume";
-
-  const mdUrl = variant
-    ? `/resume-${variant}.md`
-    : "/resume.md";
 
   return (
     <div ref={ref} className="relative">
@@ -45,7 +33,7 @@ export function DownloadMenu({ variant }: DownloadMenuProps) {
       {open && (
         <div className="absolute right-0 top-full z-10 mt-2 w-44 overflow-hidden rounded-xl border border-border bg-card shadow-lg">
           <a
-            href={pdfUrl}
+            href="/api/resume"
             onClick={() => setOpen(false)}
             className="flex items-center gap-3 px-4 py-3 text-sm transition-colors hover:bg-muted"
           >
@@ -53,7 +41,7 @@ export function DownloadMenu({ variant }: DownloadMenuProps) {
             PDF
           </a>
           <a
-            href={mdUrl}
+            href="/resume.md"
             download
             onClick={() => setOpen(false)}
             className="flex items-center gap-3 px-4 py-3 text-sm transition-colors hover:bg-muted"
