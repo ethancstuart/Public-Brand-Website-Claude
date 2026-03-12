@@ -138,7 +138,6 @@ export default async function CaseStudyPage({ params }: Props) {
               title={`${project.title} preview`}
               className="h-full w-full"
               loading="lazy"
-              sandbox="allow-scripts allow-same-origin"
             />
           </div>
         </Section>

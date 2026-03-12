@@ -87,7 +87,6 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
                 iframeLoaded ? "opacity-100" : "opacity-0"
               }`}
               loading="lazy"
-              sandbox="allow-scripts allow-same-origin"
               onLoad={() => setIframeLoaded(true)}
               onError={() => setIframeError(true)}
             />

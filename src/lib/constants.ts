@@ -97,7 +97,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tags: ["Vite", "TypeScript", "PWA", "Vercel Edge Functions"],
     liveUrl: "https://dashpulse.app",
     sourceUrl: "https://github.com/ethancstuart/dashboard",
-    iframeSrc: "https://dashpulse.app",
+    iframeSrc: "https://dashpulse.app/#/embed",
     highlights: [
       "Zero framework dependencies — pure TypeScript",
       "PWA with offline support and installable",
@@ -125,9 +125,9 @@ export const portfolioProjects: PortfolioProject[] = [
     description:
       "AI-powered family meal planner that generates personalized weekly menus, grocery lists, and recipes using Claude API. Built with Next.js, Supabase, and Tailwind.",
     tags: ["Next.js", "Supabase", "Claude API", "Tailwind CSS"],
-    liveUrl: "https://github.com/ethancstuart/family-planner-app",
+    liveUrl: "https://family-planner-app-rosy.vercel.app",
     sourceUrl: "https://github.com/ethancstuart/family-planner-app",
-    iframeSrc: "",
+    iframeSrc: "https://family-planner-app-rosy.vercel.app/embed",
     highlights: [
       "AI-generated meal plans tailored to family preferences",
       "Full-stack with auth, database, and real-time sync",
