@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Loader2, BookOpen } from "lucide-react";
+import { ExternalLink, Github, BookOpen } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { PortfolioProject } from "@/lib/constants";
 
@@ -12,9 +12,6 @@ interface PortfolioCardProps {
 }
 
 export function PortfolioCard({ project, index }: PortfolioCardProps) {
-  const [iframeLoaded, setIframeLoaded] = useState(false);
-  const [iframeError, setIframeError] = useState(false);
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
@@ -57,40 +54,16 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
         </ul>
       )}
 
-      {/* iframe preview */}
-      {project.iframeSrc && (
+      {/* Static preview image */}
+      {project.image && (
         <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-xl border border-border">
-          {!iframeLoaded && !iframeError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-muted">
-              <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-            </div>
-          )}
-          {iframeError ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-muted">
-              <p className="text-sm text-muted-foreground">
-                Preview unavailable —{" "}
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent underline underline-offset-2"
-                >
-                  view live
-                </a>
-              </p>
-            </div>
-          ) : (
-            <iframe
-              src={project.iframeSrc}
-              title={`${project.title} preview`}
-              className={`h-full w-full transition-opacity duration-500 ${
-                iframeLoaded ? "opacity-100" : "opacity-0"
-              }`}
-              loading="lazy"
-              onLoad={() => setIframeLoaded(true)}
-              onError={() => setIframeError(true)}
-            />
-          )}
+          <Image
+            src={project.image}
+            alt={`${project.title} preview`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
       )}
 

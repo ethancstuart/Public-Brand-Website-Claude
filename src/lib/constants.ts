@@ -79,6 +79,7 @@ export interface PortfolioProject {
   liveUrl: string;
   sourceUrl: string;
   iframeSrc: string;
+  image?: string;
   highlights?: string[];
   stack?: string[];
   caseStudy?: {
@@ -98,6 +99,7 @@ export const portfolioProjects: PortfolioProject[] = [
     liveUrl: "https://dashpulse.app",
     sourceUrl: "https://github.com/ethancstuart/dashboard",
     iframeSrc: "https://dashpulse.app/#/embed",
+    image: "/portfolio/dashpulse-preview.png",
     highlights: [
       "Zero framework dependencies — pure TypeScript",
       "PWA with offline support and installable",
@@ -128,6 +130,7 @@ export const portfolioProjects: PortfolioProject[] = [
     liveUrl: "https://family-planner-app-rosy.vercel.app",
     sourceUrl: "https://github.com/ethancstuart/family-planner-app",
     iframeSrc: "https://family-planner-app-rosy.vercel.app/embed",
+    image: "/portfolio/family-planner-preview.png",
     highlights: [
       "AI-generated meal plans tailored to family preferences",
       "Full-stack with auth, database, and real-time sync",
