@@ -23,7 +23,15 @@ export const navLinks = [
   { href: "/writing", label: "Writing" },
   { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
-] as const;
+];
+
+export function getNavLinks() {
+  const links = [...navLinks];
+  if (courseConfig.enabled) {
+    links.splice(links.length - 1, 0, { href: "/course", label: "Course" });
+  }
+  return links;
+}
 
 export interface Project {
   title: string;
@@ -77,23 +85,193 @@ export const projects: Project[] = [
 
 export interface PortfolioProject {
   title: string;
+  slug: string;
   description: string;
   tags: string[];
   liveUrl: string;
   sourceUrl: string;
   iframeSrc: string;
+  highlights?: string[];
+  stack?: string[];
+  caseStudy?: {
+    problem: string;
+    approach: string;
+    outcome: string;
+  };
 }
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: "dashview",
-    description: "Open-source real-time intelligence dashboard",
-    tags: ["Vite", "TypeScript", "Vercel Edge Functions"],
-    liveUrl: "https://dashboard-eight-eta-56.vercel.app",
+    title: "DashPulse",
+    slug: "dashpulse",
+    description:
+      "Real-time intelligence dashboard built with vanilla TypeScript. PWA with notes, alerts, and analytics — no frameworks, no dependencies.",
+    tags: ["Vite", "TypeScript", "PWA", "Vercel Edge Functions"],
+    liveUrl: "https://dashpulse.app",
     sourceUrl: "https://github.com/ethancstuart/dashboard",
-    iframeSrc: "https://dashboard-eight-eta-56.vercel.app",
+    iframeSrc: "https://dashpulse.app",
+    highlights: [
+      "Zero framework dependencies — pure TypeScript",
+      "PWA with offline support and installable",
+      "Real-time data via Vercel Edge Functions",
+    ],
+    stack: [
+      "Vite",
+      "TypeScript",
+      "Vercel Edge Functions",
+      "Service Workers",
+      "IndexedDB",
+    ],
+    caseStudy: {
+      problem:
+        "Product leaders need a lightweight, always-available dashboard to track key metrics without the overhead of enterprise BI tools. Existing solutions require complex setups, vendor lock-in, or heavy frameworks.",
+      approach:
+        "Built a zero-dependency real-time dashboard using vanilla TypeScript and Vite. Implemented PWA capabilities for offline access, used Vercel Edge Functions for low-latency data fetching, and designed a clean, responsive UI that works across devices. Focused on performance — no React, no Vue, just raw TypeScript with modern browser APIs.",
+      outcome:
+        "Shipped a fully functional PWA dashboard with sub-second load times, offline support, and real-time updates. The project demonstrates that modern web apps don't need heavy frameworks — and serves as a proof point for the builder narrative.",
+    },
+  },
+  {
+    title: "Family Planner",
+    slug: "family-planner",
+    description:
+      "AI-powered family meal planner that generates personalized weekly menus, grocery lists, and recipes using Claude API. Built with Next.js, Supabase, and Tailwind.",
+    tags: ["Next.js", "Supabase", "Claude API", "Tailwind CSS"],
+    liveUrl: "https://github.com/ethancstuart/family-planner-app",
+    sourceUrl: "https://github.com/ethancstuart/family-planner-app",
+    iframeSrc: "",
+    highlights: [
+      "AI-generated meal plans tailored to family preferences",
+      "Full-stack with auth, database, and real-time sync",
+      "Built end-to-end in a weekend",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "Supabase",
+      "Claude API",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
+    caseStudy: {
+      problem:
+        "Weekly meal planning is tedious and repetitive. Families struggle to balance nutrition, preferences, and budget while keeping meals interesting. Existing apps are either too simple or overly complex.",
+      approach:
+        "Built a full-stack application using Next.js and Supabase for auth and data persistence. Integrated Claude API to generate personalized meal plans based on family size, dietary restrictions, and cuisine preferences. Designed the UX to feel conversational — users describe what they want, and the AI handles the rest.",
+      outcome:
+        "Delivered a working product that generates complete weekly meal plans with recipes and grocery lists in seconds. Demonstrates full-stack AI integration — from prompt engineering to database design to deployment.",
+    },
   },
 ];
+
+export const courseConfig = {
+  title: "AI Coding for Non-Engineers",
+  subtitle:
+    "Learn to build real products with AI — no engineering background required.",
+  enabled: false,
+  tiers: [
+    {
+      name: "Self-Paced",
+      price: 149,
+      description: "Full course access at your own pace",
+      features: [
+        "All course modules and materials",
+        "Lifetime access to updates",
+        "Community Discord access",
+        "Project templates and starter code",
+      ],
+      variantId: "self-paced",
+      highlighted: false,
+    },
+    {
+      name: "Cohort",
+      price: 399,
+      description: "Live cohort with direct support and accountability",
+      features: [
+        "Everything in Self-Paced",
+        "4-week live cohort sessions",
+        "Direct Q&A with instructor",
+        "Code review on your projects",
+        "Certificate of completion",
+      ],
+      variantId: "cohort",
+      highlighted: true,
+    },
+    {
+      name: "Enterprise",
+      price: 999,
+      description: "Team training with custom curriculum",
+      features: [
+        "Everything in Cohort",
+        "Custom modules for your team",
+        "Private Slack channel",
+        "1-on-1 consulting sessions",
+        "Team progress dashboard",
+      ],
+      variantId: "enterprise",
+      highlighted: false,
+    },
+  ],
+  modules: [
+    {
+      title: "Foundations",
+      description:
+        "Set up your development environment and understand how AI coding tools work.",
+    },
+    {
+      title: "Your First App",
+      description:
+        "Build and deploy a real web application using AI assistants — from zero to live.",
+    },
+    {
+      title: "APIs & Data",
+      description:
+        "Connect to external services, work with databases, and handle real-world data.",
+    },
+    {
+      title: "AI Integration",
+      description:
+        "Add AI capabilities to your apps — chatbots, content generation, and intelligent features.",
+    },
+    {
+      title: "Authentication & Users",
+      description:
+        "Add user accounts, protect routes, and manage permissions in your applications.",
+    },
+    {
+      title: "Ship It",
+      description:
+        "Deploy to production, set up monitoring, and launch your product to the world.",
+    },
+  ],
+  faq: [
+    {
+      question: "Do I need any coding experience?",
+      answer:
+        "No. This course is designed for product managers, data analysts, designers, and anyone who wants to build software without a traditional engineering background. AI tools have changed the game.",
+    },
+    {
+      question: "What tools will I use?",
+      answer:
+        "You'll use Claude, Cursor, and modern frameworks like Next.js and Supabase. We'll set everything up together in Module 1.",
+    },
+    {
+      question: "How long does the course take?",
+      answer:
+        "The self-paced version takes most students 4-6 weeks at 5-10 hours per week. The cohort runs on a fixed 4-week schedule with live sessions.",
+    },
+    {
+      question: "What will I build?",
+      answer:
+        "You'll build at least 2 real, deployed web applications — not toy examples. Past students have shipped internal tools, customer-facing apps, and side projects that landed them new roles.",
+    },
+    {
+      question: "Is there a refund policy?",
+      answer:
+        "Yes. If you're not satisfied within 14 days of purchase, email me for a full refund — no questions asked.",
+    },
+  ],
+} as const;
 
 export const competencies = [
   {
@@ -141,3 +319,24 @@ export const competencies = [
     ],
   },
 ] as const;
+
+export interface TargetRole {
+  slug: string;
+  company: string;
+  roleTitle: string;
+  resumeVariant: string;
+  relevantProjectIndices: number[];
+  pitch: string;
+}
+
+export const targetRoles: TargetRole[] = [
+  {
+    slug: "cisco",
+    company: "Cisco",
+    roleTitle: "Director, AI Product Strategy",
+    resumeVariant: "ai-product",
+    relevantProjectIndices: [0, 1, 5],
+    pitch:
+      "I build AI platforms at enterprise scale. At Disney Studios, I set AI strategy for multi-agent systems, launched AI chatbots saving 6.5 hours per person per week, and drove org-wide AI enablement. I bring the same operational rigor and builder mindset to every platform I touch.",
+  },
+];

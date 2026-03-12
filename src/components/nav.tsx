@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "@/lib/constants";
+import { getNavLinks } from "@/lib/constants";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const navLinks = getNavLinks();
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">

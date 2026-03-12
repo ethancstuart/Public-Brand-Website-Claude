@@ -5,18 +5,33 @@ export interface SubstackPost {
   link: string;
   pubDate: string;
   contentSnippet: string;
+  content: string;
+  slug: string;
   categories?: string[];
 }
 
-const parser = new Parser<Record<string, unknown>, SubstackPost>({
+const parser = new Parser<
+  Record<string, unknown>,
+  { contentSnippet?: string; "content:encoded"?: string }
+>({
   customFields: {
-    item: ["contentSnippet"],
+    item: ["contentSnippet", "content:encoded"],
   },
 });
 
 const SUBSTACK_FEED_URL =
   process.env.SUBSTACK_URL ||
   "https://thedataproductagent.substack.com/feed";
+
+function extractSlug(url: string): string {
+  try {
+    const pathname = new URL(url).pathname;
+    const segments = pathname.split("/").filter(Boolean);
+    return segments[segments.length - 1] || "untitled";
+  } catch {
+    return "untitled";
+  }
+}
 
 export async function getSubstackPosts(
   limit?: number
@@ -31,6 +46,8 @@ export async function getSubstackPosts(
       contentSnippet: item.contentSnippet
         ? item.contentSnippet.slice(0, 200) + "…"
         : "",
+      content: item["content:encoded"] || "",
+      slug: extractSlug(item.link || ""),
       categories: item.categories,
     }));
 
@@ -39,4 +56,11 @@ export async function getSubstackPosts(
     console.error("Failed to fetch Substack feed:", error);
     return [];
   }
+}
+
+export async function getSubstackPostBySlug(
+  slug: string
+): Promise<SubstackPost | null> {
+  const posts = await getSubstackPosts();
+  return posts.find((p) => p.slug === slug) || null;
 }

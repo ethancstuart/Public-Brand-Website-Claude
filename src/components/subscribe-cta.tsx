@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/constants";
 import { ArrowUpRight } from "lucide-react";
 
 export function SubscribeCTA() {
+  const [iframeError, setIframeError] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 32 }}
@@ -30,15 +33,27 @@ export function SubscribeCTA() {
             high-velocity product organizations at enterprise scale. Published on
             Substack.
           </p>
-          <a
-            href={siteConfig.links.substack}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-all hover:opacity-90"
-          >
-            Subscribe on Substack
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+
+          {!iframeError ? (
+            <iframe
+              src="https://thedataproductagent.substack.com/embed"
+              width="100%"
+              height="150"
+              className="max-w-md rounded-lg border-0"
+              title="Subscribe to The Data Product Agent"
+              onError={() => setIframeError(true)}
+            />
+          ) : (
+            <a
+              href={siteConfig.links.substack}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-all hover:opacity-90"
+            >
+              Subscribe on Substack
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

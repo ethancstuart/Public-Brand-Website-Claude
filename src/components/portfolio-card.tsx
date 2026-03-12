@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Loader2 } from "lucide-react";
+import { ExternalLink, Github, Loader2, BookOpen } from "lucide-react";
+import Link from "next/link";
 import type { PortfolioProject } from "@/lib/constants";
 
 interface PortfolioCardProps {
@@ -41,44 +42,61 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
         ))}
       </div>
 
+      {/* Highlights */}
+      {project.highlights && project.highlights.length > 0 && (
+        <ul className="mb-5 space-y-1.5">
+          {project.highlights.map((highlight) => (
+            <li
+              key={highlight}
+              className="flex items-start gap-2 text-sm text-muted-foreground"
+            >
+              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      )}
+
       {/* iframe preview */}
-      <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-xl border border-border">
-        {!iframeLoaded && !iframeError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-muted">
-            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-          </div>
-        )}
-        {iframeError ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-muted">
-            <p className="text-sm text-muted-foreground">
-              Preview unavailable —{" "}
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent underline underline-offset-2"
-              >
-                view live
-              </a>
-            </p>
-          </div>
-        ) : (
-          <iframe
-            src={project.iframeSrc}
-            title={`${project.title} preview`}
-            className={`h-full w-full transition-opacity duration-500 ${
-              iframeLoaded ? "opacity-100" : "opacity-0"
-            }`}
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin"
-            onLoad={() => setIframeLoaded(true)}
-            onError={() => setIframeError(true)}
-          />
-        )}
-      </div>
+      {project.iframeSrc && (
+        <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-xl border border-border">
+          {!iframeLoaded && !iframeError && (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted">
+              <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+            </div>
+          )}
+          {iframeError ? (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted">
+              <p className="text-sm text-muted-foreground">
+                Preview unavailable —{" "}
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent underline underline-offset-2"
+                >
+                  view live
+                </a>
+              </p>
+            </div>
+          ) : (
+            <iframe
+              src={project.iframeSrc}
+              title={`${project.title} preview`}
+              className={`h-full w-full transition-opacity duration-500 ${
+                iframeLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin"
+              onLoad={() => setIframeLoaded(true)}
+              onError={() => setIframeError(true)}
+            />
+          )}
+        </div>
+      )}
 
       {/* Action buttons */}
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <a
           href={project.liveUrl}
           target="_blank"
@@ -97,6 +115,15 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
           View Source
           <Github className="h-3.5 w-3.5" />
         </a>
+        {project.caseStudy && (
+          <Link
+            href={`/portfolio/${project.slug}`}
+            className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-medium transition-colors hover:bg-muted"
+          >
+            Case Study
+            <BookOpen className="h-3.5 w-3.5" />
+          </Link>
+        )}
       </div>
     </motion.article>
   );

@@ -1,13 +1,10 @@
-import { NextResponse } from "next/server";
-import { readFile } from "fs/promises";
-import { join } from "path";
+import { NextResponse, type NextRequest } from "next/server";
 import { jsPDF } from "jspdf";
+import { getResumeMarkdown, isValidVariant } from "@/lib/resume";
 
-export async function GET() {
-  const md = await readFile(
-    join(process.cwd(), "public", "resume.md"),
-    "utf-8"
-  );
+export async function GET(request: NextRequest) {
+  const variant = request.nextUrl.searchParams.get("variant") || undefined;
+  const md = await getResumeMarkdown(variant);
 
   const doc = new jsPDF({ unit: "pt", format: "letter" });
   const pageWidth = doc.internal.pageSize.getWidth();
@@ -200,10 +197,16 @@ export async function GET() {
 
   const pdfBuffer = Buffer.from(doc.output("arraybuffer"));
 
+  const variantLabel =
+    variant && isValidVariant(variant)
+      ? `_${variant.replace(/-/g, "_")}`
+      : "";
+  const filename = `Ethan_Stuart_Resume${variantLabel}.pdf`;
+
   return new NextResponse(pdfBuffer, {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": 'attachment; filename="Ethan_Stuart_Resume.pdf"',
+      "Content-Disposition": `attachment; filename="${filename}"`,
       "Cache-Control": "public, max-age=3600",
     },
   });

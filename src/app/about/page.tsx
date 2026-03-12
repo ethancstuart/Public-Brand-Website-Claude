@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Section } from "@/components/section";
+import { JsonLd } from "@/components/json-ld";
 import { competencies } from "@/lib/constants";
+import { getPersonJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={getPersonJsonLd()} />
       {/* Header */}
       <Section className="pt-24 pb-16">
         <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">

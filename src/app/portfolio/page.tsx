@@ -17,10 +17,12 @@ export default function PortfolioPage() {
           Portfolio
         </p>
         <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          Portfolio
+          I don&apos;t just manage products —<br />
+          <span className="text-muted-foreground">I build them.</span>
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          Projects I&apos;ve built — not just managed.
+          Side projects I&apos;ve shipped end-to-end. Full-stack, AI-powered,
+          and deployed — not mockups or prototypes.
         </p>
       </Section>
 
