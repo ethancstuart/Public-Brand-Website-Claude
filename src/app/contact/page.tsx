@@ -33,7 +33,7 @@ const links = [
   {
     label: "GitHub",
     href: siteConfig.links.github,
-    description: "github.com/ethan-stuart",
+    description: "github.com/ethancstuart",
     icon: Github,
     external: true,
   },

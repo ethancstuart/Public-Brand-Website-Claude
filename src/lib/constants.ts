@@ -7,7 +7,7 @@ export const siteConfig = {
   ogImage: "/opengraph-image",
   links: {
     linkedin: "https://linkedin.com/in/ethan-stuart",
-    github: "https://github.com/ethan-stuart",
+    github: "https://github.com/ethancstuart",
     substack: "https://thedataproductagent.substack.com",
     email: "ethan.c.stuart@gmail.com",
     twitter: "https://x.com/ethancstuart",
