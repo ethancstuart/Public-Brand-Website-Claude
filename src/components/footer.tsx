@@ -31,6 +31,14 @@ export function Footer() {
           >
             GitHub
           </Link>
+          <Link
+            href={siteConfig.links.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
+            X
+          </Link>
         </div>
       </div>
     </footer>

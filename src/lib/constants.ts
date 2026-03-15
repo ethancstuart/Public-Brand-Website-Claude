@@ -10,6 +10,7 @@ export const siteConfig = {
     github: "https://github.com/ethan-stuart",
     substack: "https://thedataproductagent.substack.com",
     email: "ethan.c.stuart@gmail.com",
+    twitter: "https://x.com/ethancstuart",
   },
   substackFeed: "https://thedataproductagent.substack.com/feed",
 } as const;
@@ -19,56 +20,6 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/writing", label: "Writing" },
-];
-
-export interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  href?: string;
-  featured?: boolean;
-}
-
-export const projects: Project[] = [
-  {
-    title: "Enterprise Data & AI Platform — Disney Studios",
-    description:
-      "Led enterprise-wide platform strategy and adoption across multiple studio groups, partnering with the CTO on investment priorities and driving stakeholder alignment at scale.",
-    tags: ["Snowflake", "AI/ML", "Product Strategy", "Enterprise Scale"],
-    featured: true,
-  },
-  {
-    title: "ML Forecasting & Conversational AI — Disney Studios",
-    description:
-      "Delivered ML forecasting for studio budget planning and launched a conversational AI chatbot to accelerate analytics workflows, with a roadmap for multi-agentic capabilities.",
-    tags: ["Machine Learning", "Conversational AI", "Neo4j", "Snowflake Cortex"],
-    featured: true,
-  },
-  {
-    title: "Enterprise Customer Data Platform — Taco Bell / Yum Brands",
-    description:
-      "Drove CDP adoption across all Yum brands, enabling significant loyalty growth. Shipped ML models for retention, lapse prediction, and CRM insights powering dashboards and in-store reporting.",
-    tags: ["CDP", "ML/AI", "CRM", "Loyalty"],
-    featured: true,
-  },
-  {
-    title: "Phoenix Fire Data Platform — Capital Group",
-    description:
-      "Launched a 0→1 data platform that achieved full enterprise adoption, transforming sales and marketing operations with consolidated tools, automated workflows, and modern UI/UX.",
-    tags: ["0→1 Build", "Data Platform", "Financial Services", "Governance"],
-  },
-  {
-    title: "Product Organization Transformation — Taco Bell",
-    description:
-      "Transformed a service team into a product organization through prioritization frameworks and transparent stakeholder communication, dramatically reducing incidents and improving satisfaction.",
-    tags: ["Product Ops", "Transformation", "Leadership", "Process Design"],
-  },
-  {
-    title: "AI Literacy & Development Acceleration — Disney Studios",
-    description:
-      "Leading org-wide transformation for AI literacy and increased development velocity across software and data engineering teams. Driving adoption of AI tools like Cursor and Claude Code for non-engineering roles.",
-    tags: ["AI Adoption", "Change Management", "Developer Experience", "Culture"],
-  },
 ];
 
 export interface PortfolioProject {
@@ -154,13 +105,13 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    title: "AI Coding for Non-Engineers",
+    title: "Zero to Ship",
     slug: "ai-coding-course",
     description:
-      "A course teaching non-engineers to build real products with AI coding tools. Currently in development — the course build itself is the case study.",
+      "A gamified learning platform that teaches PMs, Project Managers, Business Analysts, and BI Engineers to build and ship real products using AI coding tools. 16 hands-on modules, each ending with something deployed.",
     tags: ["Course", "AI Tools", "Claude", "Cursor"],
-    liveUrl: "",
-    sourceUrl: "",
+    liveUrl: "https://zerotoship.app",
+    sourceUrl: "https://github.com/ethancstuart/zero-to-shipped",
     iframeSrc: "",
     highlights: [
       "Designed for PMs, analysts, and operators — not engineers",
@@ -171,9 +122,9 @@ export const portfolioProjects: PortfolioProject[] = [
       problem:
         "AI coding tools have made it possible for non-engineers to build real software, but there's no structured path from zero to shipped product. Most tutorials stop at hello world.",
       approach:
-        "Designing a project-based curriculum where students build and deploy real web applications using Claude, Cursor, and modern frameworks. Each module is a working project — not slides. The course itself is being built with the same AI-assisted workflow it teaches.",
+        "Designed a project-based curriculum where students build and deploy real web applications using Claude, Cursor, and modern frameworks. Each module is a working project — not slides. The platform itself was built with the same AI-assisted workflow it teaches.",
       outcome:
-        "In development. The course build is a live case study in using AI tools to create, iterate, and ship a product end-to-end.",
+        "Shipped a 16-module gamified learning platform where students build and deploy real products using AI coding tools. Live at zerotoship.app — a proof point that non-engineers can go from zero to shipped product.",
     },
   },
 ];

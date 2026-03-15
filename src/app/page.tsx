@@ -153,18 +153,32 @@ export default async function HomePage() {
       <Section className="py-24">
         <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
           <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-            Coming Soon
+            Live Now
           </p>
           <h3 className="mb-3 text-xl font-bold tracking-tight">
-            AI Coding for Non-Engineers
+            Zero to Ship
           </h3>
-          <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
-            I&apos;m building a course that teaches non-engineers to build real products
-            with AI coding tools. Follow along on the{" "}
-            <Link href="/portfolio/ai-coding-course" className="text-accent hover:underline">
-              portfolio page
-            </Link>.
+          <p className="mb-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
+            A gamified learning platform that teaches PMs, Project Managers, Business
+            Analysts, and BI Engineers to build and ship real products using AI coding
+            tools. 16 hands-on modules, each ending with something deployed.
           </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="https://zerotoship.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-lg bg-accent px-4 py-2 font-mono text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
+            >
+              Start learning <ArrowRight className="h-3 w-3" />
+            </Link>
+            <Link
+              href="/portfolio/ai-coding-course"
+              className="font-mono text-sm text-accent hover:underline"
+            >
+              View case study
+            </Link>
+          </div>
         </div>
       </Section>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
 import { siteConfig } from "@/lib/constants";
-import { Linkedin, Github, Mail, Newspaper } from "lucide-react";
+import { Linkedin, Github, Mail, Newspaper, Twitter } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -35,6 +35,13 @@ const links = [
     href: siteConfig.links.github,
     description: "github.com/ethan-stuart",
     icon: Github,
+    external: true,
+  },
+  {
+    label: "X / Twitter",
+    href: siteConfig.links.twitter,
+    description: "x.com/ethancstuart",
+    icon: Twitter,
     external: true,
   },
 ];
