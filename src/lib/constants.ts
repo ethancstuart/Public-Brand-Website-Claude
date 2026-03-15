@@ -45,7 +45,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "DashPulse",
     slug: "dashpulse",
     description:
-      "Real-time intelligence dashboard built with vanilla TypeScript. PWA with notes, alerts, and analytics — no frameworks, no dependencies.",
+      "Real-time intelligence dashboard built with vanilla TypeScript. Configurable panels, workspaces, AI command bar, and full PWA support — no frameworks, no dependencies.",
     tags: ["Vite", "TypeScript", "PWA", "Vercel Edge Functions"],
     liveUrl: "https://dashpulse.app",
     sourceUrl: "https://github.com/ethancstuart/dashboard",
@@ -53,8 +53,8 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/portfolio/dashpulse-preview.png",
     highlights: [
       "Zero framework dependencies — pure TypeScript",
-      "PWA with offline support and installable",
-      "Real-time data via Vercel Edge Functions",
+      "Configurable panels, workspaces, and AI command bar",
+      "PWA with offline support, installable on any device",
     ],
     stack: [
       "Vite",
@@ -67,25 +67,25 @@ export const portfolioProjects: PortfolioProject[] = [
       problem:
         "Product leaders need a lightweight, always-available dashboard to track key metrics without the overhead of enterprise BI tools. Existing solutions require complex setups, vendor lock-in, or heavy frameworks.",
       approach:
-        "Built a zero-dependency real-time dashboard using vanilla TypeScript and Vite. Implemented PWA capabilities for offline access, used Vercel Edge Functions for low-latency data fetching, and designed a clean, responsive UI that works across devices. Focused on performance — no React, no Vue, just raw TypeScript with modern browser APIs.",
+        "Built a zero-dependency real-time dashboard using vanilla TypeScript and Vite. Designed a configurable panel system with multiple workspaces and an AI-powered command bar. Implemented PWA capabilities for offline access, used Vercel Edge Functions for low-latency data fetching, and focused on performance — no React, no Vue, just raw TypeScript with modern browser APIs.",
       outcome:
-        "Shipped a fully functional PWA dashboard with sub-second load times, offline support, and real-time updates. The project demonstrates that modern web apps don't need heavy frameworks — and serves as a proof point for the builder narrative.",
+        "Shipped a fully featured PWA dashboard with configurable panels, workspaces, AI command bar, sub-second load times, and offline support. Preparing for premium tier launch and public release on Product Hunt.",
     },
   },
   {
     title: "Family Planner",
     slug: "family-planner",
     description:
-      "AI-powered family meal planner that generates personalized weekly menus, grocery lists, and recipes using Claude API. Built with Next.js, Supabase, and Tailwind.",
+      "AI-powered family kitchen app with recipe import from TikTok, YouTube, Instagram, and blogs. Drag-and-drop meal planner, smart grocery lists, recipe vault, and shared family to-do list. Built with Next.js, Supabase, and Claude API.",
     tags: ["Next.js", "Supabase", "Claude API", "Tailwind CSS"],
     liveUrl: "https://family-planner-app-rosy.vercel.app",
     sourceUrl: "https://github.com/ethancstuart/family-planner-app",
     iframeSrc: "https://family-planner-app-rosy.vercel.app/embed",
     image: "/portfolio/family-planner-preview.png",
     highlights: [
-      "AI-generated meal plans tailored to family preferences",
+      "AI recipe import from TikTok, YouTube, Instagram, blogs, and photos",
+      "Drag-and-drop meal planner with smart grocery lists",
       "Full-stack with auth, database, and real-time sync",
-      "Built end-to-end in a weekend",
     ],
     stack: [
       "Next.js",
@@ -97,11 +97,11 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     caseStudy: {
       problem:
-        "Weekly meal planning is tedious and repetitive. Families struggle to balance nutrition, preferences, and budget while keeping meals interesting. Existing apps are either too simple or overly complex.",
+        "Families collect recipes from everywhere — TikTok, YouTube, Instagram, blogs — but there's no single place to save, plan, and shop from them. Existing meal planning apps ignore how people actually discover recipes today.",
       approach:
-        "Built a full-stack application using Next.js and Supabase for auth and data persistence. Integrated Claude API to generate personalized meal plans based on family size, dietary restrictions, and cuisine preferences. Designed the UX to feel conversational — users describe what they want, and the AI handles the rest.",
+        "Built a full-stack application using Next.js and Supabase for auth and data persistence. Integrated Claude API for AI-powered recipe import that extracts structured recipes from any URL or photo. Added drag-and-drop meal planning, auto-generated grocery lists, a recipe vault, and shared family to-do lists.",
       outcome:
-        "Delivered a working product that generates complete weekly meal plans with recipes and grocery lists in seconds. Demonstrates full-stack AI integration — from prompt engineering to database design to deployment.",
+        "Shipped a fully functional family kitchen platform with AI recipe import, meal planning, and grocery lists. Free and open source — demonstrates full-stack AI integration from prompt engineering to database design to deployment.",
     },
   },
   {

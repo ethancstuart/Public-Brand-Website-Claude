@@ -1,4 +1,5 @@
 import Parser from "rss-parser";
+import { siteConfig } from "./constants";
 
 export interface SubstackPost {
   title: string;
@@ -20,8 +21,7 @@ const parser = new Parser<
 });
 
 const SUBSTACK_FEED_URL =
-  process.env.SUBSTACK_URL ||
-  "https://thedataproductagent.substack.com/feed";
+  process.env.SUBSTACK_URL || siteConfig.substackFeed;
 
 function extractSlug(url: string): string {
   try {

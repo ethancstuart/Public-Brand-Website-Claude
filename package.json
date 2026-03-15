@@ -5,13 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "sync-resume": "bash scripts/sync-resume.sh",
-    "build": "bash scripts/sync-resume.sh; next build",
+    "build": "bash scripts/sync-resume.sh && next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "@types/sanitize-html": "^2.16.1",
     "@vercel/analytics": "^2.0.0",
     "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.34.3",
@@ -32,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "@types/sanitize-html": "^2.16.1",
     "typescript": "^5"
   }
 }

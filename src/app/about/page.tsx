@@ -69,7 +69,16 @@ export default function AboutPage() {
                 DashPulse
               </a>{" "}
               is a real-time dashboard I shipped with vanilla TypeScript, and
-              I&apos;m currently building an AI coding course for non-engineers.
+              I built{" "}
+              <a
+                href="https://zerotoship.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                Zero to Ship
+              </a>
+              , a gamified learning platform for non-engineers.
               I write about AI strategy on{" "}
               <a
                 href="https://thedataproductagent.substack.com"
