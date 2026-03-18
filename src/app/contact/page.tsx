@@ -57,9 +57,8 @@ export default function ContactPage() {
           Let&apos;s connect.
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          I&apos;m always interested in conversations about product leadership,
-          AI strategy, and building data-driven organizations. Reach out
-          through any of the channels below.
+          Whether it&apos;s a role, a collaboration, or a conversation about
+          what&apos;s next in data and AI — I&apos;d like to hear from you.
         </p>
       </Section>
 

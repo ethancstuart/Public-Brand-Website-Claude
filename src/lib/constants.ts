@@ -4,7 +4,7 @@ export const siteConfig = {
   description:
     "Building and leading the teams behind enterprise data and AI platforms — turning complex data into products people actually use. Currently at Disney Studios Technology.",
   url: "https://ethancstuart.com",
-  ogImage: "/opengraph-image",
+  ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
     linkedin: "https://linkedin.com/in/ethan-stuart",
     github: "https://github.com/ethancstuart",

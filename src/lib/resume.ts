@@ -1,5 +1,6 @@
 import { readFile } from "fs/promises";
 import { join } from "path";
+import { isAllCaps } from "@/lib/utils";
 
 export async function getResumeMarkdown(): Promise<string> {
   return await readFile(
@@ -29,10 +30,6 @@ export interface ParsedRole {
   title: string;
   period: string;
   bullets: string[];
-}
-
-function isAllCaps(s: string): boolean {
-  return s === s.toUpperCase() && /[A-Z]/.test(s);
 }
 
 export function parseResumeMarkdown(md: string): ParsedResume {
