@@ -6,7 +6,7 @@ import { portfolioProjects } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Projects I've built — not just managed. Live demos and source code.",
+    "Products I've built end-to-end — staying sharp on the tools reshaping how we build.",
 };
 
 export default function PortfolioPage() {
@@ -21,8 +21,9 @@ export default function PortfolioPage() {
           <span className="text-muted-foreground">I build them.</span>
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          Side projects I&apos;ve shipped end-to-end. Full-stack, AI-powered,
-          and deployed — not mockups or prototypes.
+          Building real products keeps me sharp — closer to the craft, closer
+          to the customer, and ahead of the tools reshaping how we build. Each
+          of these is shipped end-to-end, full-stack, and live.
         </p>
       </Section>
 

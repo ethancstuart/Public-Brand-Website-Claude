@@ -41,22 +41,37 @@ export default function AboutPage() {
               <span className="text-foreground font-medium">
                 Disney Studios Technology
               </span>
-              , I lead product for the studio&apos;s data and AI platform —
-              turning enterprise data into products that teams actually use,
-              from self-serve analytics to ML-powered forecasting.
+              , I lead product for the studio&apos;s data and AI platform,
+              managing a cross-functional team across product, engineering, and
+              BI. We&apos;ve driven adoption of self-serve analytics, launched AI
+              tools that save teams hours per week, and reduced operational
+              friction across hundreds of stakeholders. My role is the
+              translation layer between executive strategy and technical
+              execution — making sure the right things get built, adopted, and
+              scaled.
             </p>
             <p>
               At{" "}
               <span className="text-foreground font-medium">Taco Bell</span>, I
-              drove CDP adoption across all Yum brands and shipped ML models for
-              retention and CRM insights. At{" "}
+              drove CDP adoption across all Yum brands and shipped ML models
+              that drove significant loyalty growth and retention insights. At{" "}
               <span className="text-foreground font-medium">Capital Group</span>
               , I launched a 0→1 data platform that achieved full enterprise
-              adoption. Earlier in my career I built analytics functions from
-              scratch at growth-stage companies.
+              adoption across a Fortune 50 organization. Earlier in my career I
+              built analytics functions from scratch at growth-stage companies.
             </p>
             <p>
-              I also build my own products —{" "}
+              I also build — not because I have to, but because it keeps me
+              sharp on the tools reshaping how products get built.{" "}
+              <a
+                href="https://zerotoship.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                Zero to Ship
+              </a>{" "}
+              is a gamified learning platform for non-engineers.{" "}
               <a
                 href="https://dashpulse.app"
                 target="_blank"
@@ -65,18 +80,8 @@ export default function AboutPage() {
               >
                 DashPulse
               </a>{" "}
-              is a real-time dashboard I shipped with vanilla TypeScript, and
-              I built{" "}
-              <a
-                href="https://zerotoship.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                Zero to Ship
-              </a>
-              , a gamified learning platform for non-engineers.
-              I write about AI strategy on{" "}
+              is a real-time dashboard I shipped with vanilla TypeScript. I
+              write about AI strategy and building at{" "}
               <a
                 href="https://thedataproductagent.substack.com"
                 target="_blank"
@@ -118,7 +123,7 @@ export default function AboutPage() {
             <div className="space-y-3 text-sm">
               <div>
                 <p className="font-mono text-xs text-muted-foreground">Role</p>
-                <p className="font-medium">Sr. Manager, Data & AI Products & BI Engineering</p>
+                <p className="font-medium">Product Leadership, Data & AI Platforms</p>
               </div>
               <div>
                 <p className="font-mono text-xs text-muted-foreground">Company</p>

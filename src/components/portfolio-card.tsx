@@ -20,9 +20,24 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 sm:p-8"
     >
-      <h3 className="mb-2 text-lg font-semibold leading-snug tracking-tight">
-        {project.title}
-      </h3>
+      <div className="mb-2 flex items-center gap-3">
+        <h3 className="text-lg font-semibold leading-snug tracking-tight">
+          {project.title}
+        </h3>
+        {project.status && (
+          <span
+            className={`shrink-0 rounded-full px-2.5 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider ${
+              project.status === "Live"
+                ? "bg-emerald-500/10 text-emerald-500"
+                : project.status === "Open Source"
+                  ? "bg-blue-500/10 text-blue-500"
+                  : "bg-amber-500/10 text-amber-500"
+            }`}
+          >
+            {project.status}
+          </span>
+        )}
+      </div>
 
       <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
         {project.description}
@@ -56,12 +71,12 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
 
       {/* Static preview image */}
       {project.image && (
-        <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-xl border border-border">
+        <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl border border-border">
           <Image
             src={project.image}
             alt={`${project.title} preview`}
             fill
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>

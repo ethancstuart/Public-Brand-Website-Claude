@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Product & Technology Leader",
   description:
-    "Product leader turning enterprise data into products teams actually use. Currently at Disney Studios Technology.",
+    "Building and leading the teams behind enterprise data and AI platforms — turning complex data into products people actually use. Currently at Disney Studios Technology.",
   url: "https://ethancstuart.com",
   ogImage: "/opengraph-image",
   links: {
@@ -31,6 +31,7 @@ export interface PortfolioProject {
   sourceUrl: string;
   iframeSrc: string;
   image?: string;
+  status?: "Live" | "Open Source" | "Beta";
   highlights?: string[];
   stack?: string[];
   caseStudy?: {
@@ -42,6 +43,30 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    title: "Zero to Ship",
+    slug: "ai-coding-course",
+    description:
+      "A gamified learning platform that teaches PMs, Project Managers, Business Analysts, and BI Engineers to build and ship real products using AI coding tools. 16 hands-on modules, each ending with something deployed.",
+    tags: ["Course", "AI Tools", "Claude", "Cursor"],
+    liveUrl: "https://zerotoship.app",
+    sourceUrl: "https://github.com/ethancstuart/zero-to-shipped",
+    iframeSrc: "",
+    status: "Live",
+    highlights: [
+      "Designed for PMs, analysts, and operators — not engineers",
+      "Hands-on: students ship real apps, not toy examples",
+      "Built with the same AI-first workflow the course teaches",
+    ],
+    caseStudy: {
+      problem:
+        "PMs, analysts, and operators are surrounded by AI coding tools — but have no structured way to go from zero to a shipped, deployed product. Most tutorials stop at hello world. The gap between 'I tried Cursor' and 'I shipped something real' is where most people stall.",
+      approach:
+        "Designed around the user outcome: every module ends with something deployed, not a slide deck. Students build real web applications using Claude, Cursor, and modern frameworks. The platform itself was built with the same AI-assisted workflow it teaches — proving the thesis that non-engineers can ship real products.",
+      outcome:
+        "Live at zerotoship.app — a 16-module gamified platform where students ship real, deployed products using AI coding tools. Proves the thesis that the gap between product thinking and product building is closing fast.",
+    },
+  },
+  {
     title: "DashPulse",
     slug: "dashpulse",
     description:
@@ -51,6 +76,7 @@ export const portfolioProjects: PortfolioProject[] = [
     sourceUrl: "https://github.com/ethancstuart/dashboard",
     iframeSrc: "https://dashpulse.app/#/embed",
     image: "/portfolio/dashpulse-preview.png",
+    status: "Live",
     highlights: [
       "Zero framework dependencies — pure TypeScript",
       "Configurable panels, workspaces, and AI command bar",
@@ -65,23 +91,24 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     caseStudy: {
       problem:
-        "Product leaders need a lightweight, always-available dashboard to track key metrics without the overhead of enterprise BI tools. Existing solutions require complex setups, vendor lock-in, or heavy frameworks.",
+        "I was tired of toggling between tabs and enterprise BI tools just to check basic metrics — and realized every product leader I know has the same problem. There's no lightweight, always-on dashboard that just works without vendor lock-in or complex setup.",
       approach:
-        "Built a zero-dependency real-time dashboard using vanilla TypeScript and Vite. Designed a configurable panel system with multiple workspaces and an AI-powered command bar. Implemented PWA capabilities for offline access, used Vercel Edge Functions for low-latency data fetching, and focused on performance — no React, no Vue, just raw TypeScript with modern browser APIs.",
+        "Designed around the user need first: what does a product leader actually want to see at a glance, and how fast does it need to load? Then made a deliberate technical bet — zero framework dependencies, vanilla TypeScript only — to maximize performance and prove the concept. Added configurable panels, workspaces, an AI command bar, PWA offline support, and Vercel Edge Functions for low-latency data.",
       outcome:
-        "Shipped a fully featured PWA dashboard with configurable panels, workspaces, AI command bar, sub-second load times, and offline support. Preparing for premium tier launch and public release on Product Hunt.",
+        "Shipped a fully featured PWA dashboard with sub-second load times, configurable workspaces, and AI command bar. Validates that product leaders want a lightweight alternative to enterprise BI — now preparing for premium tier launch and Product Hunt.",
     },
   },
   {
     title: "Family Planner",
     slug: "family-planner",
     description:
-      "AI-powered family kitchen app with recipe import from TikTok, YouTube, Instagram, and blogs. Drag-and-drop meal planner, smart grocery lists, recipe vault, and shared family to-do list. Built with Next.js, Supabase, and Claude API.",
+      "A build-vs-buy experiment: could AI tools let me ship a full-stack app faster than evaluating existing solutions? AI-powered recipe import from TikTok, YouTube, and blogs, drag-and-drop meal planning, and smart grocery lists — built end-to-end with Next.js, Supabase, and Claude API.",
     tags: ["Next.js", "Supabase", "Claude API", "Tailwind CSS"],
     liveUrl: "https://family-planner-app-rosy.vercel.app",
     sourceUrl: "https://github.com/ethancstuart/family-planner-app",
     iframeSrc: "https://family-planner-app-rosy.vercel.app/embed",
     image: "/portfolio/family-planner-preview.png",
+    status: "Open Source",
     highlights: [
       "AI recipe import from TikTok, YouTube, Instagram, blogs, and photos",
       "Drag-and-drop meal planner with smart grocery lists",
@@ -97,34 +124,11 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     caseStudy: {
       problem:
-        "Families collect recipes from everywhere — TikTok, YouTube, Instagram, blogs — but there's no single place to save, plan, and shop from them. Existing meal planning apps ignore how people actually discover recipes today.",
+        "My family needed a better way to save recipes from TikTok, YouTube, and blogs — and plan meals from them. But this was also an exploration: with AI-native tools, is it faster to build exactly what you need than to evaluate and compromise with existing apps?",
       approach:
-        "Built a full-stack application using Next.js and Supabase for auth and data persistence. Integrated Claude API for AI-powered recipe import that extracts structured recipes from any URL or photo. Added drag-and-drop meal planning, auto-generated grocery lists, a recipe vault, and shared family to-do lists.",
+        "Treated this as a real build-vs-buy decision. Scoped the user need (recipe capture, meal planning, grocery lists), then built end-to-end using AI-assisted development — Next.js and Supabase for the platform, Claude API for intelligent recipe extraction from any URL or photo. The goal was to test how fast a product leader with AI tools can go from idea to shipped product.",
       outcome:
-        "Shipped a fully functional family kitchen platform with AI recipe import, meal planning, and grocery lists. Free and open source — demonstrates full-stack AI integration from prompt engineering to database design to deployment.",
-    },
-  },
-  {
-    title: "Zero to Ship",
-    slug: "ai-coding-course",
-    description:
-      "A gamified learning platform that teaches PMs, Project Managers, Business Analysts, and BI Engineers to build and ship real products using AI coding tools. 16 hands-on modules, each ending with something deployed.",
-    tags: ["Course", "AI Tools", "Claude", "Cursor"],
-    liveUrl: "https://zerotoship.app",
-    sourceUrl: "https://github.com/ethancstuart/zero-to-shipped",
-    iframeSrc: "",
-    highlights: [
-      "Designed for PMs, analysts, and operators — not engineers",
-      "Hands-on: students ship real apps, not toy examples",
-      "Built with the same AI-first workflow the course teaches",
-    ],
-    caseStudy: {
-      problem:
-        "AI coding tools have made it possible for non-engineers to build real software, but there's no structured path from zero to shipped product. Most tutorials stop at hello world.",
-      approach:
-        "Designed a project-based curriculum where students build and deploy real web applications using Claude, Cursor, and modern frameworks. Each module is a working project — not slides. The platform itself was built with the same AI-assisted workflow it teaches.",
-      outcome:
-        "Shipped a 16-module gamified learning platform where students build and deploy real products using AI coding tools. Live at zerotoship.app — a proof point that non-engineers can go from zero to shipped product.",
+        "Shipped a fully functional family platform in a fraction of the time traditional development would require. Open source — and a proof point that AI-native building changes the calculus on build-vs-buy decisions for product leaders.",
     },
   },
 ];

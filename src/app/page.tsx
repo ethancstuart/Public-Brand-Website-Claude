@@ -20,7 +20,7 @@ export default async function HomePage() {
       <Hero />
 
       {/* About Preview */}
-      <Section className="py-24">
+      <Section className="py-24 border-t border-border">
         <div className="max-w-2xl">
           <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
             About
@@ -40,14 +40,14 @@ export default async function HomePage() {
       </Section>
 
       {/* What I Build */}
-      <Section className="py-24">
+      <Section className="py-24 bg-muted/30">
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
               What I Build
             </p>
             <h2 className="text-3xl font-bold tracking-tight">
-              Side projects, shipped
+              Building at the edge of AI
             </h2>
           </div>
           <Link
@@ -95,7 +95,7 @@ export default async function HomePage() {
 
       {/* Latest Writing */}
       {posts.length > 0 && (
-        <Section className="py-24">
+        <Section className="py-24 border-t border-border">
           <div className="mb-10 flex items-end justify-between">
             <div>
               <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
@@ -150,7 +150,7 @@ export default async function HomePage() {
       )}
 
       {/* Course Teaser */}
-      <Section className="py-24">
+      <Section className="py-24 bg-muted/30">
         <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
           <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
             Live Now

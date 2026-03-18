@@ -30,7 +30,7 @@ Home, About, Portfolio, Writing (4 links in nav)
 Resume and Contact exist but are not in the main nav.
 
 ## Conventions
-- No specific metrics/numbers in public copy (outcome-focused, not metrics-heavy)
+- No exact counts, dollar amounts, or percentages in public copy — but vague scale signals are OK (e.g., "cross-functional team", "hundreds of stakeholders", "Fortune 50")
 - Dark theme default
 - Monospace for labels/tags, sans-serif for body
 - Section pattern: mono uppercase label → bold heading → muted description
@@ -59,7 +59,7 @@ Before planning features or making architectural decisions, reference:
 - `~/Projects/home-base/personal/CLAUDE.local.md` — who Ethan is, how he works
 
 ## Important Notes
-- No specific numbers, team sizes, or dollar amounts in site copy
+- No exact numbers, team sizes, or dollar amounts in site copy — vague scale signals are OK
 - Resume synced from home-base via scripts/sync-resume.sh
 - Portfolio screenshots in public/portfolio/ — retake when apps change significantly
 - Course represented as portfolio project until ready for its own page
