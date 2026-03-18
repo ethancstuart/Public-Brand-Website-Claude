@@ -27,9 +27,8 @@ export function Hero() {
           </h1>
 
           <p className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            I stand up teams, operating models, and platforms — then deliver
-            value through them. Currently leading data &amp; AI platform strategy
-            at{" "}
+            I lead product for data and AI platforms — turning enterprise data
+            into products teams actually use. Currently at{" "}
             <span className="text-foreground font-medium">Disney Studios Technology</span>.
           </p>
         </motion.div>

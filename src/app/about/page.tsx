@@ -41,12 +41,9 @@ export default function AboutPage() {
               <span className="text-foreground font-medium">
                 Disney Studios Technology
               </span>
-              , I built a product organization from the ground up and lead
-              enterprise data and AI platform strategy, partnering directly with
-              the CTO on investment priorities. I set AI strategy for the
-              studio&apos;s multi-agent systems, launched conversational AI
-              tools, and am delivering ML forecasting models while leading a
-              cross-company finance transformation.
+              , I lead product for the studio&apos;s data and AI platform —
+              turning enterprise data into products that teams actually use,
+              from self-serve analytics to ML-powered forecasting.
             </p>
             <p>
               At{" "}

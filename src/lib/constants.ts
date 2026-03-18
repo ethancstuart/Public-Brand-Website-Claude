@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Product & Technology Leader",
   description:
-    "Operational and strategy leader who builds clarity from ambiguity. Leading enterprise data, AI, and product strategy at Disney Studios Technology.",
+    "Product leader turning enterprise data into products teams actually use. Currently at Disney Studios Technology.",
   url: "https://ethancstuart.com",
   ogImage: "/opengraph-image",
   links: {

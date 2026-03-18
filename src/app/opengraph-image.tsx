@@ -51,8 +51,8 @@ export default function OGImage() {
             maxWidth: 800,
           }}
         >
-          Building clarity from ambiguity. Leading enterprise data, AI, and
-          product strategy at Disney Studios Technology.
+          Product leader turning enterprise data into products teams actually
+          use. Currently at Disney Studios Technology.
         </div>
         <div
           style={{
