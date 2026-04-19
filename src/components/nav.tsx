@@ -2,94 +2,105 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/constants";
-import { ThemeToggle } from "./theme-toggle";
 
 export function Nav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
+    <header
+      className="fixed top-0 z-50 w-full"
+      style={{
+        height: "64px",
+        background: "rgba(242,237,227,0.92)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid var(--border-lo)",
+      }}
+    >
+      <nav
+        className="mx-auto flex h-full items-center justify-between"
+        style={{ maxWidth: "1280px", padding: "0 56px" }}
+      >
         <Link
           href="/"
-          className="font-mono text-sm font-semibold tracking-tight transition-colors hover:text-accent"
+          className="font-serif italic transition-opacity hover:opacity-70"
+          style={{ fontSize: "19px", color: "var(--foreground)" }}
         >
-          ES.
+          Ethan Stuart
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`relative rounded-md px-3 py-2 text-sm transition-colors ${
-                pathname === link.href
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+              className="font-mono transition-colors"
+              style={{
+                fontSize: "10px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: pathname === link.href ? "var(--foreground)" : "var(--muted-foreground)",
+              }}
             >
               {link.label}
-              {pathname === link.href && (
-                <motion.div
-                  layoutId="nav-indicator"
-                  className="absolute inset-x-1 -bottom-[1.05rem] h-px bg-foreground"
-                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                />
-              )}
             </Link>
           ))}
-          <div className="ml-4">
-            <ThemeToggle />
-          </div>
         </div>
 
-        {/* Mobile toggle */}
-        <div className="flex items-center gap-3 md:hidden">
-          <ThemeToggle />
-          <button
-            onClick={() => setOpen(!open)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card"
-            aria-label="Toggle menu"
+        <Link
+          href="/contact"
+          className="hidden items-center gap-2 md:flex transition-opacity hover:opacity-70"
+        >
+          <span className="relative flex h-2 w-2">
+            <span
+              className="absolute inline-flex h-full w-full rounded-full"
+              style={{
+                background: "var(--accent)",
+                opacity: 0.6,
+                animation: "pulse-dot 3s ease-in-out infinite",
+              }}
+            />
+            <span
+              className="relative inline-flex h-2 w-2 rounded-full"
+              style={{ background: "var(--accent)" }}
+            />
+          </span>
+          <span
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--muted-foreground)",
+            }}
           >
-            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
-        </div>
+            Open to conversation
+          </span>
+        </Link>
+
+        {/* Mobile: just contact dot */}
+        <Link
+          href="/contact"
+          className="flex items-center gap-2 md:hidden"
+          aria-label="Contact"
+        >
+          <span className="relative flex h-2 w-2">
+            <span
+              className="absolute inline-flex h-full w-full rounded-full"
+              style={{
+                background: "var(--accent)",
+                opacity: 0.6,
+                animation: "pulse-dot 3s ease-in-out infinite",
+              }}
+            />
+            <span
+              className="relative inline-flex h-2 w-2 rounded-full"
+              style={{ background: "var(--accent)" }}
+            />
+          </span>
+        </Link>
       </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-b border-border bg-background md:hidden"
-          >
-            <div className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`rounded-md px-3 py-2 text-sm transition-colors ${
-                    pathname === link.href
-                      ? "bg-muted text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
