@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B×C Hybrid Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg:       #09080b;
+  --surface:  #0d0c10;
+  --lime:     #d2f53c;
+  --lime-dim: rgba(210,245,60,0.1);
+  --lime-glow:rgba(210,245,60,0.18);
+  --text:     #f0ece0;
+  --muted:    #38352e;
+  --mid:      #5a5648;
+  --border:   rgba(210,245,60,0.07);
+  --border-md:rgba(210,245,60,0.14);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SCANLINES + NOISE TEXTURE ── */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:1000;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px
+  );
+  pointer-events:none;
+}
+
+/* Very subtle warm lime glow — top right */
+.bg-glow {
+  position:fixed; z-index:0; pointer-events:none;
+  top:-200px; right:-150px;
+  width:600px; height:600px;
+  background: radial-gradient(circle, rgba(210,245,60,0.05) 0%, transparent 65%);
+  animation: breathe 10s ease-in-out infinite alternate;
+}
+@keyframes breathe {
+  from { opacity:0.6; transform:scale(1); }
+  to   { opacity:1;   transform:scale(1.12); }
+}
+
+/* ── STATUS BAR ── */
+.status-bar {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  display:flex; align-items:center;
+  background: rgba(9,8,11,0.97);
+  border-bottom:1px solid #111;
+  padding:0 48px;
+  height:30px;
+  animation: slideDown 0.4s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes slideDown {
+  from { opacity:0; transform:translateY(-100%); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.sb-item {
+  display:flex; align-items:center; gap:6px;
+  padding:0 20px;
+  border-right:1px solid #151515;
+  height:100%;
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px; letter-spacing:0.1em;
+  color:#252520; text-transform:uppercase;
+}
+.sb-item:first-child { padding-left:0; }
+.sb-item .val { color:#4a4840; }
+.sb-item .live { color:var(--lime); }
+.sb-dot {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 5px rgba(210,245,60,0.9);
+  animation:pulse 2.5s infinite;
+}
+@keyframes pulse {
+  0%,100%{ opacity:1; box-shadow:0 0 5px rgba(210,245,60,0.9); }
+  50%    { opacity:0.5; box-shadow:0 0 3px rgba(210,245,60,0.4); }
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:30px; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 48px;
+  height:56px;
+  background: rgba(9,8,11,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom:1px solid #131211;
+  animation: slideDown 0.5s 0.05s cubic-bezier(0.16,1,0.3,1) both;
+}
+.logo {
+  font-family:'Instrument Serif',serif;
+  font-size:18px; font-style:italic; font-weight:400;
+  color:var(--text); letter-spacing:0.01em;
+}
+.nav-links {
+  display:flex; align-items:center; gap:32px;
+}
+.nav-links span {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:0.1em;
+  color:var(--muted); cursor:pointer;
+  transition:color 0.2s;
+  text-transform:uppercase;
+}
+.nav-links span:hover { color:var(--text); }
+.nav-cta {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:0.1em;
+  color:var(--lime) !important;
+  border:1px solid var(--border-md);
+  background:var(--lime-dim);
+  padding:6px 18px; border-radius:3px;
+  cursor:pointer;
+  transition:background 0.2s, border-color 0.2s !important;
+}
+.nav-cta:hover {
+  background:rgba(210,245,60,0.16) !important;
+  border-color:rgba(210,245,60,0.28) !important;
+}
+
+/* ── HERO SPLIT LAYOUT ── */
+.hero {
+  position:relative; z-index:10;
+  min-height:100vh;
+  display:grid;
+  grid-template-rows: 1fr auto;
+  padding-top:86px; /* status + nav */
+}
+
+.hero-main {
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  min-height: calc(100vh - 86px - 80px);
+  border-right: none;
+}
+
+/* ── LEFT: EDITORIAL ── */
+.left {
+  padding:64px 56px 48px 48px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  border-right:1px solid #131211;
+  position:relative;
+}
+
+/* Decorative vertical rule accent */
+.left::before {
+  content:'';
+  position:absolute;
+  left:0; top:64px; bottom:48px;
+  width:2px;
+  background:linear-gradient(180deg, var(--lime) 0%, transparent 60%);
+  opacity:0.4;
+}
+
+.left-top {}
+
+.eyebrow {
+  display:flex; align-items:center; gap:10px;
+  margin-bottom:36px;
+  animation: fadeup 0.5s 0.2s both;
+}
+.eyebrow-line {
+  width:24px; height:1px;
+  background:var(--lime); opacity:0.5;
+}
+.eyebrow-text {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:0.2em;
+  color:var(--muted); text-transform:uppercase;
+}
+
+/* HEADLINE — the centrepiece */
+.headline { margin-bottom:36px; }
+.hl { overflow:hidden; display:block; }
+.hl-i {
+  display:block;
+  animation:clipup 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+.hl:nth-child(1) .hl-i { animation-delay:0.25s; }
+.hl:nth-child(2) .hl-i { animation-delay:0.37s; }
+.hl:nth-child(3) .hl-i { animation-delay:0.49s; }
+
+/* Line 1: serif italic qualifier */
+.h-serif {
+  font-family:'Instrument Serif',serif;
+  font-style:italic; font-weight:400;
+  font-size:clamp(42px,5.2vw,70px);
+  line-height:1.0;
+  color:rgba(240,236,224,0.55);
+  letter-spacing:-0.01em;
+}
+/* Line 2: Syne 800 — the domain, huge */
+.h-sans {
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:clamp(62px,9vw,122px);
+  line-height:0.88;
+  color:var(--text);
+  letter-spacing:-0.045em;
+}
+/* Line 3: serif italic + lime — the outcome */
+.h-lime {
+  font-family:'Instrument Serif',serif;
+  font-style:italic; font-weight:400;
+  font-size:clamp(42px,5.2vw,70px);
+  line-height:1.05;
+  color:var(--lime);
+  letter-spacing:-0.01em;
+}
+
+.subhead {
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px; line-height:1.75;
+  color:var(--muted);
+  max-width:500px;
+  margin-bottom:40px;
+  letter-spacing:0.02em;
+  animation:fadeup 0.7s 0.65s both;
+}
+.subhead strong {
+  color:var(--mid);
+  font-weight:500;
+}
+
+/* Pillars — inline, tight */
+.pillars {
+  display:flex; gap:0;
+  border:1px solid #161512;
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:36px;
+  animation:fadeup 0.7s 0.75s both;
+}
+.pillar {
+  flex:1; padding:13px 18px;
+  border-right:1px solid #161512;
+  position:relative;
+  transition:background 0.2s;
+  cursor:default;
+}
+.pillar:last-child { border-right:none; }
+.pillar:hover { background:rgba(210,245,60,0.03); }
+.pillar::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:1px;
+  background:var(--lime);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.pillar:hover::before { transform:scaleX(1); }
+.p-num {
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px; color:#252520;
+  letter-spacing:0.15em; margin-bottom:4px;
+}
+.p-title {
+  font-family:'Syne',sans-serif;
+  font-size:11px; font-weight:700;
+  color:rgba(240,236,224,0.5);
+  letter-spacing:-0.01em; margin-bottom:3px;
+}
+.p-desc {
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px; color:#252520;
+  line-height:1.5; letter-spacing:0.01em;
+}
+
+/* CTA row */
+.cta-row {
+  display:flex; align-items:center; gap:14px;
+  animation:fadeup 0.7s 0.85s both;
+}
+.btn-p {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--lime-dim);
+  border:1px solid var(--border-md);
+  color:var(--lime);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:12px 28px; border-radius:3px;
+  cursor:pointer;
+  transition:background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.btn-p:hover {
+  background:rgba(210,245,60,0.16);
+  border-color:rgba(210,245,60,0.28);
+  transform:translateY(-1px);
+}
+.btn-s {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--muted); padding:12px 24px;
+  border-radius:3px;
+  border:1px solid #181714;
+  cursor:pointer;
+  transition:color 0.2s, border-color 0.2s;
+}
+.btn-s:hover { color:rgba(240,236,224,0.5); border-color:#252520; }
+.writing-pill {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:0.1em;
+  color:#252520; cursor:pointer;
+  transition:color 0.2s;
+  padding-left:4px;
+  white-space:nowrap;
+}
+.writing-pill:hover { color:var(--muted); }
+
+/* ── RIGHT: PROJECT MANIFEST ── */
+.right {
+  display:flex; flex-direction:column;
+  padding:64px 0 0;
+  animation:fadeup 0.8s 0.55s both;
+}
+.manifest-header {
+  padding:0 32px 16px;
+  border-bottom:1px solid #131211;
+  display:flex; align-items:baseline; justify-content:space-between;
+}
+.manifest-title {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; letter-spacing:0.2em;
+  color:#252520; text-transform:uppercase;
+}
+.manifest-count {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; color:var(--lime); opacity:0.6;
+}
+
+.proj-list {
+  flex:1;
+  display:flex; flex-direction:column;
+}
+.proj-item {
+  display:flex; align-items:stretch;
+  border-bottom:1px solid #0f0e0d;
+  cursor:pointer;
+  transition:background 0.15s;
+  padding:0 32px;
+  position:relative;
+  overflow:hidden;
+}
+.proj-item::before {
+  content:'';
+  position:absolute; left:0; top:0; bottom:0;
+  width:0;
+  background:var(--lime);
+  transition:width 0.25s cubic-bezier(0.16,1,0.3,1);
+  opacity:0.12;
+}
+.proj-item:hover::before { width:100%; }
+.proj-item:hover .pi-arrow { color:var(--lime); transform:translate(2px,-2px); }
+.proj-item:hover .pi-name { color:rgba(240,236,224,0.9); }
+.proj-item:hover .pi-num { color:var(--muted); }
+
+.pi-num {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; color:#1a1916;
+  padding:16px 0; width:28px;
+  flex-shrink:0;
+  transition:color 0.2s;
+  letter-spacing:0.05em;
+}
+.pi-body {
+  flex:1; padding:14px 0 14px 4px;
+  display:flex; flex-direction:column;
+  justify-content:center; gap:3px;
+}
+.pi-name {
+  font-family:'Syne',sans-serif;
+  font-size:13px; font-weight:700;
+  color:rgba(240,236,224,0.35);
+  letter-spacing:-0.01em;
+  transition:color 0.2s;
+}
+.pi-type {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; color:#252520;
+  letter-spacing:0.06em; text-transform:uppercase;
+}
+.pi-status {
+  display:flex; align-items:center; gap:5px;
+  padding:16px 0 16px 12px;
+  flex-shrink:0;
+}
+.pi-dot {
+  width:4px; height:4px; border-radius:50%; flex-shrink:0;
+}
+.dot-live  { background:var(--lime); box-shadow:0 0 4px rgba(210,245,60,0.8); animation:pulse 2.5s infinite; }
+.dot-build { background:#f59e0b; box-shadow:0 0 4px rgba(245,158,11,0.7); animation:pulse 3s 0.5s infinite; }
+.pi-arrow {
+  font-size:11px; color:#1a1916;
+  transition:color 0.2s, transform 0.2s;
+  padding:16px 0 16px 8px;
+}
+
+/* Credential aside — below manifest */
+.cred-aside {
+  border-top:1px solid #131211;
+  padding:16px 32px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.cred-row {
+  display:flex; flex-direction:column; gap:2px;
+}
+.cr-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px; letter-spacing:0.16em;
+  color:#1e1c18; text-transform:uppercase;
+}
+.cr-value {
+  font-family:'Syne',sans-serif;
+  font-size:11px; font-weight:600;
+  color:rgba(240,236,224,0.25);
+}
+
+/* ── TICKER ── */
+.ticker-wrap {
+  position:relative; z-index:20;
+  height:32px; overflow:hidden;
+  border-top:1px solid #111;
+  background:#060508;
+  animation:fadeup 0.6s 1s both;
+}
+.ticker {
+  display:flex; align-items:center;
+  height:100%; white-space:nowrap;
+  animation:marquee 20s linear infinite;
+}
+.ticker span {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; color:#1e1c18;
+  padding:0 22px; letter-spacing:0.14em;
+  text-transform:uppercase;
+}
+.ticker .hi { color:rgba(210,245,60,0.45); padding:0 14px; }
+
+@keyframes marquee {
+  from{transform:translateX(0)}
+  to  {transform:translateX(-50%)}
+}
+@keyframes clipup {
+  from{transform:translateY(110%);opacity:0}
+  to  {transform:translateY(0);opacity:1}
+}
+@keyframes fadeup {
+  from{opacity:0;transform:translateY(12px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="sb-item"><div class="sb-dot"></div><span class="live">Operational</span></div>
+  <div class="sb-item">Projects <span class="val">6 Active</span></div>
+  <div class="sb-item">Domain <span class="val">Data &amp; AI</span></div>
+  <div class="sb-item">Location <span class="val">Los Angeles</span></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Ethan Stuart</div>
+  <div class="nav-links">
+    <span>About</span>
+    <span>Work</span>
+    <span>Writing</span>
+    <span class="nav-cta">Contact</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-main">
+
+    <!-- LEFT -->
+    <div class="left">
+      <div class="left-top">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Data &amp; AI Product Leader</span>
+        </div>
+
+        <div class="headline">
+          <span class="hl"><span class="hl-i h-serif">Building where</span></span>
+          <span class="hl"><span class="hl-i h-sans">DATA &amp; AI</span></span>
+          <span class="hl"><span class="hl-i h-lime">become products.</span></span>
+        </div>
+
+        <p class="subhead">
+          I build <strong>AI systems at Fortune&nbsp;50 scale</strong> and ship them
+          as a <strong>solo founder</strong> — six products live in 2025.
+          The gap between managing data and building with it is closing fast.
+          I work on both sides of that wall.
+        </p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="p-num">01 — BUILDER</div>
+            <div class="p-title">Ships in production</div>
+            <div class="p-desc">NexusWatch, Meridian, Quant Engine, Zero to Ship — real products, live users.</div>
+          </div>
+          <div class="pillar">
+            <div class="p-num">02 — DATA &amp; AI</div>
+            <div class="p-title">The domain</div>
+            <div class="p-desc">Enterprise platforms and solo AI systems. Technical depth most leaders only manage.</div>
+          </div>
+          <div class="pillar">
+            <div class="p-num">03 — PRODUCT ORG</div>
+            <div class="p-title">Builds the team, too</div>
+            <div class="p-desc">Disney, Taco Bell, Capital Group. Standing up orgs, operating models, and platforms.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <div class="btn-p">View Work <span>↗</span></div>
+        <div class="btn-s">Read Writing</div>
+        <span class="writing-pill">The Data Product Agent →</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <div class="manifest-header">
+        <span class="manifest-title">Selected Work</span>
+        <span class="manifest-count">06</span>
+      </div>
+
+      <div class="proj-list">
+        <div class="proj-item">
+          <span class="pi-num">01</span>
+          <div class="pi-body">
+            <div class="pi-name">NexusWatch</div>
+            <div class="pi-type">Geopolitical Intelligence</div>
+          </div>
+          <div class="pi-status"><div class="pi-dot dot-live"></div></div>
+          <div class="pi-arrow">↗</div>
+        </div>
+        <div class="proj-item">
+          <span class="pi-num">02</span>
+          <div class="pi-body">
+            <div class="pi-name">Meridian</div>
+            <div class="pi-type">AI Analytics Platform</div>
+          </div>
+          <div class="pi-status"><div class="pi-dot dot-live"></div></div>
+          <div class="pi-arrow">↗</div>
+        </div>
+        <div class="proj-item">
+          <span class="pi-num">03</span>
+          <div class="pi-body">
+            <div class="pi-name">Zero to Ship</div>
+            <div class="pi-type">AI Learning Platform</div>
+          </div>
+          <div class="pi-status"><div class="pi-dot dot-live"></div></div>
+          <div class="pi-arrow">↗</div>
+        </div>
+        <div class="proj-item">
+          <span class="pi-num">04</span>
+          <div class="pi-body">
+            <div class="pi-name">RidgeCap</div>
+            <div class="pi-type">CRE Fintech Platform</div>
+          </div>
+          <div class="pi-status"><div class="pi-dot dot-build"></div></div>
+          <div class="pi-arrow">↗</div>
+        </div>
+        <div class="proj-item">
+          <span class="pi-num">05</span>
+          <div class="pi-body">
+            <div class="pi-name">Quant Engine</div>
+            <div class="pi-type">Systematic Trading</div>
+          </div>
+          <div class="pi-status"><div class="pi-dot dot-build"></div></div>
+          <div class="pi-arrow">↗</div>
+        </div>
+        <div class="proj-item">
+          <span class="pi-num">06</span>
+          <div class="pi-body">
+            <div class="pi-name">Family Planner</div>
+            <div class="pi-type">Consumer App</div>
+          </div>
+          <div class="pi-status"><div class="pi-dot dot-live"></div></div>
+          <div class="pi-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="cred-aside">
+        <div class="cred-row">
+          <span class="cr-label">Current</span>
+          <span class="cr-value">Disney Studios Technology</span>
+        </div>
+        <div class="cred-row">
+          <span class="cr-label">Previously</span>
+          <span class="cr-value">Taco Bell · Capital Group</span>
+        </div>
+        <div class="cred-row">
+          <span class="cr-label">Writing</span>
+          <span class="cr-value">The Data Product Agent</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Data Platforms</span><span class="hi">·</span>
+      <span>AI Systems</span><span class="hi">·</span>
+      <span>Product Leadership</span><span class="hi">·</span>
+      <span>NexusWatch</span><span class="hi">·</span>
+      <span>Meridian Intelligence</span><span class="hi">·</span>
+      <span>Zero to Ship</span><span class="hi">·</span>
+      <span>Quant Engine</span><span class="hi">·</span>
+      <span>RidgeCap</span><span class="hi">·</span>
+      <span>Disney Studios Technology</span><span class="hi">·</span>
+      <span>The Data Product Agent</span><span class="hi">·</span>
+      <!-- duplicate for loop -->
+      <span>Data Platforms</span><span class="hi">·</span>
+      <span>AI Systems</span><span class="hi">·</span>
+      <span>Product Leadership</span><span class="hi">·</span>
+      <span>NexusWatch</span><span class="hi">·</span>
+      <span>Meridian Intelligence</span><span class="hi">·</span>
+      <span>Zero to Ship</span><span class="hi">·</span>
+      <span>Quant Engine</span><span class="hi">·</span>
+      <span>RidgeCap</span><span class="hi">·</span>
+      <span>Disney Studios Technology</span><span class="hi">·</span>
+      <span>The Data Product Agent</span><span class="hi">·</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

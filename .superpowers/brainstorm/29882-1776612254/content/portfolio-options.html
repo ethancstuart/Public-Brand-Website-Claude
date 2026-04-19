@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Layout Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:        #f2ede3;
+  --surface:   #ede8de;
+  --deep:      #e4dfd4;
+  --text:      #131110;
+  --text-mid:  rgba(19,17,16,0.5);
+  --text-low:  rgba(19,17,16,0.28);
+  --muted:     #9a9288;
+  --mid:       #706860;
+  --accent:    #5a8000;
+  --accent-s:  rgba(90,128,0,0.07);
+  --accent-m:  rgba(90,128,0,0.14);
+  --border:    rgba(19,17,16,0.07);
+  --border-lo: rgba(19,17,16,0.05);
+}
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 40px 28px 100px;
+}
+.page-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; color: var(--muted);
+  text-transform: uppercase; text-align: center; margin-bottom: 8px;
+}
+.page-title {
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
+  color: var(--text); text-align: center; margin-bottom: 6px;
+}
+.page-sub {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: var(--muted); text-align: center; margin-bottom: 52px;
+}
+
+/* OPTION CARDS */
+.options {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; max-width: 1280px; margin: 0 auto;
+}
+.opt {
+  border-radius: 12px; overflow: hidden; cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, transform 0.22s;
+}
+.opt:hover { transform: translateY(-3px); }
+.opt.chosen { border-color: var(--accent); }
+.opt-check {
+  position: absolute; top: 12px; right: 12px; z-index: 9;
+  background: var(--accent); color: #fff;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700;
+  padding: 3px 9px; border-radius: 20px;
+  opacity: 0; transition: opacity 0.2s; pointer-events: none;
+}
+.opt.chosen .opt-check { opacity: 1; }
+.opt-wrap { position: relative; }
+
+/* Preview window */
+.preview {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px;
+  min-height: 340px;
+}
+
+/* ── A: Editorial Feature Cards ── */
+.feat-list { display: flex; flex-direction: column; gap: 14px; }
+.feat-card {
+  background: var(--surface);
+  border: 1px solid var(--border-lo);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex; gap: 16px; align-items: flex-start;
+  transition: background 0.18s, border-color 0.18s;
+  cursor: pointer;
+}
+.feat-card:hover {
+  background: var(--deep);
+  border-color: rgba(90,128,0,0.2);
+}
+.feat-card:hover .fc-arrow { opacity: 1; color: var(--accent); transform: translate(2px,-2px); }
+.feat-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  color: var(--muted); padding-top: 2px; flex-shrink: 0; width: 20px;
+}
+.feat-body { flex: 1; }
+.feat-name {
+  font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800;
+  color: var(--text); letter-spacing: -0.02em; margin-bottom: 3px;
+}
+.feat-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  color: var(--muted); letter-spacing: 0.06em; margin-bottom: 6px;
+}
+.feat-desc {
+  font-family: 'Syne', sans-serif; font-size: 11px;
+  color: var(--text-mid); line-height: 1.55;
+}
+.feat-tags {
+  display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px;
+}
+.feat-tag {
+  background: var(--accent-s); border: 1px solid rgba(90,128,0,0.12);
+  border-radius: 3px; padding: 2px 7px;
+  font-family: 'JetBrains Mono', monospace; font-size: 8px;
+  color: var(--accent);
+}
+.feat-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.feat-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.dlive { background: var(--accent); box-shadow: 0 0 5px rgba(90,128,0,0.5); animation: p 3s infinite; }
+.dbuild { background: #d4900c; box-shadow: 0 0 5px rgba(212,144,12,0.5); animation: p 3.5s infinite; }
+@keyframes p { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.feat-arrow {
+  font-size: 13px; color: var(--border);
+  opacity: 0; transition: opacity 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* ── B: Magazine Grid ── */
+.mag-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+}
+.mag-card {
+  background: var(--surface);
+  border: 1px solid var(--border-lo);
+  border-radius: 8px; overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.18s, transform 0.18s;
+  position: relative;
+}
+.mag-card:hover { border-color: rgba(90,128,0,0.25); transform: translateY(-2px); }
+/* Featured (span 2 cols) */
+.mag-card.featured { grid-column: 1 / -1; }
+.mag-img {
+  background: var(--deep);
+  display: flex; align-items: flex-end;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.mag-card.featured .mag-img { height: 110px; }
+.mag-card:not(.featured) .mag-img { height: 70px; }
+/* Faux screenshot gradient */
+.mag-img::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(90,128,0,0.06) 0%, transparent 60%);
+}
+.mag-img-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 8px;
+  color: var(--muted); letter-spacing: 0.1em; position: relative; z-index: 1;
+}
+.mag-body { padding: 10px 12px 12px; }
+.mag-name {
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 800;
+  color: var(--text); letter-spacing: -0.02em; margin-bottom: 2px;
+}
+.mag-card.featured .mag-name { font-size: 14px; }
+.mag-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 8px;
+  color: var(--muted); letter-spacing: 0.05em;
+}
+.mag-status {
+  position: absolute; top: 10px; right: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 7.5px;
+  color: var(--accent); background: var(--accent-s);
+  border: 1px solid rgba(90,128,0,0.15);
+  padding: 2px 7px; border-radius: 3px; letter-spacing: 0.08em;
+}
+
+/* ── C: Full Bleed Panels ── */
+.panels { display: flex; flex-direction: column; gap: 0; }
+.panel-item {
+  display: flex; align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-lo);
+  gap: 20px; cursor: pointer;
+  position: relative; overflow: hidden;
+  transition: padding-left 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.panel-item:hover { padding-left: 8px; }
+.panel-item:hover .panel-bar { opacity: 1; }
+.panel-item:hover .panel-name { color: var(--text); }
+.panel-item:hover .panel-arrow { opacity: 1; color: var(--accent); transform: translate(2px,-2px); }
+.panel-bar {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: var(--accent);
+  opacity: 0; transition: opacity 0.2s;
+}
+.panel-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  color: var(--border); width: 24px; flex-shrink: 0; letter-spacing: 0.05em;
+}
+.panel-left { flex: 1; }
+.panel-name {
+  font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800;
+  color: var(--text-low); letter-spacing: -0.03em; margin-bottom: 2px;
+  transition: color 0.2s;
+}
+.panel-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  color: var(--muted); letter-spacing: 0.05em;
+}
+.panel-tags { display: flex; gap: 6px; }
+.panel-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 8px;
+  color: var(--muted); letter-spacing: 0.06em;
+  background: var(--surface); border: 1px solid var(--border-lo);
+  padding: 2px 7px; border-radius: 3px;
+}
+.panel-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.panel-dot { width: 6px; height: 6px; border-radius: 50%; }
+.panel-arrow {
+  font-size: 14px; color: var(--border);
+  opacity: 0; transition: opacity 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* META */
+.opt-meta {
+  padding: 14px 18px 18px;
+  background: var(--surface);
+}
+.opt-name {
+  font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800;
+  margin-bottom: 4px; color: var(--text);
+}
+.opt-desc {
+  font-size: 11px; color: var(--mid); line-height: 1.55;
+}
+.opt-pill {
+  display: inline-block; margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--accent-s); color: var(--accent);
+}
+.hint {
+  text-align: center; margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted);
+  letter-spacing: 0.1em;
+}
+</style>
+</head>
+<body>
+
+<div class="page-label">ethancstuart.com — portfolio section</div>
+<div class="page-title">How should your work be displayed?</div>
+<div class="page-sub">Click to select · tell me in terminal</div>
+
+<div class="options">
+
+  <!-- A: Editorial Feature Cards -->
+  <div class="opt opt-wrap" onclick="pick(this,'a')">
+    <div class="opt-check">✓</div>
+    <div class="preview">
+      <div class="feat-list">
+        <div class="feat-card">
+          <span class="feat-num">01</span>
+          <div class="feat-body">
+            <div class="feat-name">NexusWatch</div>
+            <div class="feat-type">Geopolitical Intelligence Platform</div>
+            <div class="feat-desc">Real-time intelligence across 86 countries. AI analyst, crisis alerts, verification layer.</div>
+            <div class="feat-tags">
+              <span class="feat-tag">Next.js</span>
+              <span class="feat-tag">AI</span>
+              <span class="feat-tag">Supabase</span>
+            </div>
+          </div>
+          <div class="feat-right">
+            <div class="feat-dot dlive"></div>
+            <div class="feat-arrow">↗</div>
+          </div>
+        </div>
+        <div class="feat-card">
+          <span class="feat-num">02</span>
+          <div class="feat-body">
+            <div class="feat-name">Meridian</div>
+            <div class="feat-type">AI Analytics Platform</div>
+            <div class="feat-desc">20 intelligence modules. 433 tests. Enterprise data science layer.</div>
+            <div class="feat-tags">
+              <span class="feat-tag">TypeScript</span>
+              <span class="feat-tag">Claude API</span>
+            </div>
+          </div>
+          <div class="feat-right">
+            <div class="feat-dot dlive"></div>
+            <div class="feat-arrow">↗</div>
+          </div>
+        </div>
+        <div class="feat-card">
+          <span class="feat-num">03</span>
+          <div class="feat-body">
+            <div class="feat-name">Quant Engine</div>
+            <div class="feat-type">Systematic Trading</div>
+            <div class="feat-desc">666 tests, 170+ modules. Bayesian learning, Thompson Sampling.</div>
+          </div>
+          <div class="feat-right">
+            <div class="feat-dot dbuild"></div>
+            <div class="feat-arrow">↗</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="opt-meta">
+      <div class="opt-name">A — Editorial Cards</div>
+      <div class="opt-desc">Stacked rows with description, tags, and status. Readable and detailed. Best for visitors who want to understand each project before clicking.</div>
+      <span class="opt-pill">Detailed · Scannable · Narrative</span>
+    </div>
+  </div>
+
+  <!-- B: Magazine Grid -->
+  <div class="opt opt-wrap" onclick="pick(this,'b')">
+    <div class="opt-check">✓</div>
+    <div class="preview">
+      <div class="mag-grid">
+        <div class="mag-card featured">
+          <div class="mag-status">Live ↗</div>
+          <div class="mag-img"><span class="mag-img-label">nexuswatch.io</span></div>
+          <div class="mag-body">
+            <div class="mag-name">NexusWatch</div>
+            <div class="mag-type">Geopolitical Intelligence · AI · Real-time</div>
+          </div>
+        </div>
+        <div class="mag-card">
+          <div class="mag-status">Live ↗</div>
+          <div class="mag-img"><span class="mag-img-label">meridian.ai</span></div>
+          <div class="mag-body">
+            <div class="mag-name">Meridian</div>
+            <div class="mag-type">AI Analytics</div>
+          </div>
+        </div>
+        <div class="mag-card">
+          <div class="mag-status">Live ↗</div>
+          <div class="mag-img"><span class="mag-img-label">zerotoship.app</span></div>
+          <div class="mag-body">
+            <div class="mag-name">Zero to Ship</div>
+            <div class="mag-type">Learning Platform</div>
+          </div>
+        </div>
+        <div class="mag-card">
+          <div class="mag-img" style="height:50px"><span class="mag-img-label">ridgecap.io</span></div>
+          <div class="mag-body">
+            <div class="mag-name">RidgeCap</div>
+            <div class="mag-type">CRE Fintech</div>
+          </div>
+        </div>
+        <div class="mag-card">
+          <div class="mag-img" style="height:50px"><span class="mag-img-label">quant-engine</span></div>
+          <div class="mag-body">
+            <div class="mag-name">Quant Engine</div>
+            <div class="mag-type">Systematic Trading</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="opt-meta">
+      <div class="opt-name">B — Magazine Grid</div>
+      <div class="opt-desc">Featured top project at full width, smaller cards below. Screenshot previews. Feels like a curated editorial spread. NexusWatch as the hero project.</div>
+      <span class="opt-pill">Visual · Editorial · Curated</span>
+    </div>
+  </div>
+
+  <!-- C: Full Bleed Panels -->
+  <div class="opt opt-wrap" onclick="pick(this,'c')">
+    <div class="opt-check">✓</div>
+    <div class="preview">
+      <div class="panels">
+        <div class="panel-item">
+          <div class="panel-bar"></div>
+          <span class="panel-num">01</span>
+          <div class="panel-left">
+            <div class="panel-name">NexusWatch</div>
+            <div class="panel-type">Geopolitical Intelligence Platform</div>
+          </div>
+          <div class="panel-right">
+            <div class="panel-tags">
+              <span class="panel-tag">Live</span>
+              <span class="panel-tag">AI</span>
+            </div>
+            <div class="panel-dot dlive"></div>
+            <div class="panel-arrow">↗</div>
+          </div>
+        </div>
+        <div class="panel-item">
+          <div class="panel-bar"></div>
+          <span class="panel-num">02</span>
+          <div class="panel-left">
+            <div class="panel-name">Meridian</div>
+            <div class="panel-type">AI Analytics Platform</div>
+          </div>
+          <div class="panel-right">
+            <div class="panel-tags"><span class="panel-tag">Live</span><span class="panel-tag">AI</span></div>
+            <div class="panel-dot dlive"></div>
+            <div class="panel-arrow">↗</div>
+          </div>
+        </div>
+        <div class="panel-item">
+          <div class="panel-bar"></div>
+          <span class="panel-num">03</span>
+          <div class="panel-left">
+            <div class="panel-name">Zero to Ship</div>
+            <div class="panel-type">AI Learning Platform</div>
+          </div>
+          <div class="panel-right">
+            <div class="panel-tags"><span class="panel-tag">Live</span></div>
+            <div class="panel-dot dlive"></div>
+            <div class="panel-arrow">↗</div>
+          </div>
+        </div>
+        <div class="panel-item">
+          <div class="panel-bar"></div>
+          <span class="panel-num">04</span>
+          <div class="panel-left">
+            <div class="panel-name">RidgeCap</div>
+            <div class="panel-type">CRE Fintech Platform</div>
+          </div>
+          <div class="panel-right">
+            <div class="panel-tags"><span class="panel-tag">Building</span></div>
+            <div class="panel-dot dbuild"></div>
+            <div class="panel-arrow">↗</div>
+          </div>
+        </div>
+        <div class="panel-item">
+          <div class="panel-bar"></div>
+          <span class="panel-num">05</span>
+          <div class="panel-left">
+            <div class="panel-name">Quant Engine</div>
+            <div class="panel-type">Systematic Trading</div>
+          </div>
+          <div class="panel-right">
+            <div class="panel-tags"><span class="panel-tag">Building</span></div>
+            <div class="panel-dot dbuild"></div>
+            <div class="panel-arrow">↗</div>
+          </div>
+        </div>
+        <div class="panel-item" style="border-bottom:none">
+          <div class="panel-bar"></div>
+          <span class="panel-num">06</span>
+          <div class="panel-left">
+            <div class="panel-name">Family Planner</div>
+            <div class="panel-type">Consumer App</div>
+          </div>
+          <div class="panel-right">
+            <div class="panel-tags"><span class="panel-tag">Live</span></div>
+            <div class="panel-dot dlive"></div>
+            <div class="panel-arrow">↗</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="opt-meta">
+      <div class="opt-name">C — Manifest List</div>
+      <div class="opt-desc">Clean numbered rows with a left-accent slide on hover. Minimal, confident. Matches the right column in the hero — feels intentional and consistent.</div>
+      <span class="opt-pill">Minimal · Consistent · Confident</span>
+    </div>
+  </div>
+
+</div>
+
+<p class="hint">click to select · respond in terminal</p>
+
+<script>
+function pick(el, choice) {
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('chosen'));
+  el.classList.add('chosen');
+  if (window.__companion) window.__companion.recordChoice(choice, el.querySelector('.opt-name').textContent.trim());
+}
+</script>
+</body>
+</html>

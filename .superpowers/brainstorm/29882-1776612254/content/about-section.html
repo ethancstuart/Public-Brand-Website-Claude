@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Section — Cream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg:        #f2ede3;
+  --surface:   #ede8de;
+  --deep:      #e6e0d4;
+  --text:      #131110;
+  --text-mid:  rgba(19,17,16,0.5);
+  --text-low:  rgba(19,17,16,0.28);
+  --muted:     #9a9288;
+  --mid:       #706860;
+  --accent:    #5a8000;
+  --accent-s:  rgba(90,128,0,0.08);
+  --accent-m:  rgba(90,128,0,0.15);
+  --border:    rgba(19,17,16,0.07);
+  --border-lo: rgba(19,17,16,0.05);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV STUB ── */
+nav {
+  height: 64px;
+  border-bottom: 1px solid var(--border-lo);
+  display: flex; align-items: center;
+  padding: 0 56px;
+  background: rgba(242,237,227,0.92);
+}
+.logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 19px; font-style: italic;
+  color: var(--text);
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 56px 120px;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 72px;
+  animation: up 0.5s both;
+}
+.label-line { width: 24px; height: 1px; background: var(--accent); opacity: 0.5; }
+.label-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--muted); text-transform: uppercase;
+}
+
+/* ── OPENING MANIFESTO ── */
+.manifesto {
+  margin-bottom: 88px;
+  animation: up 0.6s 0.1s both;
+}
+.manifesto-statement {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic; font-weight: 400;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.2;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  max-width: 820px;
+  margin-bottom: 24px;
+  position: relative;
+}
+/* Opening quote mark */
+.manifesto-statement::before {
+  content: '\201C';
+  font-size: 1.2em;
+  color: var(--accent);
+  opacity: 0.4;
+  position: absolute;
+  left: -0.45em;
+  top: -0.1em;
+  font-family: 'Instrument Serif', serif;
+}
+.manifesto-attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em;
+  color: var(--muted); text-transform: uppercase;
+  padding-left: 2px;
+}
+
+/* ── NARRATIVE + ASIDE ── */
+.body-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 80px;
+  align-items: start;
+  animation: up 0.7s 0.2s both;
+}
+
+/* Left: narrative */
+.narrative { }
+.narrative p {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 400;
+  line-height: 1.85;
+  color: var(--mid);
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+.narrative p strong {
+  font-weight: 700;
+  color: var(--text);
+}
+.narrative p:last-child { margin-bottom: 0; }
+
+/* Pull quote */
+.pull {
+  border-left: 2px solid var(--accent);
+  padding: 4px 0 4px 24px;
+  margin: 36px 0;
+}
+.pull-text {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic; font-size: 20px;
+  line-height: 1.5; color: var(--text);
+  letter-spacing: -0.01em;
+  max-width: 500px;
+}
+
+/* Right: aside cards */
+.aside {
+  display: flex; flex-direction: column; gap: 12px;
+  position: sticky; top: 100px;
+}
+
+/* Headshot placeholder */
+.headshot {
+  aspect-ratio: 3/4;
+  background: var(--deep);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 4px;
+}
+.headshot-inner {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, #ddd8ce 0%, #c8c2b8 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.headshot-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em;
+  color: #a09890; text-transform: uppercase;
+}
+
+/* Fact cards */
+.fact-card {
+  background: var(--surface);
+  border: 1px solid var(--border-lo);
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+.fc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.fc-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--text-low);
+  letter-spacing: -0.01em;
+}
+
+/* ── CAREER ARC ── */
+.career-arc {
+  margin-top: 88px;
+  padding-top: 64px;
+  border-top: 1px solid var(--border);
+  animation: up 0.7s 0.3s both;
+}
+.arc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 40px;
+  display: flex; align-items: center; gap: 12px;
+}
+.arc-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+.arc-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+/* Connecting line */
+.arc-steps::before {
+  content: '';
+  position: absolute;
+  top: 18px; left: 18px; right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+  opacity: 0.4;
+}
+
+.arc-step {
+  padding: 0 0 0 0;
+  position: relative;
+  transition: opacity 0.2s;
+}
+.arc-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  margin-bottom: 16px;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative; z-index: 1;
+}
+.arc-step:last-child .arc-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(90,128,0,0.35);
+}
+.arc-step:hover .arc-dot { border-color: var(--accent); }
+.arc-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--muted); margin-bottom: 5px;
+}
+.arc-company {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--text-low); letter-spacing: -0.01em;
+  margin-bottom: 3px;
+}
+.arc-step:last-child .arc-company { color: var(--text); }
+.arc-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--muted); letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+/* ── PHILOSOPHY STRIP ── */
+.philosophy {
+  margin-top: 88px;
+  padding: 48px 56px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-lo);
+  animation: up 0.7s 0.4s both;
+}
+.phil-header {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.phil-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-low);
+}
+.phil-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--accent); opacity: 0.5;
+}
+.phil-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.phil-item {}
+.phil-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--accent); opacity: 0.5;
+  letter-spacing: 0.15em; margin-bottom: 8px;
+}
+.phil-statement {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic; font-size: 17px;
+  line-height: 1.45; color: var(--text);
+  letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.phil-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; color: var(--muted);
+  line-height: 1.65; letter-spacing: 0.01em;
+}
+
+@keyframes up {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="logo">Ethan Stuart</div></nav>
+
+<div class="section">
+
+  <!-- SECTION LABEL -->
+  <div class="section-label">
+    <div class="label-line"></div>
+    <span class="label-text">About</span>
+  </div>
+
+  <!-- MANIFESTO OPENING -->
+  <div class="manifesto">
+    <div class="manifesto-statement">
+      The gap between managing data and actually building with it is closing fast.
+      I've spent my career working on both sides of that wall —
+      and I think that's the only place worth being right now.
+    </div>
+    <div class="manifesto-attr">Ethan Stuart — Data &amp; AI Product Leader</div>
+  </div>
+
+  <!-- NARRATIVE + ASIDE -->
+  <div class="body-grid">
+    <div class="narrative">
+      <p>
+        I'm a <strong>product leader and builder</strong> operating at the intersection
+        of data, AI, and the organizations that need them. At
+        <strong>Disney Studios Technology</strong>, I lead product for the studio's
+        data and AI platform — translating executive strategy into systems that
+        hundreds of stakeholders actually use and adopt.
+      </p>
+
+      <div class="pull">
+        <div class="pull-text">
+          "I don't just manage the roadmap. I understand the stack, write the specs,
+          and ship the products. That's becoming rarer at this level — and it matters."
+        </div>
+      </div>
+
+      <p>
+        Before Disney, I drove <strong>CDP adoption across all Yum! brands</strong>
+        at Taco Bell and shipped ML models that directly impacted loyalty and retention.
+        At <strong>Capital Group</strong>, I launched a 0→1 data platform that achieved
+        full Fortune 50 enterprise adoption. Earlier, I built analytics functions
+        from scratch at growth-stage companies — which is where I learned
+        that the best way to understand a data product is to build one yourself.
+      </p>
+
+      <p>
+        That instinct is what drives the builder side of my work. In 2025
+        I've shipped <strong>six AI products</strong> independently — NexusWatch,
+        Meridian, Quant Engine, Zero to Ship, RidgeCap, and more — each one
+        pushing into a different corner of what's possible when a product leader
+        actually holds the tools. I write about this tension at
+        <strong>The Data Product Agent</strong>.
+      </p>
+    </div>
+
+    <div class="aside">
+      <div class="headshot">
+        <div class="headshot-inner">
+          <span class="headshot-label">Headshot</span>
+        </div>
+      </div>
+      <div class="fact-card">
+        <div class="fc-label">Currently</div>
+        <div class="fc-value">Disney Studios Technology</div>
+      </div>
+      <div class="fact-card">
+        <div class="fc-label">Domain</div>
+        <div class="fc-value">Data &amp; AI Platforms</div>
+      </div>
+      <div class="fact-card">
+        <div class="fc-label">Education</div>
+        <div class="fc-value">BBA Finance &amp; Economics — LMU</div>
+      </div>
+      <div class="fact-card">
+        <div class="fc-label">Newsletter</div>
+        <div class="fc-value">The Data Product Agent</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAREER ARC -->
+  <div class="career-arc">
+    <div class="arc-label">Career Arc</div>
+    <div class="arc-steps">
+      <div class="arc-step">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2018 – 2020</div>
+        <div class="arc-company">Capital Group</div>
+        <div class="arc-role">Data Product Manager<br/>0→1 enterprise platform</div>
+      </div>
+      <div class="arc-step">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2020 – 2022</div>
+        <div class="arc-company">Sprout Mortgage</div>
+        <div class="arc-role">BI &amp; Analytics Lead<br/>Built from scratch</div>
+      </div>
+      <div class="arc-step">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2022 – 2023</div>
+        <div class="arc-company">Taco Bell</div>
+        <div class="arc-role">Manager, BI<br/>CDP · ML Models · Yum! brands</div>
+      </div>
+      <div class="arc-step">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2023 – Present</div>
+        <div class="arc-company">Disney</div>
+        <div class="arc-role">Product Lead, Data &amp; AI<br/>Studio-wide platform</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHILOSOPHY STRIP -->
+  <div class="philosophy">
+    <div class="phil-header">
+      <span class="phil-title">How I Work</span>
+      <span class="phil-count">03</span>
+    </div>
+    <div class="phil-items">
+      <div class="phil-item">
+        <div class="phil-num">01</div>
+        <div class="phil-statement">Build to understand, not just to ship.</div>
+        <div class="phil-sub">The fastest way to form a real opinion on a data product is to build one. I keep building because it makes me a better leader.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">02</div>
+        <div class="phil-statement">Clarity is the product.</div>
+        <div class="phil-sub">Most data work fails at adoption, not implementation. I obsess over the last mile — getting people to actually use what we build.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">03</div>
+        <div class="phil-statement">The org is part of the system.</div>
+        <div class="phil-sub">You can't ship a great data platform without standing up the team and operating model around it. I build both.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

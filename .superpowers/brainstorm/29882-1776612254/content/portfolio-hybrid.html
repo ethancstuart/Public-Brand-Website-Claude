@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — A×B Hybrid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:        #f2ede3;
+  --surface:   #ede8de;
+  --deep:      #e4dfd4;
+  --text:      #131110;
+  --text-mid:  rgba(19,17,16,0.5);
+  --text-low:  rgba(19,17,16,0.28);
+  --muted:     #9a9288;
+  --mid:       #706860;
+  --accent:    #5a8000;
+  --accent-s:  rgba(90,128,0,0.07);
+  --accent-m:  rgba(90,128,0,0.15);
+  --border:    rgba(19,17,16,0.07);
+  --border-lo: rgba(19,17,16,0.05);
+}
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  height: 64px; border-bottom: 1px solid var(--border-lo);
+  display: flex; align-items: center; padding: 0 56px;
+  background: rgba(242,237,227,0.92);
+}
+.logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 19px; font-style: italic; color: var(--text);
+}
+
+.section {
+  max-width: 1280px; margin: 0 auto;
+  padding: 100px 56px 120px;
+}
+
+/* ── SECTION HEADER ── */
+.section-head {
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  animation: up 0.5s both;
+}
+.head-left {}
+.section-label {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+.label-line { width: 24px; height: 1px; background: var(--accent); opacity: 0.5; }
+.label-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase;
+}
+.section-title {
+  font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800;
+  letter-spacing: -0.03em; color: var(--text);
+}
+.section-title em {
+  font-style: normal;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400; font-size: 34px;
+  color: var(--text-mid); letter-spacing: -0.01em;
+}
+.view-all {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.1em; color: var(--muted);
+  text-transform: uppercase; cursor: pointer;
+  transition: color 0.2s;
+  display: flex; align-items: center; gap: 6px;
+  padding-bottom: 4px;
+}
+.view-all:hover { color: var(--accent); }
+
+/* ── FEATURED CARD ── */
+.featured-card {
+  display: grid; grid-template-columns: 1fr 380px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: border-color 0.22s, box-shadow 0.22s;
+  animation: up 0.6s 0.1s both;
+}
+.featured-card:hover {
+  border-color: rgba(90,128,0,0.25);
+  box-shadow: 0 8px 40px rgba(19,17,16,0.06);
+}
+.featured-card:hover .fc-arrow { opacity: 1; transform: translate(2px,-2px); }
+
+/* Left: content */
+.fc-content {
+  padding: 48px 52px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.fc-top {}
+.fc-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-s); border: 1px solid rgba(90,128,0,0.14);
+  border-radius: 100px; padding: 4px 11px 4px 8px;
+  margin-bottom: 20px;
+}
+.fc-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 5px rgba(90,128,0,0.6);
+  animation: p 3s infinite;
+}
+@keyframes p { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.fc-status-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.08em; color: var(--accent);
+}
+.fc-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.12em; color: var(--muted); margin-bottom: 12px;
+}
+.fc-name {
+  font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800;
+  letter-spacing: -0.04em; color: var(--text); margin-bottom: 6px;
+  line-height: 1;
+}
+.fc-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.06em; color: var(--muted); margin-bottom: 20px;
+}
+.fc-desc {
+  font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 400;
+  line-height: 1.75; color: var(--mid); max-width: 420px; margin-bottom: 28px;
+}
+.fc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 32px; }
+.fc-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  letter-spacing: 0.07em; color: var(--accent);
+  background: var(--accent-s); border: 1px solid rgba(90,128,0,0.12);
+  border-radius: 3px; padding: 3px 9px;
+}
+.fc-bottom {
+  display: flex; align-items: center; gap: 16px;
+}
+.fc-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-s); border: 1px solid var(--accent-m);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.1em; padding: 11px 22px; border-radius: 6px;
+  transition: background 0.2s;
+}
+.fc-cta:hover { background: var(--accent-m); }
+.fc-case {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.09em; color: var(--muted); cursor: pointer;
+  transition: color 0.2s;
+}
+.fc-case:hover { color: var(--text-mid); }
+.fc-arrow {
+  font-size: 16px; color: var(--accent); margin-left: auto;
+  opacity: 0; transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Right: screenshot */
+.fc-image {
+  background: var(--deep);
+  position: relative; overflow: hidden;
+  border-left: 1px solid var(--border-lo);
+  display: flex; flex-direction: column;
+}
+.fc-img-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-lo);
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.2);
+}
+.fc-img-dot { width: 8px; height: 8px; border-radius: 50%; }
+.d1 { background: #e8b4b4; }
+.d2 { background: #e8d4b4; }
+.d3 { background: #b4d4b4; }
+.fc-img-url {
+  flex: 1; text-align: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  color: var(--muted); letter-spacing: 0.05em;
+  background: rgba(255,255,255,0.3); border-radius: 3px;
+  padding: 3px 10px; margin-left: 4px;
+}
+.fc-img-body {
+  flex: 1; padding: 24px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+/* Faux screenshot elements */
+.mock-row {
+  height: 8px; border-radius: 4px;
+  background: rgba(19,17,16,0.06);
+}
+.mock-row.short { width: 55%; }
+.mock-row.med   { width: 75%; }
+.mock-row.full  { width: 100%; }
+.mock-block {
+  height: 64px; border-radius: 8px;
+  background: rgba(19,17,16,0.04);
+  border: 1px solid var(--border-lo);
+}
+.mock-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.mock-card {
+  height: 48px; border-radius: 6px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid var(--border-lo);
+}
+.mock-accent {
+  height: 3px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  width: 40%; margin-bottom: 4px;
+}
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  animation: up 0.7s 0.2s both;
+}
+
+.proj-card {
+  background: var(--surface);
+  border: 1px solid var(--border-lo);
+  border-radius: 12px; overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover {
+  border-color: rgba(90,128,0,0.22);
+  box-shadow: 0 4px 24px rgba(19,17,16,0.05);
+  transform: translateY(-2px);
+}
+.proj-card:hover .pc-arrow { opacity: 1; transform: translate(2px,-2px); }
+
+/* Mini screenshot header */
+.pc-img {
+  height: 80px; background: var(--deep);
+  border-bottom: 1px solid var(--border-lo);
+  padding: 12px 16px;
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative; overflow: hidden;
+}
+.pc-img::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(90,128,0,0.04) 0%, transparent 60%);
+}
+.pc-img-bar { display: flex; align-items: center; gap: 5px; }
+.pc-img-dot { width: 6px; height: 6px; border-radius: 50%; }
+.pd1 { background: rgba(19,17,16,0.1); }
+.pd2 { background: rgba(19,17,16,0.07); }
+.pd3 { background: rgba(19,17,16,0.05); }
+.pc-img-rows { display: flex; flex-direction: column; gap: 5px; flex: 1; justify-content: center; }
+.pc-img-row {
+  height: 5px; border-radius: 3px; background: rgba(19,17,16,0.07);
+}
+
+.pc-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+.pc-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; margin-bottom: 4px;
+}
+.pc-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  color: var(--muted); letter-spacing: 0.1em;
+}
+.pc-status {
+  display: flex; align-items: center; gap: 5px;
+}
+.pc-dot { width: 5px; height: 5px; border-radius: 50%; }
+.live  { background: var(--accent); box-shadow: 0 0 4px rgba(90,128,0,0.5); animation: p 3s infinite; }
+.build { background: #d4900c; box-shadow: 0 0 4px rgba(212,144,12,0.5); animation: p 3.5s 0.5s infinite; }
+.pc-status-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 8.5px;
+  letter-spacing: 0.08em; color: var(--muted);
+}
+.pc-name {
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
+  letter-spacing: -0.03em; color: var(--text);
+  margin-bottom: 3px; line-height: 1.1;
+}
+.pc-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  letter-spacing: 0.05em; color: var(--muted); margin-bottom: 12px;
+}
+.pc-desc {
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 400;
+  line-height: 1.65; color: var(--mid); flex: 1; margin-bottom: 16px;
+}
+.pc-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.pc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.pc-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 8px;
+  letter-spacing: 0.06em; color: var(--accent);
+  background: var(--accent-s); border: 1px solid rgba(90,128,0,0.1);
+  border-radius: 3px; padding: 2px 7px;
+}
+.pc-arrow {
+  font-size: 14px; color: var(--accent); opacity: 0;
+  transition: opacity 0.2s, transform 0.2s; flex-shrink: 0;
+}
+
+@keyframes up {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+<nav><div class="logo">Ethan Stuart</div></nav>
+
+<div class="section">
+
+  <!-- HEADER -->
+  <div class="section-head">
+    <div class="head-left">
+      <div class="section-label">
+        <div class="label-line"></div>
+        <span class="label-text">Selected Work</span>
+      </div>
+      <h2 class="section-title">Six products. <em>All live in 2025.</em></h2>
+    </div>
+    <div class="view-all">View all case studies <span>↗</span></div>
+  </div>
+
+  <!-- FEATURED: NEXUSWATCH -->
+  <div class="featured-card">
+    <div class="fc-content">
+      <div class="fc-top">
+        <div class="fc-status">
+          <div class="fc-dot"></div>
+          <span class="fc-status-text">Live · nexuswatch.io</span>
+        </div>
+        <div class="fc-num">01 / 06</div>
+        <div class="fc-name">NexusWatch</div>
+        <div class="fc-type">Geopolitical Intelligence Platform</div>
+        <p class="fc-desc">
+          Real-time intelligence across 86 countries — AI analyst, crisis monitoring,
+          verification layer, and a trust system built from scratch. The full stack
+          of a data-intensive product, shipped solo.
+        </p>
+        <div class="fc-tags">
+          <span class="fc-tag">Next.js</span>
+          <span class="fc-tag">Supabase</span>
+          <span class="fc-tag">Claude API</span>
+          <span class="fc-tag">AI</span>
+          <span class="fc-tag">Real-time</span>
+        </div>
+      </div>
+      <div class="fc-bottom">
+        <div class="fc-cta">View project ↗</div>
+        <div class="fc-case">Read case study</div>
+        <div class="fc-arrow">↗</div>
+      </div>
+    </div>
+    <div class="fc-image">
+      <div class="fc-img-header">
+        <div class="fc-img-dot d1"></div>
+        <div class="fc-img-dot d2"></div>
+        <div class="fc-img-dot d3"></div>
+        <div class="fc-img-url">nexuswatch.io</div>
+      </div>
+      <div class="fc-img-body">
+        <div class="mock-accent"></div>
+        <div class="mock-row short"></div>
+        <div class="mock-block"></div>
+        <div class="mock-grid">
+          <div class="mock-card"></div>
+          <div class="mock-card"></div>
+          <div class="mock-card"></div>
+          <div class="mock-card"></div>
+        </div>
+        <div class="mock-row med"></div>
+        <div class="mock-row short"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS GRID: remaining 5 projects -->
+  <div class="cards-grid">
+
+    <div class="proj-card">
+      <div class="pc-img">
+        <div class="pc-img-bar"><div class="pc-img-dot pd1"></div><div class="pc-img-dot pd2"></div><div class="pc-img-dot pd3"></div></div>
+        <div class="pc-img-rows">
+          <div class="pc-img-row" style="width:70%"></div>
+          <div class="pc-img-row" style="width:90%"></div>
+          <div class="pc-img-row" style="width:50%"></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-header">
+          <span class="pc-num">02 / 06</span>
+          <div class="pc-status"><div class="pc-dot live"></div><span class="pc-status-text">Live</span></div>
+        </div>
+        <div class="pc-name">Meridian</div>
+        <div class="pc-type">AI Analytics Platform</div>
+        <p class="pc-desc">20 intelligence modules, 433 tests, enterprise data science layer. Multi-agent architecture built for serious analytical workloads.</p>
+        <div class="pc-footer">
+          <div class="pc-tags"><span class="pc-tag">TypeScript</span><span class="pc-tag">Claude API</span><span class="pc-tag">Multi-agent</span></div>
+          <div class="pc-arrow">↗</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="pc-img">
+        <div class="pc-img-bar"><div class="pc-img-dot pd1"></div><div class="pc-img-dot pd2"></div><div class="pc-img-dot pd3"></div></div>
+        <div class="pc-img-rows">
+          <div class="pc-img-row" style="width:60%"></div>
+          <div class="pc-img-row" style="width:80%"></div>
+          <div class="pc-img-row" style="width:45%"></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-header">
+          <span class="pc-num">03 / 06</span>
+          <div class="pc-status"><div class="pc-dot live"></div><span class="pc-status-text">Live</span></div>
+        </div>
+        <div class="pc-name">Zero to Ship</div>
+        <div class="pc-type">AI Learning Platform</div>
+        <p class="pc-desc">16-module gamified course teaching PMs, analysts, and operators to build and ship real products with AI. Built with the same workflow it teaches.</p>
+        <div class="pc-footer">
+          <div class="pc-tags"><span class="pc-tag">Course</span><span class="pc-tag">Next.js</span><span class="pc-tag">Stripe</span></div>
+          <div class="pc-arrow">↗</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="pc-img">
+        <div class="pc-img-bar"><div class="pc-img-dot pd1"></div><div class="pc-img-dot pd2"></div><div class="pc-img-dot pd3"></div></div>
+        <div class="pc-img-rows">
+          <div class="pc-img-row" style="width:80%"></div>
+          <div class="pc-img-row" style="width:60%"></div>
+          <div class="pc-img-row" style="width:70%"></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-header">
+          <span class="pc-num">04 / 06</span>
+          <div class="pc-status"><div class="pc-dot build"></div><span class="pc-status-text">Building</span></div>
+        </div>
+        <div class="pc-name">RidgeCap</div>
+        <div class="pc-type">CRE Fintech Platform</div>
+        <p class="pc-desc">Commercial real estate intelligence and lending platform. CRE market data infrastructure, FRED series integration, Non-QM lending intelligence.</p>
+        <div class="pc-footer">
+          <div class="pc-tags"><span class="pc-tag">Fintech</span><span class="pc-tag">CRE</span><span class="pc-tag">Next.js</span></div>
+          <div class="pc-arrow">↗</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="pc-img">
+        <div class="pc-img-bar"><div class="pc-img-dot pd1"></div><div class="pc-img-dot pd2"></div><div class="pc-img-dot pd3"></div></div>
+        <div class="pc-img-rows">
+          <div class="pc-img-row" style="width:65%"></div>
+          <div class="pc-img-row" style="width:85%"></div>
+          <div class="pc-img-row" style="width:50%"></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-header">
+          <span class="pc-num">05 / 06</span>
+          <div class="pc-status"><div class="pc-dot build"></div><span class="pc-status-text">Building</span></div>
+        </div>
+        <div class="pc-name">Quant Engine</div>
+        <div class="pc-type">Systematic Trading</div>
+        <p class="pc-desc">666 tests, 170+ modules. Signal factory, GPU backtesting, Bayesian learning, Thompson Sampling. Alpaca paper trading live.</p>
+        <div class="pc-footer">
+          <div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">Bayesian</span><span class="pc-tag">Alpaca</span></div>
+          <div class="pc-arrow">↗</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

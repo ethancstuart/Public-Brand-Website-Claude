@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Direction — ethancstuart.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 32px 24px 80px;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  .page-heading {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .page-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .directions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .direction-card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .direction-card:hover { transform: translateY(-2px); }
+  .direction-card.selected { border-color: #fff; }
+
+  .mock {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* --- OPTION A: Dark Signal --- */
+  .mock-a {
+    background: #06060e;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .mock-a .m-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(99,102,241,0.15);
+  }
+  .mock-a .m-logo {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+  .mock-a .m-nav-links {
+    display: flex;
+    gap: 16px;
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 0.08em;
+  }
+  .mock-a .m-body {
+    flex: 1;
+    padding: 28px 20px 20px;
+    position: relative;
+  }
+  /* Ambient glow */
+  .mock-a .glow {
+    position: absolute;
+    top: -60px;
+    left: -40px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .mock-a .glow2 {
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .mock-a .m-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+  }
+  .mock-a h1 {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .mock-a h1 span {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .mock-a .m-desc {
+    font-size: 9px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 220px;
+    margin-bottom: 18px;
+  }
+  .mock-a .m-btns {
+    display: flex;
+    gap: 8px;
+  }
+  .mock-a .m-btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    font-size: 8px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .mock-a .m-btn-outline {
+    border: 1px solid rgba(99,102,241,0.3);
+    color: #888;
+    font-size: 8px;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+  .mock-a .m-projects {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .mock-a .m-proj {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(99,102,241,0.12);
+    border-radius: 6px;
+    padding: 7px 8px;
+  }
+  .mock-a .m-proj-name {
+    font-size: 8px;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 2px;
+  }
+  .mock-a .m-proj-tag {
+    font-size: 7px;
+    color: #6366f1;
+    font-family: 'Courier New', monospace;
+  }
+  .mock-a .m-status-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #22c55e;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* --- OPTION B: Editorial Force --- */
+  .mock-b {
+    background: #0d0d0d;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .mock-b .m-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .mock-b .m-logo {
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    font-family: -apple-system, sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .mock-b .m-nav-links {
+    display: flex;
+    gap: 16px;
+    font-size: 8px;
+    color: #555;
+    font-family: -apple-system, sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .mock-b .m-body {
+    flex: 1;
+    padding: 24px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mock-b .m-top {
+    border-left: 2px solid #f97316;
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+  .mock-b .m-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+    font-family: -apple-system, sans-serif;
+  }
+  .mock-b h1 {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .mock-b h1 em {
+    font-style: italic;
+    color: #888;
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+  .mock-b .m-desc {
+    font-size: 9px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 200px;
+    margin-top: 10px;
+    font-family: -apple-system, sans-serif;
+  }
+  .mock-b .m-divider {
+    height: 1px;
+    background: #1e1e1e;
+    margin: 16px 0;
+  }
+  .mock-b .m-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mock-b .m-proj-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #181818;
+  }
+  .mock-b .m-proj-num {
+    font-size: 9px;
+    color: #333;
+    font-family: 'Courier New', monospace;
+    width: 20px;
+  }
+  .mock-b .m-proj-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: #ccc;
+    flex: 1;
+    font-family: -apple-system, sans-serif;
+  }
+  .mock-b .m-proj-type {
+    font-size: 8px;
+    color: #f97316;
+    font-family: -apple-system, sans-serif;
+  }
+  .mock-b .m-btn-primary {
+    background: #f97316;
+    color: #000;
+    font-size: 8px;
+    padding: 6px 14px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-family: -apple-system, sans-serif;
+    display: inline-block;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* --- OPTION C: Operator OS --- */
+  .mock-c {
+    background: #050508;
+    font-family: 'Courier New', 'Consolas', monospace;
+  }
+  .mock-c .m-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: rgba(0,255,120,0.03);
+    border-bottom: 1px solid rgba(0,255,120,0.1);
+  }
+  .mock-c .m-logo {
+    font-size: 9px;
+    color: #00ff78;
+    letter-spacing: 0.1em;
+  }
+  .mock-c .m-nav-links {
+    display: flex;
+    gap: 14px;
+    font-size: 8px;
+    color: rgba(0,255,120,0.4);
+    letter-spacing: 0.08em;
+  }
+  .mock-c .m-nav-links span { color: rgba(0,255,120,0.8); }
+  .mock-c .m-status-bar {
+    background: rgba(0,255,120,0.04);
+    border-bottom: 1px solid rgba(0,255,120,0.08);
+    padding: 4px 16px;
+    font-size: 7px;
+    color: rgba(0,255,120,0.4);
+    display: flex;
+    gap: 16px;
+  }
+  .mock-c .m-status-bar span { color: rgba(0,255,120,0.7); }
+  .mock-c .m-body {
+    flex: 1;
+    padding: 20px 16px 12px;
+  }
+  .mock-c .m-prompt {
+    font-size: 8px;
+    color: rgba(0,255,120,0.5);
+    margin-bottom: 14px;
+    letter-spacing: 0.06em;
+  }
+  .mock-c .m-prompt span { color: #00ff78; }
+  .mock-c h1 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #00ff78;
+    margin-bottom: 6px;
+    text-shadow: 0 0 20px rgba(0,255,120,0.3);
+  }
+  .mock-c .m-tagline {
+    font-size: 8px;
+    color: rgba(0,255,120,0.5);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    max-width: 200px;
+  }
+  .mock-c .m-divider {
+    border-top: 1px solid rgba(0,255,120,0.1);
+    margin: 12px 0;
+  }
+  .mock-c .m-module {
+    margin-bottom: 10px;
+  }
+  .mock-c .m-module-label {
+    font-size: 7px;
+    color: rgba(0,255,120,0.4);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .mock-c .m-module-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .mock-c .m-chip {
+    border: 1px solid rgba(0,255,120,0.2);
+    color: rgba(0,255,120,0.7);
+    font-size: 7px;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .mock-c .m-chip.active {
+    background: rgba(0,255,120,0.1);
+    border-color: rgba(0,255,120,0.5);
+    color: #00ff78;
+  }
+  .mock-c .m-btn {
+    border: 1px solid rgba(0,255,120,0.4);
+    color: #00ff78;
+    font-size: 8px;
+    padding: 5px 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-top: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  /* --- Direction labels --- */
+  .dir-label {
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+  }
+  .dir-label-a { background: rgba(99,102,241,0.05); }
+  .dir-label-b { background: rgba(249,115,22,0.05); }
+  .dir-label-c { background: rgba(0,255,120,0.03); }
+  .dir-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .dir-name-a { color: #818cf8; }
+  .dir-name-b { color: #fb923c; }
+  .dir-name-c { color: #4ade80; }
+  .dir-desc {
+    font-size: 11px;
+    color: #555;
+    line-height: 1.5;
+  }
+  .dir-tag {
+    display: inline-block;
+    font-size: 9px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-top: 6px;
+    font-family: 'Courier New', monospace;
+  }
+  .dir-tag-a { background: rgba(99,102,241,0.12); color: #818cf8; }
+  .dir-tag-b { background: rgba(249,115,22,0.12); color: #fb923c; }
+  .dir-tag-c { background: rgba(0,255,120,0.1); color: #4ade80; }
+
+  .select-hint {
+    text-align: center;
+    font-size: 11px;
+    color: #444;
+    margin-top: 24px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .selected-indicator {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+  .direction-card.selected .selected-indicator { display: block; }
+
+  @media (max-width: 900px) {
+    .directions { grid-template-columns: 1fr; }
+    .mock { height: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<p class="page-title">ethancstuart.com — Redesign</p>
+<h1 class="page-heading">Which design direction resonates?</h1>
+<p class="page-sub">Each is a full-site direction, not just a color scheme. Click one to select.</p>
+
+<div class="directions">
+
+  <!-- OPTION A: Dark Signal -->
+  <div class="direction-card" onclick="select(this, 'a')" data-choice="a">
+    <div class="mock mock-a">
+      <div class="m-nav">
+        <div class="m-logo">ES</div>
+        <div class="m-nav-links">
+          <span>About</span><span>Work</span><span>Writing</span>
+        </div>
+      </div>
+      <div class="m-body">
+        <div class="glow"></div>
+        <div class="glow2"></div>
+        <div class="m-eyebrow">// builder · strategist · operator</div>
+        <h1>Building<br/><span>at the edge</span><br/>of AI.</h1>
+        <div class="m-desc">Product & technology leader. AI platforms, data systems, and the products that make them matter.</div>
+        <div class="m-btns">
+          <div class="m-btn-primary">View Work</div>
+          <div class="m-btn-outline">Read Writing</div>
+        </div>
+        <div class="m-projects">
+          <div class="m-proj">
+            <div class="m-proj-name">NexusWatch</div>
+            <div class="m-proj-tag"><span class="m-status-dot"></span>Live</div>
+          </div>
+          <div class="m-proj">
+            <div class="m-proj-name">Meridian</div>
+            <div class="m-proj-tag"><span class="m-status-dot"></span>Live</div>
+          </div>
+          <div class="m-proj">
+            <div class="m-proj-name">Quant Engine</div>
+            <div class="m-proj-tag" style="color:#f59e0b">⬡ Active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dir-label dir-label-a">
+      <div class="dir-name dir-name-a">A — Dark Signal</div>
+      <div class="dir-desc">Ambient violet/indigo glow, gradient type, live status indicators. Feels like Framer meets a trading terminal.</div>
+      <span class="dir-tag dir-tag-a">modern · immersive · AI-native</span>
+    </div>
+    <div class="selected-indicator">✓ Selected</div>
+  </div>
+
+  <!-- OPTION B: Editorial Force -->
+  <div class="direction-card" onclick="select(this, 'b')" data-choice="b">
+    <div class="mock mock-b">
+      <div class="m-nav">
+        <div class="m-logo">Ethan Stuart</div>
+        <div class="m-nav-links">
+          <span>ABOUT</span><span>WORK</span><span>WRITING</span>
+        </div>
+      </div>
+      <div class="m-body">
+        <div class="m-top">
+          <div class="m-eyebrow">Product & Technology</div>
+          <h1>Building<br/><em>clarity</em><br/>from chaos.</h1>
+          <div class="m-desc">Senior product leader. Building the AI-era infrastructure at Disney, then building the rest from scratch.</div>
+          <div class="m-btn-primary">See the work →</div>
+        </div>
+        <div class="m-divider"></div>
+        <div class="m-projects">
+          <div class="m-proj-row">
+            <span class="m-proj-num">01</span>
+            <span class="m-proj-name">NexusWatch</span>
+            <span class="m-proj-type">Intelligence Platform</span>
+          </div>
+          <div class="m-proj-row">
+            <span class="m-proj-num">02</span>
+            <span class="m-proj-name">Meridian</span>
+            <span class="m-proj-type">AI Analytics</span>
+          </div>
+          <div class="m-proj-row">
+            <span class="m-proj-num">03</span>
+            <span class="m-proj-name">RidgeCap</span>
+            <span class="m-proj-type">Fintech Platform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dir-label dir-label-b">
+      <div class="dir-name dir-name-b">B — Editorial Force</div>
+      <div class="dir-desc">Bold display type, orange accent, numbered project list. Strong personality — feels like a magazine cover for a technical leader.</div>
+      <span class="dir-tag dir-tag-b">bold · editorial · high-authority</span>
+    </div>
+    <div class="selected-indicator">✓ Selected</div>
+  </div>
+
+  <!-- OPTION C: Operator OS -->
+  <div class="direction-card" onclick="select(this, 'c')" data-choice="c">
+    <div class="mock mock-c">
+      <div class="m-nav">
+        <div class="m-logo">ETHAN STUART</div>
+        <div class="m-nav-links">
+          <span>ABOUT</span><span>WORK</span><span>WRITING</span><span style="color:rgba(0,255,120,0.8)">CONTACT</span>
+        </div>
+      </div>
+      <div class="m-status-bar">
+        <span>STATUS: <span>ACTIVE</span></span>
+        <span>PROJECTS: <span>6 RUNNING</span></span>
+        <span>LOCATION: <span>LOS ANGELES</span></span>
+      </div>
+      <div class="m-body">
+        <div class="m-prompt">$ <span>ethan --describe</span></div>
+        <h1>BUILDER.<br/>OPERATOR.<br/>ARCHITECT.</h1>
+        <div class="m-tagline">Product + AI + engineering converging. Building systems that matter at scale.</div>
+        <div class="m-divider"></div>
+        <div class="m-module">
+          <div class="m-module-label">Active Projects</div>
+          <div class="m-module-items">
+            <span class="m-chip active">NexusWatch</span>
+            <span class="m-chip active">Meridian</span>
+            <span class="m-chip">RidgeCap</span>
+            <span class="m-chip">Quant Engine</span>
+            <span class="m-chip">Zero to Ship</span>
+          </div>
+        </div>
+        <div class="m-btn">EXPLORE WORK →</div>
+      </div>
+    </div>
+    <div class="dir-label dir-label-c">
+      <div class="dir-name dir-name-c">C — Operator OS</div>
+      <div class="dir-desc">Terminal-green palette, status bar, monospace throughout. Feels like a command-line interface for a builder's career.</div>
+      <span class="dir-tag dir-tag-c">hacker · technical · unconventional</span>
+    </div>
+    <div class="selected-indicator">✓ Selected</div>
+  </div>
+
+</div>
+
+<p class="select-hint">click a card to select · let me know your thinking in the terminal</p>
+
+<script>
+  let selected = null;
+  function select(el, choice) {
+    document.querySelectorAll('.direction-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selected = choice;
+    if (window.__companion) window.__companion.recordChoice(choice, el.querySelector('.dir-name').textContent.trim());
+  }
+</script>
+</body>
+</html>

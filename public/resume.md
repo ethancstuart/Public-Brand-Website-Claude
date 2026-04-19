@@ -1,15 +1,16 @@
 Ethan Charles Stuart
-(415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/ethan-stuart | github.com/ethancstuart | thedataproductagent.substack.com | dashpulse.app
+(415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/ethan-stuart | github.com/ethancstuart | zerotoship.app | dashpulse.app
 
 PROFESSIONAL SUMMARY
 
-Operational and strategy leader who builds clarity from ambiguity. I stand up teams, operating models, and platforms — then deliver value through them. Currently leading Disney Studios' data & AI platform strategy across 13 direct reports, driving AI transformation and enterprise platform adoption while partnering with the CTO on platform investment strategy. Track record of walking into complexity and creating order: built orgs from scratch at Disney and Sprout Mortgage, transformed a service team into a product organization at Taco Bell, and launched a 0→1 platform at Capital Group. I build my own products (dashpulse.app) and write about AI strategy on Substack (The Data Product Agent).
+Product leader who builds teams, platforms, and products — then delivers value through all three. Currently leading Disney Studios' data & AI platform strategy across 13 direct reports while personally shipping internal tooling, AI agents, and workflow automation using AI-first development. Leading a formal cross-functional AI task force with HR, leadership, and compensation teams to shape AI adoption across the product management organization. Track record of walking into ambiguity and creating order: built orgs from scratch at Disney and Sprout Mortgage, transformed a service team into a product organization at Taco Bell, launched a 0→1 platform at Capital Group. Outside the day job, I use AI coding tools to architect and ship real software — from SaaS platforms to autonomous ML pipelines — building the muscle that informs how I lead AI strategy at work.
 
 CORE COMPETENCIES
 
 Operational & Strategy Leadership: Organizational Design & Team Building | Operating Model Development | Strategic Planning & Roadmap Execution | Change Management & Platform Adoption | Executive Stakeholder Management | Cross-Functional Task Force Leadership | Matrixed Organization Management
 Data & AI Platform Expertise: Enterprise Data Platform Modernization | AI/ML Productization | Multi-Agent Systems (MAS) | Multi-Modal AI | Semantic Search | Customer Data Platforms (CDP) | Predictive Analytics | Data Governance & Lineage | Self-Service Analytics
-Technical Proficiency: Snowflake | Neo4j | TwelveLabs | Snowflake Cortex | Databricks | Microsoft Fabric | AWS | Power BI | Tableau | SQL | Python | TypeScript
+AI-First Product Development: Architecting & Shipping Software via AI Coding Tools | TypeScript | Next.js | React Native | Python | Supabase | Vercel | Stripe | Claude API & Anthropic SDK | PWA Architecture | Edge Functions
+Applied ML & Quantitative Systems: XGBoost | scikit-learn | Walk-Forward Evaluation | Feature Engineering (SHAP) | ONNX Model Export | Ensemble Methods | Time-Series Prediction | Automated Data Pipelines
 Product Leadership: 0→1 Product Development | Platform Management at Scale | Build vs. Buy Evaluation | Go-to-Market Execution | OKRs & Metrics-Driven Decision Making | AI Enablement Programs
 
 EXPERIENCE
@@ -19,10 +20,10 @@ Senior Manager, Data & AI Products and BI Engineering	    June 2025 - PRESENT
 Built product organization from the ground up — 13 direct reports (6 PMs, 3 BI Engineers, 2 Technical Writers, 2 Program Managers), establishing organizational strategy, operating model, and talent development for a new, growing team.
 Led enterprise platform adoption through stakeholder-by-stakeholder change management — grew from 1 to 5 studio groups (15→120 stakeholders, 500+ downstream users) by building trust and demonstrating value at every level of the organization.
 Set AI strategy and platform standards for Disney Studios' multi-agent system — guided team through architecture decisions (orchestration, cypher, RAG agents) and multi-modal AI integration (TwelveLabs) while ensuring alignment with enterprise platform direction.
-Launched AI chatbot saving 6.5 hours per person per week, with 3 additional chatbots in development; defining multi-agentic capabilities roadmap via Snowflake Cortex and Neo4j integration.
+Launched AI chatbot saving 6.5 hours per person per week, with 3 additional chatbots in development; defining multi-agentic capabilities roadmap via Snowflake Cortex and Neo4j integration. Team delivered production semantic search and talk-to-your-data capabilities for unstructured data.
+Built internal product management portal to streamline the full product lifecycle — intake, prioritization, delivery, and operations — creating cross-functional alignment and reducing process friction across the team.
+Leading a formal AI task force — selected to drive AI adoption across product management, working with HR, leadership, and compensation teams. Running panel discussions, shaping organizational strategy around AI fluency.
 Partner with CTO and President of Studio Technology on enterprise platform investment strategy — present monthly to executive leadership, deliver bi-annual studio demos, lead cross-functional task forces and initiatives.
-Shield team from reactive business pressure while maintaining strategic alignment — operate as the translation layer between executive priorities and team capacity.
-Driving AI enablement across the organization — building programs to make non-engineering roles (BAs, PMs) AI-native, mentoring aspiring product managers on and off the team.
 Delivered 2 ML forecasting models for studio finance team (cash flow forecasting, quarterly budget planning), with 8 more in development over the next 18 months; leading cross-company finance transformation initiative to bring data, AI, and workflow automation to studio finance operations.
 Established data governance frameworks, metadata management, security policies, and quality standards enabling scalable AI adoption across studios.
 
@@ -53,11 +54,21 @@ Integrated Power BI with custom CRM — delivered self-service analytics and pip
 
 Previously held investment analysis and BI leadership roles at Pacific Urban Investors (2018–2021) and Civic Financial Services (2016–2018), building the financial analysis and data foundations that inform a career in enterprise data products.
 
-PORTFOLIO & OPEN SOURCE
+PRODUCTS BUILT (Side Projects — Architected & Shipped via AI Coding Tools)
 
-DashPulse (dashpulse.app) — Real-time intelligence dashboard built with Vite + Vanilla TypeScript. PWA with notes, alerts, and analytics.
-family-planner-app (github.com/ethancstuart/family-planner-app) — AI-powered family meal planner built with Next.js + Supabase + Claude API.
-public-brand-website (github.com/ethancstuart/public-brand-website) — Personal brand and portfolio hub built with Next.js 16 + React 19 + Tailwind v4.
+SaaS & Web Applications
+Zero to Ship (zerotoship.app) — Shipped SaaS platform teaching non-engineers to build products with AI coding tools. Next.js 16, Supabase, Stripe integration. 16 hands-on modules, role-specific learning tracks, gamification engine (XP/badges/streaks/leaderboard), premium gating, certificate generation, public profiles. Pre-launch; no revenue or users yet.
+DashPulse (dashpulse.app) — Shipped real-time personal intelligence terminal. Vite + Vanilla TypeScript, zero frameworks. 13 data panels, 34 Vercel Edge Functions, AI bar (Cmd+K with natural language queries), 3D globe, cross-device sync, PWA. Currently undergoing major redevelopment.
+Meridian (in development) — Non-QM lending intelligence platform. Next.js 16, Supabase, Claude API. Loan pipeline management, rate sheets, capital markets, market intel. White-label architecture for mortgage shops.
+Family Planner — Personal family command center built for household use. Next.js, Supabase, Claude API. AI recipe import from URLs and video, meal planning, smart grocery lists, shared to-dos with real-time sync.
+
+Autonomous ML & Quantitative Systems
+Sports ML Pipeline — Autonomous sports prediction platform. Python, XGBoost, scikit-learn, Neon Postgres. Multi-sport coverage (MLB, NBA, NFL, NHL) with walk-forward evaluation, SHAP feature selection, daily automated data ingestion, weekly model retraining. Backtested MLB strategies show 67.5% hit rate and +29% ROI. Personal research platform for building and validating ML models — no real capital deployed.
+Quant Engine — Autonomous quantitative trading system running daily via cron jobs. Python, CCXT, scikit-learn. Data ingestion, modeling, feature development, and fine-tuning — all orchestrated through AI coding tools. Currently in paper trading; no real capital deployed. Automated execution with risk management and circuit breakers.
+
+Open Source & Educational
+ZTS Agent Templates (github.com/ethancstuart/zts-agent-templates) — Educational AI agent templates for non-engineers. 4 templates: news digest, advisory council, data monitor, PR review. TypeScript + Anthropic SDK. Course material for Zero to Ship.
+Zero to Shipped Skills — Claude Code skill pack for AI-first development. 6 skills: explain code, debug helper, project planning, iteration, code review, ship checklist.
 
 WRITING & THOUGHT LEADERSHIP
 
