@@ -1,43 +1,66 @@
 import type { Metadata } from "next";
-import { Section } from "@/components/section";
+import { FeaturedProjectCard } from "@/components/featured-project-card";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { portfolioProjects } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Products I've built end-to-end — staying sharp on the tools reshaping how we build.",
+    "Six AI products in production — geopolitical intelligence, lending OS, trading systems, and more.",
 };
 
 export default function PortfolioPage() {
-  return (
-    <>
-      <Section className="pt-24 pb-16">
-        <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-          Portfolio
-        </p>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          I don&apos;t just manage products —<br />
-          <span className="text-muted-foreground">I build them.</span>
-        </h1>
-        <p className="max-w-xl text-lg text-muted-foreground">
-          Building real products keeps me sharp — closer to the craft, closer
-          to the customer, and ahead of the tools reshaping how we build. Each
-          of these is shipped end-to-end, full-stack, and live.
-        </p>
-      </Section>
+  const featured = portfolioProjects.find((p) => p.featured);
+  const rest = portfolioProjects.filter((p) => !p.featured);
 
-      <Section className="pb-24">
-        <div className="grid gap-8 lg:grid-cols-2">
-          {portfolioProjects.map((project, i) => (
-            <PortfolioCard
-              key={project.title}
-              project={project}
-              index={i}
-            />
-          ))}
+  return (
+    <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "100px 56px 120px" }}>
+      {/* Section header */}
+      <div className="flex items-end justify-between mb-16">
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+            <span style={{ width: "24px", height: "1px", background: "var(--accent)", opacity: 0.5 }} />
+            <span
+              className="font-mono uppercase"
+              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
+            >
+              Selected Work
+            </span>
+          </div>
+          <h1
+            className="font-sans font-extrabold tracking-tight"
+            style={{ fontSize: "36px", color: "var(--foreground)", lineHeight: 1.1 }}
+          >
+            Six products.{" "}
+            <span className="font-serif italic font-normal" style={{ color: "var(--muted-foreground)" }}>
+              All live in 2025.
+            </span>
+          </h1>
         </div>
-      </Section>
-    </>
+        <a
+          href="https://github.com/ethancstuart"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden font-mono uppercase transition-opacity hover:opacity-70 md:inline-flex items-center gap-1"
+          style={{ fontSize: "10px", letterSpacing: "0.14em", color: "var(--accent)" }}
+        >
+          GitHub ↗
+        </a>
+      </div>
+
+      {/* Featured card */}
+      {featured && (
+        <div className="mb-8">
+          <FeaturedProjectCard project={featured} />
+        </div>
+      )}
+
+      {/* 2-column editorial grid */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {rest.map((project, i) => (
+          <PortfolioCard key={project.slug} project={project} index={i} />
+        ))}
+      </div>
+    </div>
   );
 }
