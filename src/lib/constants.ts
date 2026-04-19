@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Ethan Stuart",
-  title: "Ethan Stuart — Product & Technology Leader",
+  title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
   description:
-    "Building and leading the teams behind enterprise data and AI platforms — turning complex data into products people actually use. Currently at Disney Studios Technology.",
+    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Six AI products in production.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -16,22 +16,23 @@ export const siteConfig = {
 } as const;
 
 export const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Work" },
   { href: "/writing", label: "Writing" },
 ];
 
 export interface PortfolioProject {
   title: string;
   slug: string;
+  type: string;
   description: string;
   tags: string[];
   liveUrl: string;
   sourceUrl: string;
   iframeSrc: string;
   image?: string;
-  status?: "Live" | "Open Source" | "Beta";
+  status: "Live" | "Building" | "Open Source";
+  featured?: boolean;
   highlights?: string[];
   stack?: string[];
   caseStudy?: {
@@ -43,92 +44,171 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: "Zero to Ship",
-    slug: "ai-coding-course",
+    title: "NexusWatch",
+    slug: "nexuswatch",
+    type: "Geopolitical Intelligence Platform",
     description:
-      "A gamified learning platform that teaches PMs, Project Managers, Business Analysts, and BI Engineers to build and ship real products using AI coding tools. 16 hands-on modules, each ending with something deployed.",
-    tags: ["Course", "AI Tools", "Claude", "Cursor"],
-    liveUrl: "https://zerotoship.app",
-    sourceUrl: "https://github.com/ethancstuart/zero-to-shipped",
+      "Real-time global intelligence platform tracking 86 countries across 45+ live data layers — conflict zones, earthquakes, wildfires, flight disruptions, cyber incidents, ship tracking, and more. Bloomberg terminal meets geopolitical situational awareness.",
+    tags: ["TypeScript", "MapLibre GL", "Vite", "Supabase", "Claude AI"],
+    liveUrl: "https://nexuswatch.io",
+    sourceUrl: "",
     iframeSrc: "",
+    image: "/portfolio/nexuswatch-preview.png",
     status: "Live",
+    featured: true,
     highlights: [
-      "Designed for PMs, analysts, and operators — not engineers",
-      "Hands-on: students ship real apps, not toy examples",
-      "Built with the same AI-first workflow the course teaches",
+      "86 countries, 45+ real-time data layers on a single interactive globe",
+      "AI-powered geopolitical analysis and tension index scoring",
+      "Conflict zones, natural disasters, cyber incidents, and ship tracking — live",
     ],
+    stack: ["TypeScript", "Vite", "MapLibre GL", "Supabase", "Claude AI"],
     caseStudy: {
       problem:
-        "PMs, analysts, and operators are surrounded by AI coding tools — but have no structured way to go from zero to a shipped, deployed product. Most tutorials stop at hello world. The gap between 'I tried Cursor' and 'I shipped something real' is where most people stall.",
+        "Geopolitical intelligence is either locked behind Bloomberg terminals costing $25K/year or buried in news feeds that require hours to parse. There's no product that gives a solo analyst, researcher, or enterprise team a live, structured view of global risk at a glance.",
       approach:
-        "Designed around the user outcome: every module ends with something deployed, not a slide deck. Students build real web applications using Claude, Cursor, and modern frameworks. The platform itself was built with the same AI-assisted workflow it teaches — proving the thesis that non-engineers can ship real products.",
+        "Built a MapLibre GL globe as the primary interface — every data layer toggled on top of a single interactive map. Engineered 45+ live data feeds (GDELT, USGS, FlightAware, AIS ship tracking, CISA cyber alerts, undersea cable databases) into a unified event stream. Layered an AI analyst (Claude) on top that synthesizes tension patterns into a daily intelligence brief.",
       outcome:
-        "Live at zerotoship.app — a 16-module gamified platform where students ship real, deployed products using AI coding tools. Proves the thesis that the gap between product thinking and product building is closing fast.",
+        "Live at nexuswatch.io — 86 countries, 45+ data layers, live geopolitical scoring, and an AI analyst accessible without an enterprise contract. Designed for researchers, journalists, analysts, and operators who need situational awareness, not a Bloomberg subscription.",
     },
   },
   {
-    title: "DashPulse",
-    slug: "dashpulse",
+    title: "Meridian Intelligence",
+    slug: "meridian",
+    type: "Non-QM Lending Intelligence OS",
     description:
-      "Real-time intelligence dashboard built with vanilla TypeScript. Configurable panels, workspaces, AI command bar, and full PWA support — no frameworks, no dependencies.",
-    tags: ["Vite", "TypeScript", "PWA", "Vercel Edge Functions"],
-    liveUrl: "https://dashpulse.app",
-    sourceUrl: "https://github.com/ethancstuart/dashboard",
-    iframeSrc: "https://dashpulse.app/#/embed",
-    image: "/portfolio/dashpulse-preview.png",
+      "Institutional lending intelligence platform for mortgage brokers. Matches deals to 15+ real non-QM lenders in real time, runs automated scenario analysis, and surfaces the rate and terms a deal can actually get — before a broker makes a single call.",
+    tags: ["Next.js", "Supabase", "TypeScript", "Claude AI"],
+    liveUrl: "https://meridian.finance",
+    sourceUrl: "",
+    iframeSrc: "",
+    image: "/portfolio/meridian-preview.png",
     status: "Live",
+    featured: false,
     highlights: [
-      "Zero framework dependencies — pure TypeScript",
-      "Configurable panels, workspaces, and AI command bar",
-      "PWA with offline support, installable on any device",
+      "15+ live lender integrations with real-time program matching",
+      "20+ intelligence modules: scenario analysis, rate comparison, deal scoring",
+      "Built for brokers — surfaces deal viability before the first lender call",
     ],
-    stack: [
-      "Vite",
-      "TypeScript",
-      "Vercel Edge Functions",
-      "Service Workers",
-      "IndexedDB",
-    ],
+    stack: ["Next.js", "Supabase", "TypeScript", "Claude AI", "PostgreSQL"],
     caseStudy: {
       problem:
-        "I was tired of toggling between tabs and enterprise BI tools just to check basic metrics — and realized every product leader I know has the same problem. There's no lightweight, always-on dashboard that just works without vendor lock-in or complex setup.",
+        "Non-QM mortgage brokers spend hours calling lenders, manually comparing program guidelines, and building scenario spreadsheets — before they know if a deal will close. There's no intelligence layer between the deal and the lender universe.",
       approach:
-        "Designed around the user need first: what does a product leader actually want to see at a glance, and how fast does it need to load? Then made a deliberate technical bet — zero framework dependencies, vanilla TypeScript only — to maximize performance and prove the concept. Added configurable panels, workspaces, an AI command bar, PWA offline support, and Vercel Edge Functions for low-latency data.",
+        "Built a full lending OS: 15+ lender integrations with real program data (not scraped, not stale), a scenario engine that computes rate/terms across the universe in real time, and an AI analyst that scores deal viability and flags fit/gap issues. Designed for the broker workflow, not the lender.",
       outcome:
-        "Shipped a fully featured PWA dashboard with sub-second load times, configurable workspaces, and AI command bar. Validates that product leaders want a lightweight alternative to enterprise BI — now preparing for premium tier launch and Product Hunt.",
+        "Live at meridian.finance — 20+ intelligence modules, 15+ lenders, 433+ tests passing. Pricing from free to enterprise. Built by a solo founder who learned non-QM lending from scratch to get the domain right.",
+    },
+  },
+  {
+    title: "Zero to Ship",
+    slug: "ai-coding-course",
+    type: "AI-Native Learning Platform",
+    description:
+      "Gamified learning platform teaching PMs, analysts, and operators to build and ship real products using AI coding tools. 16 hands-on modules — each ending with something deployed, not a slide deck.",
+    tags: ["Next.js", "Supabase", "Stripe", "Framer Motion"],
+    liveUrl: "https://zerotoship.app",
+    sourceUrl: "https://github.com/ethancstuart/zero-to-shipped",
+    iframeSrc: "",
+    image: "/portfolio/zerotoship-preview.png",
+    status: "Live",
+    featured: false,
+    highlights: [
+      "Built for operators, not engineers — every module ships something real",
+      "Gamification: XP, 20+ badges, leaderboard, skill tree, certificates",
+      "The platform was built with the same AI-first workflow it teaches",
+    ],
+    stack: ["Next.js", "Supabase", "Stripe", "Shiki", "Framer Motion"],
+    caseStudy: {
+      problem:
+        "PMs, analysts, and operators are surrounded by AI coding tools — but have no structured path from zero to a shipped, deployed product. Most tutorials stop at hello world. The gap between 'I tried Cursor' and 'I shipped something real' is where most people stall.",
+      approach:
+        "Designed around the user outcome: every module ends with something deployed. Built full gamification (XP, badges, streaks, leaderboard, skill tree, certificates), Stripe checkout with founding coupon, 5 email nurture sequences, and public profiles. The platform itself was built using the same AI-assisted workflow it teaches.",
+      outcome:
+        "Live at zerotoship.app — 16-module gamified platform, Stripe live, founding member pricing. Proves the thesis that the gap between product thinking and product building is closing fast.",
+    },
+  },
+  {
+    title: "RidgeCap",
+    slug: "ridgecap",
+    type: "CRE Debt Intelligence",
+    description:
+      "Capital source matching and deal underwriting platform for commercial real estate brokers. AI-powered lender matching, geospatial market intelligence, portfolio stress testing, and pipeline management — purpose-built for CRE debt professionals.",
+    tags: ["Next.js", "Supabase", "TypeScript", "FRED API"],
+    liveUrl: "https://ridgecap.app",
+    sourceUrl: "",
+    iframeSrc: "",
+    image: "/portfolio/ridgecap-preview.png",
+    status: "Building",
+    featured: false,
+    highlights: [
+      "AI capital source matching across the CRE lender universe",
+      "Geospatial market intelligence and deal underwriting engine",
+      "Portfolio stress testing with live FRED macro data integration",
+    ],
+    stack: ["Next.js", "Supabase", "TypeScript", "FRED API", "PostgreSQL"],
+    caseStudy: {
+      problem:
+        "CRE brokers manage deal pipelines across dozens of lenders, property types, and markets using spreadsheets and memory. There's no intelligence layer that matches deals to capital sources, stress-tests portfolios against macro scenarios, or gives brokers a unified view of their book.",
+      approach:
+        "Built a full CRE debt OS: AI capital source matching using property type, LTV, geography, and deal structure; an underwriting engine with DSCR/LTV analysis; geospatial intelligence via FRED CRE market data (15 free series, 7 tables); and a pipeline management layer. Designed around the broker workflow.",
+      outcome:
+        "In active development — CRE market data infrastructure shipped, AI matching and underwriting engine complete. Target pricing Scout→$1,200→$2,500→$5,000/mo. Paused pending NexusWatch traction milestone.",
+    },
+  },
+  {
+    title: "Quant Engine",
+    slug: "quant-engine",
+    type: "Systematic Trading Platform",
+    description:
+      "Institutional-grade systematic trading platform. Signal factory generating 10,000+ candidate signals, GPU-accelerated backtesting, Bayesian self-learning loop, and a 9-multiplier position sizing chain. Running live on Alpaca.",
+    tags: ["Python", "PyTorch", "FastAPI", "Alpaca"],
+    liveUrl: "",
+    sourceUrl: "",
+    iframeSrc: "",
+    image: "/portfolio/quant-engine-preview.png",
+    status: "Live",
+    featured: false,
+    highlights: [
+      "Signal factory: 10,000+ candidate signals with Benjamini-Hochberg multiple testing correction",
+      "GPU-accelerated backtesting via PyTorch — 100,000 parallel simulations",
+      "Bayesian feedback loop with Thompson Sampling meta-learner for dynamic strategy allocation",
+    ],
+    stack: ["Python", "PyTorch", "FastAPI", "Alpaca", "LightGBM", "statsmodels"],
+    caseStudy: {
+      problem:
+        "Institutional-grade systematic trading is locked behind hedge fund infrastructure — expensive, opaque, and inaccessible to solo operators. The edge is in signal quality, risk management, and self-learning, not in trading terminal access.",
+      approach:
+        "Built five pillars: a signal factory (10,000+ candidates, walk-forward validation, Benjamini-Hochberg filtering), GPU-accelerated backtesting (PyTorch, 100K parallel simulations), real-time streaming (WebSocket + Alpaca), a 9-multiplier position sizing chain (vol, regime, FOMC, GEX, correlation), and a Bayesian self-learning loop with Thompson Sampling. NexusWatch feeds geopolitical risk directly into the sizing model.",
+      outcome:
+        "Running live on Alpaca with a paper portfolio. 666 tests, 170+ modules, ~50K LOC. Path: 30-day Sharpe estimate → 6-month GO/NO-GO for real capital. NexusWatch API productization adds $500–2K/mo per subscriber as a parallel revenue stream.",
     },
   },
   {
     title: "Family Planner",
     slug: "family-planner",
+    type: "AI-Powered Home App",
     description:
-      "A build-vs-buy experiment: could AI tools let me ship a full-stack app faster than evaluating existing solutions? AI-powered recipe import from TikTok, YouTube, and blogs, drag-and-drop meal planning, and smart grocery lists — built end-to-end with Next.js, Supabase, and Claude API.",
-    tags: ["Next.js", "Supabase", "Claude API", "Tailwind CSS"],
+      "AI-powered family organization app built with Lovable. Recipe import from TikTok, YouTube, and blogs, drag-and-drop meal planning, and smart grocery lists — a live proof point that the gap between product thinking and product building is closing fast.",
+    tags: ["Lovable", "Supabase", "Claude API", "TypeScript"],
     liveUrl: "https://family-planner-app-rosy.vercel.app",
     sourceUrl: "https://github.com/ethancstuart/family-planner-app",
-    iframeSrc: "https://family-planner-app-rosy.vercel.app/embed",
+    iframeSrc: "",
     image: "/portfolio/family-planner-preview.png",
     status: "Open Source",
+    featured: false,
     highlights: [
-      "AI recipe import from TikTok, YouTube, Instagram, blogs, and photos",
-      "Drag-and-drop meal planner with smart grocery lists",
-      "Full-stack with auth, database, and real-time sync",
+      "Built with Lovable — AI-native development from idea to shipped in days",
+      "AI recipe import from TikTok, YouTube, Instagram, and blogs",
+      "Open source: MIT licensed, full-stack with auth and real-time sync",
     ],
-    stack: [
-      "Next.js",
-      "React",
-      "Supabase",
-      "Claude API",
-      "Tailwind CSS",
-      "TypeScript",
-    ],
+    stack: ["Lovable", "Supabase", "Claude API", "TypeScript"],
     caseStudy: {
       problem:
-        "My family needed a better way to save recipes from TikTok, YouTube, and blogs — and plan meals from them. But this was also an exploration: with AI-native tools, is it faster to build exactly what you need than to evaluate and compromise with existing apps?",
+        "My family needed a better way to save recipes from TikTok and YouTube and plan meals from them. But this was also an experiment: with AI-native tools, is it faster to build exactly what you need than to evaluate and compromise with existing apps?",
       approach:
-        "Treated this as a real build-vs-buy decision. Scoped the user need (recipe capture, meal planning, grocery lists), then built end-to-end using AI-assisted development — Next.js and Supabase for the platform, Claude API for intelligent recipe extraction from any URL or photo. The goal was to test how fast a product leader with AI tools can go from idea to shipped product.",
+        "Treated this as a real build-vs-buy decision. Built using Lovable for the app shell, Claude API for intelligent recipe extraction from any URL or photo, and Supabase for the backend. The goal was to test how fast a product leader with AI tools can go from idea to shipped product.",
       outcome:
-        "Shipped a fully functional family platform in a fraction of the time traditional development would require. Open source — and a proof point that AI-native building changes the calculus on build-vs-buy decisions for product leaders.",
+        "Shipped a fully functional family platform in a fraction of the time traditional development would require. Open source under MIT — and a proof point that AI-native building changes the calculus on build-vs-buy decisions for product leaders.",
     },
   },
 ];
