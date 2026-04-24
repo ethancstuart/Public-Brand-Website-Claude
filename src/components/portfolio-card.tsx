@@ -73,7 +73,7 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
               className="font-mono"
               style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--text-low)" }}
             >
-              {String(index + 2).padStart(2, "0")} / 05
+              {String(index + 2).padStart(2, "0")} / 04
             </span>
             <span
               className="flex items-center gap-1 font-mono uppercase"

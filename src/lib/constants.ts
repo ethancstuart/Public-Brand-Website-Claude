@@ -166,36 +166,6 @@ export const portfolioProjects: PortfolioProject[] = [
         "Running live on Alpaca with a paper portfolio. 666 tests, 170+ modules, ~50K LOC. Path: 30-day Sharpe estimate → 6-month GO/NO-GO for real capital. NexusWatch API productization adds $500–2K/mo per subscriber as a parallel revenue stream.",
     },
   },
-  {
-    title: "Family Planner",
-    slug: "family-planner",
-    type: "AI-Powered Home App",
-    tagline: "A build-vs-buy experiment that became a real product. AI recipe import from TikTok and YouTube, drag-and-drop meal planning — shipped with Lovable in days, not months.",
-    description:
-      "AI-powered family organization app built with Lovable. Recipe import from TikTok, YouTube, and blogs, drag-and-drop meal planning, and smart grocery lists — a live proof point that the gap between product thinking and product building is closing fast.",
-    tags: ["Lovable", "Supabase", "Claude API", "TypeScript"],
-    liveUrl: "https://family-planner-app-rosy.vercel.app",
-    sourceUrl: "https://github.com/ethancstuart/family-planner-app",
-    iframeSrc: "",
-    image: "/portfolio/family-planner-preview.png",
-    status: "Open Source",
-    featured: false,
-    metrics: ["Open source MIT", "AI recipe import", "TikTok + YouTube + blogs", "Shipped in days"],
-    highlights: [
-      "Built with Lovable — AI-native development from idea to shipped in days",
-      "AI recipe import from TikTok, YouTube, Instagram, and blogs",
-      "Open source: MIT licensed, full-stack with auth and real-time sync",
-    ],
-    stack: ["Lovable", "Supabase", "Claude API", "TypeScript"],
-    caseStudy: {
-      problem:
-        "My family needed a better way to save recipes from TikTok and YouTube and plan meals from them. But this was also an experiment: with AI-native tools, is it faster to build exactly what you need than to evaluate and compromise with existing apps?",
-      approach:
-        "Treated this as a real build-vs-buy decision. Built using Lovable for the app shell, Claude API for intelligent recipe extraction from any URL or photo, and Supabase for the backend. The goal was to test how fast a product leader with AI tools can go from idea to shipped product.",
-      outcome:
-        "Shipped a fully functional family platform in a fraction of the time traditional development would require. Open source under MIT — and a proof point that AI-native building changes the calculus on build-vs-buy decisions for product leaders.",
-    },
-  },
 ];
 
 export const competencies = [

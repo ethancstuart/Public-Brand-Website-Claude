@@ -62,19 +62,7 @@ Meridian Intelligence (meridian.finance) — Non-QM lending intelligence platfor
 
 Quant Engine — Autonomous systematic trading platform with Markov regime detection and SEC EDGAR insider signal detection. Multi-asset trend following, 6-multiplier position sizing chain, risk management and circuit breakers; 238 tests, 170+ modules; backtested 29.6% annualized return, 1.14 Sharpe. Paper trading live on Alpaca; no real capital deployed. Python + PyTorch + LightGBM + CCXT. Paper launch April 2026.
 
-Zero to Ship (zerotoship.app) — Gamified AI-native learning platform teaching non-engineers to build with AI coding tools. 16 hands-on modules, role-specific tracks, XP/badges/streaks/leaderboard engine, premium gating, certificate generation, public profiles. Next.js 16 + Supabase + Stripe. Pre-launch. Launch April 2026.
-
-Ongoing:
-
-DashPulse (dashpulse.app) — Real-time personal intelligence terminal. 13 data panels, 34 Vercel Edge Functions, AI command bar (Cmd+K natural language queries), 3D globe, cross-device sync, PWA. Vite + Vanilla TypeScript, zero frameworks. Shipped; v2 complete; follow-on work evolved into NexusWatch.
-
-Family Planner — Open-source family command center. AI recipe import from URLs and video, meal planning, smart grocery lists, shared to-dos with real-time sync. Next.js + React Native (Expo) + Supabase + Claude API. MIT licensed.
-
-Sports ML Pipeline — Autonomous sports prediction platform. Multi-sport coverage (MLB, NBA, NFL, NHL, NCAAF) with walk-forward evaluation, SHAP feature selection, daily automated data ingestion, weekly model retraining. Research-grade platform; backtested only, no real capital deployed. Python + XGBoost + scikit-learn + Neon Postgres.
-
-Open Source & Educational:
-
-Zero to Shipped Skills & ZTS Agent Templates (github.com/ethancstuart) — Course material for Zero to Ship. 6 Claude Code skills (explain code, debug, project planning, iteration, code review, ship checklist) and 4 AI agent templates (news digest, advisory council, data monitor, PR review). TypeScript + Anthropic SDK.
+Zero to Ship (zerotoship.app) — Gamified AI-native learning platform teaching non-engineers to build with AI coding tools. 16 hands-on modules, role-specific tracks, XP/badges/streaks/leaderboard engine, premium gating, certificate generation, public profiles. Companion Claude Code skills and AI agent templates open-sourced at github.com/ethancstuart. Next.js 16 + Supabase + Stripe. Pre-launch. Launch April 2026.
 
 WRITING & THOUGHT LEADERSHIP
 
