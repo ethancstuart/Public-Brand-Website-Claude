@@ -3,7 +3,7 @@ Ethan Charles Stuart
 
 PROFESSIONAL SUMMARY
 
-Product leader who builds teams, platforms, and products — then delivers value through all three. At Disney Studios, I'm running a 13+ person data and AI product organization and have redesigned its operating model around AI coding tools, agent-augmented workflows, AI-built internal systems, and AI-fluency hiring. Outside the day job I architect and ship real software through AI coding tools — four public product launches in the last month alone — which keeps the perspective I bring to AI strategy grounded in what it actually takes to build.
+Three enterprise data products launched 0→1 in three industries — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal shipped to production). Now running a 13+ person data and AI product org at Disney Studios — Director-level scope across 5 studio groups, 500+ downstream users, and tens of millions in annual efficiency impact. Also ship real software through AI coding tools — four public product launches in April 2026 alone.
 
 CORE COMPETENCIES
 
@@ -19,13 +19,13 @@ EXPERIENCE
 The Walt Disney Company | Studio Technology
 Senior Manager, Data & AI Products and BI Engineering	    June 2025 - PRESENT
 Built product organization from the ground up — 13+ direct reports across PMs, BI Engineers, technical writers, and program managers; established organizational strategy, operating model, and talent development; mandate expanded from the original Data & AI Products charter to include BI Engineering ownership and cross-org AI enablement leadership.
+Partner with CTO and President of Studio Technology on enterprise platform investment strategy — present monthly to executive leadership and deliver bi-annual studio demos; collective platform and AI delivery contributes to tens of millions in annual efficiency gains and cost savings across studio operations.
 Established an AI-native team operating model — AI coding tools as team standard, agent-augmented PM workflows, hiring and onboarding redesigned for AI fluency, and AI-built internal tooling including an internal PM portal covering intake, prioritization, delivery, and operations, now in daily use across the team.
 Expanded platform from 1 to 5 studio groups (15→120 stakeholders, 500+ downstream users) through systematic, stakeholder-by-stakeholder change management; established enterprise data governance, metadata management, security, and quality frameworks across the same footprint — enabling scalable, compliant AI adoption at enterprise scale.
 Set AI strategy for Disney Studios' multi-agent system and delivered production capabilities — semantic search and talk-to-your-data for unstructured data now in active use; guided the team through orchestration, cypher, and RAG agent architecture decisions; integrated TwelveLabs multi-modal AI and defined the Snowflake Cortex + Neo4j expansion roadmap.
 Delivered production chatbot suite for studio workflows — with a deployed use case saving 6.5 hours per person per week across its user base; additional chatbots in production and expanding automation across studios.
 Co-lead three enterprise AI task forces spanning product, program management, and data disciplines — shaping cross-functional AI adoption strategy; run panel discussions and partner with HR, leadership, and compensation teams on AI fluency and role evolution.
 Delivered production ML forecasting models for studio finance (cash flow forecasting, quarterly budget planning); additional models in pipeline as contributor to the studios' cross-company finance transformation initiative.
-Partner with CTO and President of Studio Technology on enterprise platform investment strategy — present monthly to executive leadership and deliver bi-annual studio demos; collective platform and AI delivery contributes to tens of millions in annual efficiency gains and cost savings across studio operations.
 
 Yum Brands | Taco Bell
 Portfolio Manager, Product, Data & Analytics Platform	    January 2025 - June 2025
