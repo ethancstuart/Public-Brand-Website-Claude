@@ -137,36 +137,6 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    title: "RidgeCap",
-    slug: "ridgecap",
-    type: "CRE Debt Intelligence",
-    tagline: "CRE brokers manage deal pipelines across dozens of lenders using spreadsheets. RidgeCap replaces that — AI lender matching, DSCR underwriting, live macro data.",
-    description:
-      "Capital source matching and deal underwriting platform for commercial real estate brokers. AI-powered lender matching, geospatial market intelligence, portfolio stress testing, and pipeline management — purpose-built for CRE debt professionals.",
-    tags: ["Next.js", "Supabase", "TypeScript", "FRED API"],
-    liveUrl: "https://ridgecap.app",
-    sourceUrl: "",
-    iframeSrc: "",
-    image: "/portfolio/ridgecap-preview.png",
-    status: "Building",
-    featured: false,
-    metrics: ["AI lender matching", "DSCR/LTV underwriting", "15 FRED macro series", "CRE debt OS"],
-    highlights: [
-      "AI capital source matching across the CRE lender universe",
-      "Geospatial market intelligence and deal underwriting engine",
-      "Portfolio stress testing with live FRED macro data integration",
-    ],
-    stack: ["Next.js", "Supabase", "TypeScript", "FRED API", "PostgreSQL"],
-    caseStudy: {
-      problem:
-        "CRE brokers manage deal pipelines across dozens of lenders, property types, and markets using spreadsheets and memory. There's no intelligence layer that matches deals to capital sources, stress-tests portfolios against macro scenarios, or gives brokers a unified view of their book.",
-      approach:
-        "Built a full CRE debt OS: AI capital source matching using property type, LTV, geography, and deal structure; an underwriting engine with DSCR/LTV analysis; geospatial intelligence via FRED CRE market data (15 free series, 7 tables); and a pipeline management layer. Designed around the broker workflow.",
-      outcome:
-        "CRE market data infrastructure shipped, AI matching and underwriting engine complete. Target pricing Scout→$1,200→$2,500→$5,000/mo. Paused while focusing on Meridian traction; ready to resume once Meridian's milestone hits.",
-    },
-  },
-  {
     title: "Quant Engine",
     slug: "quant-engine",
     type: "Systematic Trading Platform",

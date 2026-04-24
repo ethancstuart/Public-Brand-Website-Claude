@@ -6,7 +6,6 @@ const TICKER_ITEMS = [
   "Meridian Intelligence",
   "Zero to Ship",
   "Quant Engine",
-  "RidgeCap",
   "Disney Studios Technology",
   "The Data Product Agent",
   "Lending Intelligence",

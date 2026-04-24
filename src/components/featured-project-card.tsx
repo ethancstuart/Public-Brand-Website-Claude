@@ -64,7 +64,7 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
                 className="font-mono"
                 style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--muted-foreground)" }}
               >
-                01 / 06
+                01 / 05
               </span>
             </div>
 

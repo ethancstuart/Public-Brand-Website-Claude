@@ -178,7 +178,7 @@ export default function AboutPage() {
             >
               That instinct drives the builder side of my work. I&apos;ve shipped{" "}
               <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>a portfolio of AI products</strong> independently —
-              NexusWatch, Meridian, Quant Engine, Zero to Ship, RidgeCap, and
+              NexusWatch, Meridian, Quant Engine, Zero to Ship, and
               Family Planner — each one a different domain, each built solo using
               AI-native workflows. I document the sessions, decisions, and results
               in real time in my{" "}
