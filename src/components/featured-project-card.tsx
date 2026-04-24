@@ -88,11 +88,27 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
                 lineHeight: 1.75,
                 color: "var(--muted-foreground)",
                 maxWidth: "480px",
-                marginBottom: "24px",
+                marginBottom: "20px",
               }}
             >
-              {project.description}
+              {project.tagline || project.description}
             </p>
+
+            {/* Metrics strip */}
+            {project.metrics && project.metrics.length > 0 && (
+              <div className="flex flex-wrap gap-x-4 gap-y-2 mb-8 p-4 rounded-xl" style={{ background: "var(--deep)", border: "1px solid var(--border)" }}>
+                {project.metrics.map((m) => (
+                  <div key={m} className="flex flex-col gap-0.5">
+                    <span
+                      className="font-mono font-semibold"
+                      style={{ fontSize: "11px", letterSpacing: "0.06em", color: "var(--accent)" }}
+                    >
+                      {m}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-2 mb-8">
               {project.tags.map((tag) => (

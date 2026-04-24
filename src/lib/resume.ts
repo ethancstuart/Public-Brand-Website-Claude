@@ -42,6 +42,7 @@ export function parseResumeMarkdown(md: string): ParsedResume {
   let currentCompany: Extract<ParsedSectionContent, { type: "company" }> | null =
     null;
   let currentRole: ParsedRole | null = null;
+  let justSawBlank = false;
 
   function flushRole() {
     if (currentRole && currentCompany) {
@@ -60,26 +61,23 @@ export function parseResumeMarkdown(md: string): ParsedResume {
 
   for (let i = 2; i < lines.length; i++) {
     const line = lines[i];
-    if (!line.trim()) continue;
+    if (!line.trim()) {
+      justSawBlank = true;
+      continue;
+    }
 
-    // Section header
+    // Section header (all caps)
     if (isAllCaps(line.trim()) && line.trim().length > 2) {
       flushCompany();
       currentSection = { title: line.trim(), content: [] };
       sections.push(currentSection);
+      justSawBlank = false;
       continue;
     }
 
     if (!currentSection) continue;
 
-    // Company line (next line has tab = role)
-    if (i + 1 < lines.length && lines[i + 1]?.includes("\t")) {
-      flushCompany();
-      currentCompany = { type: "company", name: line.trim(), roles: [] };
-      continue;
-    }
-
-    // Role line (tab-separated)
+    // Role line (tab-separated) — new role under the current company
     if (line.includes("\t")) {
       flushRole();
       const parts = line.split("\t").filter(Boolean);
@@ -88,6 +86,20 @@ export function parseResumeMarkdown(md: string): ParsedResume {
         period: parts[parts.length - 1]?.trim() || "",
         bullets: [],
       };
+      justSawBlank = false;
+      continue;
+    }
+
+    // Company line — only when preceded by a blank line AND followed by a role (tab) line.
+    // The blank-line requirement prevents mid-role bullets from being mistaken for companies.
+    if (
+      justSawBlank &&
+      i + 1 < lines.length &&
+      lines[i + 1]?.includes("\t")
+    ) {
+      flushCompany();
+      currentCompany = { type: "company", name: line.trim(), roles: [] };
+      justSawBlank = false;
       continue;
     }
 
@@ -99,28 +111,32 @@ export function parseResumeMarkdown(md: string): ParsedResume {
         category: line.slice(0, colonIdx).trim(),
         skills: line.slice(colonIdx + 2).trim(),
       });
+      justSawBlank = false;
       continue;
     }
 
-    // Item with em-dash
-    if (line.includes(" — ") && !isAllCaps(line.trim()) && !line.includes("\t")) {
+    // Bullet under a role — takes precedence so em-dashes in role bullets stay with the role
+    if (currentRole) {
+      currentRole.bullets.push(line.trim());
+      justSawBlank = false;
+      continue;
+    }
+
+    // Item with em-dash (only when not inside a role)
+    if (line.includes(" — ") && !isAllCaps(line.trim())) {
       const dashIdx = line.indexOf(" — ");
       currentSection.content.push({
         type: "item",
         label: line.slice(0, dashIdx).trim(),
         description: line.slice(dashIdx + 3).trim(),
       });
-      continue;
-    }
-
-    // Bullet under a role
-    if (currentRole) {
-      currentRole.bullets.push(line.trim());
+      justSawBlank = false;
       continue;
     }
 
     // Default text
     currentSection.content.push({ type: "text", value: line.trim() });
+    justSawBlank = false;
   }
 
   flushCompany();

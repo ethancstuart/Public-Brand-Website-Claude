@@ -44,8 +44,9 @@ export default async function HomePage() {
             marginBottom: "28px",
           }}
         >
-          The gap between managing data and actually building with it is closing
-          fast. I&apos;ve spent my career working on both sides of that wall.
+          AI products built solo across intelligence, lending, trading, and learning —
+          while leading data and AI at Fortune 50 scale. The portfolio is the proof.
+          The journal documents how it&apos;s done.
         </p>
         <Link
           href="/about"

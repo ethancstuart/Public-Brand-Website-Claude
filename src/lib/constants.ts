@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
   description:
-    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Six AI products in production.",
+    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. AI products across intelligence, lending, trading, and learning.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -19,6 +19,7 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Work" },
   { href: "/writing", label: "Writing" },
+  { href: "/resume", label: "Resume" },
 ];
 
 export interface PortfolioProject {
@@ -26,6 +27,7 @@ export interface PortfolioProject {
   slug: string;
   type: string;
   description: string;
+  tagline: string;
   tags: string[];
   liveUrl: string;
   sourceUrl: string;
@@ -33,6 +35,7 @@ export interface PortfolioProject {
   image?: string;
   status: "Live" | "Building" | "Open Source";
   featured?: boolean;
+  metrics?: string[];
   highlights?: string[];
   stack?: string[];
   caseStudy?: {
@@ -47,15 +50,17 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "NexusWatch",
     slug: "nexuswatch",
     type: "Geopolitical Intelligence Platform",
+    tagline: "Bloomberg-level geopolitical intelligence without the Bloomberg price tag. 86 countries, 45+ live data layers, AI analyst — built solo.",
     description:
       "Real-time global intelligence platform tracking 86 countries across 45+ live data layers — conflict zones, earthquakes, wildfires, flight disruptions, cyber incidents, ship tracking, and more. Bloomberg terminal meets geopolitical situational awareness.",
     tags: ["TypeScript", "MapLibre GL", "Vite", "Supabase", "Claude AI"],
-    liveUrl: "https://nexuswatch.io",
+    liveUrl: "https://nexuswatch.dev",
     sourceUrl: "",
     iframeSrc: "",
     image: "/portfolio/nexuswatch-preview.png",
     status: "Live",
     featured: true,
+    metrics: ["86 countries", "45+ data layers", "AI intelligence analyst", "4 subscription tiers"],
     highlights: [
       "86 countries, 45+ real-time data layers on a single interactive globe",
       "AI-powered geopolitical analysis and tension index scoring",
@@ -75,6 +80,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Meridian Intelligence",
     slug: "meridian",
     type: "Non-QM Lending Intelligence OS",
+    tagline: "Mortgage brokers spend hours calling lenders before knowing if a deal closes. Meridian eliminates that. Real-time matching across 15+ lenders, AI deal scoring, scenario analysis.",
     description:
       "Institutional lending intelligence platform for mortgage brokers. Matches deals to 15+ real non-QM lenders in real time, runs automated scenario analysis, and surfaces the rate and terms a deal can actually get — before a broker makes a single call.",
     tags: ["Next.js", "Supabase", "TypeScript", "Claude AI"],
@@ -84,6 +90,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/portfolio/meridian-preview.png",
     status: "Live",
     featured: false,
+    metrics: ["15+ lender integrations", "20+ intelligence modules", "433 tests passing", "Free → Enterprise"],
     highlights: [
       "15+ live lender integrations with real-time program matching",
       "20+ intelligence modules: scenario analysis, rate comparison, deal scoring",
@@ -103,6 +110,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Zero to Ship",
     slug: "ai-coding-course",
     type: "AI-Native Learning Platform",
+    tagline: "The gap between 'I tried Cursor' and 'I shipped something real' is where most PMs stall. Zero to Ship closes it — 16 modules, each ending with something deployed.",
     description:
       "Gamified learning platform teaching PMs, analysts, and operators to build and ship real products using AI coding tools. 16 hands-on modules — each ending with something deployed, not a slide deck.",
     tags: ["Next.js", "Supabase", "Stripe", "Framer Motion"],
@@ -112,6 +120,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/portfolio/zerotoship-preview.png",
     status: "Live",
     featured: false,
+    metrics: ["16 hands-on modules", "XP + 20+ badges", "Stripe + founding tier", "Built with AI tools it teaches"],
     highlights: [
       "Built for operators, not engineers — every module ships something real",
       "Gamification: XP, 20+ badges, leaderboard, skill tree, certificates",
@@ -131,6 +140,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "RidgeCap",
     slug: "ridgecap",
     type: "CRE Debt Intelligence",
+    tagline: "CRE brokers manage deal pipelines across dozens of lenders using spreadsheets. RidgeCap replaces that — AI lender matching, DSCR underwriting, live macro data.",
     description:
       "Capital source matching and deal underwriting platform for commercial real estate brokers. AI-powered lender matching, geospatial market intelligence, portfolio stress testing, and pipeline management — purpose-built for CRE debt professionals.",
     tags: ["Next.js", "Supabase", "TypeScript", "FRED API"],
@@ -140,6 +150,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/portfolio/ridgecap-preview.png",
     status: "Building",
     featured: false,
+    metrics: ["AI lender matching", "DSCR/LTV underwriting", "15 FRED macro series", "CRE debt OS"],
     highlights: [
       "AI capital source matching across the CRE lender universe",
       "Geospatial market intelligence and deal underwriting engine",
@@ -152,13 +163,14 @@ export const portfolioProjects: PortfolioProject[] = [
       approach:
         "Built a full CRE debt OS: AI capital source matching using property type, LTV, geography, and deal structure; an underwriting engine with DSCR/LTV analysis; geospatial intelligence via FRED CRE market data (15 free series, 7 tables); and a pipeline management layer. Designed around the broker workflow.",
       outcome:
-        "In active development — CRE market data infrastructure shipped, AI matching and underwriting engine complete. Target pricing Scout→$1,200→$2,500→$5,000/mo. Paused pending NexusWatch traction milestone.",
+        "CRE market data infrastructure shipped, AI matching and underwriting engine complete. Target pricing Scout→$1,200→$2,500→$5,000/mo. Paused while focusing on Meridian traction; ready to resume once Meridian's milestone hits.",
     },
   },
   {
     title: "Quant Engine",
     slug: "quant-engine",
     type: "Systematic Trading Platform",
+    tagline: "Institutional-grade systematic trading infrastructure built by one person. Signal factory, GPU backtesting, Bayesian self-learning, 9-multiplier sizing — running live.",
     description:
       "Institutional-grade systematic trading platform. Signal factory generating 10,000+ candidate signals, GPU-accelerated backtesting, Bayesian self-learning loop, and a 9-multiplier position sizing chain. Running live on Alpaca.",
     tags: ["Python", "PyTorch", "FastAPI", "Alpaca"],
@@ -168,6 +180,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/portfolio/quant-engine-preview.png",
     status: "Live",
     featured: false,
+    metrics: ["10,000+ candidate signals", "100K parallel simulations", "666 tests passing", "Live on Alpaca"],
     highlights: [
       "Signal factory: 10,000+ candidate signals with Benjamini-Hochberg multiple testing correction",
       "GPU-accelerated backtesting via PyTorch — 100,000 parallel simulations",
@@ -187,6 +200,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Family Planner",
     slug: "family-planner",
     type: "AI-Powered Home App",
+    tagline: "A build-vs-buy experiment that became a real product. AI recipe import from TikTok and YouTube, drag-and-drop meal planning — shipped with Lovable in days, not months.",
     description:
       "AI-powered family organization app built with Lovable. Recipe import from TikTok, YouTube, and blogs, drag-and-drop meal planning, and smart grocery lists — a live proof point that the gap between product thinking and product building is closing fast.",
     tags: ["Lovable", "Supabase", "Claude API", "TypeScript"],
@@ -196,6 +210,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: "/portfolio/family-planner-preview.png",
     status: "Open Source",
     featured: false,
+    metrics: ["Open source MIT", "AI recipe import", "TikTok + YouTube + blogs", "Shipped in days"],
     highlights: [
       "Built with Lovable — AI-native development from idea to shipped in days",
       "AI recipe import from TikTok, YouTube, Instagram, and blogs",

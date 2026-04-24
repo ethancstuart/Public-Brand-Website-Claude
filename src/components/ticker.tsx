@@ -1,7 +1,7 @@
 const TICKER_ITEMS = [
-  "Data Platforms",
-  "AI Systems",
-  "Product Leadership",
+  "Geopolitical Intelligence",
+  "Systematic Trading",
+  "AI-Native Education",
   "NexusWatch",
   "Meridian Intelligence",
   "Zero to Ship",
@@ -9,6 +9,10 @@ const TICKER_ITEMS = [
   "RidgeCap",
   "Disney Studios Technology",
   "The Data Product Agent",
+  "Lending Intelligence",
+  "CRE Debt Tooling",
+  "Claude Code",
+  "Solo Founder",
 ];
 
 export function Ticker() {

@@ -41,10 +41,10 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
           el.style.boxShadow = "none";
         }}
       >
-        {/* Mini screenshot header */}
+        {/* Screenshot header */}
         <div
           className="relative w-full overflow-hidden"
-          style={{ height: "80px", background: "var(--deep)", borderBottom: "1px solid var(--border)" }}
+          style={{ height: "180px", background: "var(--deep)", borderBottom: "1px solid var(--border)" }}
         >
           {project.image ? (
             <Image
@@ -103,11 +103,30 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
             {project.type}
           </div>
 
+          {/* Metrics strip */}
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3">
+              {project.metrics.map((m, i) => (
+                <span key={m} className="flex items-center gap-1.5">
+                  {i > 0 && (
+                    <span style={{ color: "var(--border)", fontSize: "10px" }}>·</span>
+                  )}
+                  <span
+                    className="font-mono"
+                    style={{ fontSize: "9px", letterSpacing: "0.06em", color: "var(--accent)", fontWeight: 600 }}
+                  >
+                    {m}
+                  </span>
+                </span>
+              ))}
+            </div>
+          )}
+
           <p
-            className="font-sans mb-4"
+            className="font-sans mb-4 line-clamp-2"
             style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--muted-foreground)" }}
           >
-            {project.description}
+            {project.tagline || project.description}
           </p>
 
           <div className="flex flex-wrap gap-1.5 mb-4">

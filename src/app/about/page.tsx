@@ -11,31 +11,31 @@ export const metadata: Metadata = {
 
 const CAREER = [
   {
-    years: "2018 – 2020",
-    company: "Capital Group",
-    role: "Data Product Manager",
-    detail: "0→1 enterprise platform",
-    current: false,
-  },
-  {
-    years: "2020 – 2022",
+    years: "2021 – 2022",
     company: "Sprout Mortgage",
-    role: "BI & Analytics Lead",
-    detail: "Built from scratch",
+    role: "Manager, Analytics & Product Strategy",
+    detail: "Built analytics from scratch",
     current: false,
   },
   {
     years: "2022 – 2023",
-    company: "Taco Bell",
-    role: "Manager, BI",
-    detail: "CDP · ML Models · Yum! brands",
+    company: "Capital Group",
+    role: "PM, Data Platforms & Strategic Automation",
+    detail: "Phoenix Fire 0→1 · 100% adoption",
     current: false,
   },
   {
-    years: "2023 – Present",
-    company: "Disney",
-    role: "Product Lead, Data & AI",
-    detail: "Studio-wide platform",
+    years: "2023 – 2025",
+    company: "Taco Bell · Yum! Brands",
+    role: "Staff PM → Portfolio Manager",
+    detail: "CDP · ML models · 7K+ operators",
+    current: false,
+  },
+  {
+    years: "2025 – Present",
+    company: "Disney · Studio Technology",
+    role: "Senior Manager, Data & AI Products",
+    detail: "13+ reports · AI-native team operating model",
     current: true,
   },
 ];
@@ -176,13 +176,13 @@ export default function AboutPage() {
               className="font-sans"
               style={{ fontSize: "16px", lineHeight: 1.85, color: "var(--mid)" }}
             >
-              That instinct drives the builder side of my work. In 2025 I&apos;ve
-              shipped <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>six AI products</strong> independently —
+              That instinct drives the builder side of my work. I&apos;ve shipped{" "}
+              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>a portfolio of AI products</strong> independently —
               NexusWatch, Meridian, Quant Engine, Zero to Ship, RidgeCap, and
-              Family Planner — each pushing into a different corner of what&apos;s
-              possible when a product leader actually holds the tools. I write
-              about this tension at{" "}
-              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>The Data Product Agent</strong>.
+              Family Planner — each one a different domain, each built solo using
+              AI-native workflows. I document the sessions, decisions, and results
+              in real time in my{" "}
+              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>Builder Journal</strong>.
             </p>
           </div>
 
@@ -210,7 +210,7 @@ export default function AboutPage() {
               { label: "Currently", value: "Disney Studios Technology" },
               { label: "Domain", value: "Data & AI Platforms" },
               { label: "Education", value: "BBA Finance & Economics — LMU" },
-              { label: "Newsletter", value: "The Data Product Agent" },
+              { label: "Newsletter", value: "Builder Journal — Substack" },
             ].map((fact) => (
               <div
                 key={fact.label}

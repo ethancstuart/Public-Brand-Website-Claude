@@ -6,7 +6,7 @@ import { portfolioProjects } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Six AI products in production — geopolitical intelligence, lending OS, trading systems, and more.",
+    "AI products shipped across geopolitical intelligence, lending OS, trading systems, AI education, and more.",
 };
 
 export default function PortfolioPage() {
@@ -31,11 +31,18 @@ export default function PortfolioPage() {
             className="font-sans font-extrabold tracking-tight"
             style={{ fontSize: "36px", color: "var(--foreground)", lineHeight: 1.1 }}
           >
-            Six products.{" "}
+            AI products.{" "}
             <span className="font-serif italic font-normal" style={{ color: "var(--muted-foreground)" }}>
-              All live in 2025.
+              Built solo across domains.
             </span>
           </h1>
+          <p
+            className="font-sans mt-4"
+            style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--muted-foreground)", maxWidth: "560px" }}
+          >
+            Geopolitical intelligence, lending infrastructure, systematic trading, AI education, and CRE debt tooling —
+            each product built independently using AI-native workflows, each solving a real problem in a domain I went deep on.
+          </p>
         </div>
         <a
           href="https://github.com/ethancstuart"

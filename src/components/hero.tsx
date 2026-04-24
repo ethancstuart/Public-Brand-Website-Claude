@@ -6,7 +6,7 @@ import { portfolioProjects } from "@/lib/constants";
 import { Ticker } from "./ticker";
 
 const PILLARS = [
-  { num: "01", label: "Builder", detail: "Six AI products in production" },
+  { num: "01", label: "Builder", detail: "Shipping across multiple domains" },
   { num: "02", label: "Domain", detail: "Data & AI systems" },
   { num: "03", label: "Leadership", detail: "Product orgs at scale" },
 ];
@@ -14,7 +14,7 @@ const PILLARS = [
 const CREDENTIALS = [
   { label: "Currently", value: "Disney Studios Technology" },
   { label: "Previously", value: "Taco Bell · Capital Group" },
-  { label: "Newsletter", value: "The Data Product Agent" },
+  { label: "Newsletter", value: "Ethan Stuart on Substack" },
 ];
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -166,10 +166,10 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.5 }}
           >
-            I lead data and AI products at Fortune 50 scale — and ship them
-            independently as a solo founder. Six AI products in production. The
-            gap between managing data and building with it is closing fast. I
-            work on both sides.
+            Product lead at Disney Studios Technology. AI products shipped as a
+            solo founder across geopolitical intelligence, lending infrastructure,
+            systematic trading, and AI education. I work both sides of the gap
+            between managing data and actually building with it.
           </motion.p>
 
           {/* Pillars */}
@@ -228,7 +228,7 @@ export function Hero() {
                 color: "var(--accent)",
               }}
             >
-              The Data Product Agent →
+              Builder Journal →
             </a>
           </motion.div>
         </div>
