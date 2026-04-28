@@ -35,7 +35,7 @@ const CAREER = [
     years: "2025 – Present",
     company: "Disney · Studio Technology",
     role: "Senior Manager, Data & AI Products",
-    detail: "13+ reports · AI-native team operating model",
+    detail: "Director-scope · 45-person org · AI-native operating model",
     current: true,
   },
 ];

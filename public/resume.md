@@ -3,7 +3,7 @@ Ethan Charles Stuart
 
 PROFESSIONAL SUMMARY
 
-Three enterprise data products launched 0→1 in three industries — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal shipped to production). Now running a 13+ person data and AI product org at Disney Studios — Director-level scope across 5 studio groups, 500+ downstream users, and tens of millions in annual efficiency impact. Also ship real software through AI coding tools — four public product launches in April 2026 alone.
+Three enterprise data products launched 0→1 in three industries — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal shipped to production). Now operating at Director-level scope as right-hand to the Director (operating at VP scope) across a 45-person product organization at Disney Studios — 5 studio groups, 500+ downstream users, tens of millions in annual efficiency impact. Also ship real software through AI coding tools — four public product launches in April 2026 alone.
 
 CORE COMPETENCIES
 
@@ -17,8 +17,8 @@ Applied ML & Quantitative Systems: Walk-Forward Evaluation | Feature Engineering
 EXPERIENCE
 
 The Walt Disney Company | Studio Technology
-Senior Manager, Data & AI Products and BI Engineering	    June 2025 - PRESENT
-Built product organization from the ground up — 13+ direct reports across PMs, BI Engineers, technical writers, and program managers; established organizational strategy, operating model, and talent development; mandate expanded from the original Data & AI Products charter to include BI Engineering ownership and cross-org AI enablement leadership.
+Senior Manager, Data & AI Products and BI Engineering · Director-level scope	    June 2025 - PRESENT
+Built product organization from the ground up — operate at Director-level scope as right-hand to the Director (who operates at VP scope) across a 45-person product organization. Directly and matrix-manage 17 reports — 7 product managers, 4 analytics engineers, 2 technical writers, 1 program manager, 3 project managers; mandate expanded from the original Data & AI Products charter to include BI Engineering ownership and cross-org AI enablement leadership.
 Partner with CTO and President of Studio Technology on enterprise platform investment strategy — present monthly to executive leadership and deliver bi-annual studio demos; collective platform and AI delivery contributes to tens of millions in annual efficiency gains and cost savings across studio operations.
 Established an AI-native team operating model — AI coding tools as team standard, agent-augmented PM workflows, hiring and onboarding redesigned for AI fluency, and AI-built internal tooling including an internal PM portal covering intake, prioritization, delivery, and operations, now in daily use across the team.
 Expanded platform from 1 to 5 studio groups (15→120 stakeholders, 500+ downstream users) through systematic, stakeholder-by-stakeholder change management; established enterprise data governance, metadata management, security, and quality frameworks across the same footprint — enabling scalable, compliant AI adoption at enterprise scale.
