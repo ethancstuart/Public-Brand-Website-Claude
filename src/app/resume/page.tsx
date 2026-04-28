@@ -8,7 +8,7 @@ import { getResumeMarkdown, parseResumeMarkdown } from "@/lib/resume";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Ethan Stuart — Operational and strategy leader who builds clarity from ambiguity.",
+    "Ethan Stuart — Three enterprise data products launched 0→1 in three industries. Now leads a 45-person data and AI product engineering organization at Disney Studios with Director-level scope.",
 };
 
 export default async function ResumePage() {
@@ -24,9 +24,10 @@ export default async function ResumePage() {
               {resume.name}
             </h1>
             <p className="max-w-xl text-lg text-muted-foreground">
-              Operational and strategy leader who builds clarity from ambiguity. I
-              stand up teams, operating models, and platforms — then deliver value
-              through them.
+              Three enterprise data products launched 0→1 in three industries. Now
+              leads a 45-person data and AI product engineering organization at
+              Disney Studios with Director-level scope. Also ships real software
+              through AI coding tools — four product launches in April 2026.
             </p>
           </div>
           <div className="flex shrink-0 gap-3">
