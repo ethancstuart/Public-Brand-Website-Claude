@@ -1,9 +1,9 @@
 Ethan Charles Stuart
-(415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/ethan-stuart | github.com/ethancstuart | ethancstuart.com | nexuswatch.dev | zerotoship.app
+(415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/ethan-stuart | github.com/ethancstuart | ethancstuart.com | nexuswatch.dev
 
 PROFESSIONAL SUMMARY
 
-Three enterprise data products launched 0→1 in three industries — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal shipped to production). Now lead a 45-person data and AI product engineering organization at Disney Studios — 5 studio groups, 500+ downstream users, ~50% reduction in spec-to-shipped lead time (Jira cycle-time, 6-month rolling), tens of millions in annual efficiency impact. Also ship real software through AI coding tools — four public product launches in April 2026 alone.
+Three enterprise data products launched 0→1 in three industries — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal shipped to production). Now lead a 45-person data and AI product engineering organization at Disney Studios — 5 studio groups, 500+ downstream users, ~50% reduction in spec-to-shipped lead time (Jira cycle-time, 6-month rolling), tens of millions in annual efficiency impact. Also build personal projects through AI coding tools — NexusWatch (geopolitical intelligence, open source) live; Composer (agentic media) and Product OS (spec-as-code for PMs) in active development.
 
 CORE COMPETENCIES
 
@@ -18,26 +18,25 @@ EXPERIENCE
 
 The Walt Disney Company | Studio Technology
 Senior Manager, Data & AI Products and Analytics Engineering · Director-level scope	    June 2025 - PRESENT
-Lead a 45-person data and AI product engineering organization at Disney Studios — 17 direct and matrix reports across 5 disciplines (7 product managers, 4 analytics engineers, 2 technical writers, 1 program manager, 3 project managers); influence ~28 additional through governance forums. Built the org from the ground up; partner with the Director (who operates at VP scope) on cross-org strategy and executive engagement. Mandate expanded from the original Data & AI Products charter to include Analytics Engineering ownership and cross-org AI enablement leadership.
-Partner with CTO and President of Studio Technology on enterprise platform investment strategy — present monthly to executive leadership and deliver bi-annual studio demos; collective platform and AI delivery contributes to tens of millions in annual efficiency gains and cost savings across studio operations.
-Established an AI-native team operating model — AI coding tools as team standard (100% weekly active PM adoption, telemetry-tracked; growing on the engineering side), agent-augmented PM workflows, hiring and onboarding redesigned for AI fluency, and AI-built internal tooling including an internal PM portal in daily use across the team. Spec-to-shipped lead time down ~50% (Jira cycle-time, 6-month rolling) since rollout.
-Expanded platform from 1 to 5 studio groups (15→120 stakeholders, 500+ downstream users) through systematic, stakeholder-by-stakeholder change management; established enterprise data governance, metadata management, security, and quality frameworks across the same footprint — enabling scalable, compliant AI adoption at enterprise scale.
-Set AI strategy for Disney Studios' multi-agent system and owned the build-vs-buy decision — evaluated leading enterprise vector-search and RAG vendors against an in-house build on Snowflake Cortex + Neo4j; chose Cortex for governance and Snowflake-native data lineage. Shipped semantic search and talk-to-your-data for unstructured data into production; guided the team through orchestration, cypher, and RAG agent architecture; integrated TwelveLabs multi-modal AI.
-Delivered a production chatbot suite for studio workflows — multiple chatbots live with adoption scaling across studios; the lead use case saves 6.5 hours per person per week across its user base.
-Co-lead three enterprise AI task forces spanning product, program management, and data disciplines — shaping cross-functional AI adoption strategy; run panel discussions and partner with HR, leadership, and compensation teams on AI fluency and role evolution.
-Delivered a portfolio of production ML forecasting and decision-support models for studio finance and operations (including cash flow forecasting and quarterly budget planning); contributor to the studios' cross-company finance transformation initiative.
+Lead a 45-person data and AI product engineering organization — 17 direct and matrix reports across 5 disciplines (PMs, analytics engineers, technical writers, program and project managers); influence ~28 additional through governance forums. Partner with the Director (operating at VP scope) on cross-org strategy and executive engagement; mandate expanded to include Analytics Engineering ownership and cross-org AI enablement.
+Partner with CTO and President of Studio Technology on enterprise platform investment — monthly executive presentations and bi-annual studio demos; collective platform and AI delivery contributes tens of millions in annual efficiency gains.
+Established an AI-native team operating model — AI coding tools as standard (100% weekly active PM adoption, telemetry-tracked), agent-augmented PM workflows, AI-fluency hiring, and AI-built internal tooling including an in-daily-use PM portal. Spec-to-shipped lead time down ~50% (Jira cycle-time, 6-month rolling).
+Expanded platform from 1 to 5 studio groups (15→120 stakeholders, 500+ downstream users) through stakeholder-led change management; established enterprise data governance, metadata, security, and quality frameworks across the same footprint.
+Owned the AI strategy and build-vs-buy decision for Disney Studios' multi-agent system — chose Snowflake Cortex + Neo4j over leading enterprise vector-search and RAG vendors for governance and Snowflake-native lineage.
+Shipped semantic search and talk-to-your-data into production; guided the team through orchestration, cypher, and RAG agent architecture; integrated TwelveLabs multi-modal AI.
+Delivered a production chatbot suite for studio workflows — multiple chatbots live; lead use case saves 6.5 hours per person per week.
+Delivered a portfolio of production ML forecasting and decision-support models for studio finance (cash flow, quarterly budget); contributor to the studios' cross-company finance transformation.
 
 Yum Brands | Taco Bell
 Portfolio Manager, Product, Data & Analytics Platform	    January 2025 - June 2025
 Reduced platform incidents 85% (12→1-2 P1/P2 monthly) and increased satisfaction 50% in 60 days — transformed service team into product organization through prioritization frameworks, transparent stakeholder communication, and org-wide BI best practices that rebuilt the data team's brand with senior leadership.
-Led 30+ matrixed team driving enterprise platform strategy — shipped reporting structure, governance frameworks, and Microsoft Fabric + Gen AI capabilities while partnering on AI drive-thru, digital menu boards, and Cantina launches.
-Delivered ML models for labor prediction and CRM alongside data platform support for digital marketing and e-commerce — established foundation enabling downstream AI capabilities across Yum brands.
+Led a 25+ person matrix team driving enterprise platform strategy — shipped reporting structure, governance frameworks, and Microsoft Fabric + Gen AI capabilities while partnering on AI drive-thru, digital menu boards, and Cantina launches.
+Delivered ML models for labor prediction and CRM alongside data platform support for digital marketing and e-commerce.
 Expanded from CDP to full platform portfolio after demonstrating rapid impact — led product vision and roadmap for all enterprise data products serving 7,000+ operators and executives.
 Staff Product Manager, Enterprise Customer Data Platform	    June 2023 - January 2025
 Drove CDP adoption across all Yum brands (Taco Bell, KFC, Pizza Hut) — led implementation and GTM enabling 80% YoY loyalty growth through personalized insights and data-driven marketing.
 Shipped ML models and pipelines for retention, lapse prediction, and CRM insights — delivered intelligence to 7,000+ operators through in-store reporting, regional dashboards, and franchisee tracking.
-Transformed data team from order-takers to strategic product organization — led 14+ across product/engineering/analytics, increased satisfaction 40%, and positioned data as enterprise initiative enabler.
-Partnered on enterprise launches — aligned platform with AI drive-thru, digital menu boards, Cantina openings, and menu innovations, establishing data foundation for strategic innovation.
+Transformed data team from order-takers to strategic product organization — led a 14-person team spanning product, engineering, and analytics; increased satisfaction 40%.
 
 Capital Group
 Product Manager, Data Platforms & Strategic Automation	    August 2022 - June 2023
@@ -52,21 +51,21 @@ Integrated Power BI with custom CRM — delivered self-service analytics and pip
 
 Previously held investment analysis and BI leadership roles at Pacific Urban Investors (2018–2021) and Civic Financial Services (2016–2018), building the financial analysis and data foundations that inform a career in enterprise data products.
 
-PRODUCTS BUILT
+PERSONAL PROJECTS
 
-Side projects, architected and shipped through AI coding tools. Four public product launches in April 2026:
+Architected and shipped through AI coding tools.
 
-NexusWatch (nexuswatch.dev) — Real-time geopolitical intelligence platform. 45+ live data layers across 86 countries covering conflict, disasters, infrastructure, intelligence, and environment; AI analyst synthesizing threat patterns; Bloomberg-terminal aesthetic; 4 subscription tiers with live Stripe; MCP server for AI agent access. Vite + TypeScript + MapLibre GL + Supabase + Claude API. Launched April 2026.
+NexusWatch (nexuswatch.dev) — Real-time geopolitical intelligence platform. 45+ live data layers across 86 countries (conflict, disasters, infrastructure, intelligence, environment); AI analyst synthesizing threat patterns; MCP server for AI agent access. Open source, paired with a geopolitical-risk newsletter. Vite + TypeScript + MapLibre GL + Supabase + Claude API. Live as of April 2026.
 
-Meridian Intelligence (meridian.finance) — Non-QM lending intelligence platform. 15+ verified lender integrations with smart deal-to-lender matching and scenario analysis; 20+ intelligence modules. Next.js 16 + Supabase + Claude API + Stripe. Launched April 2026.
+Composer (in development) — Agentic media platform. Multi-channel content distribution (newsletter, social, decks) driven by a small set of editorial agents.
 
-Quant Engine — Autonomous systematic trading platform with Markov regime detection and SEC EDGAR insider signal detection. Multi-asset trend following, 6-multiplier position sizing chain, risk management and circuit breakers; 238 tests, 170+ modules; backtested 29.6% annualized return, 1.14 Sharpe. Paper trading live on Alpaca; no real capital deployed. Python + PyTorch + LightGBM + CCXT. Paper launch April 2026.
+Product OS (in development) — Spec-as-code for product managers. OSS CLI + planned commercial dashboard for PR-based spec workflows. TypeScript, Turborepo monorepo.
 
-Zero to Ship (zerotoship.app) — Gamified AI-native learning platform teaching non-engineers to build with AI coding tools. 16 hands-on modules, role-specific tracks, XP/badges/streaks/leaderboard engine, premium gating, certificate generation, public profiles. Companion Claude Code skills and AI agent templates open-sourced at github.com/ethancstuart. Next.js 16 + Supabase + Stripe. Pre-launch. Launch April 2026.
+Personal AI/ML work — Maintain a paper-traded systematic trading research platform with walk-forward evaluation and SEC EDGAR insider-signal modeling, alongside supporting tooling. No real capital deployed.
 
 WRITING & THOUGHT LEADERSHIP
 
-The Data Product Agent (thedataproductagent.substack.com) — Substack on data products, AI-native team operating models, multi-agent systems, and building enterprise software through AI coding tools. Writing for product leaders who want to build, not just manage. New cadence launching Q2 2026.
+The Data Product Agent (thedataproductagent.substack.com) — Substack on data products, AI-native team operating models, multi-agent systems, and building enterprise software through AI coding tools.
 
 EDUCATION
 
