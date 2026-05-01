@@ -10,9 +10,8 @@ CORE COMPETENCIES
 AI-Native Team Operating Model: AI Coding Tool Deployment | Agent-Augmented Product Workflows | AI-Built Internal Tooling | AI-Fluency Hiring & Onboarding | Cross-Functional AI Task Force & Enablement Program Leadership
 Operational & Strategy Leadership: Organizational Design & Team Building | Operating Model Development | Strategic Planning & Roadmap Execution | Change Management & Platform Adoption | Executive Stakeholder Management | Matrixed Organization Management
 Enterprise Data Platform: Enterprise Data Platform Modernization | Customer Data Platforms (CDP) | Data Governance & Lineage | Event Instrumentation & Data Contracts | A/B Testing & Experimentation | Feature Stores | Predictive Analytics | Self-Service Analytics
-AI Capabilities: Large Language Models (LLMs) | Multi-Agent Systems (MAS) | Multi-Modal AI | Semantic Search & RAG | Vector Databases & Embeddings | LLM Evaluation (Evals) | LLMOps | Fine-Tuning | Prompt Engineering | Agentic Orchestration | AI/ML Productization
+AI Capabilities: Large Language Models (LLMs) | Multi-Agent Systems (MAS) | Semantic Search & RAG | Vector Databases & Embeddings | LLM Evaluation (Evals) | LLMOps | Fine-Tuning | Agentic Orchestration
 AI-First Product Development: AI Coding Orchestration | Spec → Shipped Code | Rapid Prototyping via AI Agents | TypeScript | Next.js | Python | Supabase | Vercel | Claude API & Anthropic SDK
-Applied ML & Quantitative Systems: Walk-Forward Evaluation | Feature Engineering (SHAP) | Ensemble Methods | Time-Series Prediction | Markov Regime Detection | Automated Data Pipelines
 
 EXPERIENCE
 
@@ -41,7 +40,7 @@ Transformed data team from order-takers to strategic product organization — le
 Capital Group
 Product Manager, Data Platforms & Strategic Automation	    August 2022 - June 2023
 Launched Phoenix Fire data platform (0→1) achieving 100% enterprise adoption — transformed sales and marketing operations for all Capital Group ETFs and Mutual Funds through consolidated tools, automated workflows, and modern UI/UX with defined data governance.
-Supported 3 ETF launches while managing unified product roadmap across Marketing, Sales, and Compliance — balanced competing priorities and delivered high-value features with consistent metrics tracking in regulated environment.
+Supported 3 ETF launches while managing unified product roadmap across Marketing, Sales, and Compliance.
 Established data governance framework enabling proactive quality monitoring and stakeholder notifications — built foundation for reliable, compliant data products in highly regulated financial services context.
 
 Sprout Mortgage
