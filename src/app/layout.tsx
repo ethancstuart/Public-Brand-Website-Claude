@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { BottomMarquee } from "@/components/bottom-marquee";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
@@ -78,6 +79,7 @@ export default function RootLayout({
           <Nav />
           <main className="min-h-screen pt-16">{children}</main>
           <Footer />
+          <BottomMarquee />
           <Analytics />
           <SpeedInsights />
         </SmoothScrollProvider>
