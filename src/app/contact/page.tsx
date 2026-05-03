@@ -1,89 +1,45 @@
-import type { Metadata } from "next";
 import { Section } from "@/components/section";
-import { siteConfig } from "@/lib/constants";
-import { Linkedin, Github, Mail, Newspaper, Twitter } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Ethan Stuart.",
-};
-
-const links = [
-  {
-    label: "Email",
-    href: `mailto:${siteConfig.links.email}`,
-    description: "ethan.c.stuart@gmail.com",
-    icon: Mail,
-    external: false,
-  },
-  {
-    label: "LinkedIn",
-    href: siteConfig.links.linkedin,
-    description: "linkedin.com/in/ethan-stuart",
-    icon: Linkedin,
-    external: true,
-  },
-  {
-    label: "Substack",
-    href: siteConfig.links.substack,
-    description: "The Data Product Agent",
-    icon: Newspaper,
-    external: true,
-  },
-  {
-    label: "GitHub",
-    href: siteConfig.links.github,
-    description: "github.com/ethancstuart",
-    icon: Github,
-    external: true,
-  },
-  {
-    label: "X / Twitter",
-    href: siteConfig.links.twitter,
-    description: "x.com/ethancstuart",
-    icon: Twitter,
-    external: true,
-  },
+const CHANNELS = [
+  { label: "Email",     href: "mailto:ethan.c.stuart@gmail.com", value: "ethan.c.stuart@gmail.com" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/ethancstuart", value: "/in/ethancstuart" },
+  { label: "Substack",  href: "https://thedataproductagent.substack.com", value: "thedataproductagent" },
+  { label: "GitHub",    href: "https://github.com/ethancstuart", value: "ethancstuart" },
 ];
+
+export const metadata = {
+  title: "Contact — Ethan Stuart",
+};
 
 export default function ContactPage() {
   return (
-    <>
-      <Section className="pt-24 pb-16">
-        <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-          Contact
-        </p>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          Let&apos;s connect.
-        </h1>
-        <p className="max-w-xl text-lg text-muted-foreground">
-          Whether it&apos;s a role, a collaboration, or a conversation about
-          what&apos;s next in data and AI — I&apos;d like to hear from you.
-        </p>
-      </Section>
-
-      <Section className="pb-24">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {links.map((link) => {
-            const Icon = link.icon;
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
-              >
-                <Icon className="mb-4 h-5 w-5 text-muted-foreground transition-colors group-hover:text-accent" />
-                <h3 className="mb-1 text-sm font-semibold">{link.label}</h3>
-                <p className="font-mono text-xs text-muted-foreground">
-                  {link.description}
-                </p>
-              </a>
-            );
-          })}
-        </div>
-      </Section>
-    </>
+    <Section
+      label="CONTACT"
+      title="Open to conversation."
+      description="Currently open to VP+ data & AI product leadership conversations. Also reachable for builder collaboration, advisory, and friend-of-friend introductions."
+    >
+      <ul className="border-t border-[var(--color-rule)] max-w-[720px]">
+        {CHANNELS.map((c) => (
+          <li key={c.label} className="border-b border-[var(--color-rule)] group">
+            <a
+              href={c.href}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="grid grid-cols-[120px_1fr_24px] items-center gap-6 py-6 transition-[padding] duration-200 group-hover:pl-4"
+            >
+              <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-low)]">
+                {c.label}
+              </div>
+              <div className="font-[family-name:var(--font-syne)] text-[18px] text-[var(--color-paper-mid)] group-hover:text-[var(--color-arctic)] transition-colors">
+                {c.value}
+              </div>
+              <div className="text-[var(--color-paper-low)] group-hover:text-[var(--color-arctic)] text-right">
+                ↗
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }
