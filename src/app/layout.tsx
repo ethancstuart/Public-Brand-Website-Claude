@@ -40,25 +40,19 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
+    default: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
+    template: "%s · Ethan Stuart",
   },
-  description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
+  description:
+    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Six AI products across intelligence, lending, trading, and learning — all live.",
+  metadataBase: new URL("https://ethancstuart.com"),
   openGraph: {
+    title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
+    description:
+      "Six AI products live in 2026. Senior Manager at Disney Studios. Founder at Stuart Ventures.",
+    url: "https://ethancstuart.com",
+    siteName: "Ethan Stuart",
     type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
   },
   robots: { index: true, follow: true },
 };
