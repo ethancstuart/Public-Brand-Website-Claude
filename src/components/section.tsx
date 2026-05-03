@@ -1,25 +1,37 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface SectionProps {
-  children: React.ReactNode;
+  label?: string;
+  title?: string;
+  description?: string;
+  children: ReactNode;
   className?: string;
-  id?: string;
 }
 
-export function Section({ children, className = "", id }: SectionProps) {
+export function Section({ label, title, description, children, className = "" }: SectionProps) {
   return (
-    <motion.section
-      id={id}
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`mx-auto w-full ${className}`}
-      style={{ maxWidth: "1280px", paddingLeft: "56px", paddingRight: "56px" }}
-    >
+    <section className={`max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32 ${className}`}>
+      {(label || title || description) && (
+        <header className="mb-12">
+          {label && (
+            <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-dim)] mb-3 flex items-center gap-3">
+              <span className="inline-block w-6 h-px bg-[var(--color-paper-low)]" />
+              {label}
+            </div>
+          )}
+          {title && (
+            <h2 className="font-[family-name:var(--font-syne)] font-extrabold text-[clamp(32px,4.5vw,56px)] tracking-[-0.025em] leading-[1.05]">
+              {title}
+            </h2>
+          )}
+          {description && (
+            <p className="text-[15px] text-[var(--color-paper-mid)] max-w-[720px] leading-relaxed mt-4">
+              {description}
+            </p>
+          )}
+        </header>
+      )}
       {children}
-    </motion.section>
+    </section>
   );
 }
