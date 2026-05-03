@@ -1,177 +1,28 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Section } from "@/components/section";
-import { JsonLd } from "@/components/json-ld";
-import { portfolioProjects } from "@/lib/constants";
-import { getSoftwareApplicationJsonLd } from "@/lib/jsonld";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ALL_PROJECTS } from "@/lib/constants";
+import { notFound } from "next/navigation";
 
-interface Props {
-  params: Promise<{ slug: string }>;
+interface Params {
+  slug: string;
 }
 
-export async function generateStaticParams() {
-  return portfolioProjects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams(): Promise<Params[]> {
+  return ALL_PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const project = portfolioProjects.find((p) => p.slug === slug);
-  if (!project) return {};
-  return {
-    title: project.title,
-    description: project.description,
-  };
-}
-
-export default async function CaseStudyPage({ params }: Props) {
-  const { slug } = await params;
-  const project = portfolioProjects.find((p) => p.slug === slug);
-  if (!project || !project.caseStudy) notFound();
+  const project = ALL_PROJECTS.find((p) => p.slug === slug);
+  if (!project) notFound();
 
   return (
-    <>
-      <JsonLd data={getSoftwareApplicationJsonLd(project)} />
-      {/* Back link */}
-      <Section className="pt-24 pb-4">
-        <Link
-          href="/portfolio"
-          className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="h-3 w-3" />
-          Back to Portfolio
-        </Link>
-      </Section>
-
-      {/* Header */}
-      <Section className="pb-8">
-        <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-          Case Study
-        </p>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          {project.title}
-        </h1>
-        <p className="max-w-2xl text-lg text-muted-foreground">
-          {project.description}
-        </p>
-      </Section>
-
-      {/* Tech Stack */}
-      {project.stack && (
-        <Section className="pb-12">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">
-            Tech Stack
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full bg-muted px-4 py-1.5 font-mono text-xs text-muted-foreground"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </Section>
-      )}
-
-      {/* Case Study Sections */}
-      <Section className="pb-12">
-        <div className="space-y-10">
-          <div>
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">
-              Problem
-            </h2>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              {project.caseStudy.problem}
-            </p>
-          </div>
-          <div>
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">
-              Approach
-            </h2>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              {project.caseStudy.approach}
-            </p>
-          </div>
-          <div>
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">
-              Outcome
-            </h2>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              {project.caseStudy.outcome}
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Key Highlights */}
-      {project.highlights && (
-        <Section className="pb-12">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">
-            Key Highlights
-          </h2>
-          <ul className="space-y-2">
-            {project.highlights.map((highlight) => (
-              <li
-                key={highlight}
-                className="flex items-start gap-2 text-sm text-muted-foreground"
-              >
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                {highlight}
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      {/* Live Preview */}
-      {project.iframeSrc && (
-        <Section className="pb-12">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">
-            Live Preview
-          </h2>
-          <div className="aspect-video w-full overflow-hidden rounded-xl border border-border">
-            <iframe
-              src={project.iframeSrc}
-              title={`${project.title} preview`}
-              className="h-full w-full"
-              loading="lazy"
-            />
-          </div>
-        </Section>
-      )}
-
-      {/* CTA Buttons */}
-      {(project.liveUrl || project.sourceUrl) && (
-        <Section className="pb-24">
-          <div className="flex flex-wrap gap-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90"
-              >
-                View Live
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            )}
-            {project.sourceUrl && (
-              <a
-                href={project.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
-              >
-                View Source
-                <Github className="h-3.5 w-3.5" />
-              </a>
-            )}
-          </div>
-        </Section>
-      )}
-    </>
+    <Section label={`PROJECT · ${project.name.toUpperCase()}`} title={project.name}>
+      <p className="text-[15px] text-[var(--color-paper-mid)] max-w-[640px] leading-relaxed">
+        {project.description}
+      </p>
+      <p className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-low)] mt-12">
+        Full case study coming in Phase 2 — magazine spread + signature motion.
+      </p>
+    </Section>
   );
 }
