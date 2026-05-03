@@ -1,89 +1,39 @@
 import Link from "next/link";
-import { siteConfig, navLinks } from "@/lib/constants";
+
+const SOCIALS = [
+  { href: "https://www.linkedin.com/in/ethancstuart", label: "LinkedIn" },
+  { href: "https://thedataproductagent.substack.com",  label: "Substack" },
+  { href: "https://github.com/ethancstuart",           label: "GitHub"   },
+];
 
 export function Footer() {
   return (
-    <footer
-      style={{
-        borderTop: "1px solid var(--border)",
-        background: "var(--surface)",
-      }}
-    >
-      <div
-        className="mx-auto"
-        style={{ maxWidth: "1280px", padding: "40px 56px" }}
-      >
-        {/* Row 1: logo + nav + social */}
-        <div className="flex items-center justify-between" style={{ marginBottom: "20px" }}>
-          <Link
-            href="/"
-            className="font-serif italic transition-opacity hover:opacity-70"
-            style={{ fontSize: "18px", color: "var(--foreground)" }}
-          >
-            Ethan Stuart
-          </Link>
+    <footer className="border-t border-[var(--color-rule)] mt-32">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10 flex items-center justify-between gap-6 flex-wrap">
+        <Link
+          href="/"
+          className="font-[family-name:var(--font-syne)] font-extrabold text-[11px] tracking-[0.22em] text-[var(--color-paper-low)] hover:text-[var(--color-paper)] transition-colors"
+        >
+          ES
+        </Link>
 
-          <div className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-mono uppercase transition-opacity hover:opacity-70"
-                style={{ fontSize: "9px", letterSpacing: "0.16em", color: "var(--muted-foreground)" }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-6">
-            {[
-              { href: siteConfig.links.github, label: "GitHub" },
-              { href: siteConfig.links.twitter, label: "X" },
-              { href: siteConfig.links.linkedin, label: "LinkedIn" },
-            ].map((social) => (
+        <ul className="flex gap-6">
+          {SOCIALS.map((s) => (
+            <li key={s.href}>
               <a
-                key={social.label}
-                href={social.href}
+                href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono uppercase transition-opacity hover:opacity-70"
-                style={{ fontSize: "9px", letterSpacing: "0.16em", color: "var(--muted-foreground)" }}
+                className="font-[family-name:var(--font-dm-mono)] text-[9px] tracking-[0.18em] uppercase text-[var(--color-paper-low)] hover:text-[var(--color-paper)] transition-colors"
               >
-                {social.label}
+                {s.label}
               </a>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
 
-        {/* Divider */}
-        <div style={{ height: "1px", background: "var(--border)", marginBottom: "20px" }} />
-
-        {/* Row 2: copyright */}
-        <div className="flex items-center justify-between">
-          <p
-            className="font-mono"
-            style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--muted-foreground)" }}
-          >
-            &copy; {new Date().getFullYear()} Ethan Stuart
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href={siteConfig.links.substack}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono uppercase transition-opacity hover:opacity-70"
-              style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--accent)" }}
-            >
-              The Data Product Agent →
-            </a>
-            <p
-              className="font-mono"
-              style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--muted-foreground)" }}
-            >
-              Built with Next.js
-            </p>
-          </div>
+        <div className="font-[family-name:var(--font-dm-mono)] text-[9px] tracking-[0.12em] uppercase text-[rgba(216,212,204,0.08)]">
+          © 2026 Ethan Stuart · Built with Next.js
         </div>
       </div>
     </footer>
