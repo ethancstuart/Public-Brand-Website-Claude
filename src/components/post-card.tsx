@@ -1,62 +1,33 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import type { SubstackPost } from "@/lib/substack";
 
-interface PostCardProps {
-  post: SubstackPost;
-  index: number;
+export interface PostCardProps {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt?: string;
 }
 
-export function PostCard({ post, index }: PostCardProps) {
-  const date = post.pubDate
-    ? new Date(post.pubDate).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })
-    : "";
-
+export function PostCard({ slug, title, date, excerpt }: PostCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-    >
+    <li className="border-b border-[var(--color-rule)] group">
       <Link
-        href={`/writing/${post.slug}`}
-        className="group block rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 sm:p-8"
+        href={`/writing/${slug}`}
+        className="block py-6 transition-[padding] duration-200 group-hover:pl-4"
       >
-        <div className="mb-3 flex items-center justify-between">
-          <time className="font-mono text-xs text-muted-foreground">
+        <div className="flex items-baseline justify-between gap-6">
+          <h3 className="font-[family-name:var(--font-syne)] font-bold text-[18px] md:text-[22px] tracking-[-0.01em] text-[var(--color-paper-mid)] group-hover:text-[var(--color-paper)] transition-colors leading-snug">
+            {title}
+          </h3>
+          <time className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.16em] uppercase text-[var(--color-paper-low)] flex-shrink-0">
             {date}
           </time>
-          <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100" />
         </div>
-
-        <h3 className="mb-3 text-lg font-semibold leading-snug tracking-tight group-hover:text-accent transition-colors">
-          {post.title}
-        </h3>
-
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {post.contentSnippet}
-        </p>
-
-        <span className="mt-4 inline-block font-mono text-xs text-accent">
-          Read article →
-        </span>
+        {excerpt && (
+          <p className="text-[14px] text-[var(--color-paper-mid)] leading-relaxed mt-3 max-w-[760px]">
+            {excerpt}
+          </p>
+        )}
       </Link>
-      <a
-        href={post.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-2 inline-block font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
-      >
-        Also on Substack ↗
-      </a>
-    </motion.div>
+    </li>
   );
 }
