@@ -2,90 +2,89 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --font-sans: var(--font-syne);
-  --font-serif: var(--font-instrument-serif);
-  --font-mono: var(--font-jetbrains-mono);
+  --color-bg:        #060608;
+  --color-surface:   #0c0c10;
+  --color-paper:     #d8d4cc;
+  --color-paper-mid: rgba(216, 212, 204, 0.55);
+  --color-paper-dim: rgba(216, 212, 204, 0.28);
+  --color-paper-low: rgba(216, 212, 204, 0.14);
+  --color-rule:      rgba(216, 212, 204, 0.07);
+
+  /* Brand accents */
+  --color-arctic:  #8ecfe8;
+  --color-indigo:  #8b72d8;
+
+  /* Per-project colors */
+  --color-nx:   #8ecfe8;
+  --color-cm:   #8b72d8;
+  --color-po:   #d4a76a;
+  --color-zts:  #78c4a0;
+  --color-ml:   #b85aa0;
+  --color-re:   #c8a84a;
+
+  /* Signal accent — reserved for high-stakes CTA */
+  --color-signal: #ff5320;
+
+  /* Typography */
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-display-alt: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-italic: var(--font-instrument), ui-serif, serif;
+  --font-mono:   var(--font-dm-mono), ui-monospace, monospace;
+  --font-body:   ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 :root {
-  --background:        #f2ede3;
-  --surface:           #ede8de;
-  --deep:              #e4dfd4;
-  --foreground:        #131110;
-  --text-mid:          rgba(19,17,16,0.5);
-  --text-low:          rgba(19,17,16,0.28);
-  --muted:             #ede8de;
-  --muted-foreground:  #9a9288;
-  --mid:               #706860;
-  --border:            rgba(19,17,16,0.07);
-  --border-lo:         rgba(19,17,16,0.05);
-  --accent:            #5a8000;
-  --accent-foreground: #ffffff;
-  --accent-soft:       rgba(90,128,0,0.07);
-  --accent-mid:        rgba(90,128,0,0.15);
-  --card:              #ede8de;
-  --card-foreground:   #131110;
-  --status-live:       #5a8000;
-  --status-building:   #d4900c;
+  color-scheme: dark;
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-paper);
+  font-family: var(--font-body);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-syne), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
+/* Phantom-style gradient ribbons (utility classes consumed by Hero/case-study heroes) */
+.ribbon-1 {
+  background: linear-gradient(90deg, var(--color-arctic), var(--color-indigo));
+}
+.ribbon-2 {
+  background: linear-gradient(90deg, var(--color-indigo), #d97a3c);
+}
+.ribbon-3 {
+  background: linear-gradient(110deg, var(--color-arctic) 0%, var(--color-indigo) 50%, #d97a3c 100%);
 }
 
-@keyframes clipup {
-  from { transform: translateY(108%); }
-  to   { transform: translateY(0); }
+/* Ghost letterform utility — used by kinetic hero */
+.ghost {
+  -webkit-text-stroke: 1.5px var(--color-paper-mid);
+  color: transparent;
+}
+.ghost-arctic {
+  -webkit-text-stroke: 1.5px var(--color-arctic);
+  color: transparent;
+}
+.ghost-indigo {
+  -webkit-text-stroke: 1.5px var(--color-indigo);
+  color: transparent;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.prose {
-  --tw-prose-body: var(--muted-foreground);
-  --tw-prose-headings: var(--foreground);
-  --tw-prose-links: var(--accent);
-  --tw-prose-bold: var(--foreground);
-  --tw-prose-quotes: var(--muted-foreground);
-  --tw-prose-quote-borders: var(--border);
-  --tw-prose-code: var(--foreground);
-  --tw-prose-pre-bg: var(--muted);
-  --tw-prose-pre-code: var(--foreground);
-  --tw-prose-hr: var(--border);
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media print {
