@@ -1,3 +1,5 @@
+"use client";
+
 const ITEMS = [
   { text: "NexusWatch — Geopolitical Intelligence", color: "var(--color-arctic)" },
   { text: "·" },
