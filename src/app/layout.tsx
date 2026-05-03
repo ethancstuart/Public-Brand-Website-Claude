@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Syne, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Syne, Bricolage_Grotesque, DM_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/nav";
@@ -7,25 +7,32 @@ import { Footer } from "@/components/footer";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
 const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
+  variable: "--font-dm-mono",
   display: "swap",
 });
 
@@ -60,10 +67,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${instrumentSerif.variable} ${syne.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${syne.variable} ${bricolage.variable} ${instrumentSerif.variable} ${dmMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased">
         <Nav />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
