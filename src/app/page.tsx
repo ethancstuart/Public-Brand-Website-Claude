@@ -1,100 +1,61 @@
 import { Hero } from "@/components/hero";
-import { PostCard } from "@/components/post-card";
-import { SubscribeCTA } from "@/components/subscribe-cta";
-import { JsonLd } from "@/components/json-ld";
-import { getSubstackPosts } from "@/lib/substack";
-import { getWebSiteJsonLd } from "@/lib/jsonld";
+import { LiveIndicators } from "@/components/live-indicators";
+import { FeaturedRows } from "@/components/featured-row";
+import { LabStrip } from "@/components/lab-strip";
+import { Section } from "@/components/section";
+import { FEATURED, MODELING_LAB, RE_STACK } from "@/lib/constants";
 import Link from "next/link";
 
-export const revalidate = 3600;
-
-export default async function HomePage() {
-  const posts = await getSubstackPosts(3);
-
+export default function Home() {
   return (
     <>
-      <JsonLd data={getWebSiteJsonLd()} />
       <Hero />
 
-      {/* About preview */}
-      <section
-        className="mx-auto w-full"
-        style={{
-          maxWidth: "1280px",
-          padding: "100px 56px 120px",
-          borderTop: "1px solid var(--border)",
-        }}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 -mt-8 md:-mt-12 relative z-10">
+        <LiveIndicators />
+      </div>
+
+      <Section
+        label="FEATURED WORK"
+        title="What I build."
+        description="Four products at the core of the practice — each with its own case study, art direction, and signature motion. Click through for the full spread."
       >
-        <div className="flex items-center gap-3 mb-10">
-          <span style={{ width: "24px", height: "1px", background: "var(--accent)", opacity: 0.5 }} />
-          <span
-            className="font-mono uppercase"
-            style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
+        <FeaturedRows projects={FEATURED} />
+      </Section>
+
+      <LabStrip
+        label="LAB · QUANT + ML PRACTICE"
+        title="Modeling Lab."
+        description="A working practice in models that pay rent. Production-grade systems, each shipped to live capital or live odds. Treat these as proof of method, not the headline product."
+        accent="var(--color-ml)"
+        vignettes={MODELING_LAB}
+      />
+
+      <LabStrip
+        label="VENTURES · REAL ESTATE STACK"
+        title="RE Stack."
+        description="Real-estate-domain ventures — lending intelligence at the operator layer, and a CRE data infrastructure layer feeding both. Currently in product-frozen due-diligence mode."
+        accent="var(--color-re)"
+        vignettes={RE_STACK}
+      />
+
+      <Section
+        label="FIELD NOTES"
+        title="Writing."
+      >
+        <div className="flex justify-between items-baseline">
+          <p className="text-[var(--color-paper-mid)] text-[15px] max-w-[640px] leading-relaxed">
+            The Data Product Agent — long-form work on AI-native product
+            building. Currently transitioning to The Composer.
+          </p>
+          <Link
+            href="/writing"
+            className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)] hover:text-[var(--color-paper)] transition-colors border-b border-[var(--color-rule)] pb-0.5"
           >
-            About
-          </span>
+            All posts →
+          </Link>
         </div>
-        <p
-          className="font-serif italic"
-          style={{
-            fontSize: "clamp(22px, 3vw, 36px)",
-            lineHeight: 1.3,
-            maxWidth: "680px",
-            color: "var(--foreground)",
-            marginBottom: "28px",
-          }}
-        >
-          AI products built solo across intelligence, lending, trading, and learning —
-          while leading data and AI at Fortune 50 scale. The portfolio is the proof.
-          The journal documents how it&apos;s done.
-        </p>
-        <Link
-          href="/about"
-          className="font-mono uppercase transition-opacity hover:opacity-70"
-          style={{ fontSize: "10px", letterSpacing: "0.14em", color: "var(--accent)" }}
-        >
-          Read more →
-        </Link>
-      </section>
-
-      {/* Writing preview */}
-      {posts.length > 0 && (
-        <section
-          className="mx-auto w-full"
-          style={{
-            maxWidth: "1280px",
-            padding: "100px 56px 120px",
-            borderTop: "1px solid var(--border)",
-          }}
-        >
-          <div className="flex items-center justify-between mb-10">
-            <div className="flex items-center gap-3">
-              <span style={{ width: "24px", height: "1px", background: "var(--accent)", opacity: 0.5 }} />
-              <span
-                className="font-mono uppercase"
-                style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
-              >
-                Latest Writing
-              </span>
-            </div>
-            <Link
-              href="/writing"
-              className="font-mono uppercase transition-opacity hover:opacity-70"
-              style={{ fontSize: "10px", letterSpacing: "0.14em", color: "var(--accent)" }}
-            >
-              View all →
-            </Link>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, i) => (
-              <PostCard key={post.link} post={post} index={i} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      <SubscribeCTA />
+      </Section>
     </>
   );
 }

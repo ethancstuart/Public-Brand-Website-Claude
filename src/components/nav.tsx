@@ -1,106 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { navLinks } from "@/lib/constants";
+import { useEffect, useState } from "react";
+
+const LINKS = [
+  { href: "/portfolio", label: "Work" },
+  { href: "/writing",   label: "Writing" },
+  { href: "/about",     label: "About" },
+];
 
 export function Nav() {
-  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header
-      className="fixed top-0 z-50 w-full"
-      style={{
-        height: "64px",
-        background: "rgba(242,237,227,0.92)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid var(--border-lo)",
-      }}
+    <nav
+      className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 transition-colors ${
+        scrolled
+          ? "bg-[rgba(6,6,8,0.92)] backdrop-blur-md border-b border-[var(--color-rule)]"
+          : "bg-transparent"
+      }`}
     >
-      <nav
-        className="mx-auto flex h-full items-center justify-between"
-        style={{ maxWidth: "1280px", padding: "0 56px" }}
+      <Link
+        href="/"
+        className="font-[family-name:var(--font-syne)] font-extrabold text-[11px] tracking-[0.22em] text-[var(--color-paper-mid)] hover:text-[var(--color-paper)] transition-colors"
       >
-        <Link
-          href="/"
-          className="font-serif italic transition-opacity hover:opacity-70"
-          style={{ fontSize: "19px", color: "var(--foreground)" }}
-        >
-          Ethan Stuart
-        </Link>
+        ETHAN STUART
+      </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
+      <ul className="hidden md:flex items-center gap-8">
+        {LINKS.map((l) => (
+          <li key={l.href}>
             <Link
-              key={link.href}
-              href={link.href}
-              className="font-mono transition-colors"
-              style={{
-                fontSize: "10px",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: pathname === link.href ? "var(--foreground)" : "var(--muted-foreground)",
-              }}
+              href={l.href}
+              className="font-[family-name:var(--font-dm-mono)] text-[9px] tracking-[0.2em] uppercase text-[var(--color-paper-low)] hover:text-[var(--color-paper)] transition-colors"
             >
-              {link.label}
+              {l.label}
             </Link>
-          ))}
-        </div>
+          </li>
+        ))}
+      </ul>
 
-        <Link
-          href="/contact"
-          className="hidden items-center gap-2 md:flex transition-opacity hover:opacity-70"
-        >
-          <span className="relative flex h-2 w-2">
-            <span
-              className="absolute inline-flex h-full w-full rounded-full"
-              style={{
-                background: "var(--accent)",
-                opacity: 0.6,
-                animation: "pulse-dot 3s ease-in-out infinite",
-              }}
-            />
-            <span
-              className="relative inline-flex h-2 w-2 rounded-full"
-              style={{ background: "var(--accent)" }}
-            />
-          </span>
-          <span
-            className="font-mono"
-            style={{
-              fontSize: "10px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "var(--muted-foreground)",
-            }}
-          >
-            Open to conversation
-          </span>
-        </Link>
-
-        {/* Mobile: just contact dot */}
-        <Link
-          href="/contact"
-          className="flex items-center gap-2 md:hidden"
-          aria-label="Contact"
-        >
-          <span className="relative flex h-2 w-2">
-            <span
-              className="absolute inline-flex h-full w-full rounded-full"
-              style={{
-                background: "var(--accent)",
-                opacity: 0.6,
-                animation: "pulse-dot 3s ease-in-out infinite",
-              }}
-            />
-            <span
-              className="relative inline-flex h-2 w-2 rounded-full"
-              style={{ background: "var(--accent)" }}
-            />
-          </span>
-        </Link>
-      </nav>
-    </header>
+      <div className="flex items-center gap-2.5">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-arctic)] opacity-50 animate-ping" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-arctic)]" />
+        </span>
+        <span className="font-[family-name:var(--font-dm-mono)] text-[9px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)]">
+          Open to conversation
+        </span>
+      </div>
+    </nav>
   );
 }

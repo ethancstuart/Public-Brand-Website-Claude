@@ -1,73 +1,84 @@
-import type { Metadata } from "next";
-import { FeaturedProjectCard } from "@/components/featured-project-card";
-import { PortfolioCard } from "@/components/portfolio-card";
-import { portfolioProjects } from "@/lib/constants";
+import type { ReactNode } from "react";
+import { Section } from "@/components/section";
+import { LabStrip } from "@/components/lab-strip";
+import { MagazineSpread } from "@/components/magazine-spread";
+import { NexusWatchGlobe } from "@/components/case-study/nexuswatch-globe";
+import { ComposerTypeweave } from "@/components/case-study/composer-typeweave";
+import { ProductOSCodeScroll } from "@/components/case-study/product-os-codescroll";
+import { ZTSTrajectory } from "@/components/case-study/zts-trajectory";
+import { FEATURED, MODELING_LAB, RE_STACK } from "@/lib/constants";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
+export const metadata = {
+  title: "Portfolio — Ethan Stuart",
   description:
-    "AI products shipped across geopolitical intelligence, lending OS, trading systems, AI education, and more.",
+    "Six products live in 2026 — geopolitical intelligence, multi-agent editorial infrastructure, lending intelligence, AI education, systematic trading, spec-as-code tooling.",
+};
+
+const MOTION_FOR: Record<string, ReactNode> = {
+  "nexuswatch":   <NexusWatchGlobe size={260} density={32} />,
+  "the-composer": <ComposerTypeweave text="DRAFT · REVIEW · APPROVE" />,
+  "product-os":   <ProductOSCodeScroll />,
+  "zero-to-ship": <ZTSTrajectory />,
+};
+
+const SHORT_LEDE: Record<string, string> = {
+  "nexuswatch":   "Real-time geopolitical intelligence with an AI risk analyst, 45+ data layers, and live country-by-country monitoring.",
+  "the-composer": "Agentic editorial framework — 10-persona board, structured pipeline, productized via Masthead.",
+  "product-os":   "Spec-as-code for PMs. OSS CLI + GitHub App + dashboard — Show HN target September 2026.",
+  "zero-to-ship": "AI coding course platform. 16 modules, shipping-first, gamified.",
+};
+
+const SHORT_MANIFESTO: Record<string, string> = {
+  "nexuswatch":   "Threat monitoring at platform scale — built solo.",
+  "the-composer": "An operator's newsroom, run by personas.",
+  "product-os":   "Specs that live in your repo, reviewed like code.",
+  "zero-to-ship": "Teach the actual method — outcomes, not tutorials.",
 };
 
 export default function PortfolioPage() {
-  const featured = portfolioProjects.find((p) => p.featured);
-  const rest = portfolioProjects.filter((p) => !p.featured);
-
   return (
-    <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "100px 56px 120px" }}>
-      {/* Section header */}
-      <div className="flex items-end justify-between mb-16">
-        <div>
-          <div className="flex items-center gap-3 mb-8">
-            <span style={{ width: "24px", height: "1px", background: "var(--accent)", opacity: 0.5 }} />
-            <span
-              className="font-mono uppercase"
-              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
-            >
-              Selected Work
-            </span>
-          </div>
-          <h1
-            className="font-sans font-extrabold tracking-tight"
-            style={{ fontSize: "36px", color: "var(--foreground)", lineHeight: 1.1 }}
-          >
-            AI products.{" "}
-            <span className="font-serif italic font-normal" style={{ color: "var(--muted-foreground)" }}>
-              Built solo across domains.
-            </span>
-          </h1>
-          <p
-            className="font-sans mt-4"
-            style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--muted-foreground)", maxWidth: "560px" }}
-          >
-            Geopolitical intelligence, lending infrastructure, systematic trading, AI education, and CRE debt tooling —
-            each product built independently using AI-native workflows, each solving a real problem in a domain I went deep on.
-          </p>
-        </div>
-        <a
-          href="https://github.com/ethancstuart"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden font-mono uppercase transition-opacity hover:opacity-70 md:inline-flex items-center gap-1"
-          style={{ fontSize: "10px", letterSpacing: "0.14em", color: "var(--accent)" }}
+    <>
+      <Section
+        label="SELECTED WORK"
+        title="Six products. All live in 2026."
+        description="Four featured products as full magazine spreads. Two thematic sections — Modeling Lab + RE Stack — for the rest of the portfolio."
+      >
+        <Link
+          href="#nexuswatch"
+          className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)] hover:text-[var(--color-paper)] transition-colors"
         >
-          GitHub ↗
-        </a>
-      </div>
+          Scroll to first featured ↓
+        </Link>
+      </Section>
 
-      {/* Featured card */}
-      {featured && (
-        <div className="mb-8">
-          <FeaturedProjectCard project={featured} />
-        </div>
-      )}
+      {FEATURED.map((p, i) => (
+        <MagazineSpread
+          key={p.slug}
+          project={p}
+          index={i}
+          total={FEATURED.length}
+          motionCanvas={MOTION_FOR[p.slug]}
+          manifesto={SHORT_MANIFESTO[p.slug]}
+          lede={SHORT_LEDE[p.slug]}
+        />
+      ))}
 
-      {/* 2-column editorial grid */}
-      <div className="grid gap-6 md:grid-cols-2">
-        {rest.map((project, i) => (
-          <PortfolioCard key={project.slug} project={project} index={i} />
-        ))}
-      </div>
-    </div>
+      <LabStrip
+        label="LAB · QUANT + ML PRACTICE"
+        title="Modeling Lab."
+        description="Production-grade modeling work — quant + sports markets — that pays rent and proves method."
+        accent="var(--color-ml)"
+        vignettes={MODELING_LAB}
+      />
+
+      <LabStrip
+        label="VENTURES · REAL ESTATE STACK"
+        title="RE Stack."
+        description="Real-estate-domain ventures: lending intelligence + CRE data infrastructure."
+        accent="var(--color-re)"
+        vignettes={RE_STACK}
+      />
+    </>
   );
 }

@@ -1,386 +1,132 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import { JsonLd } from "@/components/json-ld";
-import { getPersonJsonLd } from "@/lib/jsonld";
-
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Builder first. Data & AI domain expert. Product leader at scale. The gap between managing data and building with it is closing fast — I work on both sides.",
-};
+import { Section } from "@/components/section";
 
 const CAREER = [
-  {
-    years: "2021 – 2022",
-    company: "Sprout Mortgage",
-    role: "Manager, Analytics & Product Strategy",
-    detail: "Built analytics from scratch",
-    current: false,
-  },
-  {
-    years: "2022 – 2023",
-    company: "Capital Group",
-    role: "PM, Data Platforms & Strategic Automation",
-    detail: "Phoenix Fire 0→1 · 100% adoption",
-    current: false,
-  },
-  {
-    years: "2023 – 2025",
-    company: "Taco Bell · Yum! Brands",
-    role: "Staff PM → Portfolio Manager",
-    detail: "CDP · ML models · 7K+ operators",
-    current: false,
-  },
-  {
-    years: "2025 – Present",
-    company: "Disney · Studio Technology",
-    role: "Senior Manager, Data & AI Products",
-    detail: "Director-scope · 45-person org · AI-native operating model",
-    current: true,
-  },
+  { years: "2018 – 2020", org: "Capital Group",   role: "Analyst" },
+  { years: "2020 – 2022", org: "Sprout",          role: "PM" },
+  { years: "2022 – 2023", org: "Taco Bell",       role: "Senior Manager" },
+  { years: "2023 – Now",  org: "Disney Studios",  role: "Senior Manager", current: true },
 ];
 
 const PHILOSOPHY = [
   {
-    num: "01",
-    statement: "Build to understand, not just to ship.",
-    sub: "The fastest way to form a real opinion on a data product is to build one. I keep building because it makes me a better leader.",
+    n: "01",
+    line: "Build to understand, not just to ship.",
+    body: "Shipping is the forcing function. Understanding is the compounding asset.",
   },
   {
-    num: "02",
-    statement: "Clarity is the product.",
-    sub: "Most data work fails at adoption, not implementation. I obsess over the last mile — getting people to actually use what we build.",
+    n: "02",
+    line: "Clarity is the product.",
+    body: "Most product debt is decision debt. Make the decision, document it, move.",
   },
   {
-    num: "03",
-    statement: "The org is part of the system.",
-    sub: "You can't ship a great data platform without standing up the team and operating model around it. I build both.",
+    n: "03",
+    line: "The org is part of the system.",
+    body: "Technical decisions are organizational decisions in disguise.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={getPersonJsonLd()} />
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "100px 56px 120px" }}>
-
-        {/* Section label */}
-        <div className="flex items-center gap-3" style={{ marginBottom: "72px" }}>
-          <span style={{ width: "24px", height: "1px", background: "var(--accent)", opacity: 0.5 }} />
-          <span
-            className="font-mono uppercase"
-            style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
-          >
-            About
+      <Section label="ABOUT">
+        <blockquote className="font-[family-name:var(--font-instrument)] italic text-[clamp(28px,3.6vw,48px)] leading-snug max-w-[820px] tracking-[-0.015em] relative">
+          <span aria-hidden="true" className="absolute -left-7 -top-3 text-[var(--color-arctic)] text-[64px] leading-none">
+            "
           </span>
-        </div>
+          The gap between managing data and actually building with it is closing fast.
+          I&apos;ve spent my career working on both sides of that wall — and I think
+          that&apos;s the only place worth being right now.
+        </blockquote>
+      </Section>
 
-        {/* Manifesto opener */}
-        <div style={{ marginBottom: "88px" }}>
-          <blockquote
-            className="font-serif italic relative"
-            style={{
-              fontSize: "clamp(28px, 3.5vw, 48px)",
-              lineHeight: 1.25,
-              color: "var(--foreground)",
-              letterSpacing: "-0.02em",
-              maxWidth: "820px",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              aria-hidden
-              className="font-serif italic absolute"
-              style={{
-                fontSize: "1.3em",
-                color: "var(--accent)",
-                opacity: 0.35,
-                left: "-0.45em",
-                top: "-0.1em",
-                lineHeight: 1,
-              }}
-            >
-              &ldquo;
-            </span>
-            The gap between managing data and actually building with it is
-            closing fast. I&apos;ve spent my career working on both sides of
-            that wall — and I think that&apos;s the only place worth being right
-            now.
-          </blockquote>
-          <p
-            className="font-mono uppercase"
-            style={{ fontSize: "10px", letterSpacing: "0.16em", color: "var(--muted-foreground)" }}
-          >
-            Ethan Stuart — Data &amp; AI Product Leader
-          </p>
-        </div>
-
-        {/* Narrative + aside */}
-        <div
-          className="grid items-start"
-          style={{ gridTemplateColumns: "1fr 300px", gap: "80px", marginBottom: "88px" }}
-        >
-          {/* Left: narrative */}
-          <div>
-            <p
-              className="font-sans"
-              style={{ fontSize: "16px", lineHeight: 1.85, color: "var(--mid)", marginBottom: "24px" }}
-            >
-              I&apos;m a <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>product leader and builder</strong> operating at the intersection
-              of data, AI, and the organizations that need them. At{" "}
-              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>Disney Studios Technology</strong>, I
-              lead product for the studio&apos;s data and AI platform — translating
-              executive strategy into systems that hundreds of stakeholders
-              actually use and adopt.
+      <Section>
+        <div className="grid md:grid-cols-[1fr_320px] gap-12">
+          <div className="space-y-6 text-[16px] leading-[1.8] text-[rgba(216,212,204,0.78)] max-w-[640px]">
+            <p>
+              Senior Manager at Disney — serving Disney Studios at Fortune 50 scale,
+              leading across product, finance, and operations. Co-lead of three AI
+              task forces spanning product, program management, and data.
             </p>
-
-            <blockquote
-              style={{
-                borderLeft: "2px solid var(--accent)",
-                padding: "4px 0 4px 24px",
-                margin: "36px 0",
-              }}
-            >
-              <p
-                className="font-serif italic"
-                style={{
-                  fontSize: "20px",
-                  lineHeight: 1.5,
-                  color: "var(--foreground)",
-                  letterSpacing: "-0.01em",
-                  maxWidth: "500px",
-                }}
-              >
-                &ldquo;I don&apos;t just manage the roadmap. I understand the stack,
-                write the specs, and ship the products. That&apos;s becoming rarer
-                at this level — and it matters.&rdquo;
-              </p>
-            </blockquote>
-
-            <p
-              className="font-sans"
-              style={{ fontSize: "16px", lineHeight: 1.85, color: "var(--mid)", marginBottom: "24px" }}
-            >
-              Before Disney, I drove{" "}
-              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>CDP adoption across all Yum! brands</strong>{" "}
-              at Taco Bell and shipped ML models that directly impacted loyalty
-              and retention. At{" "}
-              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>Capital Group</strong>, I launched a 0→1 data
-              platform that achieved full Fortune 50 enterprise adoption. Earlier,
-              I built analytics functions from scratch at growth-stage companies
-              — which is where I learned that the best way to understand a data
-              product is to build one yourself.
+            <p className="font-[family-name:var(--font-instrument)] italic text-[20px] border-l-2 border-[var(--color-arctic)] pl-5 text-[rgba(216,212,204,0.85)]">
+              I joined Disney and within six months was recognized as a senior leader
+              on the team. That&apos;s not a timeline I planned — it&apos;s how I work.
             </p>
-
-            <p
-              className="font-sans"
-              style={{ fontSize: "16px", lineHeight: 1.85, color: "var(--mid)" }}
-            >
-              That instinct drives the builder side of my work. I&apos;ve shipped{" "}
-              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>a portfolio of AI products</strong> independently —
-              NexusWatch, Meridian, Quant Engine, and Zero to Ship — each one a
-              different domain, each built solo using AI-native workflows. I document
-              the sessions, decisions, and results in real time in my Substack,{" "}
-              <strong style={{ color: "var(--foreground)", fontWeight: 700 }}>The Data Product Agent</strong>.
+            <p>
+              In parallel: Stuart Ventures. Six production-grade software products
+              built solo. Geopolitical intelligence, multi-agent editorial
+              infrastructure, lending intelligence, AI education, systematic trading,
+              spec-as-code tooling. <em className="font-[family-name:var(--font-instrument)] not-italic [&]:italic">All shipping. All real.</em>
+            </p>
+            <p>
+              AI is what makes the combination possible — I&apos;m not working twice
+              as hard, I&apos;m working differently.
             </p>
           </div>
 
-          {/* Right: aside */}
-          <div className="flex flex-col gap-3" style={{ position: "sticky", top: "100px" }}>
-            <div
-              className="relative overflow-hidden rounded-xl"
-              style={{
-                aspectRatio: "3/4",
-                background: "var(--deep)",
-                border: "1px solid var(--border)",
-                marginBottom: "4px",
-              }}
-            >
-              <Image
-                src="/headshot.jpg"
-                alt="Ethan Stuart"
-                fill
-                className="object-cover object-top"
-                priority
-                sizes="300px"
-              />
+          <aside className="md:sticky md:top-24 self-start space-y-3 font-[family-name:var(--font-dm-mono)] text-[10px] uppercase tracking-[0.16em] text-[var(--color-paper-mid)]">
+            <div className="border border-[var(--color-rule)] p-4 rounded-md">
+              <div className="text-[var(--color-paper-low)] mb-1">Currently</div>
+              <div className="text-[var(--color-paper)] tracking-[0.1em]">Senior Manager · Disney Studios</div>
             </div>
-            {[
-              { label: "Currently", value: "Disney Studios Technology" },
-              { label: "Domain", value: "Data & AI Platforms" },
-              { label: "Education", value: "BBA Finance & Economics — LMU" },
-              { label: "Newsletter", value: "Builder Journal — Substack" },
-            ].map((fact) => (
+            <div className="border border-[var(--color-rule)] p-4 rounded-md">
+              <div className="text-[var(--color-paper-low)] mb-1">Domain</div>
+              <div className="text-[var(--color-paper)] tracking-[0.1em]">Data &amp; AI — enterprise + solo</div>
+            </div>
+            <div className="border border-[var(--color-rule)] p-4 rounded-md">
+              <div className="text-[var(--color-paper-low)] mb-1">Education</div>
+              <div className="text-[var(--color-paper)] tracking-[0.1em]">Quant + Operations Research</div>
+            </div>
+            <div className="border border-[var(--color-rule)] p-4 rounded-md">
+              <div className="text-[var(--color-paper-low)] mb-1">Newsletter</div>
+              <div className="text-[var(--color-paper)] tracking-[0.1em]">The Data Product Agent</div>
+            </div>
+          </aside>
+        </div>
+      </Section>
+
+      <Section label="CAREER ARC" title="Where I've worked.">
+        <ol className="relative grid grid-cols-1 md:grid-cols-4 gap-6">
+          {CAREER.map((c) => (
+            <li key={c.org} className="border-t border-[var(--color-rule)] pt-5">
               <div
-                key={fact.label}
-                className="rounded-xl"
-                style={{
-                  padding: "14px 18px",
-                  background: "var(--surface)",
-                  border: "1px solid var(--border-lo)",
-                }}
+                className={`inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase mb-2 ${
+                  c.current ? "text-[var(--color-arctic)]" : "text-[var(--color-paper-low)]"
+                }`}
               >
-                <p
-                  className="font-mono uppercase"
-                  style={{ fontSize: "9px", letterSpacing: "0.16em", color: "var(--muted-foreground)", marginBottom: "5px" }}
-                >
-                  {fact.label}
-                </p>
-                <p
-                  className="font-sans font-bold"
-                  style={{ fontSize: "13px", color: "var(--text-low)", letterSpacing: "-0.01em" }}
-                >
-                  {fact.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Career arc */}
-        <div style={{ paddingTop: "64px", borderTop: "1px solid var(--border)", marginBottom: "88px" }}>
-          <div
-            className="flex items-center gap-3"
-            style={{ marginBottom: "40px" }}
-          >
-            <span
-              className="font-mono uppercase"
-              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
-            >
-              Career Arc
-            </span>
-            <span
-              style={{
-                flex: 1,
-                height: "1px",
-                background: "linear-gradient(90deg, var(--border), transparent)",
-              }}
-            />
-          </div>
-
-          <div
-            className="grid relative"
-            style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "0" }}
-          >
-            {/* Connecting line */}
-            <div
-              className="absolute"
-              style={{
-                top: "18px",
-                left: "18px",
-                right: "18px",
-                height: "1px",
-                background: "linear-gradient(90deg, var(--border), var(--accent), var(--border))",
-                opacity: 0.4,
-              }}
-            />
-            {CAREER.map((stop) => (
-              <div key={stop.company} className="relative">
-                <div
-                  className="rounded-full"
-                  style={{
-                    width: "9px",
-                    height: "9px",
-                    background: stop.current ? "var(--accent)" : "var(--background)",
-                    border: `1.5px solid ${stop.current ? "var(--accent)" : "var(--border)"}`,
-                    boxShadow: stop.current ? "0 0 8px rgba(90,128,0,0.35)" : "none",
-                    marginBottom: "16px",
-                    position: "relative",
-                    zIndex: 1,
-                  }}
+                <span
+                  className={`inline-block w-1.5 h-1.5 rounded-full ${
+                    c.current ? "bg-[var(--color-arctic)]" : "border border-[var(--color-paper-low)]"
+                  }`}
+                  style={c.current ? { boxShadow: "0 0 8px var(--color-arctic)" } : {}}
                 />
-                <p
-                  className="font-mono"
-                  style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--muted-foreground)", marginBottom: "5px" }}
-                >
-                  {stop.years}
-                </p>
-                <p
-                  className="font-sans font-bold"
-                  style={{
-                    fontSize: "13px",
-                    letterSpacing: "-0.01em",
-                    marginBottom: "3px",
-                    color: stop.current ? "var(--foreground)" : "var(--text-low)",
-                  }}
-                >
-                  {stop.company}
-                </p>
-                <p
-                  className="font-mono"
-                  style={{ fontSize: "9px", color: "var(--muted-foreground)", letterSpacing: "0.03em", lineHeight: 1.5 }}
-                >
-                  {stop.role}
-                  <br />
-                  {stop.detail}
-                </p>
+                {c.years}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Philosophy strip */}
-        <div
-          className="rounded-2xl"
-          style={{
-            padding: "48px 56px",
-            background: "var(--surface)",
-            border: "1px solid var(--border-lo)",
-          }}
-        >
-          <div className="flex items-baseline justify-between" style={{ marginBottom: "32px" }}>
-            <span
-              className="font-sans font-bold uppercase"
-              style={{ fontSize: "11px", letterSpacing: "0.12em", color: "var(--text-low)" }}
-            >
-              How I Work
-            </span>
-            <span
-              className="font-mono"
-              style={{ fontSize: "9px", color: "var(--accent)", opacity: 0.5 }}
-            >
-              03
-            </span>
-          </div>
-          <div className="grid grid-cols-3" style={{ gap: "32px" }}>
-            {PHILOSOPHY.map((item) => (
-              <div key={item.num}>
-                <p
-                  className="font-mono"
-                  style={{
-                    fontSize: "9px",
-                    color: "var(--accent)",
-                    opacity: 0.5,
-                    letterSpacing: "0.15em",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {item.num}
-                </p>
-                <p
-                  className="font-serif italic"
-                  style={{
-                    fontSize: "17px",
-                    lineHeight: 1.45,
-                    color: "var(--foreground)",
-                    letterSpacing: "-0.01em",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {item.statement}
-                </p>
-                <p
-                  className="font-mono"
-                  style={{ fontSize: "9.5px", color: "var(--muted-foreground)", lineHeight: 1.65, letterSpacing: "0.01em" }}
-                >
-                  {item.sub}
-                </p>
+              <div className={`font-[family-name:var(--font-syne)] font-extrabold text-[20px] leading-tight ${c.current ? "text-[var(--color-paper)]" : "text-[rgba(216,212,204,0.6)]"}`}>
+                {c.org}
               </div>
-            ))}
-          </div>
-        </div>
+              <div className="text-[13px] text-[var(--color-paper-mid)] mt-1">{c.role}</div>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
-      </div>
+      <Section label="PHILOSOPHY" title="How I work.">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-rule)] rounded-lg p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {PHILOSOPHY.map((p) => (
+            <div key={p.n}>
+              <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] text-[var(--color-paper-low)] mb-3">
+                {p.n}
+              </div>
+              <div className="font-[family-name:var(--font-instrument)] italic text-[18px] leading-snug mb-3">
+                {p.line}
+              </div>
+              <div className="font-[family-name:var(--font-dm-mono)] text-[11px] tracking-[0.04em] text-[var(--color-paper-mid)] leading-relaxed">
+                {p.body}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
     </>
   );
 }

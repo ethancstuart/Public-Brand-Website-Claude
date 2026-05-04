@@ -1,5 +1,5 @@
 import { siteConfig } from "./constants";
-import type { PortfolioProject } from "./constants";
+import type { Project } from "./constants";
 
 export function getPersonJsonLd() {
   return {
@@ -24,13 +24,13 @@ export function getPersonJsonLd() {
   };
 }
 
-export function getSoftwareApplicationJsonLd(project: PortfolioProject) {
+export function getSoftwareApplicationJsonLd(project: Project) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: project.title,
+    name: project.name,
     description: project.description,
-    url: project.liveUrl,
+    ...(project.href ? { url: project.href } : {}),
     applicationCategory: "WebApplication",
     operatingSystem: "Web",
     author: {

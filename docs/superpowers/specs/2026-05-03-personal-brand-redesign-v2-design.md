@@ -686,3 +686,96 @@ Approximate scope: **~30 components touched/created, ~10 new pages or page-rewri
 - **The Composer** design system at `the-composer/docs/superpowers/specs/2026-04-26-design-system.md` — Midnight Intelligence (similar dark-first ethos, but separate brand identity; we borrow the *philosophy* of "editorial inside dark," not the tokens)
 - **The Composer** persona system at `the-composer/personas/` — pulled into NexusWatch + Composer case studies as content
 - **Iris (CDO persona)** at `the-composer/personas/10-the-chief-design-officer.md` — design authority for review-pass before ship
+
+## Appendix C — Phase 1 close-out (2026-05-03)
+
+Phase 1 shipped to `redesign-v2` branch, tagged `redesign-v2-phase-1`. All 8 routes restyled in dark/kinetic foundation:
+
+- `/` — kinetic ETHAN STUART SHIPS hero (placeholder gradient — WebGL shader is Phase 3) + Featured rows + Modeling Lab strip + RE Stack strip + Writing teaser
+- `/about` — manifesto opener + narrative + sticky aside fact cards + career arc + philosophy strip
+- `/portfolio` — Phase-1 stub (FeaturedRows + LabStrips). Full magazine spreads come in Phase 2.
+- `/portfolio/[slug]` — minimal placeholder. Full art-directed case studies (signature motion, scroll narrative) come in Phase 2.
+- `/writing` — Substack RSS feed in dark theme with new PostCard
+- `/writing/[slug]` — Bricolage headline + dark prose + indigo blockquote
+- `/resume` — Syne name display + arctic Download PDF CTA + dark prose. PDF pipeline (Typst) preserved.
+- `/contact` — open-to-conversation channel rows
+
+### Lighthouse — final Phase 1 scores
+
+| Route      | Perf | A11y | BP  | SEO |
+|------------|------|------|-----|-----|
+| /          | 89   | 95   | 96  | 100 |
+| /about     | 92   | 95   | 96  | 100 |
+| /portfolio | 93   | 95   | 96  | 100 |
+
+All Phase 1 targets met (Perf ≥ 85, A11y ≥ 95, BP ≥ 95, SEO ≥ 95).
+
+### Verification status
+- Playwright route smoke test: 6/6 routes passing (`tests/redesign-v2-routes.spec.ts`)
+- Production build: clean, all routes prerendered
+- Production site (`ethancstuart.com`): UNTOUCHED, still serves the cream/olive `main` build
+
+### Phase 2/3 carry-overs (open issues for the next plans)
+
+1. **Sitemap stale** — `src/app/sitemap.ts` references the legacy `portfolioProjects` array. New routes (Composer, Product OS, Quant Engine, Sports ML, RidgeCap) are NOT yet in the sitemap. Phase 2 should rewrite sitemap to use `ALL_PROJECTS`.
+2. **JSON-LD legacy types** — `src/lib/jsonld.ts` still uses the legacy `PortfolioProject` interface. Phase 2 should migrate to the `Project` shape.
+3. **Subscribe CTA** — still uses cream-era styling; survives because writing pages still import it. Phase 2 should restyle or remove.
+4. **Hero LCP at 3.8s** — last hero paragraph has 1.3s framer-motion delay; LCP element render delay is 2.4s. Acceptable for Phase 1 (Perf 89). Phase 3 reaudit when WebGL shader hero replaces the placeholder gradient.
+5. **Per-project headshot** — old About had a headshot in the sticky aside; new About has only fact cards. Reconsider in Phase 2.
+6. **Playwright config port** — config defaults to port 3000, but in dev environments where 3000 is occupied, port collision occurs. Consider parameterizing.
+7. **Variable-font scroll weight** — Bricolage Grotesque variable axis is wired (Task 4) but not yet driven by scroll. Phase 3 motion swing.
+8. **Per-project signature motion** — case-study placeholder pages render flat. Phase 2 builds the per-product motion (NexusWatch globe, Composer type-weave, Product OS code-scroll, Zero to Ship trajectory).
+9. **Live demonstrative elements** — mini-globe, "currently shipping" indicator, "now writing" RSS pull. Phase 2.
+10. **Shared-element page transitions + GSAP master timeline + WebGL shader hero + custom cursor** — all Phase 3.
+
+## Appendix D — Phase 2 close-out (2026-05-03)
+
+Phase 2 shipped to `redesign-v2` branch, tagged `redesign-v2-phase-2`. All 4 featured products now have full case-study pages with magazine-spread layout + per-project signature motion:
+
+- **NexusWatch** — Three.js wireframe globe with 42 pulse dots (`src/components/case-study/nexuswatch-globe.tsx`). Lazy-loaded; ~700KB Three.js chunk only on routes that consume it (`/portfolio` + `/portfolio/nexuswatch`).
+- **The Composer** — Letter-by-letter type-weave using Bricolage Grotesque variable axis (`src/components/case-study/composer-typeweave.tsx`).
+- **Product OS** — Canvas-rendered code-scroll resolving into spec block (`src/components/case-study/product-os-codescroll.tsx`).
+- **Zero to Ship** — SVG trajectory arc with milestone dots (`src/components/case-study/zts-trajectory.tsx`).
+
+Plus:
+- `<MagazineSpread>` reusable component for per-project layouts
+- `<ScrollNarrative>` shared component for problem/system/outcome sections
+- `<HeroMiniGlobe>` CSS-only pulse-dot globe in hero corner
+- `<LiveIndicators>` server component pulling latest GitHub commit + latest Substack post (ISR'd at 10 min)
+- Shared-element transitions on project name (Framer Motion `layoutId`)
+- /portfolio renders all 4 spreads inline
+
+Phase 1 carry-overs RESOLVED:
+- Sitemap now uses `ALL_PROJECTS` (all 8 case-study routes indexed)
+- jsonld migrated from `PortfolioProject` → `Project`
+- SubscribeCta restyled in dark theme (Substack iframe + fallback link preserved)
+- Legacy `portfolioProjects` + `PortfolioProject` removed from constants.ts
+
+### Lighthouse — Phase 2 scores
+
+| Route | Perf | A11y | BP | SEO |
+|---|---|---|---|---|
+| / | 89 | 100 | 96 | 100 |
+| /portfolio | 91 | 100 | 96 | 100 |
+| /portfolio/nexuswatch | 83 | 100 | 96 | 100 |
+| /portfolio/the-composer | 91 | 100 | 96 | 100 |
+| /portfolio/product-os | 91 | 100 | 96 | 100 |
+| /portfolio/zero-to-ship | 91 | 95 | 96 | 100 |
+
+All Phase 2 targets met (Perf ≥ 80 case-study / ≥ 85 home/portfolio, A11y ≥ 95, BP ≥ 95, SEO ≥ 95). The single 95 A11y on /portfolio/zero-to-ship is an axe-core false positive on `aria-hidden` SVG text labels.
+
+### Phase 3 carry-overs
+
+1. **WebGL shader hero** — replace placeholder gradient on `/` with OGL mesh-gradient + cursor distortion
+2. **Variable-font scroll weight** — drive Bricolage `wght` axis on case-study display headlines from scroll position via GSAP ScrollTrigger
+3. **GSAP master timeline** — promote case-study sections to scroll-tied independent tracks (type / image / color on different ScrollTriggers)
+4. **Custom cursor** — phantom-style magnetic cursor on case-study tiles + project name hovers (decision: enabled on case-study pages only)
+5. **Hero LCP optimization** — investigate trimming framer-motion delay on the hero's last paragraph; consider `will-change: opacity`
+6. **Real screenshots** — replace any placeholder image references in `public/portfolio/` with high-res actual product screenshots once available
+7. **A11y false-positive cleanup** — replace ZTS SVG `<text>` with HTML `<span>` overlays so axe can inspect correctly (would push /portfolio/zero-to-ship A11y to 100)
+8. **Page transition orchestration polish** — Framer `layoutId` morphs are functional but rough; Phase 3 GSAP timeline should make them cinematic
+9. **Mobile responsive audit** — case-study spreads are designed desktop-first; verify mobile reading order and motion fallbacks
+10. **Tests/Playwright** — image-load 404 errors are filtered in the smoke test (false positives from missing placeholders); reinstate strict mode in Phase 3 once real screenshots are added
+11. **Best Practices at 96** — investigate the 4-point gap (likely cookie/console-warning related)
+
+Phase 2 plan to be written next. Phase 3 plan after Phase 2 ships.
