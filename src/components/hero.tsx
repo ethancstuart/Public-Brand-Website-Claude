@@ -42,9 +42,10 @@ export function Hero() {
               transition={{
                 duration: DURATION.slow,
                 ease: EASE.out,
-                delay: 0.2 + i * STAGGER.slow,
+                delay: 0.1 + i * STAGGER.fast,
               }}
               className={`inline-block text-[clamp(72px,10vw,168px)] ${row.cls}`}
+              style={{ willChange: "opacity, transform" }}
             >
               {row.word}
             </motion.span>
@@ -53,7 +54,7 @@ export function Hero() {
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: DURATION.base, delay: 0.6 + i * STAGGER.slow }}
+                transition={{ duration: DURATION.base, delay: 0.4 + i * STAGGER.fast }}
                 className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-dim)] whitespace-nowrap"
               >
                 {row.aside}
@@ -66,7 +67,7 @@ export function Hero() {
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
-        transition={{ duration: DURATION.base, ease: EASE.out, delay: 1.0 }}
+        transition={{ duration: DURATION.base, ease: EASE.out, delay: 0.55 }}
         style={{ transformOrigin: "left" }}
         className="w-16 h-px bg-[var(--color-arctic)] mt-10 mb-7"
       />
@@ -74,7 +75,7 @@ export function Hero() {
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.base, delay: 1.15 }}
+        transition={{ duration: DURATION.base, delay: 0.65 }}
         className="font-[family-name:var(--font-syne)] text-[18px] text-[rgba(216,212,204,0.78)] max-w-[460px] leading-snug"
       >
         I&apos;ve always built.
@@ -87,7 +88,7 @@ export function Hero() {
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: DURATION.base, delay: 1.3 }}
+        transition={{ duration: DURATION.base, delay: 0.78 }}
         className="text-[14px] text-[var(--color-paper-mid)] max-w-[520px] leading-relaxed mt-5"
       >
         <em className="font-[family-name:var(--font-instrument)] [&]:italic">
@@ -99,7 +100,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: DURATION.base, delay: 1.45 }}
+        transition={{ duration: DURATION.base, delay: 0.9 }}
         className="flex items-center gap-8 mt-10"
       >
         <Link
