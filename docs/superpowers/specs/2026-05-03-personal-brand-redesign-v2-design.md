@@ -779,3 +779,55 @@ All Phase 2 targets met (Perf ≥ 80 case-study / ≥ 85 home/portfolio, A11y �
 11. **Best Practices at 96** — investigate the 4-point gap (likely cookie/console-warning related)
 
 Phase 2 plan to be written next. Phase 3 plan after Phase 2 ships.
+
+---
+
+## Appendix E — Phase 3 close-out + production ship (2026-05-04)
+
+Phase 3 shipped to production at **ethancstuart.com** on 2026-05-04. Tag: `redesign-v2-shipped`. Merge commit on `main`: `c69ee1f`. The cream/olive April 19 build is sunset; the new dark/kinetic graphic-design portfolio is live.
+
+### Phase 3 deliverables
+
+- **WebGL shader hero** (OGL mesh-gradient + cursor distortion, simplex-noise field, paper/arctic/indigo color stops, IntersectionObserver pause-when-offscreen, prefers-reduced-motion respect)
+- **Hero LCP polish** — motion delays trimmed (CTA from 1.45s → 0.9s) + `will-change: opacity, transform` on kinetic word spans
+- **Variable-font scroll-weight** on case-study headlines (`useScrollWeight` hook drives Bricolage `wght` axis from viewport-distance smoothstep)
+- **Lenis ↔ GSAP ScrollTrigger bridge** — Lenis drives GSAP ticker; smooth-scroll positions feed ScrollTrigger updates without conflict
+- **GSAP scroll-tied parallax** on magazine spreads (color block + content block move at different rates with `gsap.context` + `ctx.revert()` cleanup)
+- **Custom cursor** on featured case-study pages (lerping ring + dot, mix-blend-difference, scales 1.6× on interactive elements, disabled under reduced-motion + touch)
+- **ZTS A11y SVG → HTML overlay** — milestone labels moved from `<text>` to absolutely-positioned `<span>` (axe-core compatibility)
+- **Strict Playwright + mobile viewport** — 28/28 tests passing (14 routes × Chromium + iPhone 14)
+- **Best Practices score → 100** across all 10 routes (Substack iframe replaced with link button — eliminated third-party cookies)
+- **Orphan asset cleanup** — removed cream-era PNGs from `public/portfolio/`
+
+### Final Lighthouse scores
+
+| Route | Perf | A11y | BP | SEO |
+|---|---|---|---|---|
+| / | 85 | 100 | 100 | 100 |
+| /about | 92 | 95 | 100 | 100 |
+| /portfolio | 91 | 100 | 100 | 100 |
+| /portfolio/nexuswatch | 82 | 100 | 100 | 100 |
+| /portfolio/the-composer | 91 | 100 | 100 | 100 |
+| /portfolio/product-os | 90 | 100 | 100 | 100 |
+| /portfolio/zero-to-ship | 90 | 100 | 100 | 100 |
+| /writing | 92 | 95 | 100 | 100 |
+| /resume | 90 | 100 | 100 | 100 |
+| /contact | 92 | 95 | 100 | 100 |
+
+All Phase 3 targets met. Best Practices and SEO at 100 across the board.
+
+### Verification status
+- Playwright: 28/28 (Chromium + iPhone 14 mobile viewport)
+- Production HTML at `ethancstuart.com` confirmed serving the new build (markers: "FEATURED WORK", "Open to conversation", "Building where data & AI become products")
+- Vercel production deploy: `public-brand-website-claude-lejufoj72.vercel.app` aliased to `ethancstuart.com`
+- Tag `redesign-v2-shipped` pushed to origin
+
+### Future iteration ideas (post-ship, not blocking)
+
+- Real product screenshots when available (current case studies are motion-driven — no placeholders missing)
+- Per-product course-funnel pages or lead-capture surfaces
+- Real-time NexusWatch globe data on home (currently fixed pulse positions)
+- Audio / sound-design pass (deliberately skipped per spec §12)
+- v3 iteration if/when the redesign feels stale — but the build is shipped and serving production now
+
+**The redesign is shipped.**
