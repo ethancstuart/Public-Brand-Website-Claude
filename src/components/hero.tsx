@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { EASE, STAGGER, DURATION } from "@/lib/motion";
+import { HeroMiniGlobe } from "@/components/hero-mini-globe";
 
 const TYPE_ROWS = [
   { word: "ETHAN",  cls: "text-[var(--color-paper)]",      aside: "Los Angeles, CA"   },
@@ -22,6 +23,10 @@ export function Hero() {
             "radial-gradient(ellipse at 18% 30%, rgba(142,207,232,0.35), transparent 45%), radial-gradient(ellipse at 80% 78%, rgba(139,114,216,0.4), transparent 50%)",
         }}
       />
+
+      <div className="absolute top-24 right-6 md:right-12 z-10">
+        <HeroMiniGlobe />
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 8 }}

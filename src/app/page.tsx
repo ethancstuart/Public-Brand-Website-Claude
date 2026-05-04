@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { LiveIndicators } from "@/components/live-indicators";
 import { FeaturedRows } from "@/components/featured-row";
 import { LabStrip } from "@/components/lab-strip";
 import { Section } from "@/components/section";
@@ -9,6 +10,10 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 -mt-8 md:-mt-12 relative z-10">
+        <LiveIndicators />
+      </div>
 
       <Section
         label="FEATURED WORK"
