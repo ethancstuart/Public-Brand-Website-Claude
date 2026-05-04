@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { EASE, DURATION } from "@/lib/motion";
 import type { Project } from "@/lib/constants";
+import { useScrollWeight } from "@/components/use-scroll-weight";
 
 interface Props {
   project: Project;
@@ -20,6 +21,7 @@ export function MagazineSpread({
   project, index, total, reverse, motionCanvas, manifesto, lede, tags,
 }: Props) {
   const isReversed = reverse ?? (index % 2 === 1);
+  const titleRef = useScrollWeight<HTMLHeadingElement>({ min: 500, max: 800 });
 
   const colorBlock = (
     <div
@@ -50,8 +52,10 @@ export function MagazineSpread({
           {project.status.toUpperCase()} · 2026
         </div>
         <motion.h2
+          ref={titleRef}
           layoutId={`project-name-${project.slug}`}
           className="font-[family-name:var(--font-bricolage)] font-extrabold text-[clamp(48px,6vw,96px)] tracking-[-0.05em] leading-[0.95] mb-6"
+          style={{ fontVariationSettings: '"wght" var(--wght, 800)' } as React.CSSProperties}
         >
           {project.name}
         </motion.h2>
