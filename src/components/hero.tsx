@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { EASE, STAGGER, DURATION } from "@/lib/motion";
 import { HeroMiniGlobe } from "@/components/hero-mini-globe";
+import { HeroShader } from "@/components/hero-shader";
 
 const TYPE_ROWS = [
   { word: "ETHAN",  cls: "text-[var(--color-paper)]",      aside: "Los Angeles, CA"   },
@@ -14,15 +15,7 @@ const TYPE_ROWS = [
 export function Hero() {
   return (
     <section className="relative min-h-[100vh] flex flex-col justify-end pt-32 pb-24 px-6 md:px-12">
-      {/* Placeholder gradient background — real WebGL shader lands in Phase 3 */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-25"
-        style={{
-          background:
-            "radial-gradient(ellipse at 18% 30%, rgba(142,207,232,0.35), transparent 45%), radial-gradient(ellipse at 80% 78%, rgba(139,114,216,0.4), transparent 50%)",
-        }}
-      />
+      <HeroShader />
 
       <div className="absolute top-24 right-6 md:right-12 z-10">
         <HeroMiniGlobe />
