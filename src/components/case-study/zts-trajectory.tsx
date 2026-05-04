@@ -11,6 +11,7 @@ export function ZTSTrajectory() {
       height="320"
       viewBox="0 0 320 320"
       aria-hidden="true"
+      role="presentation"
       className="overflow-visible"
     >
       <motion.path
@@ -42,7 +43,8 @@ export function ZTSTrajectory() {
               fontSize="10"
               fontWeight="500"
               letterSpacing="0.18em"
-              fill="rgba(0,0,0,0.75)"
+              fill="#000000"
+              aria-hidden="true"
             >
               {label}
             </text>

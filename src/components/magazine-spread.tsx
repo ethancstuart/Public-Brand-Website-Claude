@@ -26,7 +26,7 @@ export function MagazineSpread({
       className="relative min-h-[60vh] md:min-h-[80vh] flex flex-col justify-between p-10 md:p-16 overflow-hidden"
       style={{ background: project.color }}
     >
-      <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[rgba(0,0,0,0.55)]">
+      <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[rgba(0,0,0,0.9)]">
         Project {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </div>
 
@@ -84,7 +84,7 @@ export function MagazineSpread({
             Visit {project.name} <span aria-hidden="true">↗</span>
           </a>
         ) : (
-          <span className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-low)]">
+          <span className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)]">
             In active development
           </span>
         )}
