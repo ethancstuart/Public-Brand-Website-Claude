@@ -1,12 +1,7 @@
-"use client";
-
-import { useState } from "react";
 import { siteConfig } from "@/lib/constants";
 import Link from "next/link";
 
 export function SubscribeCTA() {
-  const [iframeError, setIframeError] = useState(false);
-
   return (
     <aside className="border-t border-[var(--color-rule)] mt-16 pt-12">
       <div className="grid md:grid-cols-[1fr_auto] gap-6 items-center">
@@ -22,25 +17,14 @@ export function SubscribeCTA() {
             high-velocity product organizations at enterprise scale.
           </p>
         </div>
-        {!iframeError ? (
-          <iframe
-            src="https://thedataproductagent.substack.com/embed"
-            width="100%"
-            height="150"
-            className="max-w-md rounded-lg border-0"
-            title="Subscribe to The Data Product Agent"
-            onError={() => setIframeError(true)}
-          />
-        ) : (
-          <Link
-            href={siteConfig.links.substack}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-arctic)] text-[var(--color-arctic)] hover:bg-[var(--color-arctic)] hover:text-[var(--color-bg)] font-[family-name:var(--font-syne)] font-bold text-[12px] tracking-[0.16em] uppercase transition-colors rounded-sm whitespace-nowrap"
-          >
-            Subscribe ↗
-          </Link>
-        )}
+        <Link
+          href={siteConfig.links.substack}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-arctic)] text-[var(--color-arctic)] hover:bg-[var(--color-arctic)] hover:text-[var(--color-bg)] font-[family-name:var(--font-syne)] font-bold text-[12px] tracking-[0.16em] uppercase transition-colors rounded-sm whitespace-nowrap"
+        >
+          Subscribe ↗
+        </Link>
       </div>
     </aside>
   );
