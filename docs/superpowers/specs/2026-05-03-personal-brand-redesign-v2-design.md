@@ -686,3 +686,46 @@ Approximate scope: **~30 components touched/created, ~10 new pages or page-rewri
 - **The Composer** design system at `the-composer/docs/superpowers/specs/2026-04-26-design-system.md` — Midnight Intelligence (similar dark-first ethos, but separate brand identity; we borrow the *philosophy* of "editorial inside dark," not the tokens)
 - **The Composer** persona system at `the-composer/personas/` — pulled into NexusWatch + Composer case studies as content
 - **Iris (CDO persona)** at `the-composer/personas/10-the-chief-design-officer.md` — design authority for review-pass before ship
+
+## Appendix C — Phase 1 close-out (2026-05-03)
+
+Phase 1 shipped to `redesign-v2` branch, tagged `redesign-v2-phase-1`. All 8 routes restyled in dark/kinetic foundation:
+
+- `/` — kinetic ETHAN STUART SHIPS hero (placeholder gradient — WebGL shader is Phase 3) + Featured rows + Modeling Lab strip + RE Stack strip + Writing teaser
+- `/about` — manifesto opener + narrative + sticky aside fact cards + career arc + philosophy strip
+- `/portfolio` — Phase-1 stub (FeaturedRows + LabStrips). Full magazine spreads come in Phase 2.
+- `/portfolio/[slug]` — minimal placeholder. Full art-directed case studies (signature motion, scroll narrative) come in Phase 2.
+- `/writing` — Substack RSS feed in dark theme with new PostCard
+- `/writing/[slug]` — Bricolage headline + dark prose + indigo blockquote
+- `/resume` — Syne name display + arctic Download PDF CTA + dark prose. PDF pipeline (Typst) preserved.
+- `/contact` — open-to-conversation channel rows
+
+### Lighthouse — final Phase 1 scores
+
+| Route      | Perf | A11y | BP  | SEO |
+|------------|------|------|-----|-----|
+| /          | 89   | 95   | 96  | 100 |
+| /about     | 92   | 95   | 96  | 100 |
+| /portfolio | 93   | 95   | 96  | 100 |
+
+All Phase 1 targets met (Perf ≥ 85, A11y ≥ 95, BP ≥ 95, SEO ≥ 95).
+
+### Verification status
+- Playwright route smoke test: 6/6 routes passing (`tests/redesign-v2-routes.spec.ts`)
+- Production build: clean, all routes prerendered
+- Production site (`ethancstuart.com`): UNTOUCHED, still serves the cream/olive `main` build
+
+### Phase 2/3 carry-overs (open issues for the next plans)
+
+1. **Sitemap stale** — `src/app/sitemap.ts` references the legacy `portfolioProjects` array. New routes (Composer, Product OS, Quant Engine, Sports ML, RidgeCap) are NOT yet in the sitemap. Phase 2 should rewrite sitemap to use `ALL_PROJECTS`.
+2. **JSON-LD legacy types** — `src/lib/jsonld.ts` still uses the legacy `PortfolioProject` interface. Phase 2 should migrate to the `Project` shape.
+3. **Subscribe CTA** — still uses cream-era styling; survives because writing pages still import it. Phase 2 should restyle or remove.
+4. **Hero LCP at 3.8s** — last hero paragraph has 1.3s framer-motion delay; LCP element render delay is 2.4s. Acceptable for Phase 1 (Perf 89). Phase 3 reaudit when WebGL shader hero replaces the placeholder gradient.
+5. **Per-project headshot** — old About had a headshot in the sticky aside; new About has only fact cards. Reconsider in Phase 2.
+6. **Playwright config port** — config defaults to port 3000, but in dev environments where 3000 is occupied, port collision occurs. Consider parameterizing.
+7. **Variable-font scroll weight** — Bricolage Grotesque variable axis is wired (Task 4) but not yet driven by scroll. Phase 3 motion swing.
+8. **Per-project signature motion** — case-study placeholder pages render flat. Phase 2 builds the per-product motion (NexusWatch globe, Composer type-weave, Product OS code-scroll, Zero to Ship trajectory).
+9. **Live demonstrative elements** — mini-globe, "currently shipping" indicator, "now writing" RSS pull. Phase 2.
+10. **Shared-element page transitions + GSAP master timeline + WebGL shader hero + custom cursor** — all Phase 3.
+
+Phase 2 plan to be written next. Phase 3 plan after Phase 2 ships.
