@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { siteConfig, portfolioProjects } from "@/lib/constants";
+import { siteConfig, ALL_PROJECTS } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const portfolioRoutes: MetadataRoute.Sitemap = portfolioProjects.map(
+  const portfolioRoutes: MetadataRoute.Sitemap = ALL_PROJECTS.map(
     (project) => ({
       url: `${siteConfig.url}/portfolio/${project.slug}`,
       changeFrequency: "monthly" as const,
