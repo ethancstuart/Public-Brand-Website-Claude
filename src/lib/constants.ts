@@ -15,13 +15,6 @@ export const siteConfig = {
   substackFeed: "https://thedataproductagent.substack.com/feed",
 } as const;
 
-export const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Work" },
-  { href: "/writing", label: "Writing" },
-  { href: "/resume", label: "Resume" },
-];
-
 // New redesign-v2 types and exports
 export type ProjectStatus = "live" | "beta" | "build" | "active";
 export type ProjectCategory = "featured" | "lab" | "re-stack";
@@ -281,49 +274,3 @@ export const portfolioProjects: PortfolioProject[] = [
   },
 ];
 
-export const competencies = [
-  {
-    category: "Product Leadership",
-    skills: [
-      "Product Strategy & Roadmap",
-      "Go-to-Market Execution",
-      "0→1 Product Development",
-      "Platform Management at Scale",
-      "Executive Stakeholder Management",
-      "OKRs & Metrics-Driven Decision Making",
-    ],
-  },
-  {
-    category: "Data & AI Platforms",
-    skills: [
-      "Enterprise Data Platform Modernization",
-      "AI/ML Productization",
-      "Customer Data Platforms",
-      "Predictive Analytics & Segmentation",
-      "Data Governance & Lineage",
-      "Multi-Agentic AI Systems",
-    ],
-  },
-  {
-    category: "Technical Proficiency",
-    skills: [
-      "Snowflake",
-      "Databricks",
-      "Microsoft Fabric",
-      "AWS",
-      "Neo4j",
-      "Power BI & Tableau",
-      "SQL & Python",
-    ],
-  },
-  {
-    category: "Organizational Excellence",
-    skills: [
-      "Built & Scaled Product Orgs",
-      "Agile & SAFe Methodologies",
-      "Operational Process Optimization",
-      "Matrixed Organization Management",
-      "Product Operations Frameworks",
-    ],
-  },
-] as const;
