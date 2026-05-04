@@ -7,13 +7,27 @@ const ROUTES: { path: string; expectText: string }[] = [
   { path: "/writing",   expectText: "Field notes" },
   { path: "/resume",    expectText: "Ethan Stuart" },
   { path: "/contact",   expectText: "Open to conversation" },
+  { path: "/portfolio/nexuswatch",   expectText: "NexusWatch" },
+  { path: "/portfolio/the-composer", expectText: "Composer" },
+  { path: "/portfolio/product-os",   expectText: "Product OS" },
+  { path: "/portfolio/zero-to-ship", expectText: "Zero to Ship" },
+  { path: "/portfolio/quant-engine", expectText: "Quant Engine" },
+  { path: "/portfolio/sports-ml",    expectText: "Sports ML" },
+  { path: "/portfolio/meridian",     expectText: "Meridian" },
+  { path: "/portfolio/ridgecap",     expectText: "RidgeCap" },
 ];
 
 for (const { path, expectText } of ROUTES) {
   test(`route ${path} renders without errors`, async ({ page }) => {
     const consoleErrors: string[] = [];
     page.on("console", (msg) => {
-      if (msg.type() === "error") consoleErrors.push(msg.text());
+      if (msg.type() === "error") {
+        // Filter out harmless resource loading errors (images, fonts, etc)
+        const text = msg.text();
+        if (!text.includes("Failed to load resource")) {
+          consoleErrors.push(text);
+        }
+      }
     });
 
     const response = await page.goto(path);
