@@ -74,8 +74,8 @@ export default function RootLayout({
           <main className="min-h-screen pt-16">{children}</main>
           <Footer />
           <BottomMarquee />
-          <Analytics />
-          <SpeedInsights />
+          {process.env.VERCEL && <Analytics />}
+          {process.env.VERCEL && <SpeedInsights />}
         </SmoothScrollProvider>
       </body>
     </html>
