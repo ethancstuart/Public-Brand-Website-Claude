@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ALL_PROJECTS, FEATURED } from "@/lib/constants";
 import { MagazineSpread } from "@/components/magazine-spread";
 import { ScrollNarrative } from "@/components/case-study/scroll-narrative";
+import { Cursor } from "@/components/cursor";
 import { NexusWatchGlobe } from "@/components/case-study/nexuswatch-globe";
 import { ComposerTypeweave } from "@/components/case-study/composer-typeweave";
 import { ProductOSCodeScroll } from "@/components/case-study/product-os-codescroll";
@@ -121,6 +122,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
   return (
     <>
+      <Cursor accent={project.color} />
       <MagazineSpread
         project={project}
         index={featuredIndex}
