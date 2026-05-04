@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, LayoutGroup } from "framer-motion";
 import { EASE, DURATION, STAGGER } from "@/lib/motion";
 import type { Project } from "@/lib/constants";
 
@@ -18,7 +18,8 @@ interface Props {
 
 export function FeaturedRows({ projects }: Props) {
   return (
-    <ul className="border-t border-[var(--color-rule)]">
+    <LayoutGroup>
+      <ul className="border-t border-[var(--color-rule)]">
       {projects.map((p, i) => (
         <motion.li
           key={p.slug}
@@ -41,11 +42,12 @@ export function FeaturedRows({ projects }: Props) {
               </div>
 
               <div>
-                <div
+                <motion.div
+                  layoutId={`project-name-${p.slug}`}
                   className="font-[family-name:var(--font-syne)] font-extrabold text-[clamp(28px,3.6vw,48px)] tracking-[-0.025em] leading-tight transition-colors group-hover:text-[color:var(--accent)]"
                 >
                   {p.name}
-                </div>
+                </motion.div>
                 <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-low)] mt-2">
                   {p.type}
                 </div>
@@ -66,6 +68,7 @@ export function FeaturedRows({ projects }: Props) {
           </Link>
         </motion.li>
       ))}
-    </ul>
+      </ul>
+    </LayoutGroup>
   );
 }
