@@ -27,7 +27,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: DURATION.fast, ease: EASE.out }}
-        className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-dim)] mb-8"
+        className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-mid)] mb-8"
       >
         12 Years · Disney Studios — Fortune 50 Scale · Founder Stuart Ventures
       </motion.div>

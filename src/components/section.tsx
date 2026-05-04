@@ -14,7 +14,7 @@ export function Section({ label, title, description, children, className = "" }:
       {(label || title || description) && (
         <header className="mb-12">
           {label && (
-            <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-dim)] mb-3 flex items-center gap-3">
+            <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-mid)] mb-3 flex items-center gap-3">
               <span className="inline-block w-6 h-px bg-[var(--color-paper-low)]" />
               {label}
             </div>
