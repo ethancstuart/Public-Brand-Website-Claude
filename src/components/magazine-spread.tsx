@@ -1,10 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { EASE, DURATION } from "@/lib/motion";
 import type { Project } from "@/lib/constants";
 import { useScrollWeight } from "@/components/use-scroll-weight";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface Props {
   project: Project;
@@ -23,8 +29,52 @@ export function MagazineSpread({
   const isReversed = reverse ?? (index % 2 === 1);
   const titleRef = useScrollWeight<HTMLHeadingElement>({ min: 500, max: 800 });
 
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const colorBlockRef = useRef<HTMLDivElement | null>(null);
+  const contentBlockRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !colorBlockRef.current || !contentBlockRef.current) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        colorBlockRef.current,
+        { y: 24 },
+        {
+          y: -24,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        contentBlockRef.current,
+        { y: -12 },
+        {
+          y: 12,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const colorBlock = (
     <div
+      ref={colorBlockRef}
       className="relative min-h-[60vh] md:min-h-[80vh] flex flex-col justify-between p-10 md:p-16 overflow-hidden"
       style={{ background: project.color }}
     >
@@ -43,7 +93,7 @@ export function MagazineSpread({
   );
 
   const contentBlock = (
-    <div className="min-h-[60vh] md:min-h-[80vh] flex flex-col justify-between p-10 md:p-16 bg-[var(--color-bg)]">
+    <div ref={contentBlockRef} className="min-h-[60vh] md:min-h-[80vh] flex flex-col justify-between p-10 md:p-16 bg-[var(--color-bg)]">
       <div>
         <div
           className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase mb-3"
@@ -98,6 +148,7 @@ export function MagazineSpread({
 
   return (
     <motion.section
+      ref={sectionRef as unknown as React.Ref<HTMLElement>}
       id={project.slug}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
