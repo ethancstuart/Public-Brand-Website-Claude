@@ -2,11 +2,12 @@ import Image from "next/image";
 import { Section } from "@/components/section";
 
 const CAREER = [
-  { years: "2018 – 2020", org: "Capital Group",   role: "Analyst" },
-  { years: "2020 – 2022", org: "Sprout",          role: "PM" },
-  { years: "2022 – 2023", org: "Taco Bell",       role: "Senior Manager" },
-  { years: "2023 – Now",  org: "Disney Studios",  role: "Senior Manager", current: true },
-  { years: "Now →",       org: "Director / VP",   role: "AI Product Leadership", forward: true },
+  { years: "2018 – 2021", org: "Pacific Urban Investors", role: "Senior Investment Analyst" },
+  { years: "2021 – 2022", org: "Sprout Mortgage",         role: "Manager, Strategic Analytics & Products" },
+  { years: "2022 – 2023", org: "Capital Group",           role: "Product Manager, Data Products" },
+  { years: "2023 – 2025", org: "Taco Bell",               role: "Staff PM → Portfolio Manager" },
+  { years: "2025 – Now",  org: "Disney Studios",          role: "Sr. Manager, Product Management", current: true },
+  { years: "Now →",       org: "Director / VP",           role: "AI Product Leadership", forward: true },
 ];
 
 const PHILOSOPHY = [
@@ -48,10 +49,11 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-[1fr_320px] gap-12">
           <div className="space-y-6 text-[16px] leading-[1.8] text-[rgba(216,212,204,0.78)] max-w-[640px]">
             <p>
-              Senior Manager at Disney Studios — running a 22+ person team building data
-              and AI products at Fortune 50 scale, contributing to enterprise finance
-              transformation work, and co-leading three enterprise AI task forces
-              spanning product, program management, and data.
+              Senior Manager, Product Management at Disney Studios — leading the
+              Product &amp; BI team for the Data Platform supporting Disney Studio
+              Technology. Running a 22+ person team delivering data, ML, and AI
+              products across all areas of business. Co-leading three enterprise AI
+              task forces spanning product, program management, and data.
             </p>
             <p className="font-[family-name:var(--font-instrument)] italic text-[20px] border-l-2 border-[var(--color-arctic)] pl-5 text-[rgba(216,212,204,0.85)]">
               I joined Disney and within six months was recognized as a senior leader
@@ -85,7 +87,7 @@ export default function AboutPage() {
             </div>
             <div className="border border-[var(--color-rule)] p-4 rounded-md">
               <div className="text-[var(--color-paper-low)] mb-1">Currently</div>
-              <div className="text-[var(--color-paper)] tracking-[0.1em]">Senior Manager · Disney Studios — 22+ person team</div>
+              <div className="text-[var(--color-paper)] tracking-[0.1em]">Sr. Manager, Product Management · Disney Studios — 22+ person team</div>
             </div>
             <div
               className="border-2 p-4 rounded-md"
@@ -107,7 +109,7 @@ export default function AboutPage() {
       </Section>
 
       <Section label="CAREER ARC" title="Where I've worked.">
-        <ol className="relative grid grid-cols-1 md:grid-cols-5 gap-6">
+        <ol className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {CAREER.map((c) => {
             const accent = c.forward ? "var(--color-indigo)" : c.current ? "var(--color-arctic)" : undefined;
             return (
