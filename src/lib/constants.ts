@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
   description:
-    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. AI products across intelligence, lending, trading, and learning.",
+    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Eight AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {

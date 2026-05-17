@@ -36,13 +36,13 @@ function getNarrative(slug: string): Narrative {
   switch (slug) {
     case "nexuswatch":
       return {
-        manifesto: "Real-time geopolitical intelligence — built solo, run continuously, sized to compete with platform vendors.",
+        manifesto: "Real-time geopolitical intelligence — built solo, run continuously, production-grade output from a one-person org.",
         tags: ["86 Countries", "45+ Layers", "AI Risk Analyst", "Globe Visualization", "Built Solo"],
         lede: <>NexusWatch is a global threat-monitoring platform with an AI risk analyst, 45+ data layers across politics, conflict, climate, and economics, and a real-time globe visualization. Production-grade output from a one-person engineering org.</>,
         sections: [
-          { label: "PROBLEM", title: "Geopolitical risk is fragmented across 86 country feeds.", body: <p>Enterprise customers paid six-figures to vendor platforms with stale data, opaque scoring, and zero AI-native analysis. The signal exists in public sources — what was missing was the orchestration.</p> },
-          { label: "SYSTEM", title: "AI analyst on top of an event pipeline.", body: <p>Crisis cron pulls structured event data from 45+ sources, normalizes into a unified schema, scores each event on a country-confidence axis, and feeds an LLM analyst that produces narrative explanations on demand. The globe is the index; the analyst is the product.</p> },
-          { label: "WHAT'S LIVE", title: "v2 API, Discord bot, trust layer, public globe.", body: <p>Public site at nexuswatch.io, v2 API in private beta, Discord bot for live alerts, verification trust layer surfacing source provenance, and a developing crisis-response forecasting module. 86 countries with continuous monitoring.</p> },
+          { label: "PROBLEM", title: "Geopolitical risk monitoring is fragmented across dozens of country feeds.", body: <p>The signal exists in public sources, but no AI-native synthesis pulls it into one operator-grade view. Vendor platforms in the space lean on stale data, opaque scoring, and no LLM analyst layer.</p> },
+          { label: "SYSTEM", title: "AI analyst on top of an event pipeline.", body: <p>Crisis cron pulls structured event data from 45+ sources, normalizes into a unified schema, scores each event, and feeds an LLM analyst that produces narrative explanations on demand. The globe is the index; the analyst is the product.</p> },
+          { label: "WHAT'S LIVE", title: "v2 API, Discord bot, trust layer, public globe.", body: <p>Public site at nexuswatch.io, v2 API in private beta, Discord bot for live alerts, and a verification trust layer surfacing source provenance. 86 countries with continuous monitoring.</p> },
         ],
       };
     case "the-composer":
@@ -60,12 +60,12 @@ function getNarrative(slug: string): Narrative {
     case "product-os":
       return {
         manifesto: "Spec-as-code for product teams — the way Terraform and Helm did it for infrastructure, applied to the messy work of writing, reviewing, and shipping product specs.",
-        tags: ["OSS CLI", "Dashboard", "GitHub App", "2027 Show HN"],
+        tags: ["OSS CLI", "Dashboard", "GitHub App", "Show HN target"],
         lede: <>Product OS treats product specs as version-controlled, reviewable artifacts that live in your repository. OSS CLI for spec authoring + linting; commercial dashboard for review + analytics; GitHub App that runs spec checks on PRs.</>,
         sections: [
           { label: "PROBLEM", title: "Specs decay the moment they leave the doc.", body: <p>Notion-and-Google-Docs specs are read once, then go stale as the product changes. Engineering specs live in code; product specs deserve the same treatment.</p> },
           { label: "SYSTEM", title: "CLI + GitHub App + Dashboard.", body: <p>Authors use the CLI to scaffold and lint specs. The GitHub App runs spec checks on PRs (do test cases match the requirements? are owners assigned?). The dashboard surfaces spec coverage and review velocity across teams.</p> },
-          { label: "ROADMAP", title: "OSS first, commercial layer second.", body: <p>Show HN target: September 2026. Free OSS CLI builds adoption. Commercial dashboard + GitHub App enter when the OSS user base hits a meaningful threshold.</p> },
+          { label: "ROADMAP", title: "OSS first, commercial layer second.", body: <p>Show HN target: late 2026. Free OSS CLI builds adoption. Commercial dashboard + GitHub App enter when the OSS user base hits a meaningful threshold.</p> },
         ],
       };
     case "zero-to-ship":

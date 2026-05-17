@@ -44,12 +44,12 @@ export const metadata: Metadata = {
     template: "%s · Ethan Stuart",
   },
   description:
-    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Six AI products across intelligence, lending, trading, and learning — all live.",
+    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Eight AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
   metadataBase: new URL("https://ethancstuart.com"),
   openGraph: {
     title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
     description:
-      "Six AI products live in 2026. Senior Manager at Disney Studios. Founder at Stuart Ventures.",
+      "Eight AI products in flight in 2026. Senior Manager, Data & AI Products and Analytics Engineering at Disney Studios. Founder at Stuart Ventures.",
     url: "https://ethancstuart.com",
     siteName: "Ethan Stuart",
     type: "website",

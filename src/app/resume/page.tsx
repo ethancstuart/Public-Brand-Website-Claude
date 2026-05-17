@@ -6,7 +6,7 @@ import { getResumeMarkdown, parseResumeMarkdown } from "@/lib/resume";
 export const metadata: Metadata = {
   title: "Resume — Ethan Stuart",
   description:
-    "Senior Manager · Disney Studios — Fortune 50 scale · Founder · Stuart Ventures",
+    "Senior Manager · Data & AI Products · Disney Studios — Fortune 50 scale · Founder · Stuart Ventures",
 };
 
 export default async function ResumePage() {
@@ -22,7 +22,7 @@ export default async function ResumePage() {
             {resume.name}
           </h1>
           <p className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)] mt-3">
-            Senior Manager · Disney Studios — Fortune 50 scale · Founder · Stuart Ventures
+            Senior Manager · Data &amp; AI Products · Disney Studios — Fortune 50 scale · Founder · Stuart Ventures
           </p>
           <div className="mt-4 flex flex-wrap gap-4 text-[13px] text-[var(--color-paper-mid)] font-[family-name:var(--font-dm-mono)]">
             <a

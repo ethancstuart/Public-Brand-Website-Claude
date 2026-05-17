@@ -9,7 +9,7 @@ const ITEMS = [
   { text: "·" },
   { text: "Zero to Ship — AI Course Platform" },
   { text: "·" },
-  { text: "Senior Manager · Disney — Stuart Ventures" },
+  { text: "Senior Manager · Data & AI Products · Disney Studios" },
   { text: "·" },
 ];
 

@@ -9,7 +9,7 @@ import { HeroShader } from "@/components/hero-shader";
 const TYPE_ROWS = [
   { word: "ETHAN",  cls: "text-[var(--color-paper)]",      aside: "Los Angeles, CA"   },
   { word: "STUART", cls: "ghost",                          aside: null                 },
-  { word: "SHIPS",  cls: "ghost-indigo",                   aside: "06 PRODUCTS LIVE"  },
+  { word: "SHIPS",  cls: "ghost-indigo",                   aside: "08 IN FLIGHT"  },
 ];
 
 export function Hero() {
@@ -27,7 +27,7 @@ export function Hero() {
         transition={{ duration: DURATION.fast, ease: EASE.out }}
         className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-paper-mid)] mb-8"
       >
-        12 Years · Disney Studios — Fortune 50 Scale · Founder Stuart Ventures
+        Disney Studios — Fortune 50 Scale · Founder Stuart Ventures
       </motion.div>
 
       <div className="font-[family-name:var(--font-syne)] font-extrabold leading-[0.92] tracking-[-0.045em]">

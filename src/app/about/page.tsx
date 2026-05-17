@@ -6,8 +6,31 @@ const CAREER = [
   { years: "2021 – 2022", org: "Sprout Mortgage",         role: "Manager, Strategic Analytics & Products" },
   { years: "2022 – 2023", org: "Capital Group",           role: "Product Manager, Data Products" },
   { years: "2023 – 2025", org: "Taco Bell",               role: "Staff PM → Portfolio Manager" },
-  { years: "2025 – Now",  org: "Disney Studios",          role: "Sr. Manager, Product Management", current: true },
+  { years: "2025 – Now",  org: "Disney Studios",          role: "Sr. Manager · Data & AI Products", current: true },
   { years: "Now →",       org: "Director / VP",           role: "AI Product Leadership", forward: true },
+];
+
+const IMPACT = [
+  {
+    n: "~50%",
+    label: "Spec-to-Shipped Cycle-Time",
+    body: "Disney Studios · Jira, 6-month rolling. AI-native operating model + agent-augmented PM workflows.",
+  },
+  {
+    n: "100%",
+    label: "PM AI Adoption · Telemetry-Tracked",
+    body: "AI coding tools as standard across the org. Adoption measured, not assumed.",
+  },
+  {
+    n: "5",
+    label: "PMs Mentored Beyond Direct Org",
+    body: "Cross-org coaching across Disney Studio Technology. Contractor-to-FTE conversions + direct-report growth into expanded scope.",
+  },
+  {
+    n: "80%",
+    label: "YoY Loyalty Growth · Yum CDP",
+    body: "MMM-attributed. CDP rollout across Yum brands. 7,000+ operators served through in-store reporting + regional dashboards.",
+  },
 ];
 
 const PHILOSOPHY = [
@@ -49,15 +72,16 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-[1fr_320px] gap-12">
           <div className="space-y-6 text-[16px] leading-[1.8] text-[rgba(216,212,204,0.78)] max-w-[640px]">
             <p>
-              Senior Manager, Product Management at Disney Studios — leading the
-              Product &amp; BI team for the Data Platform supporting Disney Studio
-              Technology. Running a 22+ person team delivering data, ML, and AI
-              products across all areas of business. Co-leading three enterprise AI
-              task forces spanning product, program management, and data.
+              Senior Manager, Data &amp; AI Products and Analytics Engineering at
+              Disney Studios — leading a 17-direct &amp; matrix-report team within
+              a 45-person data &amp; AI product engineering organization across
+              5 studio groups serving 500+ downstream users. Briefing the CTO and
+              President of Studio Technology monthly. Co-leading three enterprise
+              AI task forces spanning product, program management, and data.
             </p>
             <p className="font-[family-name:var(--font-instrument)] italic text-[20px] border-l-2 border-[var(--color-arctic)] pl-5 text-[rgba(216,212,204,0.85)]">
-              I joined Disney and within six months was recognized as a senior leader
-              on the team. That&apos;s not a timeline I planned — it&apos;s how I work.
+              I joined Disney and quickly moved into senior-leader scope. That&apos;s
+              not a timeline I planned — it&apos;s how I work.
             </p>
             <p>
               In parallel: Stuart Ventures. Eight production-grade software products
@@ -87,7 +111,7 @@ export default function AboutPage() {
             </div>
             <div className="border border-[var(--color-rule)] p-4 rounded-md">
               <div className="text-[var(--color-paper-low)] mb-1">Currently</div>
-              <div className="text-[var(--color-paper)] tracking-[0.1em]">Sr. Manager, Product Management · Disney Studios — 22+ person team</div>
+              <div className="text-[var(--color-paper)] tracking-[0.1em]">Senior Manager · Data &amp; AI Products · Disney Studios — 17 direct, 45-person org</div>
             </div>
             <div
               className="border-2 p-4 rounded-md"
@@ -105,6 +129,24 @@ export default function AboutPage() {
               <div className="text-[var(--color-paper)] tracking-[0.1em]">The Data Product Agent</div>
             </div>
           </aside>
+        </div>
+      </Section>
+
+      <Section label="IMPACT" title="What it's added up to.">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-rule)] rounded-lg p-8 md:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {IMPACT.map((m) => (
+            <div key={m.label}>
+              <div className="font-[family-name:var(--font-syne)] font-extrabold text-[clamp(40px,4.5vw,64px)] tracking-[-0.04em] leading-none text-[var(--color-arctic)] mb-3">
+                {m.n}
+              </div>
+              <div className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper)] mb-3">
+                {m.label}
+              </div>
+              <div className="font-[family-name:var(--font-dm-mono)] text-[11px] tracking-[0.04em] text-[var(--color-paper-mid)] leading-relaxed">
+                {m.body}
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 

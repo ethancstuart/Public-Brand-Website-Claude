@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Portfolio — Ethan Stuart",
   description:
-    "Six products live in 2026 — geopolitical intelligence, multi-agent editorial infrastructure, lending intelligence, AI education, systematic trading, spec-as-code tooling.",
+    "Eight AI products in flight across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
 };
 
 const MOTION_FOR: Record<string, ReactNode> = {
@@ -41,7 +41,7 @@ export default function PortfolioPage() {
     <>
       <Section
         label="SELECTED WORK"
-        title="Six products. All live in 2026."
+        title="Eight products. All in flight in 2026."
         description="Four featured products as full magazine spreads. Two thematic sections — Modeling Lab + RE Stack — for the rest of the portfolio."
       >
         <Link
