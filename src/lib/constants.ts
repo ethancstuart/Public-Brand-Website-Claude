@@ -120,7 +120,7 @@ export const PROJECTS: Project[] = [
     // predate the rename, and changing it would break both.
     slug: "zero-to-ship",
     name: "Prototype Studio",
-    kind: "AI Prototyping Practice",
+    kind: "AI Prototyping Platform",
     description:
       "Working sessions, guides, and agent-system setup for PMs, analysts, and BI engineers who want to ship with AI coding tools. Started as a structured course and became a services-and-setup practice instead — the pivot is the more honest story. Usable today; active development is on hold.",
     status: "live",
