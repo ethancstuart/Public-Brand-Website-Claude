@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
   description:
-    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Eight AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
+    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, applied modeling research, lending intelligence, and CRE data infrastructure.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -15,8 +15,12 @@ export const siteConfig = {
   substackFeed: "https://thedataproductagent.substack.com/feed",
 } as const;
 
-// New redesign-v2 types and exports
-export type ProjectStatus = "live" | "beta" | "build" | "active";
+// Status meanings are literal — see CLAUDE.md:
+//   live     = a stranger can use it today
+//   invite   = real users, behind a gate
+//   building = not in anyone's hands yet
+//   paused   = work stopped, not abandoned
+export type ProjectStatus = "live" | "invite" | "building" | "paused";
 export type ProjectCategory = "featured" | "lab" | "re-stack";
 
 export interface Project {
@@ -37,11 +41,11 @@ export const FEATURED: Project[] = [
     name: "NexusWatch",
     type: "Geopolitical Intelligence",
     description:
-      "Real-time geopolitical intelligence across 86 countries. AI risk analyst, 45+ data layers, globe visualization. Professional-grade threat monitoring built solo.",
+      "Real-time geopolitical intelligence across 86 countries. AI risk analyst, 45+ data layers, globe visualization. Threat monitoring built solo, with a daily email brief going out to real subscribers.",
     status: "live",
     category: "featured",
     color: "var(--color-nx)",
-    href: "https://nexuswatch.io",
+    href: "https://nexuswatch.dev",
   },
   {
     slug: "the-composer",
@@ -49,7 +53,7 @@ export const FEATURED: Project[] = [
     type: "Multi-Agent Editorial Framework",
     description:
       "Agentic newsroom built on a 10-persona editorial board, multi-step pipeline (notes → draft → review → publish). Masthead is the productized expansion.",
-    status: "beta",
+    status: "building",
     category: "featured",
     color: "var(--color-cm)",
   },
@@ -59,32 +63,32 @@ export const FEATURED: Project[] = [
     type: "Spec-as-code for PMs",
     description:
       "OSS CLI + commercial dashboard + GitHub App that turn structured product specs into reviewable, version-controlled artifacts.",
-    status: "build",
+    status: "building",
     category: "featured",
     color: "var(--color-po)",
   },
   {
     slug: "zero-to-ship",
-    name: "Zero to Ship",
-    type: "AI Coding Course Platform",
+    name: "Prototype Studio",
+    type: "AI Prototyping Platform",
     description:
-      "16-module gamified course teaching the same shipping-first method used to build the rest of this portfolio.",
+      "AI prototyping platform for PMs, analysts, and builders who want to ship — sessions, guides, and agent-system setup teaching the same method used to build the rest of this portfolio.",
     status: "live",
     category: "featured",
     color: "var(--color-zts)",
-    href: "https://zerotoship.dev",
+    href: "https://zerotoship.app",
   },
 ];
 
-// Modeling Lab — practice / quant track
+// Modeling Lab — research practice. No capital deployed, no wagers placed.
 export const MODELING_LAB: Project[] = [
   {
     slug: "quant-engine",
     name: "Quant Engine",
-    type: "Systematic Trading Platform",
+    type: "Systematic Trading Research",
     description:
-      "World-class systematic trading platform — signal factory, streaming, GPU backtest, Bayesian state, paper-traded live on Alpaca.",
-    status: "live",
+      "Systematic trading research platform — signal factory, streaming, GPU backtest, Bayesian state. Paper-traded on Alpaca with walk-forward evaluation. No real capital deployed.",
+    status: "building",
     category: "lab",
     color: "var(--color-ml)",
   },
@@ -93,8 +97,8 @@ export const MODELING_LAB: Project[] = [
     name: "Sports ML Pipeline",
     type: "Models for Sports Markets",
     description:
-      "20+ models across 4 sports. Kelly-sized bets, model-promoted to production after backtest. From small bankroll to live wagering.",
-    status: "active",
+      "20+ models across 4 sports. Candidates are promoted only after walk-forward evaluation on out-of-sample data. Research only — nothing staked.",
+    status: "building",
     category: "lab",
     color: "var(--color-ml)",
   },
@@ -107,8 +111,8 @@ export const RE_STACK: Project[] = [
     name: "Meridian Intelligence",
     type: "Non-QM Lending Intelligence",
     description:
-      "Lending intelligence platform — 34 features, 433 tests, white-label-ready. Operator-layer SaaS for non-QM mortgage shops.",
-    status: "active",
+      "Lending intelligence platform — white-label-ready operator-layer SaaS for non-QM mortgage shops.",
+    status: "paused",
     category: "re-stack",
     color: "var(--color-re)",
   },
@@ -118,7 +122,7 @@ export const RE_STACK: Project[] = [
     type: "CRE Data Infrastructure",
     description:
       "CRE data infrastructure — 7-table FRED schema, 15 free CRE series, parallel build. Currently in product-frozen due-diligence mode.",
-    status: "build",
+    status: "paused",
     category: "re-stack",
     color: "var(--color-re)",
   },
@@ -126,4 +130,3 @@ export const RE_STACK: Project[] = [
 
 // Aggregate for callers that want everything
 export const ALL_PROJECTS: Project[] = [...FEATURED, ...MODELING_LAB, ...RE_STACK];
-

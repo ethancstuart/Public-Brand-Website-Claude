@@ -10,7 +10,7 @@ const ROUTES: { path: string; expectText: string }[] = [
   { path: "/portfolio/nexuswatch",     expectText: "NexusWatch" },
   { path: "/portfolio/the-composer",   expectText: "Composer" },
   { path: "/portfolio/product-os",     expectText: "Product OS" },
-  { path: "/portfolio/zero-to-ship",   expectText: "Zero to Ship" },
+  { path: "/portfolio/zero-to-ship",   expectText: "Prototype Studio" },
   { path: "/portfolio/quant-engine",   expectText: "Quant Engine" },
   { path: "/portfolio/sports-ml",      expectText: "Sports ML" },
   { path: "/portfolio/meridian",       expectText: "Meridian" },

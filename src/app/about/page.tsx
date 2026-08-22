@@ -84,10 +84,10 @@ export default function AboutPage() {
               not a timeline I planned — it&apos;s how I work.
             </p>
             <p>
-              In parallel: Stuart Ventures. Eight production-grade software products
-              built solo. Geopolitical intelligence, multi-agent editorial infrastructure,
-              spec-as-code tooling, AI education, systematic trading, lending intelligence,
-              CRE data infrastructure. <em className="font-[family-name:var(--font-instrument)] not-italic [&]:italic">All shipping. All real.</em>
+              In parallel: Stuart Ventures. Software products built solo.
+              Geopolitical intelligence, multi-agent editorial infrastructure,
+              spec-as-code tooling, AI education, applied modeling research, lending
+              intelligence, CRE data infrastructure. <em className="font-[family-name:var(--font-instrument)] not-italic [&]:italic">Some live, some still being built. All real.</em>
             </p>
             <p>
               AI is what makes the combination possible — I&apos;m not working twice

@@ -42,7 +42,7 @@ function getNarrative(slug: string): Narrative {
         sections: [
           { label: "PROBLEM", title: "Geopolitical risk monitoring is fragmented across dozens of country feeds.", body: <p>The signal exists in public sources, but no AI-native synthesis pulls it into one operator-grade view. Vendor platforms in the space lean on stale data, opaque scoring, and no LLM analyst layer.</p> },
           { label: "SYSTEM", title: "AI analyst on top of an event pipeline.", body: <p>Crisis cron pulls structured event data from 45+ sources, normalizes into a unified schema, scores each event, and feeds an LLM analyst that produces narrative explanations on demand. The globe is the index; the analyst is the product.</p> },
-          { label: "WHAT'S LIVE", title: "v2 API, Discord bot, trust layer, public globe.", body: <p>Public site at nexuswatch.io, v2 API in private beta, Discord bot for live alerts, and a verification trust layer surfacing source provenance. 86 countries with continuous monitoring.</p> },
+          { label: "WHAT'S LIVE", title: "v2 API, Discord bot, trust layer, public globe.", body: <p>Public site at nexuswatch.dev, v2 API in private beta, Discord bot for live alerts, a daily email brief with real subscribers, and a verification trust layer surfacing source provenance. 86 countries with continuous monitoring.</p> },
         ],
       };
     case "the-composer":
@@ -70,9 +70,9 @@ function getNarrative(slug: string): Narrative {
       };
     case "zero-to-ship":
       return {
-        manifesto: "An AI coding course built around the actual method — gamified, shipping-first, modeled on the work that builds the rest of this portfolio.",
+        manifesto: "An AI prototyping platform built around the actual method — shipping-first, modeled on the work that builds the rest of this portfolio.",
         tags: ["16 Modules", "Gamified", "AI-First", "Shipping-First"],
-        lede: <>Zero to Ship is a 16-module course teaching the AI-native shipping method — exactly the method used to build NexusWatch, The Composer, Product OS, Meridian, and the rest. Outcomes-anchored, gamified progression, real shipping projects.</>,
+        lede: <>Prototype Studio (formerly Zero to Ship) teaches the AI-native shipping method — exactly the method used to build NexusWatch, The Composer, Product OS, and the rest. Sessions to watch, guides to follow, and an agent system you set up yourself.</>,
         sections: [
           { label: "PROBLEM", title: "Tutorials don&apos;t teach shipping.", body: <p>Most AI coding content is &quot;build a chatbot in 30 minutes.&quot; That&apos;s not what shipping looks like. Shipping is shape-of-the-problem, scaffolding decisions, deploy choices, and what you cut to make a deadline.</p> },
           { label: "SYSTEM", title: "16 modules, shipping projects, AI-first throughout.", body: <p>Each module has a real outcome: a working artifact, deployed, with a real user (even if that&apos;s the student). AI is woven into every module — pair-programming, spec generation, code review — not isolated to a single &quot;now use AI&quot; lesson.</p> },

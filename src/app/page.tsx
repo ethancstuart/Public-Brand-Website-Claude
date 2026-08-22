@@ -26,7 +26,7 @@ export default function Home() {
       <LabStrip
         label="LAB · QUANT + ML PRACTICE"
         title="Modeling Lab."
-        description="A working practice in models that pay rent. Production-grade systems, each shipped to live capital or live odds. Treat these as proof of method, not the headline product."
+        description="A working practice in applied modeling — systematic trading and sports markets. Every model is scored by walk-forward evaluation on out-of-sample data; nothing here is deployed against real capital. Treat these as proof of method, not the headline product."
         accent="var(--color-ml)"
         vignettes={MODELING_LAB}
       />

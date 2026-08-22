@@ -7,7 +7,7 @@ const ITEMS = [
   { text: "·" },
   { text: "Product OS — Spec-as-code" },
   { text: "·" },
-  { text: "Zero to Ship — AI Course Platform" },
+  { text: "Prototype Studio — AI Prototyping Platform" },
   { text: "·" },
   { text: "Senior Manager · Data & AI Products · Disney Studios" },
   { text: "·" },

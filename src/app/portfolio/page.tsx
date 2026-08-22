@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Portfolio — Ethan Stuart",
   description:
-    "Eight AI products in flight across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
+    "AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, applied modeling research, lending intelligence, and CRE data infrastructure.",
 };
 
 const MOTION_FOR: Record<string, ReactNode> = {
@@ -26,7 +26,7 @@ const SHORT_LEDE: Record<string, string> = {
   "nexuswatch":   "Real-time geopolitical intelligence with an AI risk analyst, 45+ data layers, and live country-by-country monitoring.",
   "the-composer": "Agentic editorial framework — 10-persona board, structured pipeline, productized via Masthead.",
   "product-os":   "Spec-as-code for PMs. OSS CLI + GitHub App + dashboard — Show HN target September 2026.",
-  "zero-to-ship": "AI coding course platform. 16 modules, shipping-first, gamified.",
+  "zero-to-ship": "AI prototyping platform — sessions, guides, and agent-system setup for people who want to ship.",
 };
 
 const SHORT_MANIFESTO: Record<string, string> = {
@@ -41,7 +41,7 @@ export default function PortfolioPage() {
     <>
       <Section
         label="SELECTED WORK"
-        title="Eight products. All in flight in 2026."
+        title="The products, in flight."
         description="Four featured products as full magazine spreads. Two thematic sections — Modeling Lab + RE Stack — for the rest of the portfolio."
       >
         <Link
@@ -67,7 +67,7 @@ export default function PortfolioPage() {
       <LabStrip
         label="LAB · QUANT + ML PRACTICE"
         title="Modeling Lab."
-        description="Production-grade modeling work — quant + sports markets — that pays rent and proves method."
+        description="Applied modeling research — quant + sports markets. Walk-forward evaluation on out-of-sample data, no live capital. Proof of method."
         accent="var(--color-ml)"
         vignettes={MODELING_LAB}
       />

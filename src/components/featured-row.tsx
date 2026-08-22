@@ -6,10 +6,10 @@ import { EASE, DURATION, STAGGER } from "@/lib/motion";
 import type { Project } from "@/lib/constants";
 
 const STATUS_LABEL: Record<Project["status"], string> = {
-  live:   "LIVE",
-  beta:   "BETA",
-  build:  "BUILD",
-  active: "ACTIVE",
+  live:     "LIVE",
+  invite:   "INVITE",
+  building: "BUILDING",
+  paused:   "PAUSED",
 };
 
 interface Props {
