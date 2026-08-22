@@ -1,0 +1,41 @@
+name: Smoke production
+
+# A 200 proves a server answered, not that it answered with the build that was
+# just shipped. `/` once served a stale ISR entry from the previous release
+# behind a healthy 200 and nobody noticed until a human read the page. This runs
+# the content smoke test against the real domain after every production deploy,
+# so that failure mode is caught by machine rather than by eye.
+
+on:
+  deployment_status:
+  # Belt and braces: a daily run catches content that goes stale or a link that
+  # starts pointing somewhere it shouldn't, with no deploy involved.
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    # Only on a successful production deployment (or the scheduled/manual runs).
+    if: >
+      github.event_name != 'deployment_status' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Smoke https://ethancstuart.com
+        run: |
+          # Give the alias a moment to swing to the new deployment, then retry
+          # a few times before calling it a failure.
+          for attempt in 1 2 3 4 5 6; do
+            if bash scripts/smoke.sh https://ethancstuart.com; then
+              echo "Production smoke passed on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt failed; retrying in 20s..."
+            sleep 20
+          done
+          echo "::error::Production is serving dead copy or a stale build."
+          exit 1

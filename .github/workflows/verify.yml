@@ -1,0 +1,40 @@
+name: Verify
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Install browsers
+        run: npx playwright install --with-deps chromium
+
+      # Playwright's webServer builds and starts the app itself.
+      # sync-resume.sh tolerates the absent home-base checkout in CI and the
+      # synced resume.md is committed, so the build succeeds without it.
+      - name: Route and content tests
+        run: npx playwright test
+
+      - name: Smoke the built site
+        run: |
+          npm run build
+          npm start &
+          until curl -sf -o /dev/null http://localhost:3000; do sleep 1; done
+          bash scripts/smoke.sh http://localhost:3000
