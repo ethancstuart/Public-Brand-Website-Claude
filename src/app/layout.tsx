@@ -1,57 +1,47 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Syne, Bricolage_Grotesque, DM_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { BottomMarquee } from "@/components/bottom-marquee";
-import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
-const syne = Syne({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
-  variable: "--font-syne",
-  display: "swap",
-});
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-bricolage",
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-instrument",
+  variable: "--font-plex-sans",
   display: "swap",
 });
 
-const dmMono = DM_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-dm-mono",
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
+    default: siteConfig.title,
     template: "%s · Ethan Stuart",
   },
-  description:
-    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Eight AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
-  metadataBase: new URL("https://ethancstuart.com"),
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
-    title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
-    description:
-      "Eight AI products in flight in 2026. Senior Manager, Data & AI Products and Analytics Engineering at Disney Studios. Founder at Stuart Ventures.",
-    url: "https://ethancstuart.com",
-    siteName: "Ethan Stuart",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     type: "website",
   },
   robots: { index: true, follow: true },
@@ -65,18 +55,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${bricolage.variable} ${instrumentSerif.variable} ${dmMono.variable}`}
+      className={`${plexSans.variable} ${plexMono.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased">
-        <SmoothScrollProvider>
-          <Nav />
-          <main className="min-h-screen pt-16">{children}</main>
-          <Footer />
-          <BottomMarquee />
-          {process.env.VERCEL && <Analytics />}
-          {process.env.VERCEL && <SpeedInsights />}
-        </SmoothScrollProvider>
+      <body>
+        <Nav />
+        <main>{children}</main>
+        <Footer />
+        {process.env.VERCEL && <Analytics />}
+        {process.env.VERCEL && <SpeedInsights />}
       </body>
     </html>
   );
