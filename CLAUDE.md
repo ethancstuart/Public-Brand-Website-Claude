@@ -128,6 +128,26 @@ Mortgage and Capital Group titles and started the record in 2018 rather than 201
   a redirect, because search engines keep the URL indexed and read the site as answering.
 - No database, no auth, no CMS
 
+### Caching — why `/` is static and must stay that way
+
+`src/app/page.tsx` declares `export const revalidate = false`, and `getLatestCommit()` uses
+`cache: "force-cache"`. Both are deliberate.
+
+A single fetch carrying `next: { revalidate }` anywhere in the home page tree promotes the whole
+route from a static deployment artifact into a time-based ISR entry, which can then be served
+**stale-while-revalidate across a deploy** — showing visitors the previous release behind a
+perfectly healthy 200. This happened: `getLatestCommit()` had `revalidate: 600`, and `/` served the
+pre-redesign home page after the redesign shipped. The build output announces it (`○ /  10m`), so
+**read the Revalidate column after every build**; `/` must show no value there.
+
+`/writing` and `/writing/[slug]` keep 1h ISR on purpose — their content is the Substack feed, which
+changes independently of deploys. The tradeoff is that a *design* change to those two pages can be
+masked for up to an hour. The smoke test covers them, so a stale one gets caught.
+
+Query strings do **not** bust the cache for a prerendered route. Manual cache-busted checks will
+happily show you the same page forever. Correctness comes from the page being static, not from
+cache trickery.
+
 ## Project Status Values
 
 `ProjectStatus` in `src/lib/constants.ts` is `"live" | "invite" | "building" | "paused"`.
@@ -148,7 +168,8 @@ An unflattering status is the point, not a bug. Labels and colours live in the `
 - `npm run sync-resume` — resume sync only
 - `npm run lint` — eslint
 - `npx tsc --noEmit` — typecheck
-- `npx playwright test` — route smoke tests (desktop + iPhone 14)
+- `npx playwright test` — route + content tests (chromium and, for the iPhone 14 project, **webkit**)
+- `npm run smoke [url]` — content smoke test against a running site, defaults to localhost:3000
 
 ## Nav Structure
 
@@ -212,7 +233,13 @@ Do not open Notion.
 - **If you changed or added an outbound project URL, curl it and confirm the response body is
   Ethan's product.** nexuswatch.io returned a healthy 200 for months while serving another
   company's site. A dead or wrong link in the register is a P0.
-- Run `npm run lint`, `npx tsc --noEmit`, and `npx playwright test` before claiming done.
+- Run `npm run lint`, `npx tsc --noEmit`, `npx playwright test`, and `npm run smoke` before
+  claiming done. **A 200 is not evidence that your build shipped** — assert on response bodies.
+  `scripts/smoke.sh` fetches each page individually on purpose: passing several URLs to one curl
+  concatenates the responses, and a string missing from one page is masked by another.
+- CI does this for you. `.github/workflows/verify.yml` gates every PR and push;
+  `smoke-production.yml` runs the content smoke against the live domain after each production
+  deploy and once daily.
 
 ## Shared Context — home-base
 
