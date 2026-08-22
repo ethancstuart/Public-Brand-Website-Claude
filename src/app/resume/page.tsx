@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Section } from "@/components/section";
 import { siteConfig } from "@/lib/constants";
 import { getResumeMarkdown, parseResumeMarkdown } from "@/lib/resume";
 
 export const metadata: Metadata = {
-  title: "Resume — Ethan Stuart",
+  title: "Resume",
   description:
-    "Senior Manager · Data & AI Products · Disney Studios — Fortune 50 scale · Founder · Stuart Ventures",
+    "Senior Manager, Data & AI Products and Analytics Engineering at Disney Studios. Full career record.",
 };
 
 export default async function ResumePage() {
@@ -14,20 +13,21 @@ export default async function ResumePage() {
   const resume = parseResumeMarkdown(md);
 
   return (
-    <Section label="RESUME">
-      {/* Header */}
-      <div className="flex items-baseline justify-between mb-10 gap-6 flex-wrap">
+    <div className="wrap">
+      <div className="flex flex-wrap items-end justify-between gap-6 pb-[clamp(28px,4vw,44px)] pt-[clamp(44px,6vw,78px)]">
         <div>
-          <h1 className="font-[family-name:var(--font-syne)] font-extrabold text-[clamp(40px,6vw,80px)] tracking-[-0.04em] leading-none">
+          <span className="eyebrow mb-4 block">Resume</span>
+          <h1 className="font-display text-[clamp(30px,4.4vw,48px)] leading-[1.1] tracking-[-0.02em]">
             {resume.name}
           </h1>
-          <p className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)] mt-3">
-            Senior Manager · Data &amp; AI Products · Disney Studios — Fortune 50 scale · Founder · Stuart Ventures
+          <p className="mt-3 max-w-[46ch] text-[15.5px] leading-[1.55] text-ink-soft">
+            Senior Manager, Data &amp; AI Products and Analytics Engineering —
+            Disney Studios
           </p>
-          <div className="mt-4 flex flex-wrap gap-4 text-[13px] text-[var(--color-paper-mid)] font-[family-name:var(--font-dm-mono)]">
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[12px]">
             <a
               href={`mailto:${siteConfig.links.email}`}
-              className="transition-colors hover:text-[var(--color-arctic)]"
+              className="text-ink-soft no-underline hover:text-accent"
             >
               {siteConfig.links.email}
             </a>
@@ -35,48 +35,41 @@ export default async function ResumePage() {
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-[var(--color-arctic)]"
+              className="text-ink-soft no-underline hover:text-accent"
             >
               linkedin.com/in/ethan-stuart
             </a>
           </div>
         </div>
-        <a
-          href="/resume.pdf"
-          className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-arctic)] text-[var(--color-arctic)] hover:bg-[var(--color-arctic)] hover:text-[var(--color-bg)] font-[family-name:var(--font-syne)] font-bold text-[12px] tracking-[0.16em] uppercase transition-colors rounded-sm"
-        >
-          Download PDF <span aria-hidden="true">↓</span>
+        <a href="/resume.pdf" className="cta">
+          Download PDF ↓
         </a>
       </div>
 
-      {/* Sections */}
-      <div className="space-y-14 mt-14">
+      <div className="ledger border-t-rule-strong">
         {resume.sections.map((section) => (
-          <div key={section.title}>
-            <h2 className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.22em] uppercase text-[var(--color-arctic)] mb-6 flex items-center gap-3">
-              <span className="inline-block w-6 h-px bg-[var(--color-arctic)] opacity-50" />
-              {section.title}
-            </h2>
+          <section
+            key={section.title}
+            className="grid grid-cols-[170px_minmax(0,1fr)] gap-x-8 py-9 max-[760px]:grid-cols-1 max-[760px]:gap-y-4"
+          >
+            <h2 className="eyebrow pt-1">{section.title}</h2>
 
-            <div className="space-y-10">
+            <div className="space-y-9">
               {section.content.map((item, i) => {
                 if (item.type === "company") {
                   return (
                     <div key={i}>
-                      <h3 className="font-[family-name:var(--font-syne)] font-bold text-[17px] tracking-[-0.01em] mb-4">
+                      <h3 className="mb-4 font-display text-[21px] leading-[1.25] tracking-[-0.012em]">
                         {item.name}
                       </h3>
                       <div className="space-y-6">
                         {item.roles.map((role) => (
-                          <div
-                            key={role.title}
-                            className="border-l-2 border-[var(--color-paper-low)] pl-6"
-                          >
-                            <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                              <h4 className="font-[family-name:var(--font-syne)] font-semibold text-[14px] tracking-[-0.005em]">
+                          <div key={role.title}>
+                            <div className="mb-2.5 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                              <h4 className="text-[15px] font-medium tracking-[-0.005em]">
                                 {role.title}
                               </h4>
-                              <span className="shrink-0 font-[family-name:var(--font-dm-mono)] text-[11px] text-[var(--color-paper-mid)]">
+                              <span className="tnum shrink-0 font-mono text-[11px] text-ink-faint">
                                 {role.period}
                               </span>
                             </div>
@@ -84,7 +77,7 @@ export default async function ResumePage() {
                               {role.bullets.map((bullet, j) => (
                                 <li
                                   key={j}
-                                  className="text-[14px] leading-[1.7] text-[var(--color-paper-mid)]"
+                                  className="max-w-[var(--measure)] border-l border-rule pl-4 text-[14.5px] leading-[1.65] text-ink-soft"
                                 >
                                   {bullet}
                                 </li>
@@ -99,26 +92,23 @@ export default async function ResumePage() {
 
                 if (item.type === "competency") {
                   return (
-                    <div key={i} className="text-[14px]">
-                      <span className="font-[family-name:var(--font-syne)] font-semibold">
-                        {item.category}:{" "}
+                    <div
+                      key={i}
+                      className="grid grid-cols-[minmax(140px,1fr)_minmax(0,2.4fr)] gap-x-6 gap-y-1 text-[14.5px] max-[600px]:grid-cols-1"
+                    >
+                      <span className="font-mono text-[10.5px] uppercase tracking-[0.11em] text-ink-faint">
+                        {item.category}
                       </span>
-                      <span className="text-[var(--color-paper-mid)]">
-                        {item.skills}
-                      </span>
+                      <span className="text-ink-soft">{item.skills}</span>
                     </div>
                   );
                 }
 
                 if (item.type === "item") {
                   return (
-                    <div key={i} className="text-[14px]">
-                      <span className="font-[family-name:var(--font-syne)] font-semibold">
-                        {item.label}
-                      </span>
-                      <span className="text-[var(--color-paper-mid)]">
-                        {" "}— {item.description}
-                      </span>
+                    <div key={i} className="text-[14.5px] leading-[1.65]">
+                      <span className="font-medium">{item.label}</span>
+                      <span className="text-ink-soft"> — {item.description}</span>
                     </div>
                   );
                 }
@@ -127,7 +117,7 @@ export default async function ResumePage() {
                   return (
                     <p
                       key={i}
-                      className="text-[14px] leading-[1.7] text-[var(--color-paper-mid)] italic"
+                      className="max-w-[var(--measure)] text-[14.5px] leading-[1.65] text-ink-soft"
                     >
                       {item.value}
                     </p>
@@ -137,9 +127,11 @@ export default async function ResumePage() {
                 return null;
               })}
             </div>
-          </div>
+          </section>
         ))}
       </div>
-    </Section>
+
+      <div className="h-[clamp(44px,6vw,72px)]" />
+    </div>
   );
 }

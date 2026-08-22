@@ -7,20 +7,15 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
-      <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-        Error
-      </p>
-      <h1 className="mb-4 text-3xl font-bold tracking-tight">
-        Something went wrong
+    <div className="wrap flex min-h-[60vh] flex-col justify-center py-20">
+      <span className="eyebrow mb-4">Error</span>
+      <h1 className="mb-4 max-w-[20ch] font-display text-[clamp(28px,4vw,44px)] leading-[1.15] tracking-[-0.017em]">
+        Something went wrong.
       </h1>
-      <p className="mb-8 max-w-md text-muted-foreground">
-        An unexpected error occurred. Please try again.
+      <p className="mb-7 max-w-[52ch] text-[16px] text-ink-soft">
+        An unexpected error occurred while rendering this page.
       </p>
-      <button
-        onClick={reset}
-        className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
-      >
+      <button onClick={reset} className="cta self-start cursor-pointer">
         Try again
       </button>
     </div>

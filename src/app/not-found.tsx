@@ -2,22 +2,19 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
-      <p className="mb-2 font-mono text-xs tracking-widest text-accent uppercase">
-        404
-      </p>
-      <h1 className="mb-4 text-3xl font-bold tracking-tight">
-        Page not found
+    <div className="wrap flex min-h-[60vh] flex-col justify-center py-20">
+      <span className="eyebrow mb-4">404</span>
+      <h1 className="mb-4 max-w-[20ch] font-display text-[clamp(28px,4vw,44px)] leading-[1.15] tracking-[-0.017em]">
+        That page isn&apos;t in the register.
       </h1>
-      <p className="mb-8 max-w-md text-muted-foreground">
-        The page you&apos;re looking for doesn&apos;t exist or has been moved.
+      <p className="mb-7 max-w-[52ch] text-[16px] text-ink-soft">
+        It may have been renamed or removed. The current work is all listed on
+        the portfolio page.
       </p>
-      <Link
-        href="/"
-        className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
-      >
-        Back to home
-      </Link>
+      <div className="flex flex-wrap gap-7">
+        <Link href="/" className="cta">Home</Link>
+        <Link href="/portfolio" className="cta">Selected work</Link>
+      </div>
     </div>
   );
 }
