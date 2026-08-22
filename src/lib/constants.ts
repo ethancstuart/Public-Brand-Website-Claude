@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Ethan Stuart",
-  title: "Ethan Stuart — Builder. Data & AI. Product Leadership.",
+  title: "Ethan Stuart — Data & AI Product Leadership",
   description:
-    "I lead data and AI products at Fortune 50 scale and ship them independently as a solo founder. Eight AI products across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
+    "I run an AI-native product organization at Disney, and the same operating model runs a one-person software practice. Six products, built independently, each with a literal status.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -15,115 +15,207 @@ export const siteConfig = {
   substackFeed: "https://thedataproductagent.substack.com/feed",
 } as const;
 
-// New redesign-v2 types and exports
-export type ProjectStatus = "live" | "beta" | "build" | "active";
-export type ProjectCategory = "featured" | "lab" | "re-stack";
+/* ---------------------------------------------------------------------------
+   Products
+   --------------------------------------------------------------------------- */
+
+/**
+ * Status is literal, not aspirational. `live` means a stranger can use it
+ * today; `invite` means real users behind a gate; `building` means it is not
+ * yet in anyone's hands; `paused` means it exists but is not being worked on.
+ */
+export type ProjectStatus = "live" | "invite" | "building" | "paused";
 
 export interface Project {
   slug: string;
   name: string;
-  type: string;
+  /** What kind of thing it is — sits under the name in the register. */
+  kind: string;
   description: string;
   status: ProjectStatus;
-  category: ProjectCategory;
-  color: string;
+  /** Prior names, so a rename reads as history rather than a separate product. */
+  formerly?: string;
+  /** Where it actually stands today, in the register's own words. */
+  note?: string;
   href?: string;
 }
 
-// Featured 4 — full magazine spreads in Phase 2
-export const FEATURED: Project[] = [
+export const STATUS: Record<
+  ProjectStatus,
+  { label: string; legend: string; varName: string }
+> = {
+  live: {
+    label: "Live",
+    legend: "Live — open to anyone",
+    varName: "var(--live)",
+  },
+  invite: {
+    label: "Invite",
+    legend: "Invite — real users, gated",
+    varName: "var(--invite)",
+  },
+  building: {
+    label: "In Development",
+    legend: "In development",
+    varName: "var(--building)",
+  },
+  paused: {
+    label: "Paused",
+    legend: "Paused",
+    varName: "var(--quiet)",
+  },
+};
+
+export const PROJECTS: Project[] = [
+  {
+    slug: "allisons-kitchen",
+    name: "Allison's Kitchen",
+    kind: "Household Kitchen Software",
+    description:
+      "Built for one household first — mine. Capture a recipe from anywhere: a link, a photo, a video you paused. Plan the week once, then cook from a clean screen. Now opening to other families a few at a time, with the iOS build in UAT.",
+    status: "invite",
+    formerly: "Stuart Pantry",
+    note: "web in invite · iOS in UAT",
+    href: "https://allisonskitchen.app",
+  },
   {
     slug: "nexuswatch",
     name: "NexusWatch",
-    type: "Geopolitical Intelligence",
+    kind: "Geopolitical Intelligence",
     description:
-      "Real-time geopolitical intelligence across 86 countries. AI risk analyst, 45+ data layers, globe visualization. Professional-grade threat monitoring built solo.",
+      "Real-time threat monitoring with global country coverage — live data layers across conflict, disasters, infrastructure, and environment, an LLM risk analyst over a normalized event pipeline, and an MCP server for agent access. A daily brief goes out to subscribers. Open source.",
     status: "live",
-    category: "featured",
-    color: "var(--color-nx)",
-    href: "https://nexuswatch.io",
+    note: "open to anyone · daily email brief with real subscribers",
+    href: "https://nexuswatch.dev",
+  },
+  {
+    slug: "altogether",
+    name: "Altogether",
+    kind: "Multi-Household Trip Planning",
+    description:
+      "One household is a calendar; three is the problem. Households submit availability and budget privately, and Otto — the AI co-planner — finds the windows that actually work and prices them per household.",
+    status: "building",
+    formerly: "Long Table, formerly Caravan",
+    note: "waitlist open, not yet in users' hands",
+    href: "https://longtable.dev",
   },
   {
     slug: "the-composer",
     name: "The Composer",
-    type: "Multi-Agent Editorial Framework",
+    kind: "Multi-Agent Editorial Framework",
     description:
-      "Agentic newsroom built on a 10-persona editorial board, multi-step pipeline (notes → draft → review → publish). Masthead is the productized expansion.",
-    status: "beta",
-    category: "featured",
-    color: "var(--color-cm)",
+      "An agentic newsroom: an editorial board of personas gating an explicit state machine from notes through draft, review, and publish. Masthead is the multi-tenant productization.",
+    status: "building",
   },
   {
     slug: "product-os",
     name: "Product OS",
-    type: "Spec-as-code for PMs",
+    kind: "Spec-as-code for PMs",
     description:
-      "OSS CLI + commercial dashboard + GitHub App that turn structured product specs into reviewable, version-controlled artifacts.",
-    status: "build",
-    category: "featured",
-    color: "var(--color-po)",
+      "CLI, GitHub App, and dashboard that turn product specs into reviewable, version-controlled artifacts. Specs move through pull requests like the code they describe — the same discipline that runs the practice itself.",
+    status: "building",
   },
   {
+    // Slug held at `zero-to-ship` deliberately: the route and its case study
+    // predate the rename, and changing it would break both.
     slug: "zero-to-ship",
-    name: "Zero to Ship",
-    type: "AI Coding Course Platform",
+    name: "Prototype Studio",
+    kind: "AI Prototyping Platform",
     description:
-      "16-module gamified course teaching the same shipping-first method used to build the rest of this portfolio.",
+      "Working sessions, guides, and agent-system setup for PMs, analysts, and BI engineers who want to ship with AI coding tools. Started as a structured course and became a services-and-setup practice instead — the pivot is the more honest story. Usable today; active development is on hold.",
     status: "live",
-    category: "featured",
-    color: "var(--color-zts)",
-    href: "https://zerotoship.dev",
+    formerly: "Zero to Ship",
+    href: "https://zerotoship.app",
   },
 ];
 
-// Modeling Lab — practice / quant track
-export const MODELING_LAB: Project[] = [
+/* ---------------------------------------------------------------------------
+   Page content
+   --------------------------------------------------------------------------- */
+
+export const STRIP: { term: string; value: string; open?: boolean }[] = [
+  { term: "Currently", value: "Disney Studios — Studio Technology" },
+  { term: "Scope", value: "Data & AI product org · 5 studio groups" },
+  { term: "Open to", value: "Director / VP — AI Product", open: true },
+  { term: "Writing", value: "The Data Product Agent" },
+];
+
+export const METHOD: { n: string; title: string; body: string }[] = [
   {
-    slug: "quant-engine",
-    name: "Quant Engine",
-    type: "Systematic Trading Platform",
-    description:
-      "World-class systematic trading platform — signal factory, streaming, GPU backtest, Bayesian state, paper-traded live on Alpaca.",
-    status: "live",
-    category: "lab",
-    color: "var(--color-ml)",
+    n: "Roles, not prompts",
+    title: "The org chart is made of agents.",
+    body: "A principal PM and a principal PMM review every spec before it becomes code. They hold standards, not context — which is why the output stays consistent across sessions that share no memory.",
   },
   {
-    slug: "sports-ml",
-    name: "Sports ML Pipeline",
-    type: "Models for Sports Markets",
-    description:
-      "20+ models across 4 sports. Kelly-sized bets, model-promoted to production after backtest. From small bankroll to live wagering.",
-    status: "active",
-    category: "lab",
-    color: "var(--color-ml)",
+    n: "Specs under version control",
+    title: "Decisions are artifacts, not recollections.",
+    body: "PRDs, decision logs, and conventions live in the repo with the code they govern, validated on commit. When a decision gets revisited, the reasoning is still there.",
+  },
+  {
+    n: "Shipping as the forcing function",
+    title: "Nothing is real until someone else uses it.",
+    body: "Test coverage, error budgets, and row-level security on personal projects — because the discipline that makes enterprise platforms trustworthy is the same discipline, just without the org to enforce it.",
   },
 ];
 
-// RE Stack — real-estate ventures
-export const RE_STACK: Project[] = [
+/**
+ * Every figure carries its measurement method. The site's standing rule is no
+ * bare numbers in copy; these are the exception precisely because none of them
+ * is bare.
+ */
+export const RECORD: { fig: string; label: string; src: string }[] = [
   {
-    slug: "meridian",
-    name: "Meridian Intelligence",
-    type: "Non-QM Lending Intelligence",
-    description:
-      "Lending intelligence platform — 34 features, 433 tests, white-label-ready. Operator-layer SaaS for non-QM mortgage shops.",
-    status: "active",
-    category: "re-stack",
-    color: "var(--color-re)",
+    fig: "~50%",
+    label: "Spec-to-shipped lead time, reduced",
+    src: "Disney Studios · Jira cycle-time, 6-month rolling",
   },
   {
-    slug: "ridgecap",
-    name: "RidgeCap",
-    type: "CRE Data Infrastructure",
-    description:
-      "CRE data infrastructure — 7-table FRED schema, 15 free CRE series, parallel build. Currently in product-frozen due-diligence mode.",
-    status: "build",
-    category: "re-stack",
-    color: "var(--color-re)",
+    fig: "100%",
+    label: "Weekly active PM adoption of AI coding tools",
+    src: "Telemetry-tracked, not self-reported",
+  },
+  {
+    fig: "80%",
+    label: "YoY loyalty growth on the Yum CDP",
+    src: "Marketing-mix-model attributed",
+  },
+  {
+    fig: "3",
+    label: "Enterprise data platforms built 0 → 1",
+    src: "Financial services · restaurants · entertainment",
   },
 ];
 
-// Aggregate for callers that want everything
-export const ALL_PROJECTS: Project[] = [...FEATURED, ...MODELING_LAB, ...RE_STACK];
-
+export const TRACK: {
+  years: string;
+  org: string;
+  role: string;
+  now?: boolean;
+}[] = [
+  {
+    years: "2025 — now",
+    org: "Disney Studios",
+    role: "Sr. Manager, Data & AI Products and Analytics Engineering",
+    now: true,
+  },
+  {
+    years: "2023 — 2025",
+    org: "Yum Brands · Taco Bell",
+    role: "Staff PM, Enterprise CDP → Portfolio Manager, Data & Analytics Platform",
+  },
+  {
+    years: "2022 — 2023",
+    org: "Capital Group",
+    role: "Product Manager, Data Platforms & Strategic Automation",
+  },
+  {
+    years: "2021 — 2022",
+    org: "Sprout Mortgage",
+    role: "Manager, Analytics & Product Strategy",
+  },
+  {
+    years: "2016 — 2021",
+    org: "Pacific Urban Investors · Civic Financial",
+    role: "Investment analysis and BI leadership",
+  },
+];

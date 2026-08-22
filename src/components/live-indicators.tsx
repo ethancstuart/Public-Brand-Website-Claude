@@ -11,6 +11,10 @@ function timeAgo(iso: string): string {
   return `${d}d ago`;
 }
 
+/**
+ * A quiet line of real evidence for the shipping claim — last commit, last
+ * post. No pulse, no glow: the point is that it is current, not that it moves.
+ */
 export async function LiveIndicators() {
   const [commit, posts] = await Promise.all([
     getLatestCommit(),
@@ -18,37 +22,32 @@ export async function LiveIndicators() {
   ]);
   const post = posts?.[0];
 
+  if (!commit && !post) return null;
+
   return (
-    <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase">
+    <ul className="flex flex-wrap gap-x-7 gap-y-1.5 border-b border-rule py-3 font-mono text-[10.5px] tracking-[0.06em] text-ink-faint">
       {commit && (
-        <li className="flex items-center gap-2">
-          <span
-            className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--color-arctic)]"
-            style={{ boxShadow: "0 0 6px var(--color-arctic)" }}
-          />
-          <span className="text-[var(--color-paper-mid)]">Currently shipping:</span>
+        <li>
+          Last shipped{" "}
           <a
             href={commit.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-paper)] hover:text-[var(--color-arctic)] transition-colors lowercase tracking-[0.04em]"
+            className="text-ink-soft no-underline hover:text-accent"
           >
             {commit.repo.split("/").slice(-1)[0]} · {timeAgo(commit.date)}
           </a>
         </li>
       )}
       {post && (
-        <li className="flex items-center gap-2">
-          <span
-            className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--color-indigo)]"
-            style={{ boxShadow: "0 0 6px var(--color-indigo)" }}
-          />
-          <span className="text-[var(--color-paper-mid)]">Now writing:</span>
+        <li>
+          Last published{" "}
           <a
             href={`/writing/${post.slug}`}
-            className="text-[var(--color-paper)] hover:text-[var(--color-indigo)] transition-colors lowercase tracking-[0.04em]"
+            className="text-ink-soft no-underline hover:text-accent"
           >
-            {post.title.slice(0, 48)}{post.title.length > 48 ? "…" : ""}
+            {post.title.slice(0, 52)}
+            {post.title.length > 52 ? "…" : ""}
           </a>
         </li>
       )}

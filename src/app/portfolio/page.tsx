@@ -1,84 +1,43 @@
-import type { ReactNode } from "react";
+import type { Metadata } from "next";
 import { Section } from "@/components/section";
-import { LabStrip } from "@/components/lab-strip";
-import { MagazineSpread } from "@/components/magazine-spread";
-import { NexusWatchGlobe } from "@/components/case-study/nexuswatch-globe";
-import { ComposerTypeweave } from "@/components/case-study/composer-typeweave";
-import { ProductOSCodeScroll } from "@/components/case-study/product-os-codescroll";
-import { ZTSTrajectory } from "@/components/case-study/zts-trajectory";
-import { FEATURED, MODELING_LAB, RE_STACK } from "@/lib/constants";
-import Link from "next/link";
+import { Register, Legend } from "@/components/register";
+import { PROJECTS } from "@/lib/constants";
 
-export const metadata = {
-  title: "Portfolio — Ethan Stuart",
+export const metadata: Metadata = {
+  title: "Portfolio",
   description:
-    "Eight AI products in flight across geopolitical intelligence, multi-agent editorial infrastructure, spec-as-code tooling, AI education, systematic trading, lending intelligence, and CRE data infrastructure.",
-};
-
-const MOTION_FOR: Record<string, ReactNode> = {
-  "nexuswatch":   <NexusWatchGlobe size={260} density={32} />,
-  "the-composer": <ComposerTypeweave text="DRAFT · REVIEW · APPROVE" />,
-  "product-os":   <ProductOSCodeScroll />,
-  "zero-to-ship": <ZTSTrajectory />,
-};
-
-const SHORT_LEDE: Record<string, string> = {
-  "nexuswatch":   "Real-time geopolitical intelligence with an AI risk analyst, 45+ data layers, and live country-by-country monitoring.",
-  "the-composer": "Agentic editorial framework — 10-persona board, structured pipeline, productized via Masthead.",
-  "product-os":   "Spec-as-code for PMs. OSS CLI + GitHub App + dashboard — Show HN target September 2026.",
-  "zero-to-ship": "AI coding course platform. 16 modules, shipping-first, gamified.",
-};
-
-const SHORT_MANIFESTO: Record<string, string> = {
-  "nexuswatch":   "Threat monitoring at platform scale — built solo.",
-  "the-composer": "An operator's newsroom, run by personas.",
-  "product-os":   "Specs that live in your repo, reviewed like code.",
-  "zero-to-ship": "Teach the actual method — outcomes, not tutorials.",
+    "Six products, built independently. Each carries a literal status: live, invite, or in development. Nothing here is aspirational.",
 };
 
 export default function PortfolioPage() {
   return (
-    <>
-      <Section
-        label="SELECTED WORK"
-        title="Eight products. All in flight in 2026."
-        description="Four featured products as full magazine spreads. Two thematic sections — Modeling Lab + RE Stack — for the rest of the portfolio."
-      >
-        <Link
-          href="#nexuswatch"
-          className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)] hover:text-[var(--color-paper)] transition-colors"
-        >
-          Scroll to first featured ↓
-        </Link>
+    <div className="wrap">
+      <div className="pb-[clamp(28px,4vw,44px)] pt-[clamp(44px,6vw,78px)]">
+        <span className="eyebrow mb-5 block">Selected work</span>
+        <h1 className="mb-5 max-w-[20ch] font-display text-[clamp(28px,4vw,46px)] leading-[1.14] tracking-[-0.017em]">
+          Six products. Each one has a status, and the status is literal.
+        </h1>
+        <p className="max-w-[58ch] text-[17px] leading-[1.6] text-ink-soft">
+          All of it built outside the day job, using the same operating model
+          that runs the org inside it.{" "}
+          <strong className="font-medium text-ink">Live</strong> means a stranger
+          can use it today.{" "}
+          <strong className="font-medium text-ink">Invite</strong> means real
+          users behind a gate.{" "}
+          <strong className="font-medium text-ink">In Development</strong> means
+          it is not yet in anyone&apos;s hands, and says so rather than implying
+          otherwise.
+        </p>
+      </div>
+
+      <Section aside="Status as of August 2026" title="The register">
+        <Legend />
+        <Register projects={PROJECTS} />
+        <p className="mt-6 font-mono text-[10.5px] leading-[1.6] tracking-[0.04em] text-ink-faint">
+          Names in the trail are prior names for the same product, not separate
+          products. Select a name for the full case study.
+        </p>
       </Section>
-
-      {FEATURED.map((p, i) => (
-        <MagazineSpread
-          key={p.slug}
-          project={p}
-          index={i}
-          total={FEATURED.length}
-          motionCanvas={MOTION_FOR[p.slug]}
-          manifesto={SHORT_MANIFESTO[p.slug]}
-          lede={SHORT_LEDE[p.slug]}
-        />
-      ))}
-
-      <LabStrip
-        label="LAB · QUANT + ML PRACTICE"
-        title="Modeling Lab."
-        description="Production-grade modeling work — quant + sports markets — that pays rent and proves method."
-        accent="var(--color-ml)"
-        vignettes={MODELING_LAB}
-      />
-
-      <LabStrip
-        label="VENTURES · REAL ESTATE STACK"
-        title="RE Stack."
-        description="Real-estate-domain ventures: lending intelligence + CRE data infrastructure."
-        accent="var(--color-re)"
-        vignettes={RE_STACK}
-      />
-    </>
+    </div>
   );
 }

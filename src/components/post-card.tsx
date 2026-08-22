@@ -9,24 +9,24 @@ export interface PostCardProps {
 
 export function PostCard({ slug, title, date, excerpt }: PostCardProps) {
   return (
-    <li className="border-b border-[var(--color-rule)] group">
+    <li>
       <Link
         href={`/writing/${slug}`}
-        className="block py-6 transition-[padding] duration-200 group-hover:pl-4"
+        className="grid grid-cols-[minmax(0,1fr)_110px] items-baseline gap-x-7 gap-y-2 py-5 no-underline transition-colors hover:bg-ground-sunk max-[640px]:grid-cols-1"
       >
-        <div className="flex items-baseline justify-between gap-6">
-          <h3 className="font-[family-name:var(--font-syne)] font-bold text-[18px] md:text-[22px] tracking-[-0.01em] text-[var(--color-paper-mid)] group-hover:text-[var(--color-paper)] transition-colors leading-snug">
+        <div>
+          <h3 className="text-[17px] font-medium leading-snug tracking-[-0.008em]">
             {title}
           </h3>
-          <time className="font-[family-name:var(--font-dm-mono)] text-[10px] tracking-[0.16em] uppercase text-[var(--color-paper-low)] flex-shrink-0">
-            {date}
-          </time>
+          {excerpt && (
+            <p className="mt-1.5 max-w-[var(--measure)] text-[14.5px] leading-[1.58] text-ink-soft">
+              {excerpt}
+            </p>
+          )}
         </div>
-        {excerpt && (
-          <p className="text-[14px] text-[var(--color-paper-mid)] leading-relaxed mt-3 max-w-[760px]">
-            {excerpt}
-          </p>
-        )}
+        <time className="tnum justify-self-start font-mono text-[11px] uppercase tracking-[0.08em] text-ink-faint max-[640px]:order-first">
+          {date}
+        </time>
       </Link>
     </li>
   );

@@ -1,40 +1,31 @@
-import Link from "next/link";
+import { siteConfig } from "@/lib/constants";
 
 const SOCIALS = [
-  { href: "https://www.linkedin.com/in/ethancstuart", label: "LinkedIn" },
-  { href: "https://thedataproductagent.substack.com",  label: "Substack" },
-  { href: "https://github.com/ethancstuart",           label: "GitHub"   },
+  { href: siteConfig.links.linkedin, label: "LinkedIn" },
+  { href: siteConfig.links.github, label: "GitHub" },
+  { href: siteConfig.links.substack, label: "Substack" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-rule)] mt-32">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10 flex items-center justify-between gap-6 flex-wrap">
-        <Link
-          href="/"
-          className="font-[family-name:var(--font-syne)] font-extrabold text-[11px] tracking-[0.22em] text-[var(--color-paper-mid)] hover:text-[var(--color-paper)] transition-colors"
-        >
-          ES
-        </Link>
-
-        <ul className="flex gap-6">
-          {SOCIALS.map((s) => (
-            <li key={s.href}>
+    <footer className="border-t border-rule">
+      <div className="wrap flex flex-wrap justify-between gap-[18px] pb-10 pt-[22px] font-mono text-[11px] text-ink-faint">
+        <span>© {new Date().getFullYear()} Ethan Stuart</span>
+        <span className="flex gap-2">
+          {SOCIALS.map((s, i) => (
+            <span key={s.href}>
               <a
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-[family-name:var(--font-dm-mono)] text-[9px] tracking-[0.18em] uppercase text-[var(--color-paper-mid)] hover:text-[var(--color-paper)] transition-colors"
+                className="no-underline hover:text-accent"
               >
                 {s.label}
               </a>
-            </li>
+              {i < SOCIALS.length - 1 && <span aria-hidden="true"> ·</span>}
+            </span>
           ))}
-        </ul>
-
-        <div className="font-[family-name:var(--font-dm-mono)] text-[9px] tracking-[0.12em] uppercase text-[var(--color-paper-mid)]">
-          © 2026 Ethan Stuart · Built with Next.js
-        </div>
+        </span>
       </div>
     </footer>
   );
