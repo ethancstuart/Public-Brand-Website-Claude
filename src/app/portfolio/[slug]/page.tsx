@@ -14,6 +14,13 @@ export function generateStaticParams(): Params[] {
   return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
+/**
+ * Meridian, RidgeCap, Quant Engine and Sports ML were deleted, and their URLs
+ * are still indexed. Without this, an unknown slug renders the not-found body
+ * with a 200 — a soft 404. Anything outside PROJECTS now returns a real 404.
+ */
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {
