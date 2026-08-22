@@ -69,13 +69,56 @@ test("renamed products show their alias trail", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("deleted products appear nowhere in the register", async ({ page }) => {
-  await page.goto("/portfolio");
+// A 200 proves a server answered, not that it answered with the build you just
+// shipped. `/` once served a stale ISR entry from the previous release behind a
+// perfectly healthy 200, so every page is checked for CONTENT, not status.
+const DEAD_COPY = [
+  "Meridian",
+  "RidgeCap",
+  "Quant Engine",
+  "Sports ML",
+  "Modeling Lab",
+  "RE Stack",
+  "eight products",
+  "nexuswatch.io",
+  "zerotoship.dev",
+  "scale just changes",
+];
+
+for (const path of [...ROUTES.map((r) => r.path)]) {
+  test(`${path} carries no dead copy`, async ({ page }) => {
+    await page.goto(path);
+    const body = await page.locator("body").innerText();
+    for (const dead of DEAD_COPY) {
+      expect(body, `"${dead}" must not appear on ${path}`).not.toContain(dead);
+    }
+  });
+}
+
+test("the home page is the register, not a stale build", async ({ page }) => {
+  await page.goto("/");
   const body = await page.locator("body").innerText();
-  for (const dead of ["Meridian", "RidgeCap", "Quant Engine", "Sports ML"]) {
-    expect(body).not.toContain(dead);
+  for (const required of [
+    "I run an AI-native product organization",
+    "How the work gets made",
+    "Operating record",
+    "Allison's Kitchen",
+    "Prototype Studio",
+  ]) {
+    expect(body).toContain(required);
   }
 });
+
+// The old name is allowed only as the alias trail, never as a live product.
+for (const path of ["/", "/portfolio"]) {
+  test(`${path} shows "Zero to Ship" only as an alias`, async ({ page }) => {
+    await page.goto(path);
+    const body = await page.locator("body").innerText();
+    const total = (body.match(/Zero to Ship/g) ?? []).length;
+    const aliased = (body.match(/formerly Zero to Ship/g) ?? []).length;
+    expect(total).toBe(aliased);
+  });
+}
 
 // Structural accessibility. Contrast is enforced at the token level (every
 // foreground/ground pair clears WCAG AA 4.5:1 in both themes); these cover the

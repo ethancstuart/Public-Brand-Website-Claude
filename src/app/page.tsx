@@ -7,6 +7,15 @@ import { JsonLd } from "@/components/json-ld";
 import { PROJECTS, siteConfig } from "@/lib/constants";
 import { getPersonJsonLd, getWebSiteJsonLd } from "@/lib/jsonld";
 
+/**
+ * The home page is a static deployment artifact — never a time-based ISR entry.
+ * Its content changes only when the code does, so it must be invalidated by the
+ * deploy and nothing else. Do not add a fetch with `next: { revalidate }` to
+ * this tree; one such fetch turns the whole page into a stale-servable cache
+ * entry and a deploy stops being the thing that ships it.
+ */
+export const revalidate = false;
+
 export default function Home() {
   return (
     <>

@@ -1,5 +1,12 @@
 // Fetches the most recent public commit timestamp from a GitHub user.
-// Uses the public events API — no auth needed for low rate. ISR'd at the consumer.
+// Uses the public events API — no auth needed for low rate.
+//
+// Resolved at BUILD time, deliberately. This runs inside LiveIndicators on the
+// home page, and a `next: { revalidate }` here promotes the whole of `/` from a
+// static deployment artifact into a time-based ISR entry — which can then be
+// served stale-while-revalidate across a deploy, showing visitors the previous
+// release. The commit shown refreshes on every deploy, which is the moment it
+// actually changes meaning.
 
 export interface LatestCommit {
   repo: string;
@@ -14,7 +21,10 @@ export async function getLatestCommit(): Promise<LatestCommit | null> {
   try {
     const res = await fetch(
       `https://api.github.com/users/${USER}/events/public?per_page=30`,
-      { next: { revalidate: 600 }, headers: { Accept: "application/vnd.github+json" } }
+      {
+        cache: "force-cache",
+        headers: { Accept: "application/vnd.github+json" },
+      }
     );
     if (!res.ok) return null;
     const events = (await res.json()) as Array<{
