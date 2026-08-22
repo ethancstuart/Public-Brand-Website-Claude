@@ -1,23 +1,22 @@
 # Public Brand Website
 
 ## Project Overview
-Personal brand website for Ethan Stuart. Serves three purposes equally: career credibility, builder narrative, and (eventually) course funnel. Tone is confident but not metrics-heavy — personal brand, not corporate resume.
+Personal brand website for Ethan Stuart. Serves three purposes equally: career credibility, builder narrative, and services funnel. The audience is committees hiring a Director/VP of AI Product — the register must read as "ships infrastructure," not "designs portfolios." Tone is confident but not metrics-heavy — personal brand, not corporate resume.
 
 ## Tech Stack
 - Next.js 16 (App Router)
 - React 19
 - TypeScript (strict)
 - Tailwind CSS v4
-- Framer Motion (animations)
+- No animation library. Motion is near-zero by design (redesign-v3-register).
 - Vercel (hosting + analytics + speed insights)
-- jsPDF (resume PDF generation)
 - rss-parser (Substack feed)
 
 ## Architecture
 - Static-first: most pages are statically generated at build time
 - Substack posts fetched via RSS with 1hr revalidation
 - Resume parsed from markdown (public/resume.md) at build/request time
-- Portfolio projects defined in constants.ts with case study pages via [slug]
+- Six products defined in `src/lib/constants.ts` (PROJECTS); case-study prose in `src/lib/case-studies.ts`, rendered via portfolio/[slug]
 - No database, no auth, no CMS
 
 ## Key Commands
@@ -27,23 +26,29 @@ Personal brand website for Ethan Stuart. Serves three purposes equally: career c
 
 ## Nav Structure
 Home, About, Portfolio, Writing (4 links in nav)
-Resume and Contact exist but are not in the main nav.
+Resume and Contact exist but are not in the main nav. Home also carries in-page anchors: #work, #method, #record, #track, #contact.
 
-## Conventions
-- No exact counts, dollar amounts, or percentages in public copy — but vague scale signals are OK (e.g., "cross-functional team", "hundreds of stakeholders", "Fortune 50")
-- Dark theme default
-- Monospace for labels/tags, sans-serif for body
-- Section pattern: mono uppercase label → bold heading → muted description
-- Portfolio projects: static screenshot previews on cards, live iframes on case study pages
+## Conventions — the register
+- **A register, not a gallery.** Rules and rows, tabular alignment, `.tnum` on anything numeric. No cards, no decorative 01/02/03 numbering — the projects are not a sequence.
+- **Type**: IBM Plex Sans (body/UI), IBM Plex Mono (labels/status/metadata), Newsreader (display and judgment lines). Do not reintroduce Syne, Bricolage Grotesque, Instrument Serif, or DM Mono.
+- **Colour**: blue-biased neutrals. Ground `#FBFBF9` light / `#101318` dark, following the viewer's system preference (`data-theme` overrides). One accent: `#23478C` / `#86A9E5`. Status colours are semantic and separate — live, invite, building, paused. Never colour a product by identity.
+- **Near-zero motion.** The restraint is the argument. Nothing animates on scroll.
+- **Layout primitives** live in globals.css: `.wrap`, `.ledger`, `.cols` + `.cols-3`/`.cols-4`, `.eyebrow`, `.cta`. Use them rather than re-deriving dividers per component.
+- **Status is literal.** `live` = a stranger can use it today. `invite` = real users behind a gate. `building` = not yet in anyone's hands. `paused` = exists, not being worked on. Never inflate a status; an unflattering one is the point.
+- **Renames are history, not new products.** Use `formerly?` on the project so the alias trail shows. Never change an existing slug — `zero-to-ship` stays `zero-to-ship` even though the product is now Prototype Studio, because the route and its case study depend on it.
+
+### Numbers in copy
+No exact counts, dollar amounts, or percentages in public copy. Vague scale signals are fine ("cross-functional team", "Fortune 50", "five studio groups").
+
+**One standing exception:** the Operating Record on `/` and `/about`. Those figures may be exact *because each one carries its measurement method inline* ("Jira cycle-time, 6-month rolling"; "MMM-attributed"). A figure that cannot be sourced does not go there — and does not go anywhere else either.
 
 ## File Structure
 ```
 src/
   app/              # Pages (about, portfolio, resume, contact, writing, api/)
-  components/       # Shared components (nav, hero, footer, section, etc.)
-  lib/              # Constants, resume parser, substack fetcher, JSON-LD
+  components/       # nav, footer, section, register, blocks, post-card, live-indicators
+  lib/              # Constants, case studies, resume parser, substack fetcher, JSON-LD
 public/
-  portfolio/        # Static preview screenshots
   resume.md         # Resume source (synced from home-base)
   headshot.jpg
 scripts/
@@ -79,10 +84,10 @@ Always label new bugs with their severity tier.
 
 ### Session end — always:
 - Note what was changed this session (copy, components, portfolio projects).
-- Flag any portfolio screenshots that are now stale due to changes made. Format: `Screenshot needed: [project] — [what changed]`. Add to Bugs & Issues as P2.
-- If a new portfolio project was added or removed, verify src/lib/constants.ts is updated and the public/portfolio/ screenshot exists.
+- If a product was added, removed, or renamed, verify `src/lib/constants.ts` and `src/lib/case-studies.ts` agree, and that any rename kept its slug and gained a `formerly` entry.
+- Re-verify any project URL that changed. The register links to live products; a 404 in the register is a P1.
 
-Site serves three purposes: career credibility, builder narrative, course funnel. All copy: no exact counts or dollar amounts.
+Site serves three purposes: career credibility, builder narrative, services funnel. All copy: no exact counts or dollar amounts, except the sourced Operating Record.
 
 ## Shared Context — home-base
 This project is part of a portfolio managed from ~/Projects/home-base.
@@ -98,7 +103,7 @@ Use `/brand-guidelines` to auto-apply this project's brand identity.
 Use `/frontend-design` for intentional aesthetic direction on new UI work.
 
 ## Important Notes
-- No exact numbers, team sizes, or dollar amounts in site copy — vague scale signals are OK
-- Resume synced from home-base via scripts/sync-resume.sh
-- Portfolio screenshots in public/portfolio/ — retake when apps change significantly
-- Course represented as portfolio project until ready for its own page
+- No exact numbers, team sizes, or dollar amounts in site copy — except the sourced Operating Record (see Conventions)
+- Resume synced from home-base via scripts/sync-resume.sh. `public/resume.md` is the source of truth for career history — the Track in constants.ts must match it.
+- The register carries no screenshots. Products are described in prose and linked live.
+- Prototype Studio (formerly Zero to Ship) sells working sessions, guides, and agent-system setup — it is no longer a course. Do not describe it as one.
