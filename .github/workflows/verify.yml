@@ -23,8 +23,10 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
+      # The mobile project uses the iPhone 14 descriptor, whose default browser
+      # is WebKit — chromium alone is not enough.
       - name: Install browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
 
       # Playwright's webServer builds and starts the app itself.
       # sync-resume.sh tolerates the absent home-base checkout in CI and the
