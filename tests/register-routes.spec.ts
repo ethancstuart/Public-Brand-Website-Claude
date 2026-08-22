@@ -76,3 +76,45 @@ test("deleted products appear nowhere in the register", async ({ page }) => {
     expect(body).not.toContain(dead);
   }
 });
+
+// Structural accessibility. Contrast is enforced at the token level (every
+// foreground/ground pair clears WCAG AA 4.5:1 in both themes); these cover the
+// structure that tokens cannot.
+const A11Y_PAGES = ["/", "/about", "/portfolio", "/portfolio/nexuswatch", "/writing"];
+
+for (const path of A11Y_PAGES) {
+  test(`${path} has exactly one h1 and no unlabelled images or links`, async ({
+    page,
+  }) => {
+    await page.goto(path);
+
+    await expect(page.locator("h1")).toHaveCount(1);
+
+    const unlabelledImages = await page
+      .locator("img:not([alt])")
+      .count();
+    expect(unlabelledImages).toBe(0);
+
+    // Every link must have text a screen reader can announce.
+    const links = await page.locator("a").all();
+    for (const link of links) {
+      const name = (
+        (await link.innerText()) ||
+        (await link.getAttribute("aria-label")) ||
+        ""
+      ).trim();
+      expect(name.length).toBeGreaterThan(0);
+    }
+  });
+}
+
+test("the page is usable with motion disabled", async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await ctx.newPage();
+  await page.goto("/");
+  await expect(
+    page.getByText("I run an AI-native product organization").first()
+  ).toBeVisible();
+  await expect(page.getByText("Allison's Kitchen").first()).toBeVisible();
+  await ctx.close();
+});
