@@ -58,10 +58,10 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
   },
 
   nexuswatch: {
-    lede: "Real-time geopolitical threat monitoring: live data layers across conflict, disasters, infrastructure, and environment, an LLM risk analyst reading a normalized event pipeline, and an MCP server so agents can query the same data a human would.",
+    lede: "Real-time geopolitical threat monitoring: 45+ live data layers across 86 countries — conflict, disasters, infrastructure, environment — an LLM risk analyst reading a normalized event pipeline, and an MCP server so agents can query the same data a human would.",
     facts: [
       { term: "Status", value: "Live — open to anyone" },
-      { term: "Access", value: "Web · API · MCP server · daily brief" },
+      { term: "Coverage", value: "45+ live data layers · 86 countries scored" },
       { term: "Source", value: "Open source" },
       { term: "Stack", value: "TypeScript · MapLibre GL · Supabase · Claude API" },
     ],
@@ -78,7 +78,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         label: "System",
         title: "An analyst layer sitting on a normalized event pipeline.",
         body: [
-          "Scheduled collection pulls structured events from many sources, normalizes them into one schema, and scores them. An LLM analyst reads that pipeline and produces narrative explanations on demand — the map is the index, the analyst is the product.",
+          "Scheduled collection pulls structured events from 45+ live data layers, normalizes them into one schema, and scores instability across 86 countries. An LLM analyst reads that pipeline and produces narrative explanations on demand — the map is the index, the analyst is the product.",
           "An MCP server exposes the same pipeline to agents, which means the platform is queryable by software as well as by people.",
         ],
       },

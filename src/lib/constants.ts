@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     name: "NexusWatch",
     kind: "Geopolitical Intelligence",
     description:
-      "Real-time threat monitoring with global country coverage — live data layers across conflict, disasters, infrastructure, and environment, an LLM risk analyst over a normalized event pipeline, and an MCP server for agent access. A daily brief goes out to subscribers. Open source.",
+      "Real-time threat monitoring — 45+ live data layers across 86 countries, spanning conflict, disasters, infrastructure, and environment, with an LLM risk analyst over a normalized event pipeline and an MCP server for agent access. A daily brief goes out to subscribers. Open source.",
     status: "live",
     note: "open to anyone · daily email brief with real subscribers",
     href: "https://nexuswatch.dev",

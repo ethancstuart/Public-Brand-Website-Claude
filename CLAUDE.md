@@ -72,16 +72,31 @@ These are wrong. If you find yourself about to write one, stop and re-read the t
   "cross-functional team", "five studio groups").
 - Tone: confident, not metrics-heavy. Personal brand, not corporate resume.
 
-### The one numbers exception
+### Numbers exceptions — the rule targets UNVERIFIABLE claims, not specific ones
 
-The **Operating Record** on `/` and `/about` may carry exact figures — *precisely because each one
-carries its measurement method inline* ("Jira cycle-time, 6-month rolling"; "Marketing-mix-model
-attributed"). The rule exists to stop unverifiable boasting, not to stop evidence: a figure with
-its method attached invites the check.
+The no-exact-counts rule exists to stop unverifiable boasting. It does **not** exist to make the
+site vague. Two categories of figure are explicitly allowed, and **must not be softened**:
 
-A bare figure anywhere else is still out. If you cannot name how it was measured in the same
-breath, it does not go in. `/resume` is also exempt — it renders `public/resume.md`, which has its
-own detail level.
+**1. Sourced figures — the Operating Record** on `/` and `/about`. These may be exact precisely
+because each carries its measurement method inline ("Jira cycle-time, 6-month rolling";
+"Marketing-mix-model attributed"). A figure with its method attached invites the check.
+
+**2. Independently checkable product figures.** A number a reader can confirm for themselves in
+under a minute, from a link already on the page, is evidence rather than a boast. NexusWatch's
+"45+ live data layers across 86 countries" is the canonical case: the register links to
+nexuswatch.dev, and the product's own metadata states "45+ live data layers on a 3D globe, 86
+countries scored". Anyone can open it and count.
+
+These were softened once, to "global country coverage", by misreading the rule as "no specifics
+anywhere". That was wrong and Ethan reversed it. **Do not soften them again.** Specificity that
+survives checking is the point of the whole page.
+
+The test to apply: *can a reader verify this, and how?* If the answer is a measurement method or a
+link, the figure stays exact. If the answer is "you'd have to take my word for it", cut it — do not
+hedge it, do not round it, cut it.
+
+A bare figure with neither method nor a way to check is still out. `/resume` is exempt — it renders
+`public/resume.md`, which has its own detail level.
 
 ## Project Overview
 
