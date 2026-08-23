@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ethan Stuart",
   title: "Ethan Stuart — Data & AI Product Leadership",
   description:
-    "I run an AI-native product organization at Disney, and the same operating model runs a one-person software practice. Six products, built independently, each with a literal status.",
+    "I run an AI-native product organization at Disney, and the same operating model runs a one-person software practice. Every product is built independently and carries a literal status.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -100,11 +100,20 @@ export const PROJECTS: Project[] = [
     href: "https://longtable.dev",
   },
   {
+    slug: "gridiron",
+    name: "Gridiron",
+    kind: "Forecasting & Evaluation",
+    description:
+      "A forecasting and calibration testbed scored against public closing lines. Feature engineering, a backtest harness, and calibration scoring — the question it exists to answer is whether a model's stated confidence holds up against the sternest public benchmark available.",
+    status: "building",
+    note: "not yet in anyone's hands",
+  },
+  {
     slug: "the-composer",
     name: "The Composer",
     kind: "Multi-Agent Editorial Framework",
     description:
-      "An agentic newsroom: an editorial board of personas gating an explicit state machine from notes through draft, review, and publish. Masthead is the multi-tenant productization.",
+      "An agentic newsroom: a ten-persona editorial board gating an explicit state machine that carries a piece from notes through draft, review, and publish.",
     status: "building",
   },
   {

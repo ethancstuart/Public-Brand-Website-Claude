@@ -6,7 +6,7 @@ import { PROJECTS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Six products, built independently. Each carries a literal status: live, invite, or in development. Nothing here is aspirational.",
+    "Products built independently, each carrying a literal status: live, invite, or in development. Nothing here is aspirational.",
 };
 
 export default function PortfolioPage() {
@@ -15,7 +15,7 @@ export default function PortfolioPage() {
       <div className="pb-[clamp(28px,4vw,44px)] pt-[clamp(44px,6vw,78px)]">
         <span className="eyebrow mb-5 block">Selected work</span>
         <h1 className="mb-5 max-w-[20ch] font-display text-[clamp(28px,4vw,46px)] leading-[1.14] tracking-[-0.017em]">
-          Six products. Each one has a status, and the status is literal.
+          Every product has a status, and the status is literal.
         </h1>
         <p className="max-w-[58ch] text-[17px] leading-[1.6] text-ink-soft">
           All of it built outside the day job, using the same operating model

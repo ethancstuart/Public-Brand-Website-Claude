@@ -26,6 +26,7 @@ his.
 | Allison's Kitchen (formerly Stuart Pantry) | `allisons-kitchen` | allisonskitchen.app | INVITE — iOS build in UAT |
 | NexusWatch | `nexuswatch` | nexuswatch.dev | LIVE — daily brief has real subscribers |
 | Altogether (formerly Long Table, formerly Caravan; repo `caravan`) | `altogether` | longtable.dev | IN DEVELOPMENT |
+| Gridiron | `gridiron` | no public URL | IN DEVELOPMENT |
 | The Composer | `the-composer` | no public URL | IN DEVELOPMENT |
 | Product OS | `product-os` | no public URL | IN DEVELOPMENT |
 | Prototype Studio (formerly Zero to Ship) | `zero-to-ship` | zerotoship.app | LIVE — development dormant |
@@ -38,6 +39,27 @@ Order in `PROJECTS` is deliberate and is the order they render. Allison's Kitche
 its origin: built for one household first — Ethan's own — then opened to other families a few at a
 time. That is the credibility, not something to soften.
 
+**Gridiron is a NEW entry, not a rename.** It has no `formerly`, and the `/portfolio/quant-engine`
+redirect stays pointed at `/portfolio` rather than at Gridiron.
+
+### Gridiron and the trading platform are two different things — do not reconcile them
+
+`public/resume.md` describes a **paper-traded systematic trading research platform** (walk-forward
+evaluation, SEC EDGAR insider-signal modeling, no capital deployed) under "Personal AI/ML work".
+That is a **separate project** and is **deliberately not on the site**.
+
+Gridiron is the **sports forecasting** work: a forecasting and calibration testbed scored against
+public closing lines.
+
+They are not the same product, neither is a rename of the other, and the asymmetry is intentional —
+the trading platform appears only on the resume, Gridiron only on the site. A future session will
+be tempted to "reconcile" the two because both are quantitative modelling. **Do not.** Ask Ethan
+before moving either one across.
+
+The Composer's board is **ten personas** — an exact, deliberate count, restored after being
+softened once. `resume-base.md` in home-base was corrected to match on 2026-08-23; the site was the
+accurate side.
+
 ## DEAD FACTS — never reintroduce
 
 These are wrong. If you find yourself about to write one, stop and re-read the table above.
@@ -46,14 +68,22 @@ These are wrong. If you find yourself about to write one, stop and re-read the t
   sends visitors to a competitor's pricing page. It returns a healthy 200.
 - **nexuswatch.app** — does not resolve.
 - **zerotoship.dev** — 404, deployment not found.
-- **"eight products in flight"** — not a real count. Do not put a product count in copy.
+- **"eight products in flight"** — not a real count, and the reason no product count appears
+  anywhere in copy. Not "six products", not "seven" — the register shows however many rows exist
+  and a reader can count them. A count in copy is a fact that silently rots every time the
+  portfolio changes, and it has been wrong at least twice. Copy was rewritten on 2026-08-23 to
+  remove the last of them when Gridiron was added.
 - **Meridian Intelligence, RidgeCap, Quant Engine, Sports ML Pipeline** — deleted 2026-08-22 on
   Ethan's instruction: constants, routes, and case studies all removed. Their URLs shipped to
   production and are indexed, so `next.config.ts` holds permanent redirects to `/portfolio`. Do not
   re-add the products, and do not remove the redirects.
 - **Any live-capital or wagering language** — no "Kelly-sized bets," no "live odds," no "bankroll,"
-  no "shipped to live capital." The modeling work was research: paper-traded, walk-forward
-  evaluated, no real capital deployed. `public/resume.md` is correct on this; match it.
+  no "staking," no "shipped to live capital." This applies to Gridiron's copy and case study in
+  particular. Gridiron is a forecasting and calibration testbed scored against public closing
+  lines; describe it in those terms and no others.
+- **Masthead** — dropped as a planned product on 2026-08-23. It was the multi-tenant
+  productization of The Composer. Removed from the register, the case study, and metadata; the
+  resume never mentioned it. Do not reintroduce it.
 - **Prototype Studio as a course.** It was a sixteen-module gamified course; it now sells working
   sessions, guides, and agent-system setup. The pivot is the story — do not describe it as a course
   in the present tense.

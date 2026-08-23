@@ -70,7 +70,7 @@ export default function OGImage() {
             fontFamily: "monospace",
           }}
         >
-          <span>Six products · status is literal</span>
+          <span>Built independently · status is literal</span>
           <span>ethancstuart.com</span>
         </div>
       </div>

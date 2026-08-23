@@ -67,11 +67,11 @@ export default function AboutPage() {
             real software. The combination is the point.
           </p>
           <p>
-            In parallel, a one-person software practice: six products across
-            household software, geopolitical intelligence, multi-household trip
-            planning, multi-agent editorial infrastructure, spec-as-code tooling,
-            and AI prototyping services. Every one carries a literal status, and
-            some of those statuses are unflattering on purpose.
+            In parallel, a one-person software practice spanning household
+            software, geopolitical intelligence, multi-household trip planning,
+            multi-agent editorial infrastructure, forecasting and calibration,
+            spec-as-code tooling, and AI prototyping. Every one carries a literal
+            status, and some of those statuses are unflattering on purpose.
           </p>
           <p>
             AI is what makes the combination possible. I am not working twice as

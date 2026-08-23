@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 
 const ROUTES: { path: string; expectText: string }[] = [
   { path: "/", expectText: "I run an AI-native product organization" },
@@ -10,6 +10,7 @@ const ROUTES: { path: string; expectText: string }[] = [
   { path: "/portfolio/allisons-kitchen", expectText: "Allison's Kitchen" },
   { path: "/portfolio/nexuswatch", expectText: "NexusWatch" },
   { path: "/portfolio/altogether", expectText: "Altogether" },
+  { path: "/portfolio/gridiron", expectText: "Gridiron" },
   { path: "/portfolio/the-composer", expectText: "Composer" },
   { path: "/portfolio/product-os", expectText: "Product OS" },
   // Slug deliberately retained through the rename.
@@ -56,8 +57,8 @@ test("every product in the register carries a status", async ({ page }) => {
     /^(Live|Invite|In Development|Paused)$/,
     { exact: true }
   );
-  // Six products, plus the four legend entries above them.
-  await expect(statuses).toHaveCount(10);
+  // Seven products, plus the four legend entries above them.
+  await expect(statuses).toHaveCount(11);
 });
 
 test("renamed products show their alias trail", async ({ page }) => {
@@ -68,6 +69,25 @@ test("renamed products show their alias trail", async ({ page }) => {
     page.getByText(/formerly Long Table, formerly Caravan/)
   ).toBeVisible();
 });
+
+
+/**
+ * Read the page's text only once it has actually rendered.
+ *
+ * `page.goto()` resolves before the root loading.tsx boundary is replaced, so a
+ * bare `innerText()` can return the LOADING shell. That is not merely flaky: an
+ * absence assertion ("this dead string is not present") would PASS against a
+ * page that never rendered, which is exactly the false confidence these tests
+ * exist to prevent. Every page has exactly one h1, so wait for it first.
+ */
+async function renderedText(page: Page): Promise<string> {
+  await page.locator("h1").first().waitFor({ state: "visible" });
+  const text = await page.locator("body").innerText();
+  expect(text, "page never rendered past the loading state").not.toMatch(
+    /^\s*ETHAN STUART[\s\S]*LOADING/
+  );
+  return text;
+}
 
 // A 200 proves a server answered, not that it answered with the build you just
 // shipped. `/` once served a stale ISR entry from the previous release behind a
@@ -83,12 +103,14 @@ const DEAD_COPY = [
   "nexuswatch.io",
   "zerotoship.dev",
   "scale just changes",
+  // Masthead was dropped as a planned product on 2026-08-23.
+  "Masthead",
 ];
 
 for (const path of [...ROUTES.map((r) => r.path)]) {
   test(`${path} carries no dead copy`, async ({ page }) => {
     await page.goto(path);
-    const body = await page.locator("body").innerText();
+    const body = await renderedText(page);
     for (const dead of DEAD_COPY) {
       expect(body, `"${dead}" must not appear on ${path}`).not.toContain(dead);
     }
@@ -97,7 +119,7 @@ for (const path of [...ROUTES.map((r) => r.path)]) {
 
 test("the home page is the register, not a stale build", async ({ page }) => {
   await page.goto("/");
-  const body = await page.locator("body").innerText();
+  const body = await renderedText(page);
   for (const required of [
     "I run an AI-native product organization",
     "How the work gets made",
@@ -113,7 +135,7 @@ test("the home page is the register, not a stale build", async ({ page }) => {
 for (const path of ["/", "/portfolio"]) {
   test(`${path} shows "Zero to Ship" only as an alias`, async ({ page }) => {
     await page.goto(path);
-    const body = await page.locator("body").innerText();
+    const body = await renderedText(page);
     const total = (body.match(/Zero to Ship/g) ?? []).length;
     const aliased = (body.match(/formerly Zero to Ship/g) ?? []).length;
     expect(total).toBe(aliased);
