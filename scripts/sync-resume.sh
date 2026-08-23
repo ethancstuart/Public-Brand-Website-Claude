@@ -21,7 +21,13 @@ fi
 SOURCE_TYP="${HOMEBASE}/personal/resume-base.typ"
 if command -v typst >/dev/null 2>&1; then
   if [ -f "$SOURCE_TYP" ]; then
-    typst compile "$SOURCE_TYP" "${DEST_DIR}/resume.pdf" 2>/dev/null
+    # Deterministic build: without a fixed timestamp Typst stamps CreationDate,
+    # ModDate and /ID on every compile, so an unchanged resume still shows as a
+    # modified binary — a false drift signal that invites meaningless commits.
+    # The date is derived from the source file's mtime, so it changes exactly
+    # when the content does.
+    SOURCE_EPOCH=$(stat -f %m "$SOURCE_TYP" 2>/dev/null || stat -c %Y "$SOURCE_TYP")
+    typst compile --creation-timestamp "$SOURCE_EPOCH" "$SOURCE_TYP" "${DEST_DIR}/resume.pdf" 2>/dev/null
     echo "✓ Built resume-base.typ → public/resume.pdf"
   else
     echo "⚠ No Typst source at ${SOURCE_TYP} — skipping PDF build"
