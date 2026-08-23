@@ -55,12 +55,12 @@ export default function AboutPage() {
               Senior Manager, Data &amp; AI Products and Analytics Engineering at
               Disney Studios.
             </strong>{" "}
-            I lead a data and AI product engineering organization spanning five
-            studio groups — product managers, analytics engineers, technical
-            writers, and program management — and set direction for a wider
-            footprint through governance forums. I brief the CTO and President of
-            Studio Technology monthly, and co-lead enterprise AI task forces
-            across product, program, and data.
+            I lead a matrixed data and AI product engineering organization —
+            product managers, analytics engineers, technical writers, and program
+            management — that runs enterprise-wide across the studios, and set
+            direction for a wider footprint through governance forums. I brief the
+            CTO and President of Studio Technology and Operations monthly, and
+            co-lead enterprise AI task forces across product, program, and data.
           </p>
           <p className="border-l-2 border-rule-strong pl-5 font-display text-[20px] leading-[1.4] tracking-[-0.01em] text-ink">
             Most product leaders manage. I run AI-native product teams and I ship

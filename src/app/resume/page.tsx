@@ -73,6 +73,11 @@ export default async function ResumePage() {
                                 {role.period}
                               </span>
                             </div>
+                            {role.scope && (
+                              <p className="mb-3 border-l-2 border-accent bg-ground-sunk py-2 pl-3 pr-3 font-mono text-[11.5px] leading-[1.65] text-ink-faint">
+                                {role.scope}
+                              </p>
+                            )}
                             <ul className="space-y-2">
                               {role.bullets.map((bullet, j) => (
                                 <li

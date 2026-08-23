@@ -29,6 +29,8 @@ export type ParsedSectionContent =
 export interface ParsedRole {
   title: string;
   period: string;
+  /** The role's remit, set off from the bullets so those can lead with outcome. */
+  scope?: string;
   bullets: string[];
 }
 
@@ -111,6 +113,24 @@ export function parseResumeMarkdown(md: string): ParsedResume {
         category: line.slice(0, colonIdx).trim(),
         skills: line.slice(colonIdx + 2).trim(),
       });
+      justSawBlank = false;
+      continue;
+    }
+
+    // A role's scope line — its remit, rendered apart from the outcome bullets.
+    if (currentRole && line.trimStart().startsWith("Scope: ")) {
+      currentRole.scope = line.trim().slice("Scope: ".length).trim();
+      justSawBlank = false;
+      continue;
+    }
+
+    // A trailing "Earlier: ..." note belongs to the section, not to the role it
+    // happens to follow. Without this it is swallowed as a final bullet of the
+    // last job, which reads as though those companies were part of that role.
+    if (line.trimStart().startsWith("Earlier: ")) {
+      flushRole();
+      flushCompany();
+      currentSection.content.push({ type: "text", value: line.trim() });
       justSawBlank = false;
       continue;
     }

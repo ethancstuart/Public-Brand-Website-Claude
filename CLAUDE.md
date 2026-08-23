@@ -21,6 +21,23 @@ Last verified **2026-08-22** by curl against each domain — checking not just f
 the response body actually serves Ethan's product. A 200 proves a server answered, not that it's
 his.
 
+**Canonical Disney facts — corrected 2026-08-23. Do not restore the older figures.**
+
+| Fact | Current value | Superseded value — never restore |
+|---|---|---|
+| Group name | Studio Technology **and Operations** | "Studio Technology" |
+| Org | matrixed **50+ person** data and AI product engineering organization | "45-person org" |
+| Reach | **1,000+ downstream users** | "500+ downstream users" |
+| Delivery speed | time from spec to shipped went from **roughly four months to about one** | "~50%", and any Jira citation |
+| Expansion | multiplied platform stakeholders ~10x, brought on 10+ new partner groups, took the platform enterprise-wide | "1 to 5 studio groups" |
+
+**"5 studio groups" is removed everywhere and must not come back.** It read as though Ethan
+onboards studios, which he does not — the platform is enterprise-wide. "5 disciplines" is a
+different fact and is correct.
+
+**Never cite Jira** as a source, on the site or in the resume. The four-months-to-one framing is
+the figure, and it needs no tooling citation.
+
 | Product | Slug | URL | Status |
 |---|---|---|---|
 | Allison's Kitchen (formerly Stuart Pantry) | `allisons-kitchen` | allisonskitchen.app | INVITE — iOS build in UAT |
@@ -99,7 +116,7 @@ These are wrong. If you find yourself about to write one, stop and re-read the t
   keep it because it reads well. This repo has been through three truth audits (`7d70bdc`,
   `011a652`, and the v3 register redesign). A fourth should not be necessary.
 - No exact counts, dollar amounts, or team sizes. Vague scale signals are fine ("Fortune 50",
-  "cross-functional team", "five studio groups").
+  "cross-functional team", "enterprise-wide").
 - Tone: confident, not metrics-heavy. Personal brand, not corporate resume.
 
 ### Numbers exceptions — the rule targets UNVERIFIABLE claims, not specific ones
@@ -108,7 +125,7 @@ The no-exact-counts rule exists to stop unverifiable boasting. It does **not** e
 site vague. Two categories of figure are explicitly allowed, and **must not be softened**:
 
 **1. Sourced figures — the Operating Record** on `/` and `/about`. These may be exact precisely
-because each carries its measurement method inline ("Jira cycle-time, 6-month rolling";
+because each carries its measurement method inline ("before and after the AI-native operating model";
 "Marketing-mix-model attributed"). A figure with its method attached invites the check.
 
 **2. Independently checkable product figures.** A number a reader can confirm for themselves in

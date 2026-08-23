@@ -36,9 +36,10 @@ export default function Home() {
               Senior Manager, Data &amp; AI Products and Analytics Engineering at
               Disney Studios
             </strong>{" "}
-            — a data and AI product engineering organization spanning five studio
-            groups. Nights and weekends, the same operating model runs a
-            household-software practice where I&apos;m the only human on the team.
+            — a matrixed data and AI product engineering organization running
+            enterprise-wide across the studios. Nights and weekends, the same
+            operating model runs a household-software practice where I&apos;m the
+            only human on the team.
           </p>
         </div>
 

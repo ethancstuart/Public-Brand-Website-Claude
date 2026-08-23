@@ -105,6 +105,11 @@ const DEAD_COPY = [
   "scale just changes",
   // Masthead was dropped as a planned product on 2026-08-23.
   "Masthead",
+  // Disney figures superseded 2026-08-23 — see CLAUDE.md canonical facts table.
+  "45-person",
+  "500+ downstream",
+  "studio groups",
+  "Jira",
 ];
 
 for (const path of [...ROUTES.map((r) => r.path)]) {

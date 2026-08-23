@@ -143,8 +143,8 @@ export const PROJECTS: Project[] = [
    --------------------------------------------------------------------------- */
 
 export const STRIP: { term: string; value: string; open?: boolean }[] = [
-  { term: "Currently", value: "Disney Studios — Studio Technology" },
-  { term: "Scope", value: "Data & AI product org · 5 studio groups" },
+  { term: "Currently", value: "Disney Studios — Studio Technology and Operations" },
+  { term: "Scope", value: "Data & AI product org · enterprise-wide" },
   { term: "Open to", value: "Director / VP — AI Product", open: true },
   { term: "Writing", value: "The Data Product Agent" },
 ];
@@ -174,9 +174,9 @@ export const METHOD: { n: string; title: string; body: string }[] = [
  */
 export const RECORD: { fig: string; label: string; src: string }[] = [
   {
-    fig: "~50%",
-    label: "Spec-to-shipped lead time, reduced",
-    src: "Disney Studios · Jira cycle-time, 6-month rolling",
+    fig: "4 → 1",
+    label: "Months from spec to shipped",
+    src: "Disney Studios · before and after the AI-native operating model",
   },
   {
     fig: "100%",
