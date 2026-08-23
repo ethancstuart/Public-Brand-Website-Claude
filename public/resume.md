@@ -3,7 +3,7 @@ Ethan Charles Stuart
 
 PROFESSIONAL SUMMARY
 
-Lead a 45-person data and AI product engineering organization at Disney Studios — 5 studio groups, 500+ downstream users, spec-to-shipped lead time down ~50% (Jira cycle-time, 6-month rolling), tens of millions in annual efficiency. Built and scaled three enterprise data platforms from zero across financial services, restaurants, and entertainment — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, MMM-attributed, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal in production). Build personal projects through AI coding tools — NexusWatch (geopolitical intelligence, 45+ live data layers across 86 countries, open source) live; Composer (agentic media) and Product OS (spec-as-code for PMs) in active development.
+Lead a 45-person data and AI product engineering organization at Disney Studios — 5 studio groups, 500+ downstream users, spec-to-shipped lead time down ~50% (Jira cycle-time, 6-month rolling), tens of millions in annual efficiency. Built and scaled three enterprise data platforms from zero across financial services, restaurants, and entertainment — Phoenix Fire at Capital Group (100% adoption), CDP across Yum Brands (80% YoY loyalty growth, MMM-attributed, 7,000+ operators), and Disney Studios' multi-agent system (semantic search, RAG, and multi-modal in production). Build personal projects through AI coding tools — NexusWatch (geopolitical intelligence, 45+ live data layers across 86 countries, open source) live; Composer (agentic editorial framework) and Product OS (spec-as-code for PMs) in active development.
 
 CORE COMPETENCIES
 
@@ -57,7 +57,7 @@ Personal portfolio that pressure-tests the AI-native operating model deployed at
 
 NexusWatch (nexuswatch.dev) — Real-time geopolitical intelligence platform. 45+ live data layers across 86 countries (conflict, disasters, infrastructure, intelligence, environment); AI analyst synthesizing threat patterns; MCP server for AI agent access. Open source, paired with a geopolitical-risk newsletter. Vite + TypeScript + MapLibre GL + Supabase + Claude API. Live as of April 2026.
 
-Composer (in development) — Agentic media platform. Multi-channel content distribution (newsletter, social, decks) driven by a small set of editorial agents.
+Composer (in development) — Agentic editorial framework. A ten-persona editorial board gates an explicit state machine carrying a piece from notes through draft, review, and publish.
 
 Product OS (in development) — Spec-as-code for product managers. OSS CLI + planned commercial dashboard for PR-based spec workflows. TypeScript, Turborepo monorepo.
 
