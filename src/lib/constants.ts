@@ -163,7 +163,7 @@ export const METHOD: { n: string; title: string; body: string }[] = [
   {
     n: "Shipping as the forcing function",
     title: "Nothing is real until someone else uses it.",
-    body: "Test coverage, error budgets, and row-level security on personal projects — because the discipline that makes enterprise platforms trustworthy is the same discipline, just without the org to enforce it.",
+    body: "Typechecks, linting, test suites and content smoke tests gate every deploy; cost guards and liveness checks watch the data collectors. The discipline that makes enterprise platforms trustworthy is the same discipline, just without an org to enforce it.",
   },
 ];
 
@@ -174,9 +174,9 @@ export const METHOD: { n: string; title: string; body: string }[] = [
  */
 export const RECORD: { fig: string; label: string; src: string }[] = [
   {
-    fig: "4 → 1",
+    fig: "~4 → ~1",
     label: "Months from spec to shipped",
-    src: "Disney Studios · before and after the AI-native operating model",
+    src: "Disney Studios · spec-to-ship duration, before and after the operating-model rollout",
   },
   {
     fig: "100%",

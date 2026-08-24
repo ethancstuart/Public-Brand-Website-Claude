@@ -1,5 +1,5 @@
 Ethan Charles Stuart
-(415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/ethan-stuart | github.com/ethancstuart | ethancstuart.com
+Los Angeles, CA | (415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/ethan-stuart | github.com/ethancstuart | ethancstuart.com
 
 PROFESSIONAL SUMMARY
 
@@ -62,6 +62,7 @@ Production software architected and shipped solo through AI coding tools, using 
 Allison's Kitchen (allisonskitchen.app) — Household kitchen software. Recipe capture from a link, a photo, or a video; weekly meal planning; step-by-step cook mode. Built for one household first, now in invite-only release with families onboarding in batches; iOS build in UAT. Next.js + Supabase.
 NexusWatch (nexuswatch.dev) — Real-time geopolitical intelligence. 45+ live data layers across 86 countries (conflict, disasters, infrastructure, intelligence, environment), an LLM analyst synthesizing threat patterns, and an MCP server for AI agent access. Open source, paired with a daily geopolitical-risk brief with subscribers. Vite + TypeScript + MapLibre GL + Supabase + Claude API. Live since April 2026.
 Altogether (longtable.dev) — Multi-household trip planning. Households submit availability and budget privately; an AI co-planner reconciles them into workable windows and per-household costs. In development.
+Prototype Studio (zerotoship.app) — Working sessions, guides, and agent-system setup for PMs, analysts, and BI engineers shipping with AI coding tools. Live and usable today; active development on hold. Formerly Zero to Ship, which began as a structured course before becoming a services practice.
 
 Also in development: The Composer (agentic editorial framework; a ten-persona editorial board gating a notes → draft → review → publish pipeline), Product OS (spec-as-code for PMs; OSS CLI and PR-based spec workflows), and Gridiron (sports forecasting and calibration testbed scored against public closing lines). Separately maintain a paper-traded systematic trading research platform with walk-forward evaluation and SEC EDGAR insider-signal modeling, with no real capital deployed.
 

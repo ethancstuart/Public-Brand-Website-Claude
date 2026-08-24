@@ -213,7 +213,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     facts: [
       { term: "Status", value: "In development" },
       { term: "Surfaces", value: "CLI · GitHub App · dashboard" },
-      { term: "Model", value: "Open-source core, commercial layer" },
+      { term: "Model", value: "Planned open-source core, commercial layer" },
       { term: "Used by", value: "The practice that built this site" },
     ],
     sections: [
@@ -238,7 +238,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         title: "It is the tooling this practice already needed.",
         body: [
           "Product OS is not a hypothesis about how teams should work. It is the extraction of a working method: the specs, decision logs, and commit-time validation that govern every other product on this site.",
-          "That is also the honest limit on it. It is built for the way one operator works, and the open-source core is how that assumption gets tested against everyone else's.",
+          "That is also the honest limit on it. It is built for the way one operator works, and opening the core is how that assumption gets tested against everyone else's — once there is something worth opening.",
         ],
       },
     ],

@@ -24,6 +24,12 @@ export default async function ResumePage() {
             Senior Manager, Data &amp; AI Products and Analytics Engineering —
             Disney Studios
           </p>
+          {/* Location is load-bearing for recruiters: without it the 415 area
+              code reads as Bay Area. The phone number stays out of the rendered
+              page deliberately — it lives in the downloadable resume. */}
+          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.11em] text-ink-faint">
+            Los Angeles, CA · Open to Director / VP — AI Product
+          </p>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[12px]">
             <a
               href={`mailto:${siteConfig.links.email}`}
