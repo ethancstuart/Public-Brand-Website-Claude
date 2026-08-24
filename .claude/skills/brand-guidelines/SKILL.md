@@ -1,87 +1,76 @@
 ---
 name: brand-guidelines
 description: >
-  Auto-apply Ethan Stuart's personal brand identity to all UI work. Trigger when building
-  pages, sections, components, or any visual element. Ensures consistent blue accent,
-  confident-but-approachable tone, and portfolio cohesion.
+  Auto-apply Ethan Stuart's shipped Register design system to all UI work. Trigger when
+  building pages, sections, components, or any visual element for ethancstuart.com.
+  Blue-biased neutrals, one accent, semantic status colours, near-zero motion.
 ---
 
-# Ethan Stuart Brand Website Guidelines
+# Register — brand guidelines for ethancstuart.com
 
-You are building UI for **ethancstuart.com** — Ethan's personal brand website.
-Three functions: career credibility, builder narrative, and course funnel. Apply without exception.
+**`src/app/globals.css` is the source of truth.** This file summarises it. If the two
+ever disagree, globals.css wins and this file is stale — fix it.
 
-## Brand Personality
-- **Confident but not metrics-heavy** — personal brand, not corporate resume
-- "Product & Technology Leader" focused on enterprise data/AI
-- "Turning complex data into products people actually use"
-- Builder narrative: shows portfolio progression, not just claims
-- **No exact counts, dollar amounts, or percentages in public copy** — vague scale signals OK
+The audience is committees hiring a Director/VP of AI Product. The site must read as
+*"ships infrastructure"*, not *"designs portfolios"*. Restraint is the argument.
 
-## Colors
+> This skill previously described a retired identity (`#3B82F6` blue on `#0A0A0A`
+> dark-default, Inter/JetBrains Mono). That system is **gone** — replaced by the Register
+> in the v3 redesign. Do not build from it, and do not restore it from memory or from any
+> older document.
 
-### Dark Mode (Default)
-| Token | Value | Use |
-|-------|-------|-----|
-| Background | `#0A0A0A` | Page background |
-| Foreground | `#FAFAFA` | Primary text |
-| Card | `#141414` | Card backgrounds |
-| Accent | `#3B82F6` | Interactive elements (BLUE) |
-| Accent Foreground | `#FFFFFF` | Text on accent |
-| Muted | `#171717` | Secondary backgrounds |
-| Muted Foreground | `#A3A3A3` | Secondary text |
-| Border | `#262626` | Borders |
+## Colour — use the CSS variables, never literals
 
-### Light Mode
-| Token | Value | Use |
-|-------|-------|-----|
-| Background | `#FAFAFA` | Page background |
-| Foreground | `#0A0A0A` | Primary text |
-| Card | `#FFFFFF` | Card backgrounds |
-| Accent | `#2563EB` | Interactive elements |
-| Muted Foreground | `#737373` | Secondary text |
-| Border | `#E5E5E5` | Borders |
+Blue-biased neutrals. Light is the default ground; dark follows the viewer's system
+preference and is overridable with `data-theme`.
 
-## Typography
-| Role | Font | Notes |
-|------|------|-------|
-| Body / Headings | **Inter** | Primary sans-serif, bold for headings |
-| Labels / Tags / Navigation | **JetBrains Mono** | Uppercase, small, monospace |
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `--ground` | `#FBFBF9` | `#101318` | page background |
+| `--ground-sunk` | `#F2F2EF` | `#171B21` | row hover, inset blocks |
+| `--ink` | `#14181F` | `#E6E9EE` | primary text |
+| `--ink-soft` | `#4A5260` | `#A2ABBA` | prose, descriptions |
+| `--ink-faint` | `#646B77` | `#7F8795` | eyebrows, metadata |
+| `--rule` | `#DFDFDA` | `#262B33` | row dividers |
+| `--rule-strong` | `#C3C4C0` | `#39404B` | section top rules |
+| `--accent` | `#23478C` | `#86A9E5` | the ONLY accent |
+| `--accent-soft` | `#EDF1F9` | `#1A2130` | accent-tinted surfaces |
 
-- Hero headings: 5xl-7xl (56-84px), `line-height: 1.08`
-- Section headings: 2xl-3xl
-- Body: 16-18px
-- Labels: 12-14px monospace, uppercase
+**Status colours are semantic and separate from the accent** — `--live` `--invite`
+`--building` `--quiet`. They describe state, never identity. **Never colour a product by
+who it is.** The retired nine-accent per-project scheme is gone for good.
 
-## Section Pattern (Mandatory)
-1. Monospace uppercase label (e.g., "PRODUCT & TECHNOLOGY LEADER")
-2. Bold heading (h1-h6)
-3. Muted description text
+Every foreground/ground pair clears WCAG AA (4.5:1) in both modes. `--ink-faint` sits at
+5.18:1 light / 5.14:1 dark and was raised specifically to clear it — do not lighten it.
 
-## Component Rules
-- Cards: border-based (`border border-border`), no heavy shadows
-- Header: `backdrop-blur-xl` frosted glass effect, `border-b border-border/50`
-- Buttons: primary (solid dark bg + light text), secondary (border variant)
-- Tags/labels: monospace, uppercase, muted background
-- Navigation: smooth underline animation via Framer Motion spring (`stiffness: 350, damping: 30`)
+## Type
 
-## Motion
-- Entry animations: fade + slight vertical translate
-- Hover feedback: color transitions, subtle icon movement (0.5px)
-- Scroll-triggered reveal with viewport tracking
-- Spring physics for nav indicators
-- **Disable transitions on theme switch**
+- **IBM Plex Sans** — body and UI. Body is `font-weight: 350`, which resolves to the
+  loaded **300** static (no 350 face exists). Design at Light.
+- **IBM Plex Mono** — labels, status, metadata. `.eyebrow`: 11px/500, `0.13em`, uppercase.
+- **Newsreader** — display and judgment lines only.
 
-## Technical Context
-- Framework: Next.js 16 + React 19 + Tailwind v4
-- Theme: next-themes, class-based (default: dark)
-- Animation: Framer Motion
-- Content: Substack RSS feed, resume PDF generation (jsPDF)
-- Analytics: Vercel Analytics + Speed Insights
+Never reintroduce Syne, Bricolage Grotesque, Instrument Serif, or DM Mono.
 
-## Never Do
-- Include exact metrics, dollar amounts, or percentages in public copy
-- Use shadows instead of borders
-- Break the monospace-label → heading → description section pattern
-- Use any accent other than blue
-- Make the tone boastful or metrics-heavy — confident and understated
+## Layout — a register, not a gallery
+
+- Rules and rows, tabular alignment, `.tnum` on anything numeric. **No cards.**
+- **No decorative 01/02/03 numbering** — the projects are not a sequence.
+- Reuse the primitives in globals.css: `.wrap`, `.ledger`, `.cols` + `.cols-3`/`.cols-4`,
+  `.eyebrow`, `.cta`. Do not re-derive dividers per component.
+- **Near-zero motion.** Nothing animates on scroll. No animation library is installed —
+  do not add one to "add polish".
+
+## Copy
+
+- Status is literal: `live` = a stranger can use it today. An unflattering status is the
+  point, not a bug.
+- Renames are history — use `formerly`, never a second entry, and never change a slug.
+- No product counts. No exact counts or team sizes, with two exceptions: the Operating
+  Record (each figure carries its measurement method inline) and figures a reader can
+  verify from a link already on the page. See CLAUDE.md → "Numbers exceptions".
+
+## Reference
+
+Figma: **Register — Design System**, `kI3fVPePZ7fDxSMjKLBeyN` — a regenerable projection
+of globals.css, never a source. Full conventions live in this repo's `CLAUDE.md`.

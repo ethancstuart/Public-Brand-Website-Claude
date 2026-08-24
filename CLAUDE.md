@@ -259,9 +259,21 @@ Home also carries in-page anchors: `#work`, `#method`, `#record`, `#track`, `#co
 
 A Figma library of this design system exists: **"Register — Design System"**
 (figma.com/design/kI3fVPePZ7fDxSMjKLBeyN). It is **generated FROM
-`src/app/globals.css`** — 13 colour variables (Light/Dark modes, `var()` code
-syntax), 9 text styles, and 6 components (StatusPill, CTALink, StripCell,
+`src/app/globals.css`** — 16 variables (13 colour with Light/Dark modes, 3 font;
+`var()` code syntax throughout), 13 text styles including `prose/*` for the
+Substack article rendering, and 6 components (StatusPill, CTALink, StripCell,
 RecordFigure, TrackRow, RegisterRow), each description carrying its code path.
+
+**This is the only Figma file for the site system.** A second file
+(`NDE23DMCaOUG5buwVI8Eny`) briefly mirrored the same tokens; its unique content —
+the `prose/*` styles and font variables — was merged here on 2026-08-23 and it is
+retired. Do not maintain two. A separate file, `EK0jpuOsvP8QCs5y8swV3t`, holds the
+three Substack **publication** values (accent `#059669`, background/cover
+`#FAFAFA`) — that one is additive, not a mirror, and does not overlap.
+
+Body and `prose` styles are Plex Sans **Light**: the CSS declares weight 350, but
+the site loads statics 300/400/500/600, so font-matching resolves DOWN to 300.
+Verified in-browser. Do not "correct" it to Regular.
 
 Rules: code is canonical; when tokens change here, regenerate the Figma
 variables — never edit them by hand, and never "sync" a Figma value back into
