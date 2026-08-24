@@ -255,6 +255,21 @@ Home also carries in-page anchors: `#work`, `#method`, `#record`, `#track`, `#co
   second entry for a renamed product, and never a changed slug.
 - The register carries **no screenshots**. Products are described in prose and linked live.
 
+## Figma — projection of code, never a source
+
+A Figma library of this design system exists: **"Register — Design System"**
+(figma.com/design/kI3fVPePZ7fDxSMjKLBeyN). It is **generated FROM
+`src/app/globals.css`** — 13 colour variables (Light/Dark modes, `var()` code
+syntax), 9 text styles, and 6 components (StatusPill, CTALink, StripCell,
+RecordFigure, TrackRow, RegisterRow), each description carrying its code path.
+
+Rules: code is canonical; when tokens change here, regenerate the Figma
+variables — never edit them by hand, and never "sync" a Figma value back into
+code. Known projection limits are documented on the file's Getting Started page
+(weight 350→Regular, clamp() built at desktop max, --measure/--pad code-only).
+Use the file for exploring future changes and for product design work — not as
+a mirror to keep current for its own sake.
+
 ## File Structure
 
 ```
