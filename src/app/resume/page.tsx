@@ -5,7 +5,7 @@ import { getResumeMarkdown, parseResumeMarkdown } from "@/lib/resume";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Senior Manager, Data & AI Products and Analytics Engineering at Disney Studios. Full career record.",
+    "Senior Manager, Data Products and BI Engineering at Disney Studios. Full career record.",
 };
 
 export default async function ResumePage() {
@@ -21,8 +21,8 @@ export default async function ResumePage() {
             {resume.name}
           </h1>
           <p className="mt-3 max-w-[46ch] text-[15.5px] leading-[1.55] text-ink-soft">
-            Senior Manager, Data &amp; AI Products and Analytics Engineering —
-            Disney Studios
+            Senior Manager, Data Products and BI Engineering — Disney
+            Studios
           </p>
           {/* Location is load-bearing for recruiters: without it the 415 area
               code reads as Bay Area. The phone number stays out of the rendered

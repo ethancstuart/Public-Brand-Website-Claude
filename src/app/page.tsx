@@ -33,8 +33,8 @@ export default function Home() {
           </h1>
           <p className="max-w-[58ch] text-[17.5px] leading-[1.6] text-ink-soft">
             <strong className="font-medium text-ink">
-              Senior Manager, Data &amp; AI Products and Analytics Engineering at
-              Disney Studios
+              Senior Manager, Data Products and BI Engineering at Disney
+              Studios
             </strong>{" "}
             — a matrixed data and AI product engineering organization running
             enterprise-wide across the studios. Nights and weekends, the same

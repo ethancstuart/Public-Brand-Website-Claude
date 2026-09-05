@@ -3,8 +3,8 @@ Los Angeles, CA | (415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/
 
 PROFESSIONAL SUMMARY
 
-Data and AI product leader who ships. Lead a matrixed 50+ person data and AI product engineering organization at Disney Studios, serving 1,000+ downstream users, with time from spec to shipped cut from roughly four months to about one.
-Built three enterprise data platforms 0→1 across financial services, restaurants, and entertainment.
+Data and AI product leader who ships. Lead a matrixed 40+ person data and AI product engineering organization at Disney Studios, with time from spec to shipped cut from roughly four months to about one.
+Built two enterprise data platforms 0→1 in financial services and restaurants, and scaled a third in entertainment.
 Run the same AI-native operating model solo on a portfolio of production software: agent-reviewed specs, decision logs, shipped products with real users.
 
 CORE COMPETENCIES
@@ -17,10 +17,10 @@ AI & Engineering: LLMs | Multi-Agent Systems | Semantic Search & RAG | Vector Da
 EXPERIENCE
 
 The Walt Disney Company | Studio Technology and Operations
-Senior Manager, Data & AI Products and Analytics Engineering	    June 2025 - PRESENT
-Scope: Matrixed 50+ person org · 17 direct and matrix reports across 5 disciplines · direction for ~28 more via governance forums · 1,000+ downstream users · briefs CTO and President of Studio Technology and Operations monthly
+Senior Manager, Data Products and BI Engineering	    July 2025 - PRESENT
+Scope: Matrixed 40+ person org · 15-person team of FTEs, contractors, and SOW resources across 10 product pods · briefs executives monthly
 Cut time from spec to shipped from roughly four months to about one by establishing an AI-native operating model — AI coding tools as standard at 100% weekly active PM adoption (telemetry-tracked), agent-augmented PM workflows, AI-fluency hiring, and AI-built internal tooling including an in-daily-use PM portal.
-Multiplied platform stakeholders ~10x and brought on 10+ new partner groups through stakeholder-led change management, taking the platform enterprise-wide to 1,000+ downstream users.
+Multiplied platform stakeholders ~10x and brought on 10+ new partner groups through stakeholder-led change management, taking the platform enterprise-wide.
 Established enterprise data governance, metadata, security, and quality frameworks across the full footprint; production pipelines run under documented freshness and quality SLOs.
 Shipped semantic search and talk-to-your-data into production — directed architecture across orchestration, Cypher, and RAG agents; integrated TwelveLabs multi-modal AI.
 Delivered a production chatbot suite for studio workflows; lead use case saves 6.5 hours per person per week.
@@ -30,7 +30,7 @@ Mentor 5 PMs beyond the immediate org; led multiple contractor-to-FTE conversion
 
 Yum Brands | Taco Bell
 Portfolio Manager, Product, Data & Analytics Platform	    January 2025 - June 2025
-Scope: 25+ person matrix team · all enterprise data products · 7,000+ operators and executives served
+Scope: 30+ person matrix team · all enterprise data products · 7,000+ operators and executives served
 Reduced platform incidents 85% (12→1-2 P1/P2 monthly) and increased satisfaction 50% in 60 days by converting a service team into a product organization — prioritization frameworks, transparent stakeholder communication, org-wide BI standards.
 Shipped reporting structure, governance frameworks, and Microsoft Fabric + Gen AI capabilities; partnered on AI drive-thru, digital menu boards, and Cantina launches.
 Delivered ML models for labor prediction and CRM, plus platform support for digital marketing and e-commerce.
@@ -42,7 +42,7 @@ Shipped ML models and pipelines for retention, lapse prediction, and CRM insight
 Moved the group from order-takers to a strategic product organization and increased satisfaction 40%.
 
 Capital Group
-Product Manager, Data Platforms & Strategic Automation	    August 2022 - June 2023
+Senior Product Manager, Data Platforms & Strategic Automation	    August 2022 - June 2023
 Scope: All Capital Group ETFs and Mutual Funds · roadmap across Marketing, Sales, and Compliance
 Launched the Phoenix Fire data platform 0→1 to 100% enterprise adoption — consolidated tools, automated workflows, and modern UX transformed sales and marketing operations.
 Shipped through 3 ETF launches while managing a unified roadmap across Marketing, Sales, and Compliance.
@@ -53,11 +53,11 @@ Manager, Analytics & Product Strategy	    October 2021 - August 2022
 Scope: Enterprise analytics function built from scratch · 85 sales professionals supported
 Built the enterprise analytics function from scratch — standardized reporting and drove a 15% loan origination increase across 85 sales professionals.
 Integrated Power BI with a custom CRM, delivering self-service analytics and pipeline visibility to 4 VPs, 10 regional managers, and 85 loan officers.
-Earlier: investment analysis and BI leadership at Pacific Urban Investors (2018–2021) and Civic Financial Services (2016–2018).
+Earlier: investment analysis and BI leadership at Pacific Urban Investors (2018–2021) and Civic Financial Services (2015–2018); began in commercial real estate acquisitions at Partners Capital (2015).
 
 PRODUCTS BUILT INDEPENDENTLY
 
-Production software architected and shipped solo through AI coding tools, using the same operating model deployed at Disney but without an organization behind it.
+Production software architected and shipped solo through AI coding tools.
 
 Allison's Kitchen (allisonskitchen.app) — Household kitchen software. Recipe capture from a link, a photo, or a video; weekly meal planning; step-by-step cook mode. Built for one household first, now in invite-only release with families onboarding in batches; iOS build in UAT. Next.js + Supabase.
 NexusWatch (nexuswatch.dev) — Real-time geopolitical intelligence. 45+ live data layers across 86 countries (conflict, disasters, infrastructure, intelligence, environment), an LLM analyst synthesizing threat patterns, and an MCP server for AI agent access. Open source, paired with a daily geopolitical-risk brief with subscribers. Vite + TypeScript + MapLibre GL + Supabase + Claude API. Live since April 2026.

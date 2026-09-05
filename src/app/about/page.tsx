@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Senior Manager, Data & AI Products and Analytics Engineering at Disney Studios — and the operator of a one-person software practice running the same model.",
+    "Senior Manager, Data Products and BI Engineering at Disney Studios — and the operator of a one-person software practice running the same model.",
 };
 
 const PHILOSOPHY = [
@@ -28,7 +28,7 @@ const PHILOSOPHY = [
 const SIDEBAR = [
   {
     term: "Currently",
-    value: "Senior Manager, Data & AI Products — Disney Studios",
+    value: "Senior Manager, Data Products and BI Engineering — Disney Studios",
   },
   { term: "Open to", value: "Director / VP — AI Product Leadership", open: true },
   { term: "Domain", value: "Data & AI — enterprise and solo, in parallel" },
@@ -52,15 +52,14 @@ export default function AboutPage() {
         <div className="max-w-[var(--measure)] space-y-4 text-[16.5px] leading-[1.75] text-ink-soft">
           <p>
             <strong className="font-medium text-ink">
-              Senior Manager, Data &amp; AI Products and Analytics Engineering at
-              Disney Studios.
+              Senior Manager, Data Products and BI Engineering at Disney
+              Studios.
             </strong>{" "}
             I lead a matrixed data and AI product engineering organization —
-            product managers, analytics engineers, technical writers, and program
-            management — that runs enterprise-wide across the studios, and set
-            direction for a wider footprint through governance forums. I brief the
-            CTO and President of Studio Technology and Operations monthly, and
-            co-lead enterprise AI task forces across product, program, and data.
+            FTEs, contractors, and SOW resources across ten product pods — that
+            runs enterprise-wide across the studios. I brief executives monthly,
+            and co-lead enterprise AI task forces across product, program, and
+            data.
           </p>
           <p className="border-l-2 border-rule-strong pl-5 font-display text-[20px] leading-[1.4] tracking-[-0.01em] text-ink">
             Most product leaders manage. I run AI-native product teams and I ship

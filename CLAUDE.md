@@ -21,15 +21,26 @@ Last verified **2026-08-22** by curl against each domain — checking not just f
 the response body actually serves Ethan's product. A 200 proves a server answered, not that it's
 his.
 
-**Canonical Disney facts — corrected 2026-08-23. Do not restore the older figures.**
+**Canonical Disney facts — corrected 2026-09-05 against the promotion packet Ethan
+submitted at Disney. This supersedes the 2026-08-23 table, which got two facts
+BACKWARDS: the true title contains "BI Engineering" (the August pass wrongly
+"corrected" it to Analytics Engineering), and the org is 40+, not 50+.**
 
-| Fact | Current value | Superseded value — never restore |
+| Fact | Current value | Superseded — never restore |
 |---|---|---|
+| Title | Senior Manager, **Data Products and BI Engineering** | "Data & AI Products and Analytics Engineering" |
+| Start | **July 2025** | "June 2025" |
 | Group name | Studio Technology **and Operations** | "Studio Technology" |
-| Org | matrixed **50+ person** data and AI product engineering organization | "45-person org" |
-| Reach | **1,000+ downstream users** | "500+ downstream users" |
+| Org | matrixed **40+ person** data and AI product engineering organization | "50+ person", "45-person" |
+| Team | **15-person team of FTEs, contractors, and SOW resources across 10 product pods** | "17 direct and matrix reports", "13 direct reports" |
+| Reach | *(no downstream-user count — claim removed)* | "1,000+ downstream users", "500+ downstream users" |
+| Briefings | **briefs executives monthly** | "briefs CTO and President … monthly" |
+| Platforms | **built two 0→1** (financial services, restaurants), **scaled a third** (entertainment) | "three platforms built 0→1" |
 | Delivery speed | time from spec to shipped went from **roughly four months to about one** | "~50%", and any Jira citation |
 | Expansion | multiplied platform stakeholders ~10x, brought on 10+ new partner groups, took the platform enterprise-wide | "1 to 5 studio groups" |
+
+**The promotion packet is the source for Disney facts.** When this table and any
+other document disagree, the packet-derived resume-base.md wins.
 
 **"5 studio groups" is removed everywhere and must not come back.** It read as though Ethan
 onboards studios, which he does not — the platform is enterprise-wide. "5 disciplines" is a

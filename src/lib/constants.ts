@@ -189,9 +189,9 @@ export const RECORD: { fig: string; label: string; src: string }[] = [
     src: "Marketing-mix-model attributed",
   },
   {
-    fig: "3",
-    label: "Enterprise data platforms built 0 → 1",
-    src: "Financial services · restaurants · entertainment",
+    fig: "2",
+    label: "Enterprise data platforms built 0 → 1, a third scaled",
+    src: "Built in financial services and restaurants · scaled enterprise-wide in entertainment",
   },
 ];
 
@@ -204,7 +204,7 @@ export const TRACK: {
   {
     years: "2025 — now",
     org: "Disney Studios",
-    role: "Sr. Manager, Data & AI Products and Analytics Engineering",
+    role: "Sr. Manager, Data Products and BI Engineering",
     now: true,
   },
   {

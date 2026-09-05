@@ -105,11 +105,16 @@ const DEAD_COPY = [
   "scale just changes",
   // Masthead was dropped as a planned product on 2026-08-23.
   "Masthead",
-  // Disney figures superseded 2026-08-23 — see CLAUDE.md canonical facts table.
+  // Disney figures superseded 2026-08-23, revised 2026-09-05 against the
+  // promotion packet. "BI Engineering" was wrongly listed as dead in August;
+  // it is the true title, so the dead fact is now the August one.
   "45-person",
+  "50+ person",
   "500+ downstream",
+  "1,000+ downstream",
   "studio groups",
   "Jira",
+  "Data & AI Products and Analytics Engineering",
 ];
 
 for (const path of [...ROUTES.map((r) => r.path)]) {
