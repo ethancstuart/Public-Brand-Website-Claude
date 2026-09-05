@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/motion";
 
 interface SectionProps {
   /** Serif heading, left of the rule. */
@@ -23,19 +24,21 @@ export function Section({
   return (
     <section id={id} className={`wrap py-[clamp(50px,6.5vw,82px)] ${className}`}>
       {(title || aside) && (
-        <div className="flex flex-wrap items-baseline justify-between gap-5 mb-2">
+        <Reveal className="flex flex-wrap items-baseline justify-between gap-5 mb-2">
           {title && (
             <h2 className="font-display text-[clamp(23px,2.7vw,32px)] leading-[1.2] tracking-[-0.012em]">
               {title}
             </h2>
           )}
           {aside && <span className="eyebrow">{aside}</span>}
-        </div>
+        </Reveal>
       )}
       {note && (
-        <p className="mt-2.5 mb-8 text-[15px] text-ink-soft max-w-[var(--measure)]">
-          {note}
-        </p>
+        <Reveal delay={0.08}>
+          <p className="mt-2.5 mb-8 text-[15px] text-ink-soft max-w-[var(--measure)]">
+            {note}
+          </p>
+        </Reveal>
       )}
       {children}
     </section>

@@ -166,8 +166,9 @@ Product — the site must read as "ships infrastructure," not "designs portfolio
 
 - Next.js 16 (App Router), React 19, TypeScript (strict)
 - Tailwind CSS v4
-- **No animation library.** Motion is near-zero by design. Framer Motion, GSAP, Lenis, Three.js and
-  OGL were all removed in the v3 register redesign — do not reinstall them to "add polish."
+- **`motion` (motion.dev)** — the one animation library, added by decision 0007 for
+  entrance choreography through the four primitives in src/components/motion.tsx.
+  GSAP, Lenis, Three.js and OGL stay dead — do not reinstall them.
 - Vercel (hosting + analytics + speed insights)
 - rss-parser (Substack feed), sanitize-html (Substack article bodies)
 - Playwright (route smoke tests in `tests/`)
@@ -259,14 +260,14 @@ Home also carries in-page anchors: `#work`, `#method`, `#record`, `#track`, `#co
   system preference (`data-theme` overrides). One accent: `#23478C` / `#86A9E5`. Status colours are
   semantic and separate. Never colour a product by identity — the nine-accent per-project scheme is
   gone.
-- **Near-zero motion, precise interaction.** The restraint is the argument. Nothing
-  animates on scroll, and no animation library is installed. What IS permitted —
-  decided 2026-09-05, decision 0006 — is interaction *craft*: a single 180ms
-  route-entrance fade (template.tsx), transitions capped at 150ms on
-  hover/focus/theme, the ⌘K command palette, and the theme toggle. All of it dies
-  under prefers-reduced-motion. shadcn and animation kits were considered and
-  rejected: shadcn is 2026's generic look, and the register's distinctiveness is
-  the point.
+- **Entrance choreography, not scroll performance** (decision 0007, reversing the
+  no-motion rule on Ethan's explicit verdict after seeing both treatments). The
+  `motion` library is installed. All animation goes through the four primitives
+  in `src/components/motion.tsx` — Reveal, DrawRule, CountUp, FocusIn — one
+  easing, once-only entrances. **Still banned:** loops, parallax, scroll-tied
+  animation, GSAP/Lenis, scroll-jacking, and shadcn (0006's reasoning stands).
+  Everything renders static under prefers-reduced-motion. The ⌘K palette and
+  theme toggle remain from the craft pass.
 - **Layout primitives** live in `globals.css`: `.wrap`, `.ledger`, `.cols` + `.cols-3`/`.cols-4`,
   `.eyebrow`, `.cta`. Use them rather than re-deriving dividers per component.
 - **Renames are history, not new products.** Use `formerly?` so the alias trail shows. Never a

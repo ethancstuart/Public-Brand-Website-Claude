@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FocusIn } from "@/components/motion";
 import { Section } from "@/components/section";
 import { Register, Legend } from "@/components/register";
 import { Strip, Method, OperatingRecord, Track } from "@/components/blocks";
@@ -24,13 +25,18 @@ export default function Home() {
 
       <div className="wrap">
         <div className="pb-[clamp(34px,5vw,56px)] pt-[clamp(52px,8vw,104px)]">
-          <span className="eyebrow mb-6 block">
-            Los Angeles · Data &amp; AI Product Leadership
-          </span>
+          <FocusIn delay={0}>
+            <span className="eyebrow mb-6 block">
+              Los Angeles · Data &amp; AI Product Leadership
+            </span>
+          </FocusIn>
+          <FocusIn delay={0.12}>
           <h1 className="mb-6 max-w-[21ch] font-display text-[clamp(29px,4.3vw,51px)] leading-[1.14] tracking-[-0.017em]">
             I run an AI-native product organization at Disney. I run{" "}
             <em className="italic text-accent">one for myself</em> too.
           </h1>
+          </FocusIn>
+          <FocusIn delay={0.26}>
           <p className="max-w-[58ch] text-[17.5px] leading-[1.6] text-ink-soft">
             <strong className="font-medium text-ink">
               Senior Manager, Data Products and BI Engineering at Disney
@@ -41,10 +47,13 @@ export default function Home() {
             operating model runs a household-software practice where I&apos;m the
             only human on the team.
           </p>
+          </FocusIn>
         </div>
 
-        <Strip />
-        <LiveIndicators />
+        <FocusIn delay={0.4}>
+          <Strip />
+          <LiveIndicators />
+        </FocusIn>
 
         <Section
           id="work"

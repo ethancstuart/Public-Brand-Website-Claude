@@ -1,4 +1,5 @@
 import { METHOD, RECORD, STRIP, TRACK } from "@/lib/constants";
+import { CountUp, DrawRule, Reveal } from "@/components/motion";
 
 /** The four-cell standing facts under the hero. */
 export function Strip() {
@@ -37,8 +38,8 @@ export function Strip() {
 export function Method() {
   return (
     <div className="cols cols-3">
-      {METHOD.map((m) => (
-        <div key={m.n}>
+      {METHOD.map((m, i) => (
+        <Reveal key={m.n} delay={i * 0.1}>
           <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.13em] text-accent">
             {m.n}
           </p>
@@ -46,7 +47,7 @@ export function Method() {
             {m.title}
           </h3>
           <p className="text-[14px] leading-[1.6] text-ink-soft">{m.body}</p>
-        </div>
+        </Reveal>
       ))}
     </div>
   );
@@ -56,10 +57,10 @@ export function Method() {
 export function OperatingRecord() {
   return (
     <div className="cols cols-4">
-      {RECORD.map((r) => (
-        <div key={r.label}>
+      {RECORD.map((r, i) => (
+        <Reveal key={r.label} delay={i * 0.1}>
           <p className="tnum mb-3 font-display text-[clamp(34px,4vw,46px)] leading-none tracking-[-0.03em]">
-            {r.fig}
+            <CountUp value={r.fig} />
           </p>
           <p className="mb-[7px] text-[14px] font-medium leading-[1.4]">
             {r.label}
@@ -67,7 +68,7 @@ export function OperatingRecord() {
           <p className="font-mono text-[10.5px] leading-[1.55] text-ink-faint">
             {r.src}
           </p>
-        </div>
+        </Reveal>
       ))}
     </div>
   );
@@ -76,11 +77,12 @@ export function OperatingRecord() {
 /** Career track as a tabular ledger — years, org, role. */
 export function Track() {
   return (
-    <div className="ledger tnum">
-      {TRACK.map((t) => (
+    <div className="tnum">
+      <DrawRule />
+      {TRACK.map((t, i) => (
+        <Reveal key={t.org} delay={i * 0.07} y={12}>
         <div
-          key={t.org}
-          className="grid grid-cols-[122px_minmax(150px,1fr)_minmax(0,1.5fr)] items-baseline gap-x-7 gap-y-2 py-4 max-[680px]:grid-cols-1 max-[680px]:gap-y-0.5"
+          className="grid grid-cols-[122px_minmax(150px,1fr)_minmax(0,1.5fr)] items-baseline gap-x-7 gap-y-2 border-b border-rule py-4 max-[680px]:grid-cols-1 max-[680px]:gap-y-0.5"
         >
           <span
             className={`font-mono text-[12px] ${
@@ -96,6 +98,7 @@ export function Track() {
           </span>
           <span className="text-[14.5px] text-ink-soft">{t.role}</span>
         </div>
+        </Reveal>
       ))}
     </div>
   );

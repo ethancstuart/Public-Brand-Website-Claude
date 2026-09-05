@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DrawRule, Reveal } from "@/components/motion";
 import { STATUS, type Project, type ProjectStatus } from "@/lib/constants";
 
 export function StatusPill({ status }: { status: ProjectStatus }) {
@@ -90,10 +91,15 @@ export function ProjectRow({ project }: { project: Project }) {
 
 export function Register({ projects }: { projects: Project[] }) {
   return (
-    <div className="ledger">
-      {projects.map((p) => (
-        <ProjectRow key={p.slug} project={p} />
-      ))}
+    <div>
+      <DrawRule />
+      <div className="[&>div]:border-b [&>div]:border-rule">
+        {projects.map((p, i) => (
+          <Reveal key={p.slug} delay={Math.min(i * 0.07, 0.35)} y={18}>
+            <ProjectRow project={p} />
+          </Reveal>
+        ))}
+      </div>
     </div>
   );
 }
