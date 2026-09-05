@@ -324,6 +324,13 @@ kbd {
 /* The restraint is the argument — motion is near-zero by design, and none at
    all for anyone who has asked for less. */
 @media (prefers-reduced-motion: reduce) {
+  /* Server-rendered motion initial states (inline opacity/transform/filter)
+     must not leave reduced-motion users staring at blanks before hydration. */
+  .motion-el {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
   *,
   *::before,
   *::after {

@@ -32,7 +32,7 @@ export function Reveal({
   if (reduced) return <div className={className}>{children}</div>;
   return (
     <motion.div
-      className={className}
+      className={`motion-el ${className ?? ""}`}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -60px 0px" }}
@@ -50,7 +50,7 @@ export function DrawRule({ className }: { className?: string }) {
     return <div className={className} style={{ height: 1, background: "var(--rule-strong)" }} />;
   return (
     <motion.div
-      className={className}
+      className={`motion-el ${className ?? ""}`}
       style={{ height: 1, background: "var(--rule-strong)", transformOrigin: "left" }}
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
@@ -114,7 +114,7 @@ export function FocusIn({
   if (reduced) return <div className={className}>{children}</div>;
   return (
     <motion.div
-      className={className}
+      className={`motion-el ${className ?? ""}`}
       initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.75, ease: EASE, delay }}
