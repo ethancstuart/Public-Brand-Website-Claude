@@ -3,6 +3,7 @@ import { IBM_Plex_Sans, IBM_Plex_Mono, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/nav";
+import { CommandPalette } from "@/components/command-palette";
 import { Footer } from "@/components/footer";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
@@ -59,6 +60,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
+        {/* Applies a saved theme override before paint — no flash of the wrong
+            theme. "System" stores nothing, so the CSS media query governs. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}',
+          }}
+        />
+        <CommandPalette />
         <Nav />
         <main>{children}</main>
         <Footer />

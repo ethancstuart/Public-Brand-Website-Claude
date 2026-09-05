@@ -259,7 +259,14 @@ Home also carries in-page anchors: `#work`, `#method`, `#record`, `#track`, `#co
   system preference (`data-theme` overrides). One accent: `#23478C` / `#86A9E5`. Status colours are
   semantic and separate. Never colour a product by identity — the nine-accent per-project scheme is
   gone.
-- **Near-zero motion.** The restraint is the argument. Nothing animates on scroll.
+- **Near-zero motion, precise interaction.** The restraint is the argument. Nothing
+  animates on scroll, and no animation library is installed. What IS permitted —
+  decided 2026-09-05, decision 0006 — is interaction *craft*: a single 180ms
+  route-entrance fade (template.tsx), transitions capped at 150ms on
+  hover/focus/theme, the ⌘K command palette, and the theme toggle. All of it dies
+  under prefers-reduced-motion. shadcn and animation kits were considered and
+  rejected: shadcn is 2026's generic look, and the register's distinctiveness is
+  the point.
 - **Layout primitives** live in `globals.css`: `.wrap`, `.ledger`, `.cols` + `.cols-3`/`.cols-4`,
   `.eyebrow`, `.cta`. Use them rather than re-deriving dividers per component.
 - **Renames are history, not new products.** Use `formerly?` so the alias trail shows. Never a

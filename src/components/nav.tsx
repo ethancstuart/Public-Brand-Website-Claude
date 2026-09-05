@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -17,7 +18,7 @@ export function Nav() {
         >
           Ethan&nbsp;Stuart
         </Link>
-        <nav className="flex gap-[22px]">
+        <nav className="flex items-baseline gap-[22px]">
           {LINKS.map((l) => (
             <Link
               key={l.href}
@@ -27,6 +28,10 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
+          <span className="hidden items-baseline gap-3 sm:flex">
+            <kbd aria-hidden="true" title="Command palette">⌘K</kbd>
+            <ThemeToggle />
+          </span>
         </nav>
       </div>
     </header>

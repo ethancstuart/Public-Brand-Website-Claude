@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteConfig } from "@/lib/constants";
 
 const SOCIALS = [
@@ -10,7 +11,15 @@ export function Footer() {
   return (
     <footer className="border-t border-rule">
       <div className="wrap flex flex-wrap justify-between gap-[18px] pb-10 pt-[22px] font-mono text-[11px] text-ink-faint">
-        <span>© {new Date().getFullYear()} Ethan Stuart</span>
+        <span className="flex gap-4">
+          <span>© {new Date().getFullYear()} Ethan Stuart</span>
+          <Link href="/resume" className="no-underline hover:text-accent">
+            Resume
+          </Link>
+          <Link href="/contact" className="no-underline hover:text-accent">
+            Contact
+          </Link>
+        </span>
         <span className="flex gap-2">
           {SOCIALS.map((s, i) => (
             <span key={s.href}>

@@ -109,7 +109,7 @@ export default async function CaseStudyPage({
               ))}
             </dl>
 
-            <div className="ledger mt-[clamp(44px,6vw,72px)]">
+            <div className="ledger mt-[clamp(24px,3.5vw,44px)]">
               {study.sections.map((s) => (
                 <section
                   key={s.label}

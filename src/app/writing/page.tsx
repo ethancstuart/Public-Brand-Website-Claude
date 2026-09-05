@@ -12,6 +12,24 @@ export const metadata: Metadata = {
     "Long-form work on data products, AI-native team operating models, multi-agent systems, and building enterprise software through AI coding tools.",
 };
 
+/**
+ * Substack snippets arrive pre-truncated mid-sentence and occasionally carry
+ * emoji. The register's excerpt is plain: word-boundary cut, one ellipsis.
+ */
+function cleanExcerpt(snippet?: string): string | undefined {
+  if (!snippet) return undefined;
+  let t = snippet
+    .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (t.length > 200) {
+    const cut = t.slice(0, 200);
+    t = cut.slice(0, cut.lastIndexOf(" ")) || cut;
+  }
+  t = t.replace(/[.\u2026]+$/, "");
+  return t ? t + "\u2026" : undefined;
+}
+
 export default async function WritingPage() {
   const posts = await getSubstackPosts();
 
@@ -44,7 +62,7 @@ export default async function WritingPage() {
                     })
                   : ""
               }
-              excerpt={post.contentSnippet?.slice(0, 200) ?? undefined}
+              excerpt={cleanExcerpt(post.contentSnippet)}
             />
           ))
         ) : (

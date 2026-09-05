@@ -1,6 +1,13 @@
 import { getLatestCommit } from "@/lib/github";
 import { getSubstackPosts } from "@/lib/substack";
 
+function truncateAtWord(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const atWord = cut.slice(0, cut.lastIndexOf(" "));
+  return (atWord || cut) + "\u2026";
+}
+
 function timeAgo(iso: string): string {
   const ms = Date.now() - new Date(iso).getTime();
   const m = Math.floor(ms / 60_000);
@@ -46,8 +53,7 @@ export async function LiveIndicators() {
             href={`/writing/${post.slug}`}
             className="text-ink-soft no-underline hover:text-accent"
           >
-            {post.title.slice(0, 52)}
-            {post.title.length > 52 ? "…" : ""}
+            {truncateAtWord(post.title, 52)}
           </a>
         </li>
       )}

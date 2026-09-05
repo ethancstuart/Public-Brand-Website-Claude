@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 
 const ROUTES: { path: string; expectText: string }[] = [
   { path: "/", expectText: "I run an AI-native product organization" },
-  { path: "/about", expectText: "How the work gets made" },
+  { path: "/about", expectText: "How I work" },
   { path: "/portfolio", expectText: "the status is literal" },
   { path: "/writing", expectText: "The Data Product Agent" },
   { path: "/resume", expectText: "Ethan Stuart" },

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Section } from "@/components/section";
-import { Method, OperatingRecord, Track } from "@/components/blocks";
 import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -108,30 +107,6 @@ export default function AboutPage() {
           </dl>
         </aside>
       </div>
-
-      <Section
-        title="How the work gets made"
-        aside="The actual differentiator"
-        note="The same operating model runs a full product organization at Disney and a one-person practice at home. Same primitives, different scale."
-      >
-        <Method />
-      </Section>
-
-      <Section
-        title="Operating record"
-        aside="Sourced, not asserted"
-        note="Every figure carries its measurement method. If it can't be sourced, it isn't here."
-      >
-        <OperatingRecord />
-      </Section>
-
-      <Section
-        title="Track"
-        aside="2016 — present"
-        note="Investment analysis into business intelligence into data products into AI product leadership. The domain kept changing; the work of turning messy data into something people trust did not."
-      >
-        <Track />
-      </Section>
 
       <Section title="How I work" aside="Standing positions">
         <div className="cols cols-3">
