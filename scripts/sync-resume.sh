@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# Syncs resume content from the home-base repo into public/.
+# Syncs resume content from the Cursor home repo into public/.
+# Source moved from ~/Projects/home-base/personal on 2026-10-08.
 # Copies the markdown source AND builds a designed PDF via Typst.
 # Usage: bash scripts/sync-resume.sh
 
 set -euo pipefail
 
-HOMEBASE="${HOME}/Projects/home-base"
+RESUME_SRC="${RESUME_SRC:-${HOME}/Cursor Repos/home/career/resumes/site}"
 DEST_DIR="$(dirname "$0")/../public"
 
 # 1. Markdown copy (used by /resume page parser + .md download)
-SOURCE_MD="${HOMEBASE}/personal/resume-base.md"
+SOURCE_MD="${RESUME_SRC}/resume-base.md"
 if [ -f "$SOURCE_MD" ]; then
   cp "$SOURCE_MD" "${DEST_DIR}/resume.md"
   echo "✓ Synced resume-base.md → public/resume.md"
@@ -18,7 +19,7 @@ else
 fi
 
 # 2. Typst PDF build (used by PDF download)
-SOURCE_TYP="${HOMEBASE}/personal/resume-base.typ"
+SOURCE_TYP="${RESUME_SRC}/resume-base.typ"
 if command -v typst >/dev/null 2>&1; then
   if [ -f "$SOURCE_TYP" ]; then
     # Deterministic build: without a fixed timestamp Typst stamps CreationDate,

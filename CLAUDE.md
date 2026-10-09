@@ -191,11 +191,12 @@ never has been in the current tree — do not add it or reference it.
 ## Resume Sync — read before editing public/resume.md
 
 `npm run build` runs `scripts/sync-resume.sh` first. That script **overwrites `public/resume.md`**
-with `~/Projects/home-base/personal/resume-base.md` on every single build, and rebuilds
-`public/resume.pdf` from `resume-base.typ` via `typst compile`.
+with `~/Cursor Repos/home/career/resumes/site/resume-base.md` on every single build, and rebuilds
+`public/resume.pdf` from the `resume-base.typ` beside it via `typst compile`. (The source lived in
+`~/Projects/home-base/personal/` until 2026-10-08; `RESUME_SRC` overrides the path.)
 
 **Any edit made directly to `public/resume.md` is silently destroyed on the next build.** Edit
-`~/Projects/home-base/personal/resume-base.md` instead. `public/resume.md` is a build artifact
+`~/Cursor Repos/home/career/resumes/site/resume-base.md` instead, and the `.typ` with it. `public/resume.md` is a build artifact
 that happens to be committed.
 
 `public/resume.md` is also the source of truth for career history — the `TRACK` array in
@@ -362,21 +363,18 @@ Do not open Notion.
   `smoke-production.yml` runs the content smoke against the live domain after each production
   deploy and once daily.
 
-## Shared Context — the Cursor home repo, then home-base
+## Shared Context — the Cursor home repo
 
 **Ethan's main location for everything is `~/Cursor Repos/home`** (ruled 2026-10-08). Career
-facts, direction, life and operations all live there; its `career/` folder is described above.
-`home-base` is the older portfolio hub and is being superseded. It still matters for one
-mechanical reason: `scripts/sync-resume.sh` reads `~/Projects/home-base/personal/resume-base.md`
-and `.typ` to build the site's résumé. Moving that source into the Cursor repo is a structural
-change that needs Ethan's go-ahead; until then, edit the résumé source where the script reads it.
-
-Still in `~/Projects/home-base`:
+facts, direction, life and operations all live there; its `career/` folder is described above, and
+the site's résumé source is at `career/resumes/site/`. `~/Projects/home-base` is superseded:
+no build reads it any more. Its standards files below are historical reference only:
 
 - `~/Projects/home-base/registry.md` — project registry
 - `~/Projects/home-base/standards/quality.md` — shared quality standards
 - `~/Projects/home-base/standards/design-principles.md` — design philosophy
 - `~/Projects/home-base/standards/design-toolkit.md` — skills, component libraries, references
-- `~/Projects/home-base/personal/CLAUDE.local.md` — who Ethan is, how he works
+- `~/Projects/home-base/personal/CLAUDE.local.md` — who Ethan is, how he works (dated; the
+  Cursor repo's `AGENTS.md` and `life/` are current)
 
 Use `/brand-guidelines` for brand identity. Use `/frontend-design` for new UI work.
