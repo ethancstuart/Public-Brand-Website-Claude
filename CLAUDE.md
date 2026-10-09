@@ -28,7 +28,7 @@ BACKWARDS: the true title contains "BI Engineering" (the August pass wrongly
 
 | Fact | Current value | Superseded — never restore |
 |---|---|---|
-| Title | Senior Manager, **Data Products and BI Engineering** | "Data & AI Products and Analytics Engineering" |
+| Title (published) | Senior Manager, **AI & Data Products** — the functional title, on the site and the résumé by Ethan's ruling of 2026-10-08. The **title of record** is "Senior Manager, Data Products and BI Engineering"; it goes on employment-verification forms and nowhere else on the site. | "Data & AI Products and Analytics Engineering" |
 | Start | **July 2025** | "June 2025" |
 | Group name | Studio Technology **and Operations** | "Studio Technology" |
 | Org | matrixed **40+ person** data and AI product engineering organization | "50+ person", "45-person" |
@@ -38,9 +38,31 @@ BACKWARDS: the true title contains "BI Engineering" (the August pass wrongly
 | Platforms | **built two 0→1** (financial services, restaurants), **scaled a third** (entertainment) | "three platforms built 0→1" |
 | Delivery speed | time from spec to shipped went from **roughly four months to about one** | "~50%", and any Jira citation |
 | Expansion | multiplied platform stakeholders ~10x, brought on 10+ new partner groups, took the platform enterprise-wide | "1 to 5 studio groups" |
+| Scope (added 2026-10-08) | **React applications, conversational AI, agent workflows, chatbot-as-a-service, just-in-time agent access**, and the enterprise data platforms beneath them | the data-platform-only framing (under-described, not wrong) |
+| Function origin | established the Studio Technology and Operations data-product function as its **first full-time data-product hire**; scaled to 10 pods | "first data hire at Disney" or "across all Studios" |
+| Platform roadmap | owns the product roadmap for **the studio's Snowflake and Databricks platforms** (forecasting, content valuation, production modeling, piracy intelligence) | anything implying ownership of the vendors' own roadmaps |
 
 **The promotion packet is the source for Disney facts.** When this table and any
 other document disagree, the packet-derived resume-base.md wins.
+
+**Positioning, ruled 2026-10-08:** the headline is **"AI & Software Product Leadership"**,
+with data and financial depth as supporting strengths. "Data & AI Product Leadership" is
+retired and sits in the dead-copy lists in the Playwright spec and `scripts/smoke.sh`.
+
+### Career workspace — upstream for résumé facts, never for site facts
+
+`~/Cursor Repos/home/career/` (a Cursor repo, branch `organize-home`) holds Ethan's claim
+ledger (`CLAIM_LEDGER.md`), chronology (`profile.json`), and the v3 résumé set
+(`resumes/v3/`). It is where new career facts arrive first. Rules:
+
+- This file wins for anything the site publishes. The ledger wins for what a résumé may claim.
+- The ledger's own never-publish list applies here too: no "interim director", no "promotion
+  coming", no formal-report counts (the 4 employee PMs, 5 contractor PMs, 3 manager reports
+  are résumé-ledger facts, not site copy).
+- Its v3 drafts say "~50%" for spec-to-shipped because they were built from an older PDF.
+  The packet's **four-months-to-one** figure stands; do not import "~50%" from there.
+- The site's résumé artifacts were last reconciled with it on **2026-10-08**. The v3 PDFs and
+  DOCXs in that repo were **not** regenerated with the 2026-10-08 edits.
 
 **"5 studio groups" is removed everywhere and must not come back.** It read as though Ethan
 onboards studios, which he does not — the platform is enterprise-wide. "5 disciplines" is a
@@ -188,7 +210,8 @@ that happens to be committed.
 
 `public/resume.md` is also the source of truth for career history — the `TRACK` array in
 `constants.ts` must match it. It has been wrong before: the pre-v3 about page had the wrong Sprout
-Mortgage and Capital Group titles and started the record in 2018 rather than 2016.
+Mortgage and Capital Group titles and started the record in 2018 rather than 2016. The record now starts at **2015** (Partners
+Capital, then Civic Financial), matching the résumé's "Earlier" line.
 
 ## Architecture
 

@@ -3,7 +3,7 @@ Los Angeles, CA | (415) 419 - 7630 | ethan.c.stuart@gmail.com | linkedin.com/in/
 
 PROFESSIONAL SUMMARY
 
-Data and AI product leader who ships. Lead a matrixed 40+ person data and AI product engineering organization at Disney Studios, with time from spec to shipped cut from roughly four months to about one.
+AI and software product leader who ships. Lead a matrixed 40+ person data and AI product engineering organization at Disney Studios — AI applications, agent workflows, and the enterprise data platforms beneath them — with time from spec to shipped cut from roughly four months to about one.
 Built two enterprise data platforms 0→1 in financial services and restaurants, and scaled a third in entertainment.
 Run the same AI-native operating model solo on a portfolio of production software: agent-reviewed specs, decision logs, shipped products with real users.
 
@@ -12,21 +12,25 @@ CORE COMPETENCIES
 AI-Native Operating Model: AI Coding Tool Deployment | Agent-Augmented Product Workflows | AI-Fluency Hiring | Cross-Functional AI Enablement Program Leadership
 Leadership: Organizational Design | Operating Model Development | Strategic Planning & Roadmap Execution | Change Management & Platform Adoption | Executive Stakeholder Management | Matrixed Organizations
 Enterprise Data: Platform Modernization | Customer Data Platforms (CDP) | Data Governance & Lineage | Event Instrumentation & Data Contracts | Experimentation | Feature Stores | Predictive Analytics
-AI & Engineering: LLMs | Multi-Agent Systems | Semantic Search & RAG | Vector Databases & Embeddings | Evals | LLMOps | Agentic Orchestration | TypeScript | Next.js | Python | Supabase | Claude API
+AI & Engineering: LLMs | Conversational AI | Multi-Agent Systems | Agent Workflows | MCP | Semantic Search & RAG | Vector Databases & Embeddings | Evals | LLMOps | React | TypeScript | Next.js | Python | Supabase | Claude API
 
 EXPERIENCE
 
 The Walt Disney Company | Studio Technology and Operations
-Senior Manager, Data Products and BI Engineering	    July 2025 - PRESENT
+Senior Manager, AI & Data Products	    July 2025 - PRESENT
 Scope: Matrixed 40+ person org · 15-person team of FTEs, contractors, and SOW resources across 10 product pods · briefs executives monthly
+Lead product development across React applications, conversational AI, agent workflows, chatbot-as-a-service, and just-in-time agent access — user-facing experiences and the reusable platform capabilities beneath them.
 Cut time from spec to shipped from roughly four months to about one by establishing an AI-native operating model — AI coding tools as standard at 100% weekly active PM adoption (telemetry-tracked), agent-augmented PM workflows, AI-fluency hiring, and AI-built internal tooling including an in-daily-use PM portal.
+Established the Studio Technology and Operations data-product function as its first full-time data-product hire; scaled it to 10 product pods and defined the product operating model.
+Assumed day-to-day platform leadership following a director-level departure — hiring, performance management, vendors, contracts, and executive briefings; lead capital-investment prioritization and partner on annual planning.
 Multiplied platform stakeholders ~10x and brought on 10+ new partner groups through stakeholder-led change management, taking the platform enterprise-wide.
+Own the product roadmap and portfolio for the studio's Snowflake and Databricks platforms — forecasting, content valuation, production modeling, and piracy intelligence — partnering with the engineering leader responsible for platform execution.
 Established enterprise data governance, metadata, security, and quality frameworks across the full footprint; production pipelines run under documented freshness and quality SLOs.
 Shipped semantic search and talk-to-your-data into production — directed architecture across orchestration, Cypher, and RAG agents; integrated TwelveLabs multi-modal AI.
 Delivered a production chatbot suite for studio workflows; lead use case saves 6.5 hours per person per week.
 Owned platform build-vs-buy — consolidated BI onto a single enterprise analytics stack (retired a legacy reporting vendor), and selected Snowflake Cortex + Neo4j over leading vector-search and RAG vendors for governance and Snowflake-native lineage.
 Delivered production ML forecasting and decision-support models for studio finance (cash flow, quarterly budget); contributor to the studios' cross-company finance transformation.
-Mentor 5 PMs beyond the immediate org; led multiple contractor-to-FTE conversions and several direct-report moves into expanded scope.
+Lead product managers with prior director-level experience across software, data, and visual effects; mentor 5 PMs beyond the immediate org; led multiple contractor-to-FTE conversions and several direct-report moves into expanded scope.
 
 Yum Brands | Taco Bell
 Portfolio Manager, Product, Data & Analytics Platform	    January 2025 - June 2025
