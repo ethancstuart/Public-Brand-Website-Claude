@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FocusIn } from "@/components/motion";
 import { Section } from "@/components/section";
 import { Register, Legend } from "@/components/register";
-import { Strip, Method, OperatingRecord, Track } from "@/components/blocks";
+import { Strip, Method, Pipeline, OperatingRecord, Track } from "@/components/blocks";
 import { LiveIndicators } from "@/components/live-indicators";
 import { JsonLd } from "@/components/json-ld";
 import { PROJECTS, siteConfig } from "@/lib/constants";
@@ -82,6 +82,7 @@ export default function Home() {
           aside="The actual differentiator"
           note="Most product leaders can describe an AI-native operating model. This one runs on two: a full product organization at Disney, and a one-person practice at home. Same primitives, different scale — and every product above is evidence for the claim."
         >
+          <Pipeline />
           <Method />
         </Section>
 

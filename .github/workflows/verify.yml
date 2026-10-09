@@ -31,10 +31,18 @@ jobs:
       # Playwright's webServer builds and starts the app itself.
       # sync-resume.sh tolerates the absent home-base checkout in CI and the
       # synced resume.md is committed, so the build succeeds without it.
+      # The register stamps each row with its repo's last push, fetched at build
+      # time. The workflow token reads this owner's public repos at the
+      # authenticated rate limit; unauthenticated calls from shared runners are
+      # routinely exhausted. Private repos stay unstamped here, which is fine.
       - name: Route and content tests
         run: npx playwright test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Smoke the built site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run build
           npm start &

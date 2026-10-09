@@ -1,4 +1,4 @@
-import { METHOD, RECORD, STRIP, TRACK } from "@/lib/constants";
+import { METHOD, PIPELINE, RECORD, STRIP, TRACK } from "@/lib/constants";
 import { CountUp, DrawRule, Reveal } from "@/components/motion";
 
 /** The four-cell standing facts under the hero. */
@@ -31,6 +31,56 @@ export function Strip() {
         </div>
       ))}
     </dl>
+  );
+}
+
+/**
+ * The pipeline a spec travels before it ships. One rule draws across the
+ * top; each stage sits on it as a node and arrives in order. Agent stages
+ * take the accent, so the colour says what kind of thing does the work —
+ * the only information the diagram adds beyond its sequence.
+ */
+export function Pipeline() {
+  return (
+    <div className="mb-10">
+      <DrawRule />
+      <ol
+        aria-label="How a spec becomes shipped software"
+        className="grid grid-cols-6 gap-x-5 max-[860px]:grid-cols-3 max-[860px]:gap-y-7 max-[520px]:grid-cols-2"
+      >
+        {PIPELINE.map((s, i) => (
+          // Below 860px the list wraps, so each stage carries its own rule:
+          // the drawn one only ever spans the first row.
+          <li
+            key={s.stage}
+            className="relative pt-5 max-[860px]:border-t max-[860px]:border-rule"
+          >
+            <Reveal delay={0.25 + i * 0.11} y={10}>
+              <span
+                aria-hidden="true"
+                className="absolute -top-[4px] left-0 h-[7px] w-[7px] rounded-full"
+                style={{
+                  background: s.agent ? "var(--accent)" : "var(--ink-faint)",
+                }}
+              />
+              <p
+                className={`mb-1.5 font-mono text-[10.5px] uppercase tracking-[0.13em] ${
+                  s.agent ? "text-accent" : "text-ink"
+                }`}
+              >
+                {s.stage}
+                {s.agent && <span className="sr-only"> (agent)</span>}
+              </p>
+              <p className="text-[13px] leading-[1.5] text-ink-soft">{s.body}</p>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+      <p className="mt-5 font-mono text-[10.5px] tracking-[0.04em] text-ink-faint">
+        Stages in blue are agents. They hold standards, not context, and every
+        session starts with no memory of the last.
+      </p>
+    </div>
   );
 }
 

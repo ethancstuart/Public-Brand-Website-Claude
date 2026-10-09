@@ -201,3 +201,29 @@ test("the page is usable with motion disabled", async ({ browser }) => {
   await expect(page.getByText("Allison's Kitchen").first()).toBeVisible();
   await ctx.close();
 });
+
+// The method section draws the practice's pipeline — a spec becoming shipped
+// software through agent review and mechanical gates. It is a real list, so a
+// screen reader gets the same sequence a sighted visitor does.
+test("the method section draws the agent pipeline", async ({ page }) => {
+  await page.goto("/");
+  const pipeline = page.getByRole("list", { name: /spec becomes shipped/i });
+  await expect(pipeline).toBeVisible();
+  await expect(pipeline.getByRole("listitem")).toHaveCount(6);
+  // Labels are uppercased by CSS, and innerText reports the rendered case.
+  const text = (await pipeline.innerText()).toUpperCase();
+  for (const stage of ["Spec", "Principal PM", "Principal PMM", "Code", "Gates", "Ship"]) {
+    expect(text).toContain(stage.toUpperCase());
+  }
+});
+
+// Every register row that has a repo carries a dated last-commit stamp,
+// resolved at build time. A date, not "3d ago": a relative figure rots between
+// deploys, a date does not. At least one product repo is public, so at least
+// one stamp must render even without a token.
+test("the register carries dated last-commit stamps", async ({ page }) => {
+  await page.goto("/portfolio");
+  // The label and the date are two spans; the matcher sees their joined text.
+  const stamps = page.getByText(/Last commit\s*\d{1,2} [A-Z][a-z]{2} \d{4}/);
+  expect(await stamps.count()).toBeGreaterThanOrEqual(1);
+});

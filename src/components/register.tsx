@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DrawRule, Reveal } from "@/components/motion";
 import { STATUS, type Project, type ProjectStatus } from "@/lib/constants";
+import { formatStampDate, getRepoStamp, type RepoStamp } from "@/lib/github";
 
 export function StatusPill({ status }: { status: ProjectStatus }) {
   const s = STATUS[status];
@@ -44,7 +45,13 @@ function hostOf(href: string) {
  * external site, when there is one, is a separate target so a visitor can go
  * straight to the running thing.
  */
-export function ProjectRow({ project }: { project: Project }) {
+export function ProjectRow({
+  project,
+  stamp,
+}: {
+  project: Project;
+  stamp?: RepoStamp | null;
+}) {
   const trail = [project.formerly && `formerly ${project.formerly}`, project.note]
     .filter(Boolean)
     .join(" · ");
@@ -84,19 +91,45 @@ export function ProjectRow({ project }: { project: Project }) {
         )}
       </div>
 
-      <StatusPill status={project.status} />
+      <div className="flex flex-col items-start gap-2 max-[720px]:items-end">
+        <StatusPill status={project.status} />
+        {stamp && (
+          <span className="tnum font-mono text-[10px] leading-[1.5] tracking-[0.04em] text-ink-faint max-[720px]:text-right">
+            <span className="block">Last commit</span>{" "}
+            {stamp.url ? (
+              <a
+                href={stamp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink-soft no-underline hover:text-accent"
+              >
+                {formatStampDate(stamp.pushedAt)}
+              </a>
+            ) : (
+              <span className="text-ink-soft">{formatStampDate(stamp.pushedAt)}</span>
+            )}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
 
-export function Register({ projects }: { projects: Project[] }) {
+/**
+ * Server component: resolves each row's last-commit stamp at build time, in
+ * parallel, and renders nothing for a row whose repo cannot be read.
+ */
+export async function Register({ projects }: { projects: Project[] }) {
+  const stamps = await Promise.all(
+    projects.map((p) => (p.repo ? getRepoStamp(p.repo) : Promise.resolve(null)))
+  );
   return (
     <div>
       <DrawRule />
       <div className="[&>div]:border-b [&>div]:border-rule">
         {projects.map((p, i) => (
           <Reveal key={p.slug} delay={Math.min(i * 0.07, 0.35)} y={18}>
-            <ProjectRow project={p} />
+            <ProjectRow project={p} stamp={stamps[i]} />
           </Reveal>
         ))}
       </div>

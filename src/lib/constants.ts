@@ -38,6 +38,12 @@ export interface Project {
   /** Where it actually stands today, in the register's own words. */
   note?: string;
   href?: string;
+  /**
+   * GitHub repo name under the site owner. The register stamps each row with
+   * the repo's last push date at build time, so "in development" carries a
+   * date a reader can weigh. Omit it and the row simply has no stamp.
+   */
+  repo?: string;
 }
 
 export const STATUS: Record<
@@ -77,6 +83,7 @@ export const PROJECTS: Project[] = [
     formerly: "Stuart Pantry",
     note: "web in invite · iOS in UAT",
     href: "https://allisonskitchen.app",
+    repo: "stuart-pantry",
   },
   {
     slug: "nexuswatch",
@@ -87,6 +94,7 @@ export const PROJECTS: Project[] = [
     status: "live",
     note: "open to anyone · daily email brief with real subscribers",
     href: "https://nexuswatch.dev",
+    repo: "nexus-watch",
   },
   {
     slug: "altogether",
@@ -98,6 +106,7 @@ export const PROJECTS: Project[] = [
     formerly: "Long Table, formerly Caravan",
     note: "waitlist open, not yet in users' hands",
     href: "https://longtable.dev",
+    repo: "caravan",
   },
   {
     slug: "the-composer",
@@ -106,6 +115,7 @@ export const PROJECTS: Project[] = [
     description:
       "An agentic newsroom: a ten-persona editorial board gating an explicit state machine that carries a piece from notes through draft, review, and publish.",
     status: "building",
+    repo: "the-composer",
   },
   {
     slug: "product-os",
@@ -114,6 +124,7 @@ export const PROJECTS: Project[] = [
     description:
       "CLI, GitHub App, and dashboard that turn product specs into reviewable, version-controlled artifacts. Specs move through pull requests like the code they describe — the same discipline that runs the practice itself.",
     status: "building",
+    repo: "product-md",
   },
   {
     // Slug held at `zero-to-ship` deliberately: the route and its case study
@@ -126,6 +137,7 @@ export const PROJECTS: Project[] = [
     status: "live",
     formerly: "Zero to Ship",
     href: "https://zerotoship.app",
+    repo: "zero-to-shipped",
   },
 ];
 
@@ -138,6 +150,21 @@ export const STRIP: { term: string; value: string; open?: boolean }[] = [
   { term: "Scope", value: "AI applications, agents & data platforms · enterprise-wide" },
   { term: "Open to", value: "Director / VP — AI Product", open: true },
   { term: "Writing", value: "The Data Product Agent" },
+];
+
+/**
+ * The practice's pipeline, drawn above the method columns. It is a real
+ * sequence — a spec becoming shipped software — which is why it is the one
+ * place on the site that renders as one. Agent stages are marked; the rest
+ * are a person or a machine.
+ */
+export const PIPELINE: { stage: string; body: string; agent?: boolean }[] = [
+  { stage: "Spec", body: "Written in the repo, next to the code it governs." },
+  { stage: "Principal PM", body: "Reviews scope, sequencing, and what is being left out.", agent: true },
+  { stage: "Principal PMM", body: "Reviews the claim the product makes and who it is for.", agent: true },
+  { stage: "Code", body: "Built with AI coding tools against the reviewed spec." },
+  { stage: "Gates", body: "Typecheck, lint, tests, and a content smoke test." },
+  { stage: "Ship", body: "Nothing is real until someone else uses it." },
 ];
 
 export const METHOD: { n: string; title: string; body: string }[] = [
