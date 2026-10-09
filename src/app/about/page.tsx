@@ -58,7 +58,7 @@ export default function AboutPage() {
             AI applications, conversational and agent workflows, and the
             enterprise data platforms beneath them, enterprise-wide across the
             studios. I brief executives monthly,
-            and co-lead enterprise AI task forces across product, program, and
+            and co-led enterprise AI task forces across product, program, and
             data.
           </p>
           <p className="border-l-2 border-rule-strong pl-5 font-display text-[20px] leading-[1.4] tracking-[-0.01em] text-ink">
