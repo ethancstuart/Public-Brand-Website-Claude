@@ -27,7 +27,7 @@ export default function Home() {
         <div className="pb-[clamp(34px,5vw,56px)] pt-[clamp(52px,8vw,104px)]">
           <FocusIn delay={0}>
             <span className="eyebrow mb-6 block">
-              Los Angeles · Data &amp; AI Product Leadership
+              Los Angeles · AI &amp; Software Product Leadership
             </span>
           </FocusIn>
           <FocusIn delay={0.12}>
@@ -39,11 +39,12 @@ export default function Home() {
           <FocusIn delay={0.26}>
           <p className="max-w-[58ch] text-[17.5px] leading-[1.6] text-ink-soft">
             <strong className="font-medium text-ink">
-              Senior Manager, Data Products and BI Engineering at Disney
-              Studios
+              Senior Manager, AI &amp; Data Products at Disney Studios
             </strong>{" "}
-            — a matrixed data and AI product engineering organization running
-            enterprise-wide across the studios. Nights and weekends, the same
+            — a matrixed product engineering organization shipping AI
+            applications, agent workflows, and the enterprise data platforms
+            beneath them, enterprise-wide across the studios. Nights and
+            weekends, the same
             operating model runs a household-software practice where I&apos;m the
             only human on the team.
           </p>
@@ -96,7 +97,7 @@ export default function Home() {
         <Section
           id="track"
           title="Track"
-          aside="2016 — present"
+          aside="2015 — present"
           note="Investment analysis into business intelligence into data products into AI product leadership. The domain kept changing; the work of turning messy data into something people trust did not."
         >
           <Track />

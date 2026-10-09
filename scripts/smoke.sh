@@ -54,6 +54,8 @@ FORBIDDEN=(
   "studio groups"
   "Jira"
   "Data & AI Products and Analytics Engineering"
+  # Headline retired 2026-10-08 (raw HTML form — React encodes the ampersand).
+  "Data &amp; AI Product Leadership"
 )
 
 # Render HTML down to readable text: drop comments and tags (JSX splits
@@ -134,6 +136,7 @@ fi
 # cannot tell you, and what let a stale `/` go unnoticed.
 check_required "$BASE/" \
   "I run an AI-native product organization" \
+  "AI &amp; Data Products at Disney Studios" \
   "How the work gets made" \
   "Operating record" \
   "Allison" \

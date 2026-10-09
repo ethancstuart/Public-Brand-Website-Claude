@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Senior Manager, Data Products and BI Engineering at Disney Studios — and the operator of a one-person software practice running the same model.",
+    "Senior Manager, AI & Data Products at Disney Studios — and the operator of a one-person software practice running the same model.",
 };
 
 const PHILOSOPHY = [
@@ -27,10 +27,10 @@ const PHILOSOPHY = [
 const SIDEBAR = [
   {
     term: "Currently",
-    value: "Senior Manager, Data Products and BI Engineering — Disney Studios",
+    value: "Senior Manager, AI & Data Products — Disney Studios",
   },
   { term: "Open to", value: "Director / VP — AI Product Leadership", open: true },
-  { term: "Domain", value: "Data & AI — enterprise and solo, in parallel" },
+  { term: "Domain", value: "AI & software products — enterprise and solo, in parallel" },
   { term: "Writing", value: "The Data Product Agent" },
   { term: "Based", value: "Los Angeles" },
 ];
@@ -51,12 +51,13 @@ export default function AboutPage() {
         <div className="max-w-[var(--measure)] space-y-4 text-[16.5px] leading-[1.75] text-ink-soft">
           <p>
             <strong className="font-medium text-ink">
-              Senior Manager, Data Products and BI Engineering at Disney
-              Studios.
+              Senior Manager, AI &amp; Data Products at Disney Studios.
             </strong>{" "}
-            I lead a matrixed data and AI product engineering organization —
-            FTEs, contractors, and SOW resources across ten product pods — that
-            runs enterprise-wide across the studios. I brief executives monthly,
+            I lead a matrixed product engineering organization — FTEs,
+            contractors, and SOW resources across ten product pods — shipping
+            AI applications, conversational and agent workflows, and the
+            enterprise data platforms beneath them, enterprise-wide across the
+            studios. I brief executives monthly,
             and co-lead enterprise AI task forces across product, program, and
             data.
           </p>

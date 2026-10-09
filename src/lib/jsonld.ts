@@ -7,7 +7,7 @@ export function getPersonJsonLd() {
     "@type": "Person",
     name: siteConfig.name,
     url: siteConfig.url,
-    jobTitle: "Senior Manager, Data Products and BI Engineering",
+    jobTitle: "Senior Manager, AI & Data Products",
     worksFor: {
       "@type": "Organization",
       name: "The Walt Disney Company",

@@ -115,6 +115,9 @@ const DEAD_COPY = [
   "studio groups",
   "Jira",
   "Data & AI Products and Analytics Engineering",
+  // Headline retired 2026-10-08: the site repositioned to AI & software
+  // product leadership, with data as a supporting strength.
+  "Data & AI Product Leadership",
 ];
 
 for (const path of [...ROUTES.map((r) => r.path)]) {
@@ -132,6 +135,9 @@ test("the home page is the register, not a stale build", async ({ page }) => {
   const body = await renderedText(page);
   for (const required of [
     "I run an AI-native product organization",
+    // Functional title, Ethan's ruling 2026-10-08. The title of record
+    // (Data Products and BI Engineering) stays off the site.
+    "Senior Manager, AI & Data Products",
     "How the work gets made",
     "Operating record",
     "Allison's Kitchen",

@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Ethan Stuart",
-  title: "Ethan Stuart — Data & AI Product Leadership",
+  title: "Ethan Stuart — AI & Software Product Leadership",
   description:
-    "I run an AI-native product organization at Disney, and the same operating model runs a one-person software practice. Every product is built independently and carries a literal status.",
+    "I run an AI-native product organization at Disney — AI applications, agent workflows, and enterprise data platforms — and the same operating model runs a one-person software practice. Every product is built independently and carries a literal status.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -144,7 +144,7 @@ export const PROJECTS: Project[] = [
 
 export const STRIP: { term: string; value: string; open?: boolean }[] = [
   { term: "Currently", value: "Disney Studios — Studio Technology and Operations" },
-  { term: "Scope", value: "Data & AI product org · enterprise-wide" },
+  { term: "Scope", value: "AI applications, agents & data platforms · enterprise-wide" },
   { term: "Open to", value: "Director / VP — AI Product", open: true },
   { term: "Writing", value: "The Data Product Agent" },
 ];
@@ -204,7 +204,7 @@ export const TRACK: {
   {
     years: "2025 — now",
     org: "Disney Studios",
-    role: "Sr. Manager, Data Products and BI Engineering",
+    role: "Sr. Manager, AI & Data Products",
     now: true,
   },
   {
@@ -223,8 +223,8 @@ export const TRACK: {
     role: "Manager, Analytics & Product Strategy",
   },
   {
-    years: "2016 — 2021",
-    org: "Pacific Urban Investors · Civic Financial",
+    years: "2015 — 2021",
+    org: "Pacific Urban Investors · Civic Financial · Partners Capital",
     role: "Investment analysis and BI leadership",
   },
 ];
