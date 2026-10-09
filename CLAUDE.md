@@ -362,9 +362,16 @@ Do not open Notion.
   `smoke-production.yml` runs the content smoke against the live domain after each production
   deploy and once daily.
 
-## Shared Context — home-base
+## Shared Context — the Cursor home repo, then home-base
 
-Part of a portfolio managed from `~/Projects/home-base`:
+**Ethan's main location for everything is `~/Cursor Repos/home`** (ruled 2026-10-08). Career
+facts, direction, life and operations all live there; its `career/` folder is described above.
+`home-base` is the older portfolio hub and is being superseded. It still matters for one
+mechanical reason: `scripts/sync-resume.sh` reads `~/Projects/home-base/personal/resume-base.md`
+and `.typ` to build the site's résumé. Moving that source into the Cursor repo is a structural
+change that needs Ethan's go-ahead; until then, edit the résumé source where the script reads it.
+
+Still in `~/Projects/home-base`:
 
 - `~/Projects/home-base/registry.md` — project registry
 - `~/Projects/home-base/standards/quality.md` — shared quality standards
