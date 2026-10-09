@@ -100,15 +100,6 @@ export const PROJECTS: Project[] = [
     href: "https://longtable.dev",
   },
   {
-    slug: "gridiron",
-    name: "Gridiron",
-    kind: "Forecasting & Evaluation",
-    description:
-      "A forecasting and calibration testbed scored against public closing lines. Feature engineering, a backtest harness, and calibration scoring — the question it exists to answer is whether a model's stated confidence holds up against the sternest public benchmark available.",
-    status: "building",
-    note: "not yet in anyone's hands",
-  },
-  {
     slug: "the-composer",
     name: "The Composer",
     kind: "Multi-Agent Editorial Framework",

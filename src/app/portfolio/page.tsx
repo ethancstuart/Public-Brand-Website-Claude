@@ -30,7 +30,7 @@ export default function PortfolioPage() {
         </p>
       </div>
 
-      <Section aside="Status as of August 2026" title="The register">
+      <Section aside="Status as of October 2026" title="The register">
         <Legend />
         <Register projects={PROJECTS} />
         <p className="mt-6 font-mono text-[10.5px] leading-[1.6] tracking-[0.04em] text-ink-faint">

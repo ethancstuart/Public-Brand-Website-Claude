@@ -68,7 +68,7 @@ NexusWatch (nexuswatch.dev) — Real-time geopolitical intelligence. 45+ live da
 Altogether (longtable.dev) — Multi-household trip planning. Households submit availability and budget privately; an AI co-planner reconciles them into workable windows and per-household costs. In development.
 Prototype Studio (zerotoship.app) — Working sessions, guides, and agent-system setup for PMs, analysts, and BI engineers shipping with AI coding tools. Live and usable today; active development on hold. Formerly Zero to Ship, which began as a structured course before becoming a services practice.
 
-Also in development: The Composer (agentic editorial framework; a ten-persona editorial board gating a notes → draft → review → publish pipeline), Product OS (spec-as-code for PMs; OSS CLI and PR-based spec workflows), and Gridiron (sports forecasting and calibration testbed scored against public closing lines). Separately maintain a paper-traded systematic trading research platform with walk-forward evaluation and SEC EDGAR insider-signal modeling, with no real capital deployed.
+Also in development: The Composer (agentic editorial framework; a ten-persona editorial board gating a notes → draft → review → publish pipeline) and Product OS (spec-as-code for PMs; OSS CLI and PR-based spec workflows). Separately maintain a paper-traded systematic trading research platform with walk-forward evaluation and SEC EDGAR insider-signal modeling, with no real capital deployed.
 
 WRITING & THOUGHT LEADERSHIP
 

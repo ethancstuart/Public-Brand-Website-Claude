@@ -68,8 +68,8 @@ export default function AboutPage() {
           <p>
             In parallel, a one-person software practice spanning household
             software, geopolitical intelligence, multi-household trip planning,
-            multi-agent editorial infrastructure, forecasting and calibration,
-            spec-as-code tooling, and AI prototyping. Every one carries a literal
+            multi-agent editorial infrastructure, spec-as-code tooling, and AI
+            prototyping. Every one carries a literal
             status, and some of those statuses are unflattering on purpose.
           </p>
           <p>

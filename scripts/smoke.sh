@@ -44,6 +44,8 @@ FORBIDDEN=(
   "scale just changes"
   # Masthead was dropped as a planned product on 2026-08-23.
   "Masthead"
+  # Gridiron was removed from the register on 2026-10-08.
+  "Gridiron"
   # Disney figures superseded 2026-08-23, revised 2026-09-05 against the
   # promotion packet — see CLAUDE.md canonical facts table. Note: "BI
   # Engineering" was WRONGLY listed as dead in August; it is the true title.
@@ -117,7 +119,7 @@ echo
 
 PAGES=(/ /about /portfolio /writing /resume /contact
        /portfolio/allisons-kitchen /portfolio/nexuswatch /portfolio/altogether
-       /portfolio/gridiron /portfolio/the-composer /portfolio/product-os
+       /portfolio/the-composer /portfolio/product-os
        /portfolio/zero-to-ship)
 
 for p in "${PAGES[@]}"; do check_forbidden "$BASE$p"; done
@@ -143,10 +145,10 @@ check_required "$BASE/" \
   "Prototype Studio"
 
 check_required "$BASE/portfolio" \
-  "Allison" "NexusWatch" "Altogether" "Gridiron" "Composer" "Product OS" "Prototype Studio"
+  "Allison" "NexusWatch" "Altogether" "Composer" "Product OS" "Prototype Studio"
 
 # Retired products redirect rather than dead-end; unknown slugs are real 404s.
-for s in meridian ridgecap quant-engine sports-ml; do
+for s in meridian ridgecap quant-engine sports-ml gridiron; do
   check_status "$BASE/portfolio/$s" 308
 done
 check_status "$BASE/portfolio/definitely-not-a-project" 404

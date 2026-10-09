@@ -10,7 +10,6 @@ const ROUTES: { path: string; expectText: string }[] = [
   { path: "/portfolio/allisons-kitchen", expectText: "Allison's Kitchen" },
   { path: "/portfolio/nexuswatch", expectText: "NexusWatch" },
   { path: "/portfolio/altogether", expectText: "Altogether" },
-  { path: "/portfolio/gridiron", expectText: "Gridiron" },
   { path: "/portfolio/the-composer", expectText: "Composer" },
   { path: "/portfolio/product-os", expectText: "Product OS" },
   // Slug deliberately retained through the rename.
@@ -35,7 +34,8 @@ for (const { path, expectText } of ROUTES) {
 
 // The four retired products shipped to production and are indexed. They must
 // land on the register, not on a dead end.
-const RETIRED = ["meridian", "ridgecap", "quant-engine", "sports-ml"];
+// Gridiron followed on 2026-10-08, on Ethan's instruction.
+const RETIRED = ["meridian", "ridgecap", "quant-engine", "sports-ml", "gridiron"];
 
 for (const slug of RETIRED) {
   test(`retired project ${slug} redirects to the register`, async ({ page }) => {
@@ -57,8 +57,8 @@ test("every product in the register carries a status", async ({ page }) => {
     /^(Live|Invite|In Development|Paused)$/,
     { exact: true }
   );
-  // Seven products, plus the four legend entries above them.
-  await expect(statuses).toHaveCount(11);
+  // Six products, plus the four legend entries above them.
+  await expect(statuses).toHaveCount(10);
 });
 
 test("renamed products show their alias trail", async ({ page }) => {
@@ -105,6 +105,8 @@ const DEAD_COPY = [
   "scale just changes",
   // Masthead was dropped as a planned product on 2026-08-23.
   "Masthead",
+  // Gridiron was removed from the register on 2026-10-08.
+  "Gridiron",
   // Disney figures superseded 2026-08-23, revised 2026-09-05 against the
   // promotion packet. "BI Engineering" was wrongly listed as dead in August;
   // it is the true title, so the dead fact is now the August one.

@@ -129,49 +129,6 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
   },
 
-  gridiron: {
-    lede: "A forecasting and calibration testbed. Models are scored against public closing lines, which is the sternest benchmark available because a closing line already contains everyone else's information.",
-    facts: [
-      { term: "Status", value: "In development — not in anyone's hands" },
-      { term: "Benchmark", value: "Public closing lines" },
-      { term: "Measures", value: "Calibration, not only accuracy" },
-      { term: "Public URL", value: "None" },
-    ],
-    sections: [
-      {
-        label: "Problem",
-        title: "Accuracy is the easy half. Calibration is the hard one.",
-        body: [
-          "A model that is right sixty per cent of the time tells you very little on its own. The question that matters is whether it is right sixty per cent of the time when it says it is sixty per cent confident — and wrong the rest. A model whose confidence does not mean what it says is worse than a coin, because it invites you to trust it exactly when you should not.",
-          "Most published forecasting work reports accuracy and stops. This exists to report the other number.",
-        ],
-      },
-      {
-        label: "System",
-        title: "Feature engineering, a backtest harness, calibration scoring.",
-        body: [
-          "Features are engineered from public data and versioned alongside the models that consume them. The backtest harness replays them forward in time, so a model is never evaluated on information that did not exist when the forecast would have been made.",
-          "Scoring reports calibration explicitly — how closely stated confidence tracks observed frequency — rather than collapsing performance into a single accuracy figure.",
-        ],
-      },
-      {
-        label: "Benchmark",
-        title: "Scored against public closing lines.",
-        body: [
-          "A closing line is a consensus forecast that has already absorbed everyone else's information, right up to the moment the event begins. That makes it an unusually honest benchmark: beating it is hard, and failing to beat it is informative rather than embarrassing.",
-          "The testbed is built to make that comparison routine and unflattering by default. A model that cannot outperform the public consensus is not promoted.",
-        ],
-      },
-      {
-        label: "Where it stands",
-        title: "In development, and not in anyone's hands.",
-        body: [
-          "There is no public URL and no user other than its author. The status says so rather than implying momentum that does not exist.",
-        ],
-      },
-    ],
-  },
-
   "the-composer": {
     lede: "An agentic newsroom. A ten-persona editorial board gates an explicit state machine that carries a piece from notes through draft, review, and publish.",
     facts: [
