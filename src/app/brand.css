@@ -1,0 +1,1721 @@
+/* Approved connected concept, scoped so existing résumé and article layouts retain their structure. */
+:root { --paper:#fff; --white:#fff; --ink:#1d302a; --muted:#50665c; --blue:#295e4d; --mist:#dfe9e1; --line:#d8e2db; --sans:'Plex Sans',sans-serif; --serif:'Plex Sans',sans-serif; }
+.brand-page .wrap { padding-inline:0; max-width:1184px; }
+.brand-page *{box-sizing:border-box}
+.brand-page{margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 17px/1.6 var(--sans);
+  -webkit-font-smoothing:antialiased}
+.brand-page img{display:block;
+  max-width:100%;
+  height:auto}
+.brand-page a{color:inherit;
+  text-underline-offset:.22em;
+  text-decoration-thickness:1px}
+.brand-page a:hover{color:var(--blue)}
+.brand-page a:focus-visible,.brand-page summary:focus-visible{outline:3px solid var(--blue);
+  outline-offset:5px}
+.brand-page button,.brand-page input{font:inherit}
+.brand-page p,.brand-page h1,.brand-page h2,.brand-page h3,.brand-page figure{margin:0}
+.brand-page p+p{margin-top:16px}
+.brand-page h1,.brand-page h2,.brand-page h3{text-wrap:balance;
+  font-weight:400}
+.brand-page ::selection{background:#cfe1ef}
+.brand-page .wrap{width:min(100% - 112px,1184px);
+  margin-inline:auto}
+.brand-page .wordmark{font-size:22px;
+  letter-spacing:-.6px;
+  font-weight:500;
+  text-decoration:none}
+.brand-page .hero{padding-top:38px;
+  padding-bottom:70px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 280px;
+  grid-template-areas:'greeting portrait' 'heading portrait' 'intro portrait' 'links portrait';
+  column-gap:92px;
+  row-gap:16px;
+  align-items:start}
+.brand-page .greeting{grid-area:greeting;
+  font-size:23px;
+  line-height:1.2}
+.brand-page .hero h1{grid-area:heading;
+  font:400 clamp(48px,5.35vw,76px)/1.04 var(--serif);
+  letter-spacing:-2.6px;
+  max-width:780px}
+.brand-page .intro{grid-area:intro;
+  max-width:610px;
+  font-size:18px;
+  line-height:1.6;
+  color:var(--muted);
+  margin-top:4px}
+.brand-page .intro-links{grid-area:links;
+  display:flex;
+  gap:28px;
+  align-items:center;
+  margin-top:7px}
+.brand-page .text-link{display:inline-block;
+  color:var(--blue);
+  font-size:15px;
+  font-weight:500;
+  text-decoration:none;
+  border-bottom:1px solid #9bb5cb;
+  padding-bottom:2px;
+  line-height:1.5}
+.brand-page .text-link:hover{border-color:var(--blue)}
+.brand-page .portrait{grid-area:portrait;
+  align-self:center;
+  position:relative}
+.brand-page .portrait img{width:280px;
+  height:326px;
+  object-fit:cover;
+  object-position:56% 40%;
+  border-radius:5px;
+  box-shadow:15px 17px 0 var(--mist)}
+.brand-page .section-label{font-size:15px;
+  color:var(--muted);
+  margin-bottom:13px}
+.brand-page .leadership{display:grid;
+  grid-template-columns:.87fr 1fr 1fr;
+  gap:46px;
+  padding-top:39px;
+  padding-bottom:52px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.brand-page .section-intro h2{font:400 37px/1.13 var(--serif);
+  letter-spacing:-.9px;
+  max-width:245px}
+.brand-page .career-story h3{font-weight:500;
+  font-size:20px;
+  line-height:1.25;
+  margin-bottom:3px}
+.brand-page .context{font-size:14px;
+  color:var(--blue);
+  margin-bottom:16px}
+.brand-page .career-story>p:not(.context){font-size:16px;
+  line-height:1.65;
+  color:#405567}
+.brand-page .career-story details{margin-top:15px}
+.brand-page summary{cursor:pointer;
+  list-style:none;
+  font-size:14px;
+  color:var(--blue);
+  font-weight:500;
+  line-height:1.5}
+.brand-page summary::-webkit-details-marker{display:none}
+.brand-page summary::after{content:'+';
+  font-size:19px;
+  font-weight:400;
+  display:inline-block;
+  margin-left:14px;
+  line-height:1}
+.brand-page details[open]>summary::after{content:'−'}
+.brand-page .detail-copy{border-left:2px solid #b5cddd;
+  margin-top:14px;
+  padding-left:17px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.65}
+.brand-page .detail-copy p+p{margin-top:12px}
+.brand-page .work{padding-top:58px;
+  padding-bottom:60px}
+.brand-page .section-heading{display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:38px}
+.brand-page .section-heading h2{font:400 41px/1.12 var(--serif);
+  letter-spacing:-1px;
+  max-width:670px}
+.brand-page .section-heading>p{color:var(--muted);
+  font-size:15px;
+  max-width:240px;
+  padding-bottom:3px}
+.brand-page .kitchen-feature{display:grid;
+  grid-template-columns:.86fr 1.3fr;
+  gap:65px;
+  align-items:center}
+.brand-page .project-name{font-size:16px;
+  font-weight:500;
+  margin-bottom:12px}
+.brand-page .project-copy h3{font:400 46px/1.1 var(--serif);
+  letter-spacing:-1px;
+  max-width:420px;
+  margin-bottom:22px}
+.brand-page .project-copy>p:not(.project-name):not(.project-status){font-size:16px;
+  line-height:1.7;
+  color:var(--muted)}
+.brand-page .project-status{font-size:13px;
+  color:#4b6571;
+  margin-top:23px;
+  margin-bottom:15px;
+  display:flex;
+  gap:8px;
+  align-items:baseline}
+.brand-page .status-dot{width:6px;
+  height:6px;
+  border-radius:100%;
+  background:#477c6c;
+  flex-shrink:0;
+  align-self:center}
+.brand-page .project-copy>details{margin-top:22px}
+.brand-page .kitchen-visual{background:var(--mist);
+  padding:36px 24px 20px;
+  border-radius:5px;
+  overflow:hidden;
+  min-width:0}
+.brand-page .screen-pair{display:flex;
+  gap:25px;
+  align-items:flex-start;
+  justify-content:center;
+  padding-bottom:10px}
+.brand-page .phone-screen{width:calc(50% - 24px);
+  max-width:226px;
+  border:1px solid #d3d9d5;
+  border-radius:21px;
+  box-shadow:0 12px 30px #183d5220}
+.brand-page .screen-week{margin-top:40px}
+.brand-page .kitchen-visual figcaption{font-size:12px;
+  text-align:center;
+  color:#506e83;
+  margin-top:15px}
+.brand-page .project-pair{display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:58px;
+  margin-top:64px}
+.brand-page .visual-link{text-decoration:none;
+  display:block}
+.brand-page .nexus-visual,.brand-page .os-visual{height:320px;
+  border-radius:4px;
+  overflow:hidden}
+.brand-page .nexus-visual{background:#f7f6f1;
+  border:1px solid #e0e1de}
+.brand-page .visual-title{display:flex;
+  justify-content:space-between;
+  padding:14px 22px;
+  color:#4e514f;
+  font-size:12px;
+  border-bottom:1px solid #deded6}
+.brand-page .visual-title span:first-child{font-weight:500}
+.brand-page .nexus-visual img{width:100%;
+  height:276px;
+  object-fit:contain;
+  object-position:center}
+.brand-page .os-visual{background:#fff;
+  border:1px solid #d5dfe7;
+  padding:23px 28px;
+  box-shadow:5px 6px 0 #e8eef4}
+.brand-page .artifact-top{display:flex;
+  justify-content:space-between;
+  gap:16px;
+  font-size:13px;
+  color:var(--muted);
+  padding-bottom:16px;
+  border-bottom:1px solid #e4eaf0}
+.brand-page .artifact-top span:first-child{font-weight:500;
+  color:var(--ink)}
+.brand-page .artifact-headings{display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:30px;
+  row-gap:16px;
+  padding:24px 0}
+.brand-page .artifact-headings span{font:400 25px/1.2 var(--serif);
+  padding-bottom:6px;
+  border-bottom:1px solid #e6ecf1}
+.brand-page .artifact-command{display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  border-top:1px solid #e4eaf0;
+  padding-top:18px}
+.brand-page .artifact-command code{font:400 12px/1.3 'Plex Mono',monospace;
+  color:var(--blue)}
+.brand-page .artifact-command span{font-size:12px;
+  color:var(--muted)}
+.brand-page .os-visual figcaption{font-size:11px;
+  color:#647789;
+  margin-top:17px}
+.brand-page .secondary-project{display:grid;
+  grid-template-rows:1fr auto;
+  min-width:0}
+.brand-page .secondary-copy{padding-bottom:26px}
+.brand-page .secondary-copy .project-name{margin-bottom:8px;
+  font-size:15px;
+  color:var(--muted)}
+.brand-page .secondary-copy h3{font:400 35px/1.1 var(--serif);
+  letter-spacing:-.6px;
+  margin-bottom:16px}
+.brand-page .secondary-copy>p:not(.project-name):not(.quiet-status){font-size:16px;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:490px}
+.brand-page .secondary-copy .text-link{margin-top:19px}
+.brand-page .quiet-status{font-size:13px;
+  color:#647789;
+  margin-top:20px}
+.brand-page .more-work{margin-top:48px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:19px 0}
+.brand-page .more-work>summary{display:flex;
+  align-items:center;
+  gap:22px;
+  color:var(--ink);
+  font-size:15px}
+.brand-page .more-work>summary::after{margin-left:auto}
+.brand-page .more-names{font-weight:400;
+  color:var(--muted);
+  font-size:13px}
+.brand-page .more-work-body{display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:36px;
+  margin:26px 0 8px}
+.brand-page .more-work-body h3{font-size:17px;
+  font-weight:500;
+  margin-bottom:9px}
+.brand-page .more-work-body p,.brand-page .more-work-body a{font-size:14px;
+  color:var(--muted)}
+.brand-page .more-work-body a{display:inline-block;
+  margin-top:10px;
+  color:var(--blue)}
+.brand-page .writing-section{padding:55px 0 62px;
+  background:#edf2f6}
+.brand-page .writing-section .section-heading{margin-bottom:32px}
+.brand-page .writing-section h2{max-width:700px}
+.brand-page .writing-section .section-heading>.text-link{flex-shrink:0;
+  margin-bottom:2px}
+.brand-page .essays{display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:85px}
+.brand-page .essay-topic{color:var(--muted);
+  font-size:13px;
+  margin-bottom:15px}
+.brand-page .essays h3{font:400 37px/1.13 var(--serif);
+  letter-spacing:-.7px;
+  max-width:500px;
+  margin-bottom:18px}
+.brand-page .essays h3 a{text-decoration:none}
+.brand-page .essays h3 a:hover{text-decoration:underline;
+  text-decoration-thickness:1px}
+.brand-page .essays article>p:not(.essay-topic){font-size:16px;
+  color:var(--muted);
+  max-width:440px}
+.brand-page .essays article>.text-link{margin-top:20px}
+.brand-page .personal{padding-top:65px;
+  padding-bottom:62px;
+  display:grid;
+  grid-template-columns:.85fr 1.25fr;
+  gap:90px}
+.brand-page .personal h2{font:400 43px/1.1 var(--serif);
+  letter-spacing:-1px;
+  max-width:330px}
+.brand-page .personal-copy>p{color:var(--muted);
+  font-size:18px;
+  line-height:1.7}
+.brand-page .interests{display:flex;
+  gap:23px;
+  flex-wrap:wrap;
+  margin-top:27px;
+  font-size:13px;
+  color:var(--blue)}
+.brand-page .contact{display:grid;
+  grid-template-columns:.85fr 1.25fr;
+  gap:90px;
+  border-top:1px solid var(--line);
+  padding-top:44px;
+  padding-bottom:56px}
+.brand-page .contact h2{font:400 43px/1.13 var(--serif);
+  letter-spacing:-1px}
+.brand-page .contact>div>p:not(.section-label){font-size:17px;
+  color:var(--muted);
+  max-width:590px}
+.brand-page .email-link{display:inline-block;
+  font-size:20px;
+  line-height:1.5;
+  color:var(--blue);
+  margin-top:20px;
+  text-decoration-thickness:1px}
+.brand-page .contact .advisory{font-size:13px!important;
+  margin-top:24px}
+@media(min-width:1440px){.brand-page .hero h1{font-size:76px}
+}
+@media(max-width:1100px){.brand-page .wrap{width:calc(100% - 72px)}
+.brand-page .hero{column-gap:45px;
+  grid-template-columns:minmax(0,1fr) 240px}
+.brand-page .portrait img{width:240px;
+  height:300px}
+.brand-page .hero h1{font-size:62px}
+.brand-page .leadership{gap:30px;
+  grid-template-columns:.8fr 1fr 1fr}
+.brand-page .section-intro h2{font-size:33px}
+.brand-page .kitchen-feature{gap:36px;
+  grid-template-columns:.9fr 1.1fr}
+.brand-page .project-copy h3{font-size:39px}
+.brand-page .kitchen-visual{padding:28px 16px 20px}
+.brand-page .screen-pair{gap:17px}
+.brand-page .phone-screen{width:calc(50% - 12px)}
+.brand-page .project-pair{gap:35px}
+.brand-page .os-visual{padding:21px}
+.brand-page .artifact-command{flex-direction:column;
+  align-items:start;
+  gap:7px}
+.brand-page .artifact-headings{row-gap:12px}
+.brand-page .os-visual figcaption{margin-top:12px}
+.brand-page .personal,.brand-page .contact{gap:50px}
+}
+@media(max-width:760px){.brand-page .wrap{width:calc(100% - 44px)}
+.brand-page .wordmark{font-size:19px;
+  white-space:nowrap}
+.brand-page .hero{padding-top:6px;
+  padding-bottom:38px;
+  grid-template-columns:minmax(0,1fr) 110px;
+  grid-template-areas:'greeting portrait' 'heading heading' 'intro intro' 'links links';
+  column-gap:20px;
+  row-gap:16px}
+.brand-page .greeting{font-size:22px;
+  align-self:end;
+  padding-bottom:8px}
+.brand-page .portrait{justify-self:end}
+.brand-page .portrait img{width:110px;
+  height:114px;
+  object-position:57% 36%;
+  box-shadow:7px 7px 0 var(--mist);
+  border-radius:3px}
+.brand-page .hero h1{font-size:clamp(43px,9vw,61px);
+  line-height:1.06;
+  letter-spacing:-1.5px;
+  max-width:620px;
+  margin-top:5px}
+.brand-page .intro{font-size:16px;
+  line-height:1.65;
+  margin-top:0;
+  max-width:590px}
+.brand-page .intro-links{gap:24px;
+  margin-top:2px}
+.brand-page .text-link{font-size:14px}
+.brand-page .leadership{grid-template-columns:1fr 1fr;
+  gap:26px 24px;
+  padding-top:29px;
+  padding-bottom:32px}
+.brand-page .section-intro{grid-column:1/-1}
+.brand-page .section-intro h2{font-size:33px;
+  max-width:none}
+.brand-page .section-label{font-size:13px;
+  margin-bottom:10px}
+.brand-page .career-story h3{font-size:18px}
+.brand-page .context{font-size:12px;
+  margin-bottom:12px}
+.brand-page .career-story>p:not(.context){font-size:14px}
+.brand-page .career-story summary{font-size:12px}
+.brand-page .career-story summary::after{margin-left:8px;
+  font-size:17px}
+.brand-page .detail-copy{font-size:14px;
+  padding-left:12px}
+.brand-page .work{padding-top:36px;
+  padding-bottom:35px}
+.brand-page .section-heading{align-items:start;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:28px}
+.brand-page .section-heading h2{font-size:34px;
+  letter-spacing:-.7px}
+.brand-page .section-heading>p{max-width:100%;
+  font-size:14px}
+.brand-page .kitchen-feature{grid-template-columns:1fr;
+  gap:25px}
+.brand-page .project-copy h3{font-size:38px;
+  max-width:500px;
+  margin-bottom:18px}
+.brand-page .project-copy>p:not(.project-name):not(.project-status){font-size:15px}
+.brand-page .project-name{font-size:15px}
+.brand-page .project-status{margin-top:18px;
+  font-size:12px}
+.brand-page .project-copy>details{margin-top:17px}
+.brand-page .kitchen-visual{padding:25px 14px 18px}
+.brand-page .screen-pair{gap:17px}
+.brand-page .screen-week{margin-top:25px}
+.brand-page .phone-screen{width:calc(50% - 17px);
+  max-width:220px;
+  border-radius:15px}
+.brand-page .kitchen-visual figcaption{font-size:10px}
+.brand-page .project-pair{grid-template-columns:1fr;
+  gap:35px;
+  margin-top:38px}
+.brand-page .nexus-visual,.brand-page .os-visual{height:290px}
+.brand-page .nexus-visual img{height:246px}
+.brand-page .secondary-copy{padding-bottom:20px}
+.brand-page .secondary-copy h3{font-size:32px}
+.brand-page .secondary-copy>p:not(.project-name):not(.quiet-status){font-size:15px}
+.brand-page .os-visual{padding:22px}
+.brand-page .artifact-headings{padding-block:22px}
+.brand-page .artifact-command{flex-direction:row;
+  align-items:center;
+  gap:10px}
+.brand-page .artifact-command span{font-size:10px}
+.brand-page .os-visual figcaption{margin-top:17px}
+.brand-page .more-work{margin-top:35px;
+  padding-block:16px}
+.brand-page .more-work>summary{flex-wrap:wrap;
+  gap:4px;
+  font-size:14px;
+  position:relative;
+  padding-right:24px}
+.brand-page .more-work>summary::after{position:absolute;
+  right:3px;
+  top:10px}
+.brand-page .more-names{width:100%;
+  font-size:12px}
+.brand-page .more-work-body{grid-template-columns:1fr;
+  gap:22px}
+.brand-page .writing-section{padding:35px 0 40px}
+.brand-page .essays{grid-template-columns:1fr;
+  gap:34px}
+.brand-page .essays h3{font-size:32px;
+  margin-bottom:14px;
+  max-width:480px}
+.brand-page .essays article>p:not(.essay-topic){font-size:15px}
+.brand-page .essay-topic{font-size:12px;
+  margin-bottom:12px}
+.brand-page .writing-section .section-heading>.text-link{font-size:13px}
+.brand-page .personal,.brand-page .contact{grid-template-columns:1fr;
+  gap:24px;
+  padding-top:36px;
+  padding-bottom:37px}
+.brand-page .personal h2,.brand-page .contact h2{font-size:37px;
+  max-width:100%}
+.brand-page .personal-copy>p{font-size:16px}
+.brand-page .interests{font-size:12px;
+  gap:11px 20px;
+  margin-top:22px}
+.brand-page .contact>div>p:not(.section-label){font-size:16px}
+.brand-page .email-link{font-size:18px;
+  overflow-wrap:anywhere}
+}
+@media(max-width:430px){.brand-page .leadership{grid-template-columns:1fr;
+  gap:25px}
+.brand-page .career-story>p:not(.context){font-size:15px}
+.brand-page .career-story{max-width:100%}
+.brand-page .career-story h3{font-size:19px}
+.brand-page .context{font-size:13px}
+.brand-page .career-story summary{font-size:13px}
+.brand-page .artifact-headings span{font-size:23px}
+.brand-page .visual-title{padding-inline:14px}
+.brand-page .os-visual{padding-inline:20px}
+.brand-page .artifact-command span{max-width:105px}
+}
+@media(prefers-reduced-motion:reduce){}
+@media print{.brand-page{background:white}
+.brand-page .wrap{width:100%}
+.brand-page .portrait img{box-shadow:none}
+.brand-page details>div{display:block}
+.brand-page a{text-decoration:none}
+}
+.brand-page ::selection{background:#d5e7d9}
+.brand-page .hero-band{background:#edf3ee}
+.brand-page .hero{padding-top:38px;
+  padding-bottom:43px;
+  grid-template-columns:minmax(0,1fr) 300px;
+  column-gap:80px;
+  row-gap:17px}
+.brand-page .hero h1{font-family:var(--sans);
+  font-weight:500;
+  font-size:clamp(48px,4.8vw,68px);
+  line-height:1.05;
+  letter-spacing:-2.3px;
+  text-wrap:initial;
+  max-width:740px}
+.brand-page .greeting{font-size:21px}
+.brand-page .intro{font-size:18px;
+  max-width:640px}
+.brand-page .portrait img{width:300px;
+  height:325px;
+  box-shadow:none;
+  border-radius:5px;
+  object-position:56% 40%}
+.brand-page .text-link{border-bottom-color:#9eb5a7}
+.brand-page .leadership{border-top:0;
+  padding-top:42px;
+  padding-bottom:44px;
+  gap:43px;
+  grid-template-columns:.9fr 1fr 1fr}
+.brand-page .section-intro h2{font-size:30px;
+  font-weight:500;
+  line-height:1.14;
+  letter-spacing:-.8px;
+  max-width:285px;
+  text-wrap:initial}
+.brand-page .leadership-view{font-size:15px;
+  line-height:1.65;
+  color:var(--muted);
+  margin-top:18px}
+.brand-page .career-story>p:not(.context){color:#3d5549;
+  font-size:16px}
+.brand-page .detail-copy{border-left-color:#b6cdbb}
+.brand-page .section-heading h2{font-weight:500;
+  font-size:40px;
+  letter-spacing:-1.25px}
+.brand-page .section-heading>p{max-width:290px}
+.brand-page .work{padding-top:48px}
+.brand-page .kitchen-feature{background:#edf3ee;
+  border-radius:5px;
+  padding:36px;
+  margin-inline:-36px;
+  gap:52px;
+  grid-template-columns:.9fr 1.3fr}
+.brand-page .project-copy h3{font-weight:500;
+  font-size:39px;
+  letter-spacing:-1.25px;
+  line-height:1.13;
+  text-wrap:initial}
+.brand-page .kitchen-visual{background:#dfe9e1;
+  padding:26px 20px 19px}
+.brand-page .screen-pair{gap:21px}
+.brand-page .phone-screen{width:calc(50% - 12px);
+  max-width:260px;
+  border-radius:8px;
+  box-shadow:0 9px 24px #183d5215}
+.brand-page .screen-week{margin-top:32px}
+.brand-page .kitchen-visual figcaption{color:#50665c}
+.brand-page .project-status{color:#456356}
+.brand-page .status-dot{background:#39735c}
+.brand-page .project-pair{margin-top:52px;
+  gap:48px}
+.brand-page .nexus-visual,.brand-page .os-visual{height:334px}
+.brand-page .nexus-visual img{height:290px}
+.brand-page .os-visual{background:#f3f6f3;
+  border-color:var(--line);
+  box-shadow:none;
+  padding:24px 28px}
+.brand-page .artifact-top,.brand-page .artifact-headings span,.brand-page .artifact-command{border-color:var(--line)}
+.brand-page .artifact-headings span{font-weight:500;
+  font-size:25px}
+.brand-page .artifact-headings{padding-block:28px}
+.brand-page .os-visual figcaption,.brand-page .quiet-status{color:#60746a}
+.brand-page .secondary-copy h3{font-weight:500;
+  font-size:32px;
+  line-height:1.15;
+  letter-spacing:-.9px;
+  text-wrap:initial}
+.brand-page .writing-section{background:#163f36;
+  color:#fff}
+.brand-page .writing-section .section-label,.brand-page .writing-section .essay-topic,.brand-page .writing-section .essays article>p:not(.essay-topic){color:#d2e0d7}
+.brand-page .writing-section a{color:#fff}
+.brand-page .writing-section .text-link{border-bottom-color:#809e90}
+.brand-page .essays h3{font-weight:400;
+  font-size:36px;
+  line-height:1.17;
+  letter-spacing:-.8px;
+  text-wrap:initial}
+.brand-page .personal h2,.brand-page .contact h2{font-weight:500;
+  font-size:38px;
+  line-height:1.14;
+  letter-spacing:-1px}
+.brand-page .personal{padding-top:52px;
+  padding-bottom:48px}
+.brand-page .personal-copy>p{font-size:17px}
+.brand-page .interests{display:none}
+.brand-page .contact{padding-top:42px;
+  padding-bottom:48px}
+.brand-page .contact>div>p:not(.section-label){color:#3d5549}
+@media(max-width:1100px){.brand-page .hero{grid-template-columns:minmax(0,1fr) 250px;
+  column-gap:42px}
+.brand-page .portrait img{width:250px;
+  height:285px}
+.brand-page .hero h1{font-size:58px}
+.brand-page .leadership{gap:28px}
+.brand-page .section-intro h2{font-size:27px}
+.brand-page .kitchen-feature{margin-inline:0;
+  padding:28px;
+  gap:32px;
+  grid-template-columns:1fr 1.1fr}
+.brand-page .project-copy h3{font-size:33px}
+.brand-page .kitchen-visual{padding:22px 14px 16px}
+.brand-page .screen-pair{gap:14px}
+.brand-page .phone-screen{width:calc(50% - 8px)}
+.brand-page .project-pair{gap:35px}
+}
+@media(max-width:760px){.brand-page .hero{padding-top:24px;
+  padding-bottom:35px;
+  grid-template-columns:minmax(0,1fr) 120px;
+  column-gap:20px;
+  row-gap:16px}
+.brand-page .portrait img{width:120px;
+  height:123px;
+  object-position:57% 36%}
+.brand-page .hero h1{font-size:clamp(42px,8.7vw,60px);
+  line-height:1.07;
+  letter-spacing:-1.5px;
+  margin-top:3px}
+.brand-page .greeting{font-size:21px}
+.brand-page .intro{font-size:16px;
+  line-height:1.6}
+.brand-page .leadership{grid-template-columns:1fr 1fr;
+  padding-top:30px;
+  padding-bottom:32px;
+  gap:28px 24px}
+.brand-page .section-intro h2{font-size:31px;
+  max-width:560px}
+.brand-page .leadership-view{max-width:580px;
+  font-size:15px;
+  margin-top:13px}
+.brand-page .career-story>p:not(.context){font-size:15px}
+.brand-page .section-heading h2{font-size:34px}
+.brand-page .section-heading>p{max-width:440px}
+.brand-page .work{padding-top:33px}
+.brand-page .kitchen-feature{grid-template-columns:1fr;
+  margin-inline:-10px;
+  padding:26px 20px;
+  gap:25px}
+.brand-page .project-copy h3{font-size:35px;
+  max-width:500px}
+.brand-page .kitchen-visual{padding:23px 14px 17px}
+.brand-page .phone-screen{max-width:240px}
+.brand-page .screen-week{margin-top:27px}
+.brand-page .project-pair{margin-top:38px}
+.brand-page .nexus-visual,.brand-page .os-visual{height:300px}
+.brand-page .nexus-visual img{height:256px}
+.brand-page .artifact-headings{padding-block:24px}
+.brand-page .artifact-headings span{font-size:24px}
+.brand-page .secondary-copy h3{font-size:30px}
+.brand-page .essays h3{font-size:31px}
+.brand-page .personal h2,.brand-page .contact h2{font-size:34px}
+.brand-page .personal{padding-block:35px}
+.brand-page .contact{padding-block:35px}
+.brand-page .personal-copy>p{font-size:16px}
+.brand-page .os-visual{padding:22px}
+.brand-page .os-visual figcaption{margin-top:14px}
+}
+@media(max-width:430px){.brand-page .leadership{grid-template-columns:1fr;
+  gap:25px}
+.brand-page .hero h1{font-size:43px}
+.brand-page .project-copy h3{font-size:32px}
+.brand-page .kitchen-feature{padding:24px 18px}
+.brand-page .screen-pair{gap:12px}
+.brand-page .kitchen-visual{padding-inline:10px}
+.brand-page .phone-screen{width:calc(50% - 6px)}
+.brand-page .artifact-command{align-items:start}
+.brand-page .artifact-command span{max-width:110px}
+.brand-page .os-visual{padding:20px}
+.brand-page .section-intro h2{font-size:30px}
+}
+.brand-page .hero h1{font-size:58px;
+  line-height:1.07;
+  letter-spacing:-1.9px}
+.brand-page .venture-line{display:block;
+  font-size:33px;
+  line-height:1.2;
+  letter-spacing:-.75px;
+  margin-top:19px}
+.brand-page .portrait{align-self:start;
+  margin-top:42px}
+@media(max-width:1100px){.brand-page .hero h1{font-size:49px}
+.brand-page .venture-line{font-size:29px}
+.brand-page .portrait{margin-top:38px}
+}
+@media(max-width:760px){.brand-page .hero h1{font-size:clamp(36px,7vw,48px);
+  letter-spacing:-1.2px}
+.brand-page .venture-line{font-size:27px;
+  letter-spacing:-.5px;
+  margin-top:17px}
+.brand-page .portrait{margin-top:0}
+}
+.brand-page .kitchen-sharing-visual{align-self:center;
+  padding:24px 20px 20px}
+.brand-page .kitchen-journey{display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);
+  gap:18px;
+  align-items:start}
+.brand-page .visual-step{font-size:13px;
+  font-weight:500;
+  line-height:1.4;
+  margin:0 0 12px;
+  color:#254d3f}
+.brand-page .kitchen-journey a{display:block;
+  border-radius:5px;
+  overflow:hidden;
+  box-shadow:0 7px 18px #183d5214}
+.brand-page .kitchen-journey img{display:block;
+  width:100%;
+  height:auto}
+.brand-page .household-plan-view{padding-top:46px}
+.brand-page .sharing-connection{font-size:15px;
+  line-height:1.6;
+  color:#254d3f;
+  margin-top:20px}
+.brand-page .kitchen-sharing-visual figcaption{font-size:11px;
+  line-height:1.5;
+  margin-top:12px}
+@media(max-width:760px){.brand-page .kitchen-sharing-visual{padding:20px 14px}
+.brand-page .kitchen-journey{gap:14px}
+.brand-page .visual-step{font-size:12px}
+.brand-page .sharing-connection{font-size:14px}
+}
+@media(max-width:430px){.brand-page .kitchen-journey{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+  gap:10px}
+.brand-page .visual-step{font-size:11px}
+.brand-page .household-plan-view{padding-top:35px}
+}
+.brand-page .family-kitchen-concept{background:#e0e8df;
+  padding:24px 20px}
+.brand-page .family-kitchen-concept .kitchen-journey{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);
+  gap:16px}
+.brand-page .family-kitchen-concept .household-plan-view{padding-top:60px}
+.brand-page .family-collection{background:#fbfaf5;
+  border:1px solid #d2d9cc;
+  border-radius:7px;
+  overflow:hidden;
+  box-shadow:0 12px 24px #20382a0b}
+.brand-page .collection-heading{padding:21px 18px 17px;
+  border-bottom:1px solid #e3e6db}
+.brand-page .collection-handle{font-size:10px;
+  letter-spacing:1px;
+  color:#627459;
+  margin-bottom:7px}
+.brand-page .collection-heading h4{font-size:27px;
+  font-weight:500;
+  line-height:1.1;
+  letter-spacing:-.7px;
+  color:#263b2d;
+  margin:0 0 8px}
+.brand-page .collection-heading>p:last-child{font-size:12px;
+  line-height:1.5;
+  color:#64705d;
+  margin:0}
+.brand-page .family-recipes{display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px 12px;
+  padding:16px}
+.brand-page .kitchen-journey .family-recipe{display:block;
+  box-shadow:none;
+  border-radius:0;
+  text-decoration:none;
+  color:#293e30}
+.brand-page .family-recipe img{width:100%;
+  aspect-ratio:1.18;
+  object-fit:cover;
+  border-radius:4px}
+.brand-page .recipe-title{display:block;
+  font-size:12px;
+  font-weight:500;
+  line-height:1.4;
+  margin-top:9px}
+.brand-page .recipe-time{display:block;
+  font-size:10px;
+  line-height:1.5;
+  color:#71806b;
+  margin-top:4px}
+.brand-page .kitchen-journey .collection-source{display:flex;
+  justify-content:space-between;
+  border-radius:0;
+  box-shadow:none;
+  border-top:1px solid #e3e6db;
+  margin:0 16px;
+  padding:12px 0;
+  font-size:11px;
+  color:#416047;
+  text-decoration:none}
+.brand-page .example-plan{background:#f7f6ef;
+  border:1px solid #d4d9cb;
+  border-radius:7px;
+  padding:15px 13px;
+  box-shadow:0 8px 20px #20382a09}
+.brand-page .plan-eyebrow{font-size:9px;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  color:#7c816f;
+  margin:0 0 7px}
+.brand-page .example-plan h4{font-size:20px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:-.5px;
+  margin:0 0 15px;
+  color:#31432f}
+.brand-page .planned-dish{padding:13px 0;
+  border-top:1px solid #dedfd3}
+.brand-page .plan-day{display:block;
+  font-size:10px;
+  color:#66735d;
+  margin-bottom:7px}
+.brand-page .planned-dish>p{font-size:12px;
+  font-weight:500;
+  line-height:1.4;
+  color:#334631;
+  margin:0}
+.brand-page .planned-dish img{width:100%;
+  aspect-ratio:1.6;
+  object-fit:cover;
+  border-radius:4px;
+  margin-bottom:8px}
+.brand-page .plan-source{display:block;
+  font-size:9px;
+  line-height:1.5;
+  color:#65795c;
+  margin-top:6px}
+.brand-page .plan-groceries{border-top:1px solid #dedfd3;
+  padding-top:12px;
+  font-size:11px;
+  line-height:1.5;
+  color:#496344;
+  margin:0}
+.brand-page .connection-label{display:block;
+  font-size:11px;
+  font-weight:500;
+  color:#52704e;
+  margin-bottom:5px}
+.brand-page .family-kitchen-concept figcaption{text-align:left}
+@media(max-width:1100px) and (min-width:761px){.brand-page .family-kitchen-concept .kitchen-journey{grid-template-columns:1fr}
+.brand-page .family-kitchen-concept .household-plan-view{padding-top:0}
+.brand-page .example-plan{display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px}
+.brand-page .example-plan h4,.brand-page .example-plan .plan-eyebrow,.brand-page .example-plan .plan-groceries{grid-column:1/-1}
+.brand-page .planned-dish:last-of-type{display:none}
+}
+@media(max-width:430px){.brand-page .family-kitchen-concept{padding:18px 12px}
+.brand-page .family-kitchen-concept .kitchen-journey{grid-template-columns:1fr;
+  gap:20px}
+.brand-page .family-kitchen-concept .household-plan-view{padding-top:0}
+.brand-page .collection-heading h4{font-size:26px}
+.brand-page .recipe-title{font-size:13px}
+.brand-page .example-plan{display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 14px}
+.brand-page .example-plan h4,.brand-page .example-plan .plan-eyebrow,.brand-page .example-plan .plan-groceries{grid-column:1/-1}
+.brand-page .featured-plan{grid-row:3/5}
+.brand-page .planned-dish>p{font-size:12px}
+.brand-page .plan-groceries{margin-top:8px}
+}
+.brand-page .family-recipe:first-child img,.brand-page .featured-plan img{object-position:center bottom}
+.brand-page .leadership-opening{background:#edf3ee;
+  border-bottom:1px solid #dce6dd}
+.brand-page .leadership-hero{padding-block:49px 37px}
+.brand-page .leadership-hero h1{font-size:clamp(38px,4.6vw,63px);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-1.9px;
+  max-width:960px;
+  text-wrap:initial}
+.brand-page .leadership-deck{font-size:22px;
+  line-height:1.5;
+  color:#334f42;
+  max-width:820px;
+  margin-top:28px}
+.brand-page .opening-note{font-size:17px;
+  line-height:1.7;
+  max-width:770px;
+  color:#50665c;
+  margin-top:20px}
+.brand-page .page-index{display:flex;
+  flex-wrap:wrap;
+  gap:14px 30px;
+  border-top:1px solid #d3dfd4;
+  padding-top:23px;
+  margin-top:31px;
+  font-size:14px;
+  color:#355c48}
+.brand-page .page-index a{text-decoration:none;
+  border-bottom:1px solid #a7bcac;
+  padding-bottom:3px}
+.brand-page .leadership-chapter{display:grid;
+  grid-template-columns:230px minmax(0,760px);
+  gap:64px;
+  padding-block:62px;
+  border-bottom:1px solid #d8e2db}
+.brand-page .chapter-label>p{font-size:17px;
+  font-weight:500;
+  color:#244b39}
+.brand-page .chapter-label>span{display:block;
+  font-size:13px;
+  line-height:1.5;
+  color:#708173;
+  max-width:200px;
+  margin-top:7px}
+.brand-page .chapter-body h2{font-size:36px;
+  line-height:1.15;
+  letter-spacing:-.9px;
+  font-weight:500;
+  text-wrap:initial;
+  max-width:690px;
+  margin-bottom:24px}
+.brand-page .chapter-body>p{font-size:18px;
+  line-height:1.75;
+  color:#41584b;
+  max-width:730px}
+.brand-page .chapter-body p+p{margin-top:18px}
+.brand-page .chapter-outcome{border-left:3px solid #93b39b;
+  padding-left:24px;
+  margin-top:28px;
+  max-width:710px}
+.brand-page .chapter-outcome h3{font-size:16px;
+  font-weight:500;
+  margin-bottom:10px}
+.brand-page .chapter-outcome p{font-size:16px;
+  line-height:1.75;
+  color:#50665c}
+.brand-page .ai-chapter-band{background:#f0f4ef}
+.brand-page .ai-chapter-band .leadership-chapter{border-bottom:0}
+.brand-page .chapter-links{display:flex;
+  gap:18px 30px;
+  flex-wrap:wrap;
+  margin-top:27px}
+.brand-page .leadership-contact{border-bottom:0;
+  padding-block:60px 76px}
+.brand-page .leadership-contact .email-link{display:inline-block;
+  margin-top:21px;
+  font-size:22px;
+  overflow-wrap:anywhere}
+@media(max-width:1100px){.brand-page .leadership-chapter{grid-template-columns:185px minmax(0,1fr);
+  gap:34px}
+.brand-page .chapter-body h2{font-size:32px}
+}
+@media(max-width:760px){.brand-page .leadership-hero{padding-block:30px}
+.brand-page .leadership-hero h1{font-size:39px;
+  letter-spacing:-1.2px}
+.brand-page .leadership-deck{font-size:19px;
+  margin-top:22px}
+.brand-page .opening-note{font-size:16px}
+.brand-page .page-index{gap:12px 23px;
+  font-size:13px}
+.brand-page .leadership-chapter{grid-template-columns:1fr;
+  gap:22px;
+  padding-block:35px}
+.brand-page .chapter-label{display:flex;
+  align-items:baseline;
+  gap:16px;
+  flex-wrap:wrap}
+.brand-page .chapter-label>span{margin-top:0;
+  max-width:none}
+.brand-page .chapter-body h2{font-size:30px;
+  margin-bottom:19px}
+.brand-page .chapter-body>p{font-size:16px;
+  line-height:1.75}
+.brand-page .chapter-outcome{padding-left:17px}
+.brand-page .chapter-outcome p{font-size:15px}
+.brand-page .leadership-contact{padding-bottom:48px}
+.brand-page .leadership-contact .email-link{font-size:19px}
+}
+@media(max-width:430px){.brand-page .leadership-hero h1{font-size:35px}
+.brand-page .chapter-label{gap:6px 12px}
+.brand-page .chapter-label>span{font-size:12px}
+.brand-page .chapter-body h2{font-size:28px}
+}
+.brand-page .primary-link{display:inline-flex;
+  align-items:center;
+  gap:30px;
+  background:#295e4d;
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  padding:12px 18px;
+  border-radius:3px}
+.brand-page .primary-link:hover{color:white;
+  background:#1b493b}
+.brand-page .primary-link:focus-visible{outline-offset:4px}
+.brand-page .intro-links{margin-top:13px}
+.brand-page .about-link{margin-top:20px}
+.brand-page .project-opening{background:#f0f4f0;
+  border-bottom:1px solid var(--line)}
+.brand-page .project-hero{display:grid;
+  grid-template-columns:minmax(0,1fr) 250px;
+  gap:80px;
+  padding-block:53px 54px;
+  align-items:end}
+.brand-page .project-hero h1{font-size:clamp(38px,4.6vw,62px);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-1.8px;
+  text-wrap:initial;
+  max-width:850px}
+.brand-page .project-deck{font-size:20px;
+  line-height:1.6;
+  color:#435d4e;
+  max-width:740px;
+  margin-top:26px}
+.brand-page .project-facts{padding-left:26px;
+  border-left:1px solid #b9ccbd;
+  font-size:16px;
+  line-height:1.6;
+  align-self:center}
+.brand-page .project-facts p{margin:0}
+.brand-page .project-facts .fact-label{font-size:12px;
+  color:#5a7464;
+  margin-bottom:7px}
+.brand-page .project-facts .fact-label:not(:first-child){margin-top:27px}
+.brand-page .project-facts .fact-note{font-size:14px;
+  color:#5a6c60;
+  margin-top:15px}
+.brand-page .project-hero .chapter-links{gap:20px 27px;
+  margin-top:30px}
+.brand-page .product-experience{padding-block:48px 56px}
+.brand-page .product-experience .section-heading{align-items:center;
+  margin-bottom:30px}
+.brand-page .product-experience .section-heading>p{max-width:350px}
+.brand-page .product-experience .section-heading h2{font-size:36px}
+.brand-page .product-experience .family-kitchen-concept{padding:30px 42px;
+  background:#e5ece2}
+.brand-page .product-experience .family-kitchen-concept .kitchen-journey{grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);
+  gap:36px;
+  max-width:900px;
+  margin:auto}
+.brand-page .product-experience .family-kitchen-concept .household-plan-view{padding-top:55px}
+.brand-page .product-experience .collection-heading{padding:25px 24px 20px}
+.brand-page .product-experience .collection-heading h4{font-size:34px}
+.brand-page .product-experience .collection-handle{font-size:12px}
+.brand-page .product-experience .collection-heading>p:last-child{font-size:15px}
+.brand-page .product-experience .family-recipes{padding:22px;
+  gap:22px 18px}
+.brand-page .product-experience .recipe-title{font-size:15px}
+.brand-page .product-experience .recipe-time{font-size:12px}
+.brand-page .product-experience .collection-source{font-size:13px;
+  margin-inline:22px;
+  padding-block:15px}
+.brand-page .product-experience .example-plan{display:block;
+  padding:22px}
+.brand-page .product-experience .example-plan h4{font-size:27px;
+  margin-bottom:21px}
+.brand-page .product-experience .planned-dish:last-of-type{display:block}
+.brand-page .product-experience .planned-dish>p{font-size:15px}
+.brand-page .product-experience .plan-day,.brand-page .product-experience .plan-groceries{font-size:13px}
+.brand-page .product-experience .plan-eyebrow,.brand-page .product-experience .plan-source{font-size:11px}
+.brand-page .product-experience .sharing-connection,.brand-page .product-experience figcaption{max-width:900px;
+  margin-inline:auto}
+.brand-page .product-experience .sharing-connection{font-size:17px;
+  margin-top:26px}
+.brand-page .product-experience figcaption{font-size:12px;
+  color:#54664e}
+.brand-page .ledger-capture{margin-block:42px 48px;
+  max-width:1040px;
+  background:#f7f6f1;
+  border:1px solid #dce0d7;
+  border-radius:4px;
+  overflow:hidden}
+.brand-page .capture-heading{display:flex;
+  justify-content:space-between;
+  gap:20px;
+  border-bottom:1px solid #dce0d7;
+  padding:14px 24px;
+  font-size:13px;
+  color:#526357}
+.brand-page .ledger-capture img{width:100%;
+  height:auto;
+  max-height:570px;
+  object-fit:contain}
+.brand-page .ledger-capture figcaption{padding:14px 24px;
+  font-size:12px;
+  line-height:1.6;
+  color:#536458;
+  border-top:1px solid #dce0d7}
+.brand-page .correction-example{padding-block:42px 10px}
+.brand-page .correction-grid{display:grid;
+  grid-template-columns:1fr 1fr 1.25fr;
+  border-block:1px solid #c8d8ca;
+  background:#f6f8f4}
+.brand-page .correction-grid>div{padding:26px 28px;
+  border-right:1px solid #c8d8ca}
+.brand-page .correction-grid>div:last-child{border-right:0}
+.brand-page .diagram-label{display:block;
+  font-size:12px;
+  line-height:1.5;
+  color:#56705e;
+  font-weight:400;
+  margin-bottom:12px}
+.brand-page .correction-grid strong{display:block;
+  font-size:32px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:-.5px;
+  margin-bottom:12px}
+.brand-page .correction-grid p{font-size:15px;
+  color:#50665c}
+.brand-page .correction-example figcaption,.brand-page .context-example figcaption{font-size:12px;
+  line-height:1.6;
+  color:#5e7064;
+  margin-top:15px}
+.brand-page .source-detail{margin-top:24px}
+.brand-page .source-detail .detail-copy p{font-size:15px}
+.brand-page .next-project{padding-block:44px 52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px}
+.brand-page .next-project>div>a{font-size:32px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:-.6px;
+  text-decoration:none}
+.brand-page .next-project>div>a:hover{text-decoration:underline;
+  text-decoration-thickness:1px}
+.brand-page .next-project>div>p:last-child{font-size:15px;
+  color:#50665c;
+  margin-top:11px}
+.brand-page .next-project>.text-link{flex-shrink:0}
+.brand-page .context-example{margin-block:44px;
+  background:#f5f6f0;
+  border:1px solid #d6dfd3;
+  border-radius:4px;
+  padding:32px 36px 23px}
+.brand-page .context-request{border-bottom:1px solid #cbd9cc;
+  padding-bottom:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:26px}
+.brand-page .context-request .diagram-label{grid-column:1/-1}
+.brand-page .context-request code{font:400 16px/1.6 'Plex Mono',monospace;
+  overflow-wrap:anywhere;
+  color:#295e4d}
+.brand-page .context-request>p{font-size:15px;
+  color:#50665c;
+  text-align:right;
+  margin:0}
+.brand-page .context-materials{display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  padding-block:30px 25px}
+.brand-page .context-materials>div{padding-left:18px;
+  border-left:2px solid #93b39b;
+  min-width:0}
+.brand-page .context-materials h2{font-size:25px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:-.4px;
+  text-wrap:initial;
+  margin:0 0 12px}
+.brand-page .context-materials p{font-size:15px;
+  line-height:1.6;
+  color:#50665c}
+.brand-page .context-example figcaption{padding-top:15px;
+  border-top:1px solid #cbd9cc}
+.brand-page .scope-example{border-left:3px solid #93b39b;
+  padding:4px 0 4px 22px;
+  margin-block:25px}
+.brand-page .scope-example p{font-size:16px;
+  color:#41584b}
+.brand-page .scope-example .diagram-label{font-size:12px;
+  margin-bottom:14px}
+.brand-page .scope-example p+p{margin-top:10px}
+.brand-page .scope-example strong{font-weight:500}
+.brand-page .about-hero{display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  gap:90px;
+  align-items:center;
+  padding-block:52px 58px}
+.brand-page .about-hero h1{font-size:70px;
+  line-height:1.05;
+  font-weight:500;
+  letter-spacing:-2.4px;
+  margin-bottom:25px;
+  text-wrap:initial}
+.brand-page .about-hero .about-deck{font-size:29px;
+  line-height:1.35;
+  color:#244b39;
+  margin-bottom:23px;
+  max-width:630px;
+  letter-spacing:-.6px}
+.brand-page .about-hero p:not(.section-label):not(.about-deck){font-size:18px;
+  line-height:1.7;
+  color:#50665c;
+  max-width:650px}
+.brand-page .about-hero figure img{width:100%;
+  height:360px;
+  object-fit:cover;
+  object-position:55% 45%;
+  border-radius:4px}
+.brand-page .about-hero figcaption{font-size:12px;
+  color:#5e7064;
+  margin-top:12px}
+.brand-page .life-section{background:#edf3ee}
+.brand-page .life-inner{display:grid;
+  grid-template-columns:230px minmax(0,760px);
+  gap:64px;
+  padding-block:56px 62px}
+.brand-page .life-inner h2{font-size:36px;
+  line-height:1.15;
+  letter-spacing:-.9px;
+  font-weight:500;
+  text-wrap:initial}
+.brand-page .life-inner>div>p:not(.section-label){font-size:19px;
+  line-height:1.75;
+  color:#41584b}
+.brand-page .life-inner .text-link{margin-top:25px}
+.brand-page .chapter-body>.text-link{margin-top:23px}
+@media(max-width:1100px){
+ .brand-page .project-hero{grid-template-columns:minmax(0,1fr) 210px;
+  gap:40px}
+.brand-page .project-hero h1{font-size:48px}
+.brand-page .project-deck{font-size:19px}
+.brand-page .project-facts{padding-left:20px}
+.brand-page .about-hero{grid-template-columns:minmax(0,1fr) 270px;
+  gap:45px}
+.brand-page .about-hero figure img{height:310px}
+.brand-page .life-inner{grid-template-columns:185px minmax(0,1fr);
+  gap:34px}
+.brand-page .product-experience .family-kitchen-concept{padding-inline:25px}
+.brand-page .product-experience .family-kitchen-concept .kitchen-journey{gap:25px}
+.brand-page .context-materials{gap:20px}
+.brand-page .context-materials h2{font-size:23px}
+.brand-page .context-request{grid-template-columns:1fr}
+.brand-page .context-request>p{text-align:left;
+  margin-top:12px}
+}
+@media(max-width:760px){
+ .brand-page .project-hero{grid-template-columns:1fr;
+  gap:30px;
+  padding-block:31px 35px}
+.brand-page .project-hero h1{font-size:42px;
+  letter-spacing:-1.25px}
+.brand-page .project-deck{font-size:18px;
+  margin-top:23px}
+.brand-page .project-facts{border-left:0;
+  border-top:1px solid #c8d8ca;
+  padding:20px 0 0;
+  font-size:15px}
+.brand-page .project-facts .fact-label:not(:first-child){margin-top:18px}
+.brand-page .project-facts .fact-note{max-width:480px;
+  margin-top:10px}
+.brand-page .project-hero .chapter-links{margin-top:22px;
+  gap:16px 25px}
+.brand-page .product-experience{padding-block:30px 36px}
+.brand-page .product-experience .section-heading{align-items:start}
+.brand-page .product-experience .section-heading h2{font-size:30px}
+.brand-page .product-experience .section-heading>p{max-width:500px}
+.brand-page .product-experience .family-kitchen-concept{padding:22px 16px}
+.brand-page .product-experience .family-kitchen-concept .kitchen-journey{gap:17px;
+  grid-template-columns:1.6fr 1fr}
+.brand-page .product-experience .collection-heading{padding:18px 15px}
+.brand-page .product-experience .collection-heading h4{font-size:26px}
+.brand-page .product-experience .collection-heading>p:last-child{font-size:12px}
+.brand-page .product-experience .family-recipes{padding:15px;
+  gap:16px 12px}
+.brand-page .product-experience .recipe-title{font-size:12px}
+.brand-page .product-experience .recipe-time{font-size:10px}
+.brand-page .product-experience .example-plan{padding:16px 12px}
+.brand-page .product-experience .example-plan h4{font-size:22px}
+.brand-page .product-experience .planned-dish>p{font-size:12px}
+.brand-page .product-experience .plan-source{font-size:10px}
+.brand-page .product-experience .sharing-connection{font-size:15px}
+.brand-page .product-experience figcaption{font-size:11px}
+.brand-page .ledger-capture{margin-block:30px}
+.brand-page .capture-heading{font-size:11px;
+  padding:12px 15px}
+.brand-page .ledger-capture figcaption{font-size:11px;
+  padding:12px 15px}
+.brand-page .correction-example{padding-block:30px 0}
+.brand-page .correction-grid{grid-template-columns:1fr}
+.brand-page .correction-grid>div{padding:20px 23px;
+  border-right:0;
+  border-bottom:1px solid #c8d8ca}
+.brand-page .correction-grid>div:last-child{border-bottom:0}
+.brand-page .correction-grid strong{font-size:28px}
+.brand-page .diagram-label{font-size:11px;
+  margin-bottom:9px}
+.brand-page .context-example{margin-block:30px;
+  padding:24px 20px 20px}
+.brand-page .context-request code{font-size:13px}
+.brand-page .context-request{padding-bottom:22px}
+.brand-page .context-request>p{font-size:14px}
+.brand-page .context-materials{grid-template-columns:1fr;
+  gap:24px;
+  padding-block:25px}
+.brand-page .context-materials h2{font-size:25px}
+.brand-page .context-materials p{font-size:15px}
+.brand-page .context-example figcaption{font-size:11px}
+.brand-page .scope-example{padding-left:17px}
+.brand-page .scope-example p{font-size:15px}
+.brand-page .about-hero{grid-template-columns:1fr 130px;
+  gap:25px 18px;
+  align-items:start;
+  padding-block:30px 35px}
+.brand-page .about-hero>div{display:contents}
+.brand-page .about-hero .section-label{grid-column:1;
+  grid-row:1;
+  margin:0;
+  align-self:end}
+.brand-page .about-hero h1{grid-column:1;
+  grid-row:2;
+  font-size:48px;
+  letter-spacing:-1.6px;
+  margin:0}
+.brand-page .about-hero figure{grid-column:2;
+  grid-row:1/3}
+.brand-page .about-hero figure img{height:138px}
+.brand-page .about-hero figcaption{font-size:10px;
+  line-height:1.4;
+  margin-top:9px}
+.brand-page .about-hero .about-deck{grid-column:1/-1;
+  font-size:26px;
+  margin:0}
+.brand-page .about-hero p:not(.section-label):not(.about-deck){grid-column:1/-1;
+  font-size:16px;
+  margin:0}
+.brand-page .life-inner{grid-template-columns:1fr;
+  gap:24px;
+  padding-block:35px 40px}
+.brand-page .life-inner h2{font-size:30px}
+.brand-page .life-inner>div>p:not(.section-label){font-size:17px}
+.brand-page .next-project{padding-block:32px 38px;
+  flex-direction:column;
+  align-items:start;
+  gap:22px}
+.brand-page .next-project>div>a{font-size:28px}
+.brand-page .next-project>div>p:last-child{font-size:14px}
+}
+@media(max-width:500px){
+ .brand-page .product-experience .family-kitchen-concept .kitchen-journey{grid-template-columns:1fr;
+  gap:23px}
+.brand-page .product-experience .family-kitchen-concept .household-plan-view{padding-top:0}
+.brand-page .product-experience .collection-heading h4{font-size:29px}
+.brand-page .product-experience .recipe-title{font-size:13px}
+.brand-page .product-experience .example-plan{display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 16px;
+  padding:18px}
+.brand-page .product-experience .example-plan h4,.brand-page .product-experience .example-plan .plan-eyebrow,.brand-page .product-experience .example-plan .plan-groceries{grid-column:1/-1}
+.brand-page .product-experience .featured-plan{grid-row:3/5}
+.brand-page .product-experience .plan-groceries{margin-top:10px}
+.brand-page .project-hero h1{font-size:37px}
+.brand-page .project-hero h1 br{display:none}
+}
+@media(max-width:360px){.brand-page .wordmark{font-size:19px}
+.brand-page .primary-link{gap:18px}
+.brand-page .intro-links{gap:18px}
+}
+.brand-page .meal-journey{display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:38px;
+  padding-block:0 48px}
+.brand-page .meal-journey>div{border-top:2px solid #a6bfaa;
+  padding-top:19px}
+.brand-page .meal-journey h3{font-size:21px;
+  line-height:1.3;
+  font-weight:500;
+  letter-spacing:-.3px;
+  text-wrap:initial;
+  margin-bottom:12px}
+.brand-page .meal-journey p{font-size:16px;
+  line-height:1.65;
+  color:#50665c}
+.brand-page .kitchen-opening .chapter-links{align-items:center}
+.brand-page .kitchen-opening .project-facts{font-size:16px}
+@media(max-width:760px){.brand-page .meal-journey{grid-template-columns:1fr;
+  gap:22px;
+  padding-bottom:32px}
+.brand-page .meal-journey>div{padding-top:15px}
+.brand-page .meal-journey h3{font-size:21px;
+  margin-bottom:8px}
+.brand-page .meal-journey p{font-size:15px}
+.brand-page .kitchen-opening .primary-link{font-size:14px;
+  gap:12px}
+}
+.brand-page .evidence-preview{margin:0;
+  min-height:422px;
+  display:flex;
+  flex-direction:column;
+  background:#f6f7f2;
+  border:1px solid #d3ddd2;
+  border-radius:5px;
+  overflow:hidden;
+  color:#263d31;
+  text-align:left}
+.brand-page .preview-heading{display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:17px 23px;
+  border-bottom:1px solid #d3ddd2;
+  font-size:12px;
+  line-height:1.4;
+  color:#506452}
+.brand-page .preview-heading>span:first-child{font-weight:500;
+  color:#263d31}
+.brand-page .preview-heading>span:last-child{text-align:right}
+.brand-page .preview-content{padding:25px 26px 23px;
+  flex:1}
+.brand-page .preview-label{font-size:11px;
+  line-height:1.5;
+  color:#637460;
+  margin:0 0 13px}
+.brand-page .evidence-preview blockquote{font-size:30px;
+  line-height:1.18;
+  letter-spacing:-.65px;
+  font-weight:500;
+  margin:0;
+  max-width:440px}
+.brand-page .evidence-preview .source-excerpt{font-size:15px;
+  line-height:1.6;
+  color:#526450;
+  margin:18px 0 0;
+  max-width:430px}
+.brand-page .correction-reading{display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:15px;
+  border-top:1px solid #c9d7c8;
+  padding-top:18px;
+  margin-top:23px}
+.brand-page .correction-reading span{display:block;
+  font-size:11px;
+  line-height:1.4;
+  color:#60755f;
+  margin-bottom:7px}
+.brand-page .correction-reading strong{display:block;
+  font-size:15px;
+  line-height:1.35;
+  font-weight:500}
+.brand-page .evidence-preview figcaption{border-top:1px solid #d3ddd2;
+  padding:13px 23px;
+  font-size:11px;
+  line-height:1.6;
+  color:#61725e;
+  margin:0}
+.brand-page .context-preview{background:#eef3ef}
+.brand-page .context-invocation{display:block;
+  font:400 15px/1.7 'Plex Mono',monospace;
+  overflow-wrap:anywhere;
+  color:#295e4d}
+.brand-page .context-preview .context-annotation{font-size:21px;
+  line-height:1.35;
+  font-weight:500;
+  letter-spacing:-.35px;
+  margin:19px 0 17px}
+.brand-page .context-returns{margin:0}
+.brand-page .context-returns>div{display:grid;
+  grid-template-columns:1fr 1.35fr;
+  gap:14px;
+  border-top:1px solid #ccd9ce;
+  padding:10px 0}
+.brand-page .context-returns dt{font-size:12px;
+  line-height:1.5;
+  color:#60745f}
+.brand-page .context-returns dd{font-size:14px;
+  line-height:1.5;
+  margin:0;
+  color:#2f4b39}
+.brand-page .context-returns code{font-size:12px}
+.brand-page .evidence-preview figcaption code{font-size:11px}
+.brand-page .project-pair .visual-link{display:block;
+  text-decoration:none;
+  border-radius:5px}
+.brand-page .project-pair .visual-link:hover .evidence-preview{border-color:#88a38f}
+.brand-page .project-pair .visual-link:focus-visible{outline:2px solid #295e4d;
+  outline-offset:5px}
+@media(max-width:1100px) and (min-width:761px){.brand-page .evidence-preview{min-height:448px}
+.brand-page .preview-content{padding:22px}
+.brand-page .preview-heading{padding-inline:20px}
+.brand-page .evidence-preview blockquote{font-size:27px}
+.brand-page .context-invocation{font-size:13px}
+.brand-page .context-returns>div{grid-template-columns:1fr}
+.brand-page .context-returns>div{gap:3px;
+  padding:8px 0}
+.brand-page .correction-reading{gap:11px}
+.brand-page .correction-reading strong{font-size:14px}
+}
+@media(max-width:760px){.brand-page .evidence-preview{min-height:0}
+.brand-page .preview-heading{padding:14px 19px;
+  font-size:11px}
+.brand-page .preview-content{padding:23px 21px}
+.brand-page .evidence-preview blockquote{font-size:29px}
+.brand-page .evidence-preview .source-excerpt{font-size:15px}
+.brand-page .evidence-preview figcaption{padding:12px 19px}
+.brand-page .context-invocation{font-size:14px}
+.brand-page .context-returns>div{padding-block:11px}
+.brand-page .context-preview .context-annotation{font-size:23px}
+}
+@media(max-width:430px){.brand-page .preview-heading{gap:15px;
+  font-size:10px}
+.brand-page .preview-heading>span:last-child{max-width:160px}
+.brand-page .evidence-preview blockquote{font-size:28px}
+.brand-page .context-invocation{font-size:12px}
+.brand-page .context-returns>div{grid-template-columns:1fr;
+  gap:3px}
+.brand-page .correction-reading{gap:10px}
+.brand-page .correction-reading span{font-size:10px}
+.brand-page .correction-reading strong{font-size:13px}
+.brand-page .evidence-preview figcaption{font-size:10px}
+}
+.brand-page .kitchen-home-intro{align-items:center}
+.brand-page .kitchen-home-intro .family-recipe img{aspect-ratio:1.5}
+.brand-page .kitchen-home-intro .homepage-plan{display:block}
+.brand-page .kitchen-home-intro .homepage-plan h4{font-size:21px;
+  margin-bottom:12px}
+.brand-page .kitchen-home-intro .featured-plan{padding-top:0;
+  border-top:0}
+.brand-page .kitchen-home-intro .featured-plan p{font-size:12px;
+  font-weight:500;
+  line-height:1.4;
+  color:#334631;
+  margin:0}
+.brand-page .kitchen-home-intro figcaption{margin-top:15px}
+@media(max-width:1100px) and (min-width:761px), (max-width:430px){
+ .brand-page .kitchen-home-intro .homepage-plan{padding:14px}
+.brand-page .kitchen-home-intro .featured-plan{display:grid;
+  grid-template-columns:76px 1fr;
+  gap:12px;
+  align-items:center;
+  padding-bottom:12px}
+.brand-page .kitchen-home-intro .featured-plan img{width:76px;
+  height:76px;
+  aspect-ratio:1;
+  object-fit:cover;
+  margin:0}
+.brand-page .kitchen-home-intro .plan-groceries{margin:0;
+  padding-top:10px}
+.brand-page .kitchen-home-intro .plan-groceries br{display:none}
+}
+.brand-page .project-invitation{display:grid;
+  grid-template-columns:minmax(0,760px) auto;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  padding-block:34px 38px;
+  border-block:1px solid var(--line)}
+.brand-page .project-invitation h2{font-size:27px;
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-.5px;
+  text-wrap:initial;
+  margin:0 0 12px}
+.brand-page .project-invitation p{font-size:16px;
+  line-height:1.7;
+  color:#50665c;
+  margin:0;
+  max-width:720px}
+.brand-page .project-invitation>.text-link{font-size:15px;
+  white-space:nowrap}
+@media(max-width:760px){.brand-page .project-invitation{grid-template-columns:1fr;
+  gap:20px;
+  padding-block:28px 30px}
+.brand-page .project-invitation h2{font-size:25px}
+.brand-page .project-invitation p{font-size:15px}
+.brand-page .project-invitation>.text-link{justify-self:start;
+  white-space:normal}
+}
+.brand-page .career-story>p strong{font-weight:500;
+  color:#244b39}
+.brand-page .career-story>.text-link{font-size:14px;
+  margin-top:19px}
+.brand-page .leadership-change{border-top:1px solid #d8e2db;
+  padding-top:21px;
+  margin-top:25px;
+  max-width:730px}
+.brand-page .leadership-change h3{font-size:22px;
+  font-weight:500;
+  line-height:1.3;
+  letter-spacing:-.3px;
+  text-wrap:initial;
+  margin:0 0 10px;
+  color:#244b39}
+.brand-page .leadership-change p{font-size:17px;
+  line-height:1.75;
+  color:#41584b;
+  margin:0}
+.brand-page .chapter-body>p.portfolio-note{font-size:15px;
+  color:#60746a;
+  margin-top:24px}
+@media(max-width:760px){.brand-page .leadership-change{padding-top:18px;
+  margin-top:23px}
+.brand-page .leadership-change h3{font-size:21px}
+.brand-page .leadership-change p{font-size:16px}
+.brand-page .chapter-body>p.portfolio-note{font-size:14px}
+}
+.brand-page.about-page .about-opening{background:#fff}
+.brand-page.about-page .life-section{border-bottom:1px solid var(--line)}
+.brand-page .essay-review{max-width:780px;
+  margin:0 auto;
+  padding:48px 28px 72px}
+.brand-page .essay-review h1{font-size:clamp(34px,4.4vw,54px);
+  font-weight:500;
+  letter-spacing:-1.4px;
+  line-height:1.12;
+  text-wrap:initial;
+  margin:15px 0 24px}
+.brand-page .essay-review .deck{font-size:23px;
+  line-height:1.5;
+  color:#45614f;
+  margin-bottom:30px}
+.brand-page .essay-note{background:#edf3ee;
+  border-left:3px solid #98b29d;
+  padding:18px 21px;
+  font-size:14px;
+  line-height:1.65;
+  color:#42594b;
+  margin-bottom:38px}
+.brand-page .essay-note p+p{margin-top:10px}
+.brand-page .essay-body{font-size:19px;
+  line-height:1.8;
+  color:#344b3d}
+.brand-page .essay-body p+p{margin-top:22px}
+.brand-page .essay-body h2{font-size:29px;
+  font-weight:500;
+  letter-spacing:-.5px;
+  line-height:1.25;
+  text-wrap:initial;
+  margin:44px 0 20px}
+.brand-page .essay-end{border-top:1px solid #d3ddd3;
+  padding-top:28px;
+  margin-top:42px;
+  font-size:15px;
+  line-height:1.7}
+@media(max-width:600px){.brand-page .essay-review{padding:32px 22px 48px}
+.brand-page .essay-review .deck{font-size:20px}
+.brand-page .essay-body{font-size:17px;
+  line-height:1.75}
+.brand-page .essay-body h2{font-size:26px}
+.brand-page .essay-note{padding:15px 17px}
+}
+/* Shared chrome and app integration. */
+.shell-wrap { width:min(100% - 112px,1184px); margin-inline:auto; }
+.brand-header { min-height:90px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
+.brand-wordmark { font-size:22px; letter-spacing:-.6px; font-weight:500; text-decoration:none; white-space:nowrap; }
+.brand-header nav { display:flex; flex-wrap:wrap; gap:25px; font-size:15px; }
+.brand-header a { text-decoration:none; }
+.brand-header nav a:hover, .brand-header a[aria-current=page] { text-decoration:underline; text-underline-offset:7px; text-decoration-color:#809e90; }
+.brand-header nav a:last-child { color:#295e4d; }
+.brand-footer { display:flex; justify-content:space-between; align-items:center; gap:25px; border-top:1px solid var(--line); padding-block:25px; font-size:13px; color:var(--muted); }
+.brand-footer nav { display:flex; flex-wrap:wrap; gap:26px; }
+.brand-footer a { text-decoration:none; }
+.brand-footer a:hover { text-decoration:underline; }
+.site-skip { position:fixed; top:10px; left:20px; padding:12px 18px; background:#fff; color:#295e4d; z-index:100; transform:translateY(-150%); }
+.site-skip:focus { transform:translateY(0); }
+#main:focus { outline:none; }
+.brand-page .portfolio-index { padding-block:45px 65px; }
+.brand-page .portfolio-index h1 { font-size:clamp(38px,4.6vw,62px); line-height:1.1; font-weight:500; letter-spacing:-1.5px; }
+.brand-page .portfolio-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; margin-top:50px; }
+.brand-page .portfolio-list article { border-top:1px solid var(--line); padding-top:25px; }
+.brand-page .portfolio-list h2 { font-size:29px; line-height:1.2; margin-bottom:20px; font-weight:500; }
+.brand-page .portfolio-list h2 a { text-decoration:none; }
+.brand-page .portfolio-list p { color:var(--muted); }
+.brand-page .visual-link:focus-visible { outline:3px solid #295e4d; outline-offset:5px; }
+.brand-page summary { min-height:32px; }
+.brand-page .kitchen-journey a:focus-visible { outline-offset:3px; }
+.brand-page .recipe-time { color:#5e6a58; }
+.brand-page .plan-eyebrow { color:#646c58; }
+@media(max-width:1100px) { .shell-wrap { width:calc(100% - 72px); }
+}
+@media(max-width:760px) {
+ .shell-wrap { width:calc(100% - 44px); }
+.brand-header { min-height:104px; padding-block:18px; flex-wrap:wrap; gap:14px; }
+.brand-wordmark { font-size:19px; }
+.brand-header nav { width:100%; justify-content:space-between; gap:10px; font-size:13px; }
+.brand-header nav a { padding-block:5px; }
+.brand-footer { font-size:12px; flex-wrap:wrap; gap:18px; padding-block:22px; }
+.brand-footer nav { gap:20px; }
+.brand-footer>a:last-child { margin-left:auto; }
+.brand-page .portfolio-list { grid-template-columns:1fr; gap:30px; margin-top:35px; }
+}
+@media(max-width:360px) { .brand-header nav { font-size:12px; gap:7px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }
+}
+@media print { .brand-header, .brand-footer, .site-skip { display:none; }
+}
+
+@media(max-width:430px) { .brand-page .about-hero h1 { font-size:42px; letter-spacing:-1.3px; } }
+
+/* Give the evidence room to breathe on smaller desktop and tablet screens. */
+@media (min-width:761px) and (max-width:1000px) {
+  .brand-page .leadership { grid-template-columns:1fr 1fr; gap:28px 36px; }
+  .brand-page .leadership .section-intro { grid-column:1 / -1; display:grid; grid-template-columns:1fr auto; gap:0 28px; }
+  .brand-page .leadership .section-label { grid-column:1 / -1; }
+  .brand-page .leadership .section-intro h2 { max-width:none; }
+  .brand-page .leadership .leadership-view { margin:0; align-self:end; }
+}

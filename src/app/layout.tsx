@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/nav";
@@ -7,29 +6,10 @@ import { CommandPalette } from "@/components/command-palette";
 import { Footer } from "@/components/footer";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
-
-const plexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-plex-sans",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-newsreader",
-  display: "swap",
-});
+import "./brand-fonts.css";
+import "./brand.css";
+import { JsonLd } from "@/components/json-ld";
+import { getPersonJsonLd, getWebSiteJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: {
@@ -54,23 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${plexSans.variable} ${plexMono.variable} ${newsreader.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en">
       <body>
-        {/* Applies a saved theme override before paint — no flash of the wrong
-            theme. "System" stores nothing, so the CSS media query governs. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              'try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}',
-          }}
-        />
+        <a className="site-skip" href="#main">Skip to content</a>
+        <JsonLd data={getPersonJsonLd()} />
+        <JsonLd data={getWebSiteJsonLd()} />
         <CommandPalette />
         <Nav />
-        <main>{children}</main>
+        <main id="main" tabIndex={-1}>{children}</main>
         <Footer />
         {process.env.VERCEL && <Analytics />}
         {process.env.VERCEL && <SpeedInsights />}

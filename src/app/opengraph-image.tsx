@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Ethan Stuart — AI & Software Product Leadership";
+export const alt = "Ethan Stuart — Product Leadership & Building";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -10,7 +10,7 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: "#FBFBF9",
+          background: "#edf3ee",
           color: "#14181F",
           width: "100%",
           height: "100%",
@@ -31,29 +31,29 @@ export default function OGImage() {
             fontFamily: "monospace",
           }}
         >
-          Ethan Stuart · AI &amp; Software Product Leadership
+          Ethan Stuart · Product Leadership &amp; Building
         </div>
         <div
           style={{
-            fontSize: 62,
+            fontSize: 55,
             color: "#14181F",
             lineHeight: 1.14,
             letterSpacing: "-0.02em",
             maxWidth: 940,
           }}
         >
-          I run an AI-native product organization at Disney.
+          I lead product strategy and teams at Disney.
         </div>
         <div
           style={{
-            fontSize: 62,
-            color: "#23478C",
+            fontSize: 55,
+            color: "#295e4d",
             lineHeight: 1.14,
             letterSpacing: "-0.02em",
             maxWidth: 940,
           }}
         >
-          I run one for myself too.
+          I’m also building Allison’s Kitchen.
         </div>
         <div
           style={{
@@ -70,7 +70,7 @@ export default function OGImage() {
             fontFamily: "monospace",
           }}
         >
-          <span>Built independently · status is literal</span>
+          <span>Leadership, products, and life outside work</span>
           <span>ethancstuart.com</span>
         </div>
       </div>

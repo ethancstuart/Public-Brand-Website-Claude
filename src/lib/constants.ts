@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Ethan Stuart",
-  title: "Ethan Stuart — AI & Software Product Leadership",
+  title: "Ethan Stuart — Product Leadership & Building",
   description:
-    "I run an AI-native product organization at Disney — AI applications, agent workflows, and enterprise data platforms — and the same operating model runs a one-person software practice. Every product is built independently and carries a literal status.",
+    "Product strategy, strong teams, and useful software. I lead a product portfolio at Disney and build products of my own, including Allison’s Kitchen.",
   url: "https://ethancstuart.com",
   ogImage: "https://ethancstuart.com/opengraph-image",
   links: {
@@ -76,23 +76,23 @@ export const PROJECTS: Project[] = [
   {
     slug: "allisons-kitchen",
     name: "Allison's Kitchen",
-    kind: "Household Kitchen Software",
+    kind: "Household cooking and sharing",
     description:
-      "Built for one household first — mine. Capture a recipe from anywhere: a link, a photo, a video you paused. Plan the week once, then cook from a clean screen. Now opening to other families a few at a time, with the iOS build in UAT.",
+      "A kitchen you can share: collect recipes, plan the week, and get groceries together. I’m building Allison’s Kitchen into a business, starting with what makes everyday meals easier.",
     status: "invite",
     formerly: "Stuart Pantry",
-    note: "web in invite · iOS in UAT",
+    note: "released on iOS · inviting selected households",
     href: "https://allisonskitchen.app",
     repo: "stuart-pantry",
   },
   {
     slug: "nexuswatch",
     name: "NexusWatch",
-    kind: "Geopolitical Intelligence",
+    kind: "Accountable forecasts",
     description:
-      "Real-time threat monitoring — 45+ live data layers across 86 countries, spanning conflict, disasters, infrastructure, and environment, with an LLM risk analyst over a normalized event pipeline and an MCP server for agent access. A daily brief goes out to subscribers. Open source.",
+      "A public forecasting ledger that records predictions and assesses them against external evidence, with visible corrections when an assessment changes.",
     status: "live",
-    note: "open to anyone · daily email brief with real subscribers",
+    note: "public ledger · evidence and assessment remain an ongoing focus",
     href: "https://nexuswatch.dev",
     repo: "nexus-watch",
   },
@@ -111,33 +111,35 @@ export const PROJECTS: Project[] = [
   {
     slug: "the-composer",
     name: "The Composer",
-    kind: "Multi-Agent Editorial Framework",
+    kind: "AI-assisted product work",
     description:
-      "An agentic newsroom: a ten-persona editorial board gating an explicit state machine that carries a piece from notes through draft, review, and publish.",
+      "Exploring how an AI-assisted product organization can structure its work.",
     status: "building",
     repo: "the-composer",
+    note: "in development",
   },
   {
     slug: "product-os",
     name: "Product OS",
-    kind: "Spec-as-code for PMs",
+    kind: "Product context and decisions",
     description:
-      "CLI, GitHub App, and dashboard that turn product specs into reviewable, version-controlled artifacts. Specs move through pull requests like the code they describe — the same discipline that runs the practice itself.",
+      "Keeping strategy, reasoning, and decisions connected as we build with AI. Developing through my own use, with other product teams in mind.",
     status: "building",
     repo: "product-md",
+    note: "in use in my own work · still evolving before wider use",
   },
   {
     // Slug held at `zero-to-ship` deliberately: the route and its case study
     // predate the rename, and changing it would break both.
     slug: "zero-to-ship",
     name: "Prototype Studio",
-    kind: "AI Prototyping Platform",
+    kind: "Prototyping and learning",
     description:
-      "Working sessions, guides, and agent-system setup for PMs, analysts, and BI engineers who want to ship with AI coding tools. Started as a structured course and became a services-and-setup practice instead — the pivot is the more honest story. Usable today; active development is on hold.",
-    status: "live",
+      "Earlier work on working sessions, guides, and agent-system setup. Public deployment currently paused.",
+    status: "paused",
     formerly: "Zero to Ship",
-    href: "https://zerotoship.app",
     repo: "zero-to-shipped",
+    note: "public deployment paused",
   },
 ];
 

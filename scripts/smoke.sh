@@ -117,7 +117,7 @@ check_status() {
 echo "Smoke testing $BASE (content, not status codes)"
 echo
 
-PAGES=(/ /about /portfolio /writing /resume /contact
+PAGES=(/ /leadership /about /portfolio /writing /resume /contact
        /portfolio/allisons-kitchen /portfolio/nexuswatch /portfolio/altogether
        /portfolio/the-composer /portfolio/product-os
        /portfolio/zero-to-ship)
@@ -134,15 +134,18 @@ if ! grep -qiF "Prototype Studio" <<<"$(as_text "$(fetch "$BASE/portfolio/zero-t
   FAILED=1
 fi
 
-# The home page must actually be the register — this is what a status code check
-# cannot tell you, and what let a stale `/` go unnoticed.
+# Approved leadership-first homepage and grounded product stories.
 check_required "$BASE/" \
-  "I run an AI-native product organization" \
-  "AI &amp; Data Products at Disney Studios" \
-  "How the work gets made" \
-  "Operating record" \
-  "Allison" \
-  "Prototype Studio"
+  "I lead product strategy, build strong teams" \
+  "product function for the data and AI/ML platform" \
+  "What changed at Disney" \
+  "Allison" "NexusWatch" "Product OS"
+check_required "$BASE/leadership" "multidisciplinary team" "Shared capabilities"
+check_required "$BASE/portfolio/allisons-kitchen" "See what people you know" "selected households"
+check_required "$BASE/portfolio/nexuswatch" "Original verdict" "Corrected reading"
+check_required "$BASE/portfolio/product-os" "get_product_context" "own work"
+check_required "$BASE/about" "Life at home" "X5"
+check_required "$BASE/writing/workflow-is-the-real-unit-of-organizational" "Work through what the change means for people"
 
 check_required "$BASE/portfolio" \
   "Allison" "NexusWatch" "Altogether" "Composer" "Product OS" "Prototype Studio"

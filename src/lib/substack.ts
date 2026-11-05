@@ -15,6 +15,7 @@ const parser = new Parser<
   Record<string, unknown>,
   { contentSnippet?: string; "content:encoded"?: string }
 >({
+  timeout: 8000,
   customFields: {
     item: ["contentSnippet", "content:encoded"],
   },
