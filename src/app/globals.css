@@ -8,14 +8,14 @@
    --------------------------------------------------------------------------- */
 
 :root {
-  --ground:      #FBFBF9;
-  --ground-sunk: #F2F2EF;
-  --ink:         #14181F;
-  --ink-soft:    #4A5260;
+  --ground:      #ffffff;
+  --ground-sunk: #edf3ee;
+  --ink:         #1d302a;
+  --ink-soft:    #50665c;
   --ink-faint:   #646B77;
-  --rule:        #DFDFDA;
+  --rule:        #d8e2db;
   --rule-strong: #C3C4C0;
-  --accent:      #23478C;
+  --accent:      #295e4d;
   --accent-soft: #EDF1F9;
 
   /* Status — semantic, deliberately separate from the single brand accent */
@@ -24,47 +24,12 @@
   --building: #8A5D18;
   --quiet:    #646B77;
 
+  --font-plex-sans: "Plex Sans";
+  --font-plex-mono: "Plex Mono";
+  --font-newsreader: "Newsreader";
   --measure: 63ch;
   --pad: clamp(20px, 5vw, 72px);
   color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ground:      #101318;
-    --ground-sunk: #171B21;
-    --ink:         #E6E9EE;
-    --ink-soft:    #A2ABBA;
-    --ink-faint:   #7F8795;
-    --rule:        #262B33;
-    --rule-strong: #39404B;
-    --accent:      #86A9E5;
-    --accent-soft: #1A2130;
-
-    --live:     #6FBF92;
-    --invite:   #BE9BDD;
-    --building: #D2A055;
-    --quiet:    #7F8795;
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --ground:      #101318;
-  --ground-sunk: #171B21;
-  --ink:         #E6E9EE;
-  --ink-soft:    #A2ABBA;
-  --ink-faint:   #7F8795;
-  --rule:        #262B33;
-  --rule-strong: #39404B;
-  --accent:      #86A9E5;
-  --accent-soft: #1A2130;
-
-  --live:     #6FBF92;
-  --invite:   #BE9BDD;
-  --building: #D2A055;
-  --quiet:    #7F8795;
-  color-scheme: dark;
 }
 
 @theme inline {

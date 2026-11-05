@@ -13,6 +13,7 @@ interface Entry {
 }
 
 const ENTRIES: Entry[] = [
+  { group: "Pages", label: "Leadership", hint: "/leadership", keywords: "strategy Disney Yum teams", action: { type: "route", href: "/leadership" } },
   { group: "Pages", label: "Home", hint: "/", keywords: "index register", action: { type: "route", href: "/" } },
   { group: "Pages", label: "About", hint: "/about", keywords: "bio narrative", action: { type: "route", href: "/about" } },
   { group: "Pages", label: "Portfolio", hint: "/portfolio", keywords: "work products register", action: { type: "route", href: "/portfolio" } },

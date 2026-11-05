@@ -1,13 +1,14 @@
 import { test, expect, type Page } from "@playwright/test";
 
 const ROUTES: { path: string; expectText: string }[] = [
-  { path: "/", expectText: "I run an AI-native product organization" },
-  { path: "/about", expectText: "How I work" },
-  { path: "/portfolio", expectText: "the status is literal" },
+  { path: "/", expectText: "I lead product strategy, build strong teams" },
+  { path: "/leadership", expectText: "I helped turn separate business needs into a shared platform strategy" },
+  { path: "/about", expectText: "Life at home" },
+  { path: "/portfolio", expectText: "What I’m building" },
   { path: "/writing", expectText: "The Data Product Agent" },
   { path: "/resume", expectText: "Ethan Stuart" },
-  { path: "/contact", expectText: "Open to Director and VP roles" },
-  { path: "/portfolio/allisons-kitchen", expectText: "Allison's Kitchen" },
+  { path: "/contact", expectText: "The work I want to lead" },
+  { path: "/portfolio/allisons-kitchen", expectText: "Allison’s Kitchen" },
   { path: "/portfolio/nexuswatch", expectText: "NexusWatch" },
   { path: "/portfolio/altogether", expectText: "Altogether" },
   { path: "/portfolio/the-composer", expectText: "Composer" },
@@ -51,23 +52,21 @@ test("an unknown project slug is a real 404, not a soft one", async ({
   expect(response?.status()).toBe(404);
 });
 
-test("every product in the register carries a status", async ({ page }) => {
+test("the featured portfolio projects show where they stand", async ({ page }) => {
   await page.goto("/portfolio");
-  const statuses = page.getByText(
-    /^(Live|Invite|In Development|Paused)$/,
-    { exact: true }
-  );
-  // Six products, plus the four legend entries above them.
-  await expect(statuses).toHaveCount(10);
+  const featured = page.locator(".portfolio-list article");
+  await expect(featured).toHaveCount(3);
+  await expect(featured.getByText(/inviting selected households/)).toBeVisible();
+  await expect(featured.getByText(/public ledger/)).toBeVisible();
+  await expect(featured.getByText(/in use in my own work/)).toBeVisible();
 });
 
-test("renamed products show their alias trail", async ({ page }) => {
+test("the portfolio disclosure exposes links to other work", async ({ page }) => {
   await page.goto("/portfolio");
-  await expect(page.getByText("formerly Zero to Ship")).toBeVisible();
-  await expect(page.getByText(/formerly Stuart Pantry/)).toBeVisible();
-  await expect(
-    page.getByText(/formerly Long Table, formerly Caravan/)
-  ).toBeVisible();
+  await page.getByText("More work and experiments", { exact: true }).click();
+  await expect(page.getByRole("link", { name: "Altogether" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "The Composer" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Prototype Studio" })).toBeVisible();
 });
 
 
@@ -132,18 +131,16 @@ for (const path of [...ROUTES.map((r) => r.path)]) {
   });
 }
 
-test("the home page is the register, not a stale build", async ({ page }) => {
+test("the home page serves the current leadership and project stories", async ({ page }) => {
   await page.goto("/");
   const body = await renderedText(page);
   for (const required of [
-    "I run an AI-native product organization",
-    // Functional title, Ethan's ruling 2026-10-08. The title of record
-    // (Data Products and BI Engineering) stays off the site.
-    "Senior Manager, AI & Data Products",
-    "How the work gets made",
-    "Operating record",
-    "Allison's Kitchen",
-    "Prototype Studio",
+    "I lead product strategy, build strong teams",
+    "product function for the data and AI/ML platform",
+    "Yum / Taco Bell",
+    "Allison’s Kitchen",
+    "NexusWatch",
+    "Product OS",
   ]) {
     expect(body).toContain(required);
   }
@@ -160,10 +157,7 @@ for (const path of ["/", "/portfolio"]) {
   });
 }
 
-// Structural accessibility. Contrast is enforced at the token level (every
-// foreground/ground pair clears WCAG AA 4.5:1 in both themes); these cover the
-// structure that tokens cannot.
-const A11Y_PAGES = ["/", "/about", "/portfolio", "/portfolio/nexuswatch", "/writing"];
+const A11Y_PAGES = ["/", "/leadership", "/about", "/portfolio", "/portfolio/nexuswatch", "/writing"];
 
 for (const path of A11Y_PAGES) {
   test(`${path} has exactly one h1 and no unlabelled images or links`, async ({
@@ -178,16 +172,9 @@ for (const path of A11Y_PAGES) {
       .count();
     expect(unlabelledImages).toBe(0);
 
-    // Every link must have text a screen reader can announce.
-    const links = await page.locator("a").all();
-    for (const link of links) {
-      const name = (
-        (await link.innerText()) ||
-        (await link.getAttribute("aria-label")) ||
-        ""
-      ).trim();
-      expect(name.length).toBeGreaterThan(0);
-    }
+    // Check links exposed to assistive technology. Links in a closed details
+    // element can have an empty innerText even when their labels are present.
+    await expect(page.getByRole("link", { name: /^\s*$/ })).toHaveCount(0);
   });
 }
 
@@ -196,34 +183,25 @@ test("the page is usable with motion disabled", async ({ browser }) => {
   const page = await ctx.newPage();
   await page.goto("/");
   await expect(
-    page.getByText("I run an AI-native product organization").first()
+    page.getByText("I lead product strategy, build strong teams").first()
   ).toBeVisible();
-  await expect(page.getByText("Allison's Kitchen").first()).toBeVisible();
+  await expect(page.getByText("Allison’s Kitchen").first()).toBeVisible();
   await ctx.close();
 });
 
-// The method section draws the practice's pipeline — a spec becoming shipped
-// software through agent review and mechanical gates. It is a real list, so a
-// screen reader gets the same sequence a sighted visitor does.
-test("the method section draws the agent pipeline", async ({ page }) => {
+test("a hiring visitor can reach leadership evidence and contact", async ({ page }) => {
   await page.goto("/");
-  const pipeline = page.getByRole("list", { name: /spec becomes shipped/i });
-  await expect(pipeline).toBeVisible();
-  await expect(pipeline.getByRole("listitem")).toHaveCount(6);
-  // Labels are uppercased by CSS, and innerText reports the rendered case.
-  const text = (await pipeline.innerText()).toUpperCase();
-  for (const stage of ["Spec", "Principal PM", "Principal PMM", "Code", "Gates", "Ship"]) {
-    expect(text).toContain(stage.toUpperCase());
-  }
-});
+  await page.getByRole("link", { name: "Explore my work" }).click();
+  await expect(page).toHaveURL(/\/#leadership$/);
+  await page.getByRole("link", { name: "More about my leadership work" }).click();
+  await expect(page).toHaveURL(/\/leadership$/);
+  await page.getByRole("navigation", { name: "On this page" })
+    .getByRole("link", { name: "The work I want to lead" }).click();
+  await expect(page).toHaveURL(/\/leadership#contact$/);
+  await expect(page.locator('#contact a[href^="mailto:"]')).toBeInViewport();
 
-// Every register row that has a repo carries a dated last-commit stamp,
-// resolved at build time. A date, not "3d ago": a relative figure rots between
-// deploys, a date does not. At least one product repo is public, so at least
-// one stamp must render even without a token.
-test("the register carries dated last-commit stamps", async ({ page }) => {
-  await page.goto("/portfolio");
-  // The label and the date are two spans; the matcher sees their joined text.
-  const stamps = page.getByText(/Last commit\s*\d{1,2} [A-Z][a-z]{2} \d{4}/);
-  expect(await stamps.count()).toBeGreaterThanOrEqual(1);
+  await page.getByRole("navigation", { name: "Main navigation" })
+    .getByRole("link", { name: "Get in touch" }).click();
+  await expect(page).toHaveURL(/\/contact$/);
+  await expect(page.getByRole("main").getByRole("link", { name: /LinkedIn/ })).toBeVisible();
 });

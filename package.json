@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "sync-resume": "bash scripts/sync-resume.sh",
-    "build": "bash scripts/sync-resume.sh && next build",
+    "build": "next build --webpack",
     "start": "next start",
+    "build:site": "next build --webpack",
     "lint": "eslint",
     "smoke": "bash scripts/smoke.sh"
   },

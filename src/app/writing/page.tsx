@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PostCard } from "@/components/post-card";
 import { SubscribeCTA } from "@/components/subscribe-cta";
 import { getSubstackPosts, type SubstackPost } from "@/lib/substack";
@@ -9,7 +10,7 @@ export const revalidate = 3600; // ISR: refresh every hour
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Long-form work on data products, AI-native team operating models, multi-agent systems, and building enterprise software through AI coding tools.",
+    "Writing about product leadership, organizational change, judgment, and building with AI.",
 };
 
 /**
@@ -41,15 +42,18 @@ export default async function WritingPage() {
           The Data Product Agent
         </h1>
         <p className="max-w-[58ch] text-[17px] leading-[1.6] text-ink-soft">
-          Long-form work on data products, AI-native team operating models,
-          multi-agent systems, and building enterprise software through AI coding
-          tools.
+          How we lead teams, make decisions, and build useful products.
         </p>
       </div>
 
+      <section className="mb-10 border-t border-rule py-6" aria-label="Featured essay">
+        <p className="eyebrow mb-3">Featured essay</p>
+        <h2 className="font-display text-3xl leading-tight"><Link href="/writing/workflow-is-the-real-unit-of-organizational">Workflow Is the Real Unit of Organizational Transformation</Link></h2>
+        <p className="mt-4 max-w-[60ch] text-ink-soft">Changing the organization means changing how decisions get made and how work moves between people.</p>
+      </section>
       <ul className="ledger">
         {posts.length > 0 ? (
-          posts.map((post: SubstackPost) => (
+          posts.filter(post => post.slug !== "workflow-is-the-real-unit-of-organizational").map((post: SubstackPost) => (
             <PostCard
               key={post.link}
               slug={post.slug}

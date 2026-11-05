@@ -3,6 +3,8 @@ import { siteConfig, PROJECTS } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${siteConfig.url}/leadership`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteConfig.url}/writing/workflow-is-the-real-unit-of-organizational`, changeFrequency: "monthly", priority: 0.7 },
     { url: siteConfig.url, changeFrequency: "weekly", priority: 1 },
     {
       url: `${siteConfig.url}/about`,
